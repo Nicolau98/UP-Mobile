@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+#nullable disable
+
+namespace UP_Mobile.Models
+{
+    public partial class Operador
+    {
+        public Operador()
+        {
+            Contrato = new HashSet<Contrato>();
+        }
+
+        [Key]
+        [Column("Id_Operador")]
+        public int IdOperador { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string Nome { get; set; }
+        [Column("Data_Nascimento", TypeName = "date")]
+        public DateTime DataNascimento { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Morada { get; set; }
+        public int Contacto { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string Email { get; set; }
+        [Required]
+        [Column("Local_Trabalho")]
+        [StringLength(50)]
+        public string LocalTrabalho { get; set; }
+
+        [InverseProperty("IdOperadorNavigation")]
+        public virtual ICollection<Contrato> Contrato { get; set; }
+    }
+}
