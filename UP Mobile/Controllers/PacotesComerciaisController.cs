@@ -10,22 +10,22 @@ using UP_Mobile.Models;
 
 namespace UP_Mobile.Controllers
 {
-    public class PromocaoController : Controller
+    public class PacotesComerciaisController : Controller
     {
         private readonly UPMobileContext _context;
 
-        public PromocaoController(UPMobileContext context)
+        public PacotesComerciaisController(UPMobileContext context)
         {
             _context = context;
         }
 
-        // GET: Promocao
+        // GET: PacotesComerciais
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Promocao.ToListAsync());
+            return View(await _context.PacoteComercial.ToListAsync());
         }
 
-        // GET: Promocao/Details/5
+        // GET: PacotesComerciais/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
-            var promocao = await _context.Promocao
-                .FirstOrDefaultAsync(m => m.IdPromocao == id);
-            if (promocao == null)
+            var pacoteComercial = await _context.PacoteComercial
+                .FirstOrDefaultAsync(m => m.IdPacote == id);
+            if (pacoteComercial == null)
             {
                 return NotFound();
             }
 
-            return View(promocao);
+            return View(pacoteComercial);
         }
 
-        // GET: Promocao/Create
+        // GET: PacotesComerciais/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Promocao/Create
+        // POST: PacotesComerciais/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPromocao,Nome,Descricao,DataInicio,DataFim,Preco,Conteudo")] Promocao promocao)
+        public async Task<IActionResult> Create([Bind("IdPacote,Nome,Descricao,DataInicioComercializacao,DataFimComercializacao,PrecoBase,PeriodoFidelizacao")] PacoteComercial pacoteComercial)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(promocao);
+                _context.Add(pacoteComercial);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(promocao);
+            return View(pacoteComercial);
         }
 
-        // GET: Promocao/Edit/5
+        // GET: PacotesComerciais/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
-            var promocao = await _context.Promocao.FindAsync(id);
-            if (promocao == null)
+            var pacoteComercial = await _context.PacoteComercial.FindAsync(id);
+            if (pacoteComercial == null)
             {
                 return NotFound();
             }
-            return View(promocao);
+            return View(pacoteComercial);
         }
 
-        // POST: Promocao/Edit/5
+        // POST: PacotesComerciais/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPromocao,Nome,Descricao,DataInicio,DataFim,Preco,Conteudo")] Promocao promocao)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPacote,Nome,Descricao,DataInicioComercializacao,DataFimComercializacao,PrecoBase,PeriodoFidelizacao")] PacoteComercial pacoteComercial)
         {
-            if (id != promocao.IdPromocao)
+            if (id != pacoteComercial.IdPacote)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace UP_Mobile.Controllers
             {
                 try
                 {
-                    _context.Update(promocao);
+                    _context.Update(pacoteComercial);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PromocaoExists(promocao.IdPromocao))
+                    if (!PacoteComercialExists(pacoteComercial.IdPacote))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace UP_Mobile.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(promocao);
+            return View(pacoteComercial);
         }
 
-        // GET: Promocao/Delete/5
+        // GET: PacotesComerciais/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
-            var promocao = await _context.Promocao
-                .FirstOrDefaultAsync(m => m.IdPromocao == id);
-            if (promocao == null)
+            var pacoteComercial = await _context.PacoteComercial
+                .FirstOrDefaultAsync(m => m.IdPacote == id);
+            if (pacoteComercial == null)
             {
                 return NotFound();
             }
 
-            return View(promocao);
+            return View(pacoteComercial);
         }
 
-        // POST: Promocao/Delete/5
+        // POST: PacotesComerciais/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var promocao = await _context.Promocao.FindAsync(id);
-            _context.Promocao.Remove(promocao);
+            var pacoteComercial = await _context.PacoteComercial.FindAsync(id);
+            _context.PacoteComercial.Remove(pacoteComercial);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PromocaoExists(int id)
+        private bool PacoteComercialExists(int id)
         {
-            return _context.Promocao.Any(e => e.IdPromocao == id);
+            return _context.PacoteComercial.Any(e => e.IdPacote == id);
         }
     }
 }
