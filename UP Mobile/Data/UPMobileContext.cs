@@ -31,25 +31,10 @@ namespace UP_Mobile.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Administrador>(entity =>
-            {
-                entity.Property(e => e.IdAdministrador).ValueGeneratedNever();
-            });
-
-            modelBuilder.Entity<Cliente>(entity =>
-            {
-                entity.Property(e => e.IdCliente).ValueGeneratedNever();
-            });
-
-            modelBuilder.Entity<ConteudoExtra>(entity =>
-            {
-                entity.Property(e => e.IdConteudo).ValueGeneratedNever();
-            });
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<Contrato>(entity =>
             {
-                entity.Property(e => e.IdContrato).ValueGeneratedNever();
-
                 entity.HasOne(d => d.IdClienteNavigation)
                     .WithMany(p => p.Contrato)
                     .HasForeignKey(d => d.IdCliente)
@@ -70,8 +55,6 @@ namespace UP_Mobile.Data
 
             modelBuilder.Entity<ContratoConteudo>(entity =>
             {
-                entity.Property(e => e.IdContratoConteudo).ValueGeneratedNever();
-
                 entity.HasOne(d => d.IdConteudoNavigation)
                     .WithMany(p => p.ContratoConteudo)
                     .HasForeignKey(d => d.IdConteudo)
@@ -87,8 +70,6 @@ namespace UP_Mobile.Data
 
             modelBuilder.Entity<Fatura>(entity =>
             {
-                entity.Property(e => e.IdFatura).ValueGeneratedNever();
-
                 entity.HasOne(d => d.IdContratoNavigation)
                     .WithMany(p => p.Fatura)
                     .HasForeignKey(d => d.IdContrato)
@@ -96,20 +77,8 @@ namespace UP_Mobile.Data
                     .HasConstraintName("FK_Fatura_Contrato");
             });
 
-            modelBuilder.Entity<Operador>(entity =>
-            {
-                entity.Property(e => e.IdOperador).ValueGeneratedNever();
-            });
-
-            modelBuilder.Entity<PacoteComercial>(entity =>
-            {
-                entity.Property(e => e.IdPacote).ValueGeneratedNever();
-            });
-
             modelBuilder.Entity<PacoteComercialPromocao>(entity =>
             {
-                entity.Property(e => e.IdPacoteComercialPromocao).ValueGeneratedNever();
-
                 entity.HasOne(d => d.IdPacoteNavigation)
                     .WithMany(p => p.PacoteComercialPromocao)
                     .HasForeignKey(d => d.IdPacote)
@@ -121,11 +90,6 @@ namespace UP_Mobile.Data
                     .HasForeignKey(d => d.IdPromocao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Pacote_Comercial_Promocao_Promocao");
-            });
-
-            modelBuilder.Entity<Promocao>(entity =>
-            {
-                entity.Property(e => e.IdPromocao).ValueGeneratedNever();
             });
 
             OnModelCreatingPartial(modelBuilder);

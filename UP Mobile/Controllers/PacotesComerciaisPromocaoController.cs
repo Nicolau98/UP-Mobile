@@ -22,8 +22,8 @@ namespace UP_Mobile.Controllers
         // GET: PacotesComerciaisPromocao
         public async Task<IActionResult> Index()
         {
-            var uPMobileContext = _context.PacoteComercialPromocao.Include(p => p.IdPacoteNavigation).Include(p => p.IdPromocaoNavigation);
-            return View(await uPMobileContext.ToListAsync());
+            var UPMobileContext = _context.PacoteComercialPromocao.Include(p => p.IdPacoteNavigation).Include(p => p.IdPromocaoNavigation);
+            return View(await UPMobileContext.ToListAsync());
         }
 
         // GET: PacotesComerciaisPromocao/Details/5
