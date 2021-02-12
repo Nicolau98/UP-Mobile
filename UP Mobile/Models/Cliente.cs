@@ -19,22 +19,34 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Cliente")]
+        [Display(Name = "Id do Cliente")]
         public int IdCliente { get; set; }
+
         [Required]
         [StringLength(50)]
+        [Display(Name = "Nome Completo")]
         public string Nome { get; set; }
+
         [Column("Data_Nascimento", TypeName = "date")]
+        [Display(Name = "Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Morada { get; set; }
+
         public int Contacto { get; set; }
+
         [Required]
         [StringLength(20)]
         public string Email { get; set; }
+
         [Column("N_Contribuinte")]
+        [Display(Name = "NIF")]
         public int NContribuinte { get; set; }
+
         [Column("N_Identificacao")]
+        [Display(Name = "Nº de CC")]
         public int NIdentificacao { get; set; }
 
         [InverseProperty("IdClienteNavigation")]
