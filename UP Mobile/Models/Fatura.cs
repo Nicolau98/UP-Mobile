@@ -22,8 +22,8 @@ namespace UP_Mobile.Models
         [Required]
         [StringLength(500)]
         public string Descricao { get; set; }
-        [Column("Preco_Total")]
-        public int PrecoTotal { get; set; }
+        [Column("Preco_Total", TypeName = "decimal(5, 2)")]
+        public decimal PrecoTotal { get; set; }
 
         [ForeignKey(nameof(IdContrato))]
         [InverseProperty(nameof(Contrato.Fatura))]

@@ -42,10 +42,10 @@ namespace UP_Mobile.Models
         [Column("Nome_Operador")]
         [StringLength(50)]
         public string NomeOperador { get; set; }
-        [Column("Preco_Base_Inicio_Contrato")]
-        public int PrecoBaseInicioContrato { get; set; }
-        [Column("Preco_Total")]
-        public int PrecoTotal { get; set; }
+        [Column("Preco_Base_Inicio_Contrato", TypeName = "decimal(4, 2)")]
+        public decimal PrecoBaseInicioContrato { get; set; }
+        [Column("Preco_Total", TypeName = "decimal(5, 2)")]
+        public decimal PrecoTotal { get; set; }
         [Column("Conteudo_Extra_Total")]
         public int? ConteudoExtraTotal { get; set; }
 

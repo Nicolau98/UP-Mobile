@@ -22,10 +22,8 @@ namespace UP_Mobile.Models
         public int IdCliente { get; set; }
         [Required]
         [StringLength(50)]
-        [Display(Name = "Nome Completo")]
         public string Nome { get; set; }
         [Column("Data_Nascimento", TypeName = "date")]
-        [Display(Name = "Data Nascimento")]
         public DateTime DataNascimento { get; set; }
         [Required]
         [StringLength(50)]
@@ -35,10 +33,8 @@ namespace UP_Mobile.Models
         [StringLength(20)]
         public string Email { get; set; }
         [Column("N_Contribuinte")]
-        [Display(Name = "Nº Contribuinte")]
         public int NContribuinte { get; set; }
         [Column("N_Identificacao")]
-        [Display(Name = "Nº Identificação Fiscal")]
         public int NIdentificacao { get; set; }
 
         [InverseProperty("IdClienteNavigation")]
