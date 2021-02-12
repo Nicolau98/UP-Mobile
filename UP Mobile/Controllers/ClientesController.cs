@@ -20,9 +20,31 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Clientes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.Cliente.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Cliente.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Cliente> Cliente = await _context.Cliente.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+    
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaClientesViewModel modelo = new ListaClientesViewModel
+            {
+                Paginacao = paginacao,
+                Cliente = Cliente,
+                NomePesquisar = nomePesquisar
+            };
+
+
+
+            return View(modelo);
         }
 
         // GET: Clientes/Details/5
