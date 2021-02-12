@@ -4,9 +4,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
-<h4>Cliente</h4>
+<h4>Cliente Nº @Html.DisplayFor(model => model.IdCliente)</h4> 
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -48,16 +48,15 @@
                 <input asp-for="NIdentificacao" class="form-control" />
                 <span asp-validation-for="NIdentificacao" class="text-danger"></span>
             </div>
+            <h1></h1>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar Alterações" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-primary">Cancelar e Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

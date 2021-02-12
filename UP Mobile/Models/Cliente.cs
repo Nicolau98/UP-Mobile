@@ -19,7 +19,7 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Cliente")]
-        [Display(Name = "Id do Cliente")]
+        [Display(Name = "Nº Cliente")]
         public int IdCliente { get; set; }
 
         [Required]
