@@ -4,12 +4,11 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Criar Pacote Comercial</h1>
 
-<h4>PacoteComercial</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -22,35 +21,37 @@
                 <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DataInicioComercializacao" class="control-label"></label>
-                <input asp-for="DataInicioComercializacao" class="form-control" />
-                <span asp-validation-for="DataInicioComercializacao" class="text-danger"></span>
+            <div class="row">
+                <div class="col">
+                    <label asp-for="DataInicioComercializacao" class="control-label"></label>
+                    <input asp-for="DataInicioComercializacao" class="form-control" />
+                    <span asp-validation-for="DataInicioComercializacao" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="DataFimComercializacao" class="control-label"></label>
+                    <input asp-for="DataFimComercializacao" class="form-control" />
+                    <span asp-validation-for="DataFimComercializacao" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="DataFimComercializacao" class="control-label"></label>
-                <input asp-for="DataFimComercializacao" class="form-control" />
-                <span asp-validation-for="DataFimComercializacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PrecoBase" class="control-label"></label>
-                <input asp-for="PrecoBase" class="form-control" />
-                <span asp-validation-for="PrecoBase" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PeriodoFidelizacao" class="control-label"></label>
-                <input asp-for="PeriodoFidelizacao" class="form-control" />
-                <span asp-validation-for="PeriodoFidelizacao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="row">
+                <div class="col">
+                    <label asp-for="PrecoBase" class="control-label"></label>
+                    <input asp-for="PrecoBase" class="form-control" />
+                    <span asp-validation-for="PrecoBase" class="text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="PeriodoFidelizacao" class="control-label"></label>
+                    <input asp-for="PeriodoFidelizacao" class="form-control" />
+                    <span asp-validation-for="PeriodoFidelizacao" class="text-danger"></span>
+                </div>
+                <h1></h1>
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" /> |
+                    <a asp-action="Index" class="btn btn-primary">Cancelar e Voltar</a>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
