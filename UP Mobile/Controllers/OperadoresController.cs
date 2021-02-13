@@ -20,9 +20,29 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Operadores
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.Operador.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Operador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Operador> Operador = await _context.Operador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaOperadoresViewModel modelo = new ListaOperadoresViewModel
+            {
+                Paginacao = paginacao,
+                Operador = Operador,
+                NomePesquisar = nomePesquisar
+            };
+
+            return View(modelo);
         }
 
         // GET: Operadores/Details/5
