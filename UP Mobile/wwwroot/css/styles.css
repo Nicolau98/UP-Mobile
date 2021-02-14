@@ -21,7 +21,7 @@
         }
 
     #topba .contact-info i {
-        color: #3a3a3a; /*#cc1616*/
+        color: #3a3a3a; /*#cc1616 talvez seja para pôr #4fd6d9*/
         line-height: 0;
         margin-right: 5px;
     }
@@ -39,7 +39,7 @@
     }
 
         #topba .social-links a:hover {
-            color: #3a3a3a;
+            color: #ffffff;
         }
 
 
@@ -50,3 +50,148 @@
 .fa-twitter:hover {
     color: #ffd800;
 }*/
+
+/*--------------------------------------------------------------
+# Navigation Menu -  Class: Navba
+--------------------------------------------------------------*/
+
+
+.navba {
+    padding: 0;
+}
+
+    .navba ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
+
+    .navba li {
+        position: relative;
+    }
+
+    .navba > ul > li {
+        margin-left: 5px;
+    }
+
+    .navba a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 15px 24px 15px;
+        font-size: 14px;
+        color: #191919;
+        white-space: nowrap;
+        transition: 0.3s;
+    }
+
+        .navba a i {
+            font-size: 12px;
+            line-height: 0;
+            margin-left: 5px;
+        }
+
+        .navba a:hover, .navba .active, .navba li:hover > a {
+            background: #4fd6d9;
+        }
+
+    .navba .dropdown ul {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: calc(100% + 30px);
+        margin: 0;
+        padding: 10px 0;
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        background: #fff;
+        box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+        transition: 0.3s;
+    }
+
+        .navba .dropdown ul li {
+            min-width: 200px;
+        }
+
+        .navba .dropdown ul a {
+            padding: 10px 20px;
+            color: #191919;
+        }
+
+            .navba .dropdown ul a i {
+                font-size: 12px;
+            }
+
+            .navba .dropdown ul a:hover, .navba .dropdown ul .active:hover, .navba .dropdown ul li:hover > a {
+                color: #fff;
+            }
+
+    .navba .dropdown:hover > ul {
+        opacity: 1;
+        top: 100%;
+        visibility: visible;
+    }
+
+    .navba .dropdown .dropdown ul {
+        top: 0;
+        left: calc(100% - 30px);
+        visibility: hidden;
+    }
+
+    .navba .dropdown .dropdown:hover > ul {
+        opacity: 1;
+        top: 0;
+        left: 100%;
+        visibility: visible;
+    }
+
+@media (max-width: 1366px) {
+    .navba .dropdown .dropdown ul {
+        left: -90%;
+    }
+
+    .navba .dropdown .dropdown:hover > ul {
+        left: -100%;
+    }
+}
+
+
+/*--------------------------------------------------------------
+# Header - ID: Heade
+--------------------------------------------------------------*/
+
+#heade {
+    background: #ffffff;
+    transition: all 0.5s;
+    z-index: 997;
+    height: 70px;
+}
+
+    #heade.fixed-top {
+        background: #ffffff;
+    }
+
+    #heade .logo {
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+        #heade .logo a {
+            color: #e82d2d;
+        }
+
+        #heade .logo img {
+            max-height: 100px;
+        }
+
+.scrolled-offset {
+    margin-top: 70px;
+}

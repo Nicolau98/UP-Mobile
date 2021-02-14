@@ -161,16 +161,16 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-#header {
-    background: #e82d2d;
+/*#header {
+    background: #ffffff;
     transition: all 0.5s;
     z-index: 997;
     height: 70px;
 }
 
-#header.fixed-top {
-  background: #191919;
-}
+    #header.fixed-top {
+        background: #ffffff;
+    }
 
 #header .logo {
   font-size: 30px;
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .scrolled-offset {
   margin-top: 70px;
-}
+}*/
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -200,7 +200,7 @@ h1, h2, h3, h4, h5, h6 {
 /**
 * Desktop Navigation 
 */
-.navbar {
+/*.navbar {
   padding: 0;
 }
 
@@ -226,7 +226,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   padding: 25px 15px 24px 15px;
   font-size: 14px;
-  color: #fff;
+  color: #191919;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -299,7 +299,7 @@ h1, h2, h3, h4, h5, h6 {
   .navbar .dropdown .dropdown:hover > ul {
     left: -100%;
   }
-}
+}*/
 
 /**
 * Mobile Navigation 
