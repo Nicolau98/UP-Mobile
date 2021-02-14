@@ -166,13 +166,13 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.5s;
     z-index: 997;
     height: 70px;
-}
+}*/
 
-    #header.fixed-top {
+   /* #header.fixed-top {
         background: #ffffff;
-    }
+    }*/
 
-#header .logo {
+/*#header .logo {
   font-size: 30px;
   margin: 0;
   padding: 0;
@@ -408,16 +408,16 @@ h1, h2, h3, h4, h5, h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  width: 100%;
-  height: calc(100vh - 110px);
-  background: url("../img/hero-bg.jpg") top center;
-  background-size: cover;
-  position: relative;
+    width: 100%;
+    height: calc(80vh - 100px);
+    background: url("../img/wallpaper.png") top center;
+    background-size: cover;
+    position: relative;
 }
 
 #hero:before {
   content: "";
-  background: rgba(0, 0, 0, 0.5);
+  /*background: rgba(0, 0, 0, 0.5);*/
   position: absolute;
   bottom: 0;
   top: 0;
@@ -437,7 +437,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero h2 {
   color: #eee;
   margin-bottom: 30px;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 #hero .btn-get-started {
@@ -454,15 +454,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-get-started:hover {
-  background: #cc1616;
-  border-color: #cc1616;
+  background: #4fd6d9;
+  border-color: #4fd6d9;
 }
 
-@media (min-width: 1024px) {
+/*@media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
   }
-}
+}*/
 
 @media (max-width: 768px) {
   #hero {
