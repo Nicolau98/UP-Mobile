@@ -8,11 +8,10 @@
     <section>
         <div class="container">
 
-            <h1>Delete</h1>
+            <h1>Apagar Promoção</h1>
 
-            <h3>Are you sure you want to delete this?</h3>
+            <h3>Tem a certeza que deseja apagar a promoção nº @Html.DisplayFor(model => model.IdPromocao) ?</h3>
             <div>
-                <h4>Promocao</h4>
                 <hr />
                 <dl class="row">
                     <dt class="col-sm-2">
@@ -55,8 +54,8 @@
 
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="IdPromocao" />
-                    <input type="submit" value="Delete" class="btn btn-danger" /> |
-                    <a asp-action="Index">Back to List</a>
+                    <input type="submit" value="Apagar" class="btn btn-danger" /> |
+                    <a asp-action="Index" class="btn btn-primary">Cancelar e Voltar</a>
                 </form>
             </div>
         </div>
