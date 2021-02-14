@@ -163,18 +163,18 @@
 # Header - ID: Heade
 --------------------------------------------------------------*/
 
-#heade {
+#header {
     background: #ffffff;
     transition: all 0.5s;
     z-index: 997;
     height: 70px;
 }
 
-    #heade .fixed-top {
+    #header .fixed-top {
         background: #ffffff;
     }
 
-    #heade .logo {
+    #header .logo {
         font-size: 30px;
         margin: 0;
         padding: 0;
@@ -184,11 +184,11 @@
         text-transform: uppercase;
     }
 
-        #heade .logo a {
+        #header .logo a {
             color: #e82d2d;
         }
 
-        #heade .logo img {
+        #header .logo img {
             max-height: 100px;
         }
 
