@@ -20,9 +20,31 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Promocoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.Promocao.ToListAsync());
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Promocao.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Promocao> Promocao = await _context.Promocao.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaPromocoesViewModel modelo = new ListaPromocoesViewModel
+            {
+                Paginacao = paginacao,
+                Promocao = Promocao,
+                NomePesquisar = nomePesquisar
+            };
+
+
+
+            return View(modelo);
         }
 
         // GET: Promocoes/Details/5
