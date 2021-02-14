@@ -1,0 +1,39 @@
+#topba {
+    background: #0dcaf0;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    color: #e82d2d;
+}
+
+    #topba .contact-info a {
+        line-height: 0;
+        color: #e82d2d;
+        transition: 0.3s;
+    }
+
+        #topba .contact-info a:hover {
+            color: #fff; /*#fff*/
+        }
+
+    #topba .contact-info i {
+        color: #e82d2d; /*#cc1616*/
+        line-height: 0;
+        margin-right: 5px;
+    }
+
+    #topba .contact-info .phone-icon {
+        margin-left: 15px;
+    }
+
+    #topba .social-links a {
+        color: #e82d2d;
+        padding: 4px 12px;
+        display: inline-block;
+        line-height: 1px;
+        transition: 0.3s;
+    }
+
+        #topba .social-links a:hover {
+            color: #e82d2d;
+        }

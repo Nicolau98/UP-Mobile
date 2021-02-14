@@ -1,36 +1,39 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-pt">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>@ViewData["Title"] - UP_Mobile</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="UP Mobile" name="description">
+    <meta content="UP Mobile" name="keywords">
+    <title>@ViewData["Title"] - UP Mobile</title>
 
     <!-- Favicons -->
-    <link href="~/favicon.png" rel="icon">
-        @*<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">*@
+    <link href="~/favicon.ico" rel="icon" type="image/x-icon">
+    @*<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">*@
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
 
     <!-- Vendor CSS Files -->
-    <link href="~/css/aos.css" rel="stylesheet">
-    <link href="~/css//bootstrap.min.css" rel="stylesheet">
-    <link href="~/css/bootstrap-icons.css" rel="stylesheet">
-    <link href="~/css/boxicons.min.css" rel="stylesheet">
-    <link href="~/css/glightbox.min.css" rel="stylesheet">
-    <link href="~/css/swiper-bundle.min.css" rel="stylesheet">
+    @*<link href="~/css/aos.css" rel="stylesheet">*@
+    <link href="~/css/bootstrap.min.css" rel="stylesheet"> @*FAZ A ORIENTAÇÃO DE TODO O CONTEÚDO*@
+    @*<link href="~/css/bootstrap-icons.css" rel="stylesheet">*@
+    @*<link href="~/css/boxicons.min.css" rel="stylesheet">*@
+    @*<link href="~/css/glightbox.min.css" rel="stylesheet">*@
+    @*<link href="~/css/swiper-bundle.min.css" rel="stylesheet">*@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
     </svg>
 
-    <!-- Template Main CSS File -->
-    <link href="~/css/style.css" rel="stylesheet">
+    <!-- CSS Principal -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
 
     <!-- =======================================================
     * Template Name: Day - v4.0.0
@@ -41,19 +44,20 @@
 </head>
 
 <body>
-
     <!-- ======= Top Bar ======= -->
-    <section id="topbar" class="d-flex align-items-center">
+    <section id="topba" class="d-flex align-items-center">
+
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">info@example.com</a>
-                <i class="bi bi-phone-fill phone-icon"></i> +1 5589 55488 55
+                <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">suporte@upmobile.com</a>
+                <i class="bi bi-phone-fill phone-icon"></i> 16211
             </div>
+
             <div class="social-links d-none d-md-block">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
         </div>
     </section>
@@ -68,59 +72,51 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                    <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-                    <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li class="dropdown">
-                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown">
-                                <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li><a class="nav-link scrollto active" href="#hero">Pacotes</a></li>
+                    <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Promoções</a></li>
+                    <li><a class="nav-link scrollto " href="#portfolio">5G</a></li>
+                    @*<li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+                        <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                        <li class="dropdown">
+                            <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="#">Drop Down 1</a></li>
+                                <li class="dropdown">
+                                    <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                                    <ul>
+                                        <li><a href="#">Deep Drop Down 1</a></li>
+                                        <li><a href="#">Deep Drop Down 2</a></li>
+                                        <li><a href="#">Deep Drop Down 3</a></li>
+                                        <li><a href="#">Deep Drop Down 4</a></li>
+                                        <li><a href="#">Deep Drop Down 5</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Drop Down 2</a></li>
+                                <li><a href="#">Drop Down 3</a></li>
+                                <li><a href="#">Drop Down 4</a></li>
+                            </ul>
+                        </li>*@
+                    <li><a class="nav-link scrollto" href="#contact">Área Cliente</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-
         </div>
     </header><!-- End Header -->
-    <!-- ======= Hero Section ======= -->
-    <!--<section id="hero" class="d-flex align-items-center">
-        <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
-            <h1>Welcome to Day</h1>
-            <h2>We are team of talented designers making websites with Bootstrap</h2>
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        </div>
-    </section>--><!-- End Hero -->
 
+    
     <main id="main">
-
-        <!-- ======= About Section ======= -->
+        @*======= About Section =======*@
+        
         <section>
             <div class="container">
 
                 @RenderBody()
 
             </div>
-        </section><!-- End Contact Section -->
+        </section> @*End Contact Section*@
 
-    </main><!-- End #main -->
+    </main> @*End #main*@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="footer-top">
@@ -211,8 +207,7 @@
     <!-- Template Main JS File -->
     <script src="~/js/main.js"></script>
 
+    @RenderSection("Scripts", required: false)
 
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
-
 </html>

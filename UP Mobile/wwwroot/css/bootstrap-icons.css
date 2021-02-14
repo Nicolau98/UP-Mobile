@@ -541,10 +541,10 @@ url("./fonts/bootstrap-icons.woff2?4601c71fb26c9277391ec80789bfde9c") format("wo
 .bi-emoji-sunglasses::before { content: "\f309"; }
 .bi-emoji-wink-fill::before { content: "\f30a"; }
 .bi-emoji-wink::before { content: "\f30b"; }
-.bi-envelope-fill::before { content: "\f30c"; }
-.bi-envelope-open-fill::before { content: "\f30d"; }
-.bi-envelope-open::before { content: "\f30e"; }
-.bi-envelope::before { content: "\f30f"; }
+.bi-envelope-fill::before { content: "\f30c"; color: #ffd800}
+.bi-envelope-open-fill::before { content: "\f30d"; color: #ffd800}
+.bi-envelope-open::before { content: "\f30e"; color: #ffd800}
+.bi-envelope::before { content: "\f30f"; color: #ffd800}
 .bi-eraser-fill::before { content: "\f310"; }
 .bi-eraser::before { content: "\f311"; }
 .bi-exclamation-circle-fill::before { content: "\f312"; }

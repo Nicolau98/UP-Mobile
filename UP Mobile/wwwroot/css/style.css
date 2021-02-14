@@ -117,27 +117,28 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Top Bar
 --------------------------------------------------------------*/
-#topbar {
-  background: #191919;
-  font-size: 15px;
-  height: 40px;
-  padding: 0;
-  color: rgba(255, 255, 255, 0.6);
+
+/*#topbar {
+    background: #0dcaf0 !important;
+    font-size: 15px;
+    height: 40px;
+    padding: 0;
+    color: #e82d2d !important;
 }
 
-#topbar .contact-info a {
-  line-height: 0;
-  color: rgba(255, 255, 255, 0.6);
-  transition: 0.3s;
-}
+    #topbar .contact-info a {
+        line-height: 0;
+        color: #e82d2d !important;
+        transition: 0.3s;
+    }
 
 #topbar .contact-info a:hover {
-  color: #fff;
-}
+  color: #e82d2d !important;*/ /*#fff*/
+/*}
 
 #topbar .contact-info i {
-  color: #cc1616;
-  line-height: 0;
+  color: #e82d2d !important;*/ /*#cc1616*/
+  /*line-height: 0;
   margin-right: 5px;
 }
 
@@ -145,26 +146,26 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 15px;
 }
 
-#topbar .social-links a {
-  color: rgba(255, 255, 255, 0.6);
-  padding: 4px 12px;
-  display: inline-block;
-  line-height: 1px;
-  transition: 0.3s;
-}
+    #topbar .social-links a {
+        color: #e82d2d !important;
+        padding: 4px 12px;
+        display: inline-block;
+        line-height: 1px;
+        transition: 0.3s;
+    }
 
-#topbar .social-links a:hover {
-  color: #fff;
-}
+        #topbar .social-links a:hover {
+            color: #e82d2d !important;
+        }*/
 
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(25, 25, 25, 0.95);
-  transition: all 0.5s;
-  z-index: 997;
-  height: 70px;
+    background: #e82d2d;
+    transition: all 0.5s;
+    z-index: 997;
+    height: 70px;
 }
 
 #header.fixed-top {
@@ -181,9 +182,9 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-#header .logo a {
-  color: #fff;
-}
+    #header .logo a {
+        color: #e82d2d;
+    }
 
 #header .logo img {
   max-height: 40px;
@@ -1175,7 +1176,7 @@ section {
   font-size: 14px;
 }
 
-.contact .php-email-form input::focus, .contact .php-email-form textarea::focus {
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
   background-color: #cc1616;
 }
 
@@ -1360,7 +1361,7 @@ section {
   background: #fff;
   padding: 6px 10px;
   position: relative;
-  border-radius: 4;
+  border-radius: 4px;
 }
 
 #footer .footer-top .footer-newsletter form input[type="email"] {
@@ -1381,7 +1382,7 @@ section {
   background: #cc1616;
   color: #fff;
   transition: 0.3s;
-  border-radius: 4;
+  border-radius: 4px;
 }
 
 #footer .footer-top .footer-newsletter form input[type="submit"]:hover {
