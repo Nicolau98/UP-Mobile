@@ -2,7 +2,7 @@
 # Top Bar - Class: Topba
 --------------------------------------------------------------*/
 
-#topba {
+#topbar {
     background: #55ecc3;
     font-size: 15px;
     height: 40px;
@@ -10,27 +10,27 @@
     color: #3a3a3a;
 }
 
-    #topba .contact-info a {
+    #topbar .contact-info a {
         line-height: 0;
         color: #3a3a3a;
         transition: 0.3s;
     }
 
-        #topba .contact-info a:hover {
+        #topbar .contact-info a:hover {
             color: #55ecc3; /*#fff*/
         }
 
-    #topba .contact-info i {
+    #topbar .contact-info i {
         color: #3a3a3a; /*#cc1616 talvez seja para pôr #4fd6d9*/
         line-height: 0;
         margin-right: 5px;
     }
 
-    #topba .contact-info .phone-icon {
+    #topbar .contact-info .phone-icon {
         margin-left: 15px;
     }
 
-    #topba .social-links a {
+    #topbar .social-links a {
         color: #3a3a3a;
         padding: 4px 12px;
         display: inline-block;
@@ -38,7 +38,7 @@
         transition: 0.3s;
     }
 
-        #topba .social-links a:hover {
+        #topbar .social-links a:hover {
             color: #ffffff;
         }
 

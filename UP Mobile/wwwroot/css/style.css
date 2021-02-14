@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #cc1616;
+  background: #4fd6d9;
   width: 40px;
   height: 40px;
   transition: all 0.4s;
@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top:hover {
-  background: #e72323;
+  background: #3a3a3a;
   color: #fff;
 }
 
@@ -1255,7 +1255,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #0c0c0c;
+  background: #55ecc3;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -1267,9 +1267,9 @@ section {
 
 #footer .footer-top .footer-info {
   margin-bottom: 15px;
-  background: #191919;
-  color: #fff;
-  border-top: 4px solid #cc1616;
+  background: #ffffff;
+  color: #3a3a3a;
+  border-top: 4px solid #4fd6d9;
   text-align: center;
   padding: 30px 20px;
 }
@@ -1292,7 +1292,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #262626;
+  background: #4fd6d9;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1305,7 +1305,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #cc1616;
+  background: #86f1c5;
   color: #fff;
   text-decoration: none;
 }
@@ -1313,7 +1313,7 @@ section {
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: 600;
-  color: #fff;
+  color: #3a3a3a;
   position: relative;
   padding-bottom: 12px;
 }
@@ -1353,7 +1353,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #eb4444;
+  color: #3a3a3a;
 }
 
 #footer .footer-top .footer-newsletter form {
@@ -1379,14 +1379,14 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #cc1616;
+  background: #3a3a3a;
   color: #fff;
   transition: 0.3s;
   border-radius: 4px;
 }
 
 #footer .footer-top .footer-newsletter form input[type="submit"]:hover {
-  background: #e82d2d;
+  background: #4fd6d9;
 }
 
 #footer .copyright {
@@ -1403,7 +1403,7 @@ section {
 }
 
 #footer .credits a {
-  color: #e82d2d;
+  color: #3a3a3a;
 }
 
 @media (max-width: 575px) {
