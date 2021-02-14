@@ -4,98 +4,106 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<main id="main">
+    <section>
+        <div class="container">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DataInicioContrato)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataFimContrato)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MoradaFaturacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataFidelizacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeCliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeOperador)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrecoBaseInicioContrato)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrecoTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ConteudoExtraTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdClienteNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdOperadorNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdPacoteComercialPromocaoNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataInicioContrato)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataFimContrato)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MoradaFaturacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataFidelizacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeCliente)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeOperador)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecoBaseInicioContrato)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecoTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConteudoExtraTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.IdPacoteComercialPromocao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdContrato">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdContrato">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdContrato">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <h1>Index</h1>
+
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataInicioContrato)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataFimContrato)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MoradaFaturacao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataFidelizacao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NomeCliente)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NomeOperador)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PrecoBaseInicioContrato)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PrecoTotal)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ConteudoExtraTotal)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdClienteNavigation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdOperadorNavigation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdPacoteComercialPromocaoNavigation)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataInicioContrato)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataFimContrato)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MoradaFaturacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataFidelizacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeCliente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeOperador)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrecoBaseInicioContrato)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrecoTotal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ConteudoExtraTotal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.IdPacoteComercialPromocao)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.IdContrato">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdContrato">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdContrato">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>

@@ -4,64 +4,72 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Criar um Cliente</h1>
+<main id="main">
+    <section>
+        <div class="container">
 
-<hr />
-<div class="row">
-    <div class="col-md">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
+            <h1>Criar um Cliente</h1>
+
+            <hr />
             <div class="row">
-                <div class="col">
-                    <label asp-for="DataNascimento" class="control-label"></label>
-                    <input asp-for="DataNascimento" class="form-control" />
-                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
-                </div>
-                <div class="col">
-                    <label asp-for="Morada" class="control-label"></label>
-                    <input asp-for="Morada" class="form-control" />
-                    <span asp-validation-for="Morada" class="text-danger"></span>
+                <div class="col-md">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Nome" class="control-label"></label>
+                            <input asp-for="Nome" class="form-control" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label asp-for="DataNascimento" class="control-label"></label>
+                                <input asp-for="DataNascimento" class="form-control" />
+                                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                            </div>
+                            <div class="col">
+                                <label asp-for="Morada" class="control-label"></label>
+                                <input asp-for="Morada" class="form-control" />
+                                <span asp-validation-for="Morada" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label asp-for="Contacto" class="control-label"></label>
+                                <input asp-for="Contacto" class="form-control" />
+                                <span asp-validation-for="Contacto" class="text-danger"></span>
+                            </div>
+                            <div class="col">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label asp-for="NContribuinte" class="control-label"></label>
+                                <input asp-for="NContribuinte" class="form-control" />
+                                <span asp-validation-for="NContribuinte" class="text-danger"></span>
+                            </div>
+                            <div class="col">
+                                <label asp-for="NIdentificacao" class="control-label"></label>
+                                <input asp-for="NIdentificacao" class="form-control" />
+                                <span asp-validation-for="NIdentificacao" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <h1></h1>
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-primary" /> |
+                            <a asp-action="Index" class="btn btn-primary">Cancelar e Voltar</a>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <label asp-for="Contacto" class="control-label"></label>
-                    <input asp-for="Contacto" class="form-control" />
-                    <span asp-validation-for="Contacto" class="text-danger"></span>
-                </div>
-                <div class="col">
-                    <label asp-for="Email" class="control-label"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label asp-for="NContribuinte" class="control-label"></label>
-                    <input asp-for="NContribuinte" class="form-control" />
-                    <span asp-validation-for="NContribuinte" class="text-danger"></span>
-                </div>
-                <div class="col">
-                    <label asp-for="NIdentificacao" class="control-label"></label>
-                    <input asp-for="NIdentificacao" class="form-control" />
-                    <span asp-validation-for="NIdentificacao" class="text-danger"></span>
-                </div>
-            </div>
-                <h1></h1>
-                <div class="form-group">
-                    <input type="submit" value="Guardar" class="btn btn-primary" /> |
-                    <a asp-action="Index" class="btn btn-primary">Cancelar e Voltar</a>
-                </div>
-        </form>
-    </div>
-</div>
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
+
+        </div>
+    </section>
+</main>

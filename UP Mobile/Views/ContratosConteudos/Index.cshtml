@@ -4,50 +4,59 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<main id="main">
+    <section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DataInicioConteudo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataFimConteudo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdConteudoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdContratoNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataInicioConteudo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataFimConteudo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdConteudoNavigation.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdContratoNavigation.MoradaFaturacao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdContratoConteudo">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdContratoConteudo">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdContratoConteudo">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <div class="container">
+            <h1>Index</h1>
+
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataInicioConteudo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataFimConteudo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdConteudoNavigation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdContratoNavigation)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataInicioConteudo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataFimConteudo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdConteudoNavigation.Descricao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdContratoNavigation.MoradaFaturacao)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.IdContratoConteudo">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdContratoConteudo">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdContratoConteudo">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+</main>

@@ -4,119 +4,126 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Lista de Pacotes Comerciais</h1>
+<main id="main">
+    <section>
+        <div class="container">
 
-<p>
-    <a asp-action="Create" type="button" class="btn btn-primary">Criar Pacote Comercial</a>
-</p>
+            <h1>Lista de Pacotes Comerciais</h1>
 
-<div class="card border-info mb-4">
-    <div class="card-body">
-        <h5 class="card-title">Pesquisa</h5>
-        <form asp-action="Index" method="get">
-            <div class="form-group">
-                <label for="nomePesquisar" class="control-label">Nome do Pacote Comercial</label>
-                <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
+            <p>
+                <a asp-action="Create" type="button" class="btn btn-primary">Criar Pacote Comercial</a>
+            </p>
+
+            <div class="card border-info mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Pesquisa</h5>
+                    <form asp-action="Index" method="get">
+                        <div class="form-group">
+                            <label for="nomePesquisar" class="control-label">Nome do Pacote Comercial</label>
+                            <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Pesquisar" class="btn btn-primary" /> |
+                            <a asp-action="Index" class="btn btn-secondary">Limpar</a>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="form-group">
-                <input type="submit" value="Pesquisar" class="btn btn-primary" /> |
-                <a asp-action="Index" class="btn btn-secondary">Limpar</a>
-            </div>
-        </form>
-    </div>
-</div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].IdPacote)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].Nome)
+                        </th>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.PacoteComercial[0].IdPacote)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.PacoteComercial[0].Nome)
-            </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].DataInicioComercializacao)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].DataFimComercializacao)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].PrecoBase)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].PeriodoFidelizacao)
+                        </th>
+                        <th scope="col">Ações Disponíveis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PacoteComercial)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdPacote)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
 
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.PacoteComercial[0].DataInicioComercializacao)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.PacoteComercial[0].DataFimComercializacao)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.PacoteComercial[0].PrecoBase)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.PacoteComercial[0].PeriodoFidelizacao)
-            </th>
-            <th scope="col">Ações Disponíveis</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.PacoteComercial)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdPacote)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataInicioComercializacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataFimComercializacao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrecoBase)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PeriodoFidelizacao)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn btn-primary">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn btn-primary">Detalhes</a>
+                                <h1></h1>
+                                <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn btn-danger">Apagar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataInicioComercializacao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataFimComercializacao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PrecoBase)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PeriodoFidelizacao)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn btn-primary">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn btn-primary">Detalhes</a>
-                    <h1></h1>
-                    <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn btn-danger">Apagar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            <nav>
+                <ul class="pagination">
+                    @{
+                        int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                        //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
+                        if (paginaInicial < 1)
+                        {
+                            paginaInicial = 1;
+                        }
 
-<nav>
-    <ul class="pagination">
-        @{
-            int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-            //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
-            if (paginaInicial < 1)
-            {
-                paginaInicial = 1;
-            }
+                        int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                        //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
+                        if (paginaFinal > Model.Paginacao.TotalPaginas)
+                        {
+                            paginaFinal = Model.Paginacao.TotalPaginas;
+                        }
+                    }
 
-            int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-            //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
-            if (paginaFinal > Model.Paginacao.TotalPaginas)
-            {
-                paginaFinal = Model.Paginacao.TotalPaginas;
-            }
-        }
+                    <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
+                    </li>
 
-        <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-            <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
-        </li>
+                    @for (int i = paginaInicial; i <= paginaFinal; i++)
+                    {
+                        <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
+                            <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                        </li>
+                    }
 
-        @for (int i = paginaInicial; i <= paginaFinal; i++)
-        {
-            <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                <a class="page-link" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
-            </li>
-        }
-
-        <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-            <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
-        </li>
-    </ul>
-</nav>
+                    <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+</main>
