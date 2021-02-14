@@ -8,10 +8,10 @@
     <section>
         <div class="container">
 
-            <h1>Index</h1>
+            <h1>Lista de Promoções</h1>
 
             <p>
-                <a asp-action="Create">Create New</a>
+                <a asp-action="Create" type="button" class="btn btn-primary">Criar Promoção</a>
             </p>
 
 
@@ -32,28 +32,25 @@
                 </div>
             </div>
 
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.Promocao[0].Nome)
                         </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Promocao[0].Descricao)
-                        </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.Promocao[0].DataInicio)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.Promocao[0].DataFim)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.Promocao[0].Preco)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.Promocao[0].Conteudo)
                         </th>
-                        <th></th>
+                        <th scope="col">Ações Disponíveis</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,9 +59,6 @@
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Descricao)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.DataInicio)
@@ -79,9 +73,9 @@
                                 @Html.DisplayFor(modelItem => item.Conteudo)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.IdPromocao">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.IdPromocao">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.IdPromocao">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.IdPromocao" type="button" class="btn btn-primary">Editar</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn btn-primary">Detalhes</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdPromocao" type="button" class="btn btn-danger">Apagar</a>
                             </td>
                         </tr>
                     }

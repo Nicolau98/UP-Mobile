@@ -17,20 +17,32 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Promocao")]
+        [Display(Name = "Nº Promoção")]
         public int IdPromocao { get; set; }
+
         [Required]
         [StringLength(20)]
         public string Nome { get; set; }
+
         [Required]
         [StringLength(500)]
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
+
         [Column("Data_Inicio", TypeName = "date")]
+        [Display(Name = "Data de Início")]
         public DateTime DataInicio { get; set; }
+
         [Column("Data_Fim", TypeName = "date")]
+        [Display(Name = "Data de Fim")]
         public DateTime? DataFim { get; set; }
+
         [Column(TypeName = "decimal(4, 2)")]
+        [Display(Name = "Desconto")]
         public decimal Preco { get; set; }
+
         [StringLength(50)]
+        [Display(Name = "Conteúdo")]
         public string Conteudo { get; set; }
 
         [InverseProperty("IdPromocaoNavigation")]
