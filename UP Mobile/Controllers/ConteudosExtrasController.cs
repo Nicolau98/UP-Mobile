@@ -20,11 +20,32 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: ConteudosExtras
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
         {
-            return View(await _context.ConteudoExtra.ToListAsync());
-        }
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Cliente.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
 
+            List<ConteudoExtra> conteudoExtra = await _context.ConteudoExtra.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaConteudoExtraViewModel modelo = new ListaConteudoExtraViewModel
+            {
+                Paginacao = paginacao,
+                ConteudoExtra = conteudoExtra,
+                NomePesquisar = nomePesquisar
+            };
+
+
+
+            return View(modelo);
+        }
         // GET: ConteudosExtras/Details/5
         public async Task<IActionResult> Details(int? id)
         {
