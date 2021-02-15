@@ -13,6 +13,53 @@ namespace UP_Mobile.Data
         {
             InserePacotesComerciaisFicticios(context);
             InserePromoesFicticias(context);
+            InsereClientesFicticias(context);
+        }
+
+        private static void InsereClientesFicticias(UPMobileContext context)
+        {
+            if (context.Cliente.Any()) return;
+
+            InsereClientesFicticiasParaTestar(context);
+
+            //context.Promocao.AddRange(new Promocao[]
+            //{
+            //    new Cliente
+            //    {
+                    //Nome = ,
+                    //DataNascimento = ,
+                    //Morada = ,
+                    //Contacto = ,
+                    //Email = ,
+                    //NContribuinte = ,
+                    //NIdentificacao = 
+
+            //    }
+
+            //});
+
+            //context.SaveChanges();
+        }
+
+        private static void InsereClientesFicticiasParaTestar(UPMobileContext context)
+        {
+
+
+            for (int i = 0; i < 50; i++)
+            {
+                context.Cliente.Add(new Cliente
+                {
+                    Nome = "UP Teste" + i,
+                    DataNascimento = new DateTime(2021, 02, 01),
+                    Morada = "UP Rua" + i,
+                    Contacto = 911111111 + i,
+                    Email = "UP Email" + i,
+                    NContribuinte = 1582475628 + i,
+                    NIdentificacao = 15796852 + i
+                });
+            }
+
+            context.SaveChanges();
         }
 
         private static void InserePromoesFicticias(UPMobileContext context)
@@ -66,22 +113,44 @@ namespace UP_Mobile.Data
 
             if (context.PacoteComercial.Any()) return;
 
-            context.PacoteComercial.AddRange(new PacoteComercial[]
+            InserePacotesComerciaisFicticiasParaTestar(context);
+
+            //context.PacoteComercial.AddRange(new PacoteComercial[]
+            //{
+            //    new PacoteComercial
+            //    {
+
+            //        Nome = "UP Teste 500MB",
+            //        Descricao = "Pacote de internet e vais com sorte",
+            //        DataInicioComercializacao = new DateTime(2021,02,15),
+            //        DataFimComercializacao = new DateTime(2021,10,15),
+            //        PrecoBase = 52,
+            //        PeriodoFidelizacao = 12
+
+
+            //    }
+
+            //});
+
+            //context.SaveChanges();
+        }
+
+        private static void InserePacotesComerciaisFicticiasParaTestar(UPMobileContext context)
+        {
+
+
+            for (int i = 0; i < 50; i++)
             {
-                new PacoteComercial
+                context.PacoteComercial.Add(new PacoteComercial
                 {
-
-                    Nome = "UP Teste 500MB",
-                    Descricao = "Pacote de internet e vais com sorte",
-                    DataInicioComercializacao = new DateTime(2021,02,15),
-                    DataFimComercializacao = new DateTime(2021,10,15),
-                    PrecoBase = 52,
+                    Nome = "UP Teste 500MB" + i,
+                    Descricao = "Pacote de internet e vais com sorte" + i,
+                    DataInicioComercializacao = new DateTime(2021, 02, 15),
+                    DataFimComercializacao = new DateTime(2021, 10, 15),
+                    PrecoBase = 20 + i,
                     PeriodoFidelizacao = 12
-
-
-                }
-
-            });
+                });
+            }
 
             context.SaveChanges();
         }
