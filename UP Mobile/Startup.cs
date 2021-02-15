@@ -41,7 +41,7 @@ namespace UP_Mobile
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UPMobileContext context)
         {
             if (env.IsDevelopment())
             {
@@ -69,6 +69,13 @@ namespace UP_Mobile
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            
+
+            if (env.IsDevelopment())
+            {
+                SeedData.PreencheDadosFicticios(context);
+            }
         }
     }
 }
