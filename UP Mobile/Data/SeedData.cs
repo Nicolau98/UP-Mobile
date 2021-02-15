@@ -12,7 +12,54 @@ namespace UP_Mobile.Data
         internal static void PreencheDadosFicticios(UPMobileContext context)
         {
             InserePacotesComerciaisFicticios(context);
+            InserePromoesFicticias(context);
         }
+
+        private static void InserePromoesFicticias(UPMobileContext context)
+        {
+            if (context.Promocao.Any()) return;
+
+            InserePromocoesFicticiasParaTestar(context);
+
+            //context.Promocao.AddRange(new Promocao[]
+            //{
+            //    new Promocao
+            //    {
+
+            //        Nome = "",
+            //        Descricao = "",
+            //        DataInicio =,
+            //        DataFim=,
+            //        Preco=,
+            //        Conteudo=
+
+            //    }
+
+            //});
+
+            //context.SaveChanges();
+        }
+
+        private static void InserePromocoesFicticiasParaTestar(UPMobileContext context)
+        {
+           
+
+            for (int i = 0; i < 10; i++)
+            {
+                context.Promocao.Add(new Promocao
+                {
+                    Nome = "UP Teste"+ i,
+                    Descricao = "Promoção teste" + i,
+                    DataInicio = new DateTime(2021, 02, 01),
+                    DataFim = new DateTime(2021, 12, 01),
+                    Preco =i+1,
+                    Conteudo = "Conteudo teste"
+                });
+            }
+
+            context.SaveChanges();
+        }
+
 
         private static void InserePacotesComerciaisFicticios(UPMobileContext context)
         {
@@ -38,6 +85,9 @@ namespace UP_Mobile.Data
 
             context.SaveChanges();
         }
+
+
+
     }
 }
 
