@@ -59,7 +59,7 @@ namespace UP_Mobile.Controllers
                 .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (cliente == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
 
             return View(cliente);
@@ -82,7 +82,8 @@ namespace UP_Mobile.Controllers
             {
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.Mensagem = "Cliente adicionado com sucesso.";
+                return View("Sucesso");
             }
             return View(cliente);
         }
@@ -98,7 +99,7 @@ namespace UP_Mobile.Controllers
             var cliente = await _context.Cliente.FindAsync(id);
             if (cliente == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(cliente);
         }
@@ -115,8 +116,11 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
+                return View(cliente);
+            }
+
                 try
                 {
                     _context.Update(cliente);
@@ -126,16 +130,18 @@ namespace UP_Mobile.Controllers
                 {
                     if (!ClienteExists(cliente.IdCliente))
                     {
-                        return NotFound();
+                        return View("EliminarInserir", cliente);
                     }
                     else
                     {
-                        throw;
+                        ModelState.AddModelError("", "Ocorreu um erro. Não foi possível guardar o Cliente. Tente novamente e se o problema persistir contacte a assistência.");
+                        return View(cliente);
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(cliente);
+
+                ViewBag.Mensagem = "Produto alterado com sucesso";
+                return View("Sucesso");
+
         }
 
         // GET: Clientes/Delete/5
@@ -150,7 +156,8 @@ namespace UP_Mobile.Controllers
                 .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (cliente == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "O Cliente que estava a tentar apagar foi eliminado por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(cliente);
@@ -164,7 +171,9 @@ namespace UP_Mobile.Controllers
             var cliente = await _context.Cliente.FindAsync(id);
             _context.Cliente.Remove(cliente);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            ViewBag.Mensagem = "O Cliente foi eliminado com sucesso";
+            return View("Sucesso");
         }
 
         private bool ClienteExists(int id)
