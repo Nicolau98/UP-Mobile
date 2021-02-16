@@ -139,7 +139,7 @@ namespace UP_Mobile.Controllers
                     }
                 }
 
-                ViewBag.Mensagem = "Produto alterado com sucesso";
+                ViewBag.Mensagem = "Cliente alterado com sucesso";
                 return View("Sucesso");
 
         }

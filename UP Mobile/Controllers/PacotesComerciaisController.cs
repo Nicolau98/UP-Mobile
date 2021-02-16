@@ -59,7 +59,7 @@ namespace UP_Mobile.Controllers
                 .FirstOrDefaultAsync(m => m.IdPacote == id);
             if (pacoteComercial == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
 
             return View(pacoteComercial);
@@ -82,7 +82,8 @@ namespace UP_Mobile.Controllers
             {
                 _context.Add(pacoteComercial);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.Mensagem = "Pacote Comercial adicionado com sucesso.";
+                return View("Sucesso");
             }
             return View(pacoteComercial);
         }
@@ -98,7 +99,7 @@ namespace UP_Mobile.Controllers
             var pacoteComercial = await _context.PacoteComercial.FindAsync(id);
             if (pacoteComercial == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(pacoteComercial);
         }
@@ -115,27 +116,31 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(pacoteComercial);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PacoteComercialExists(pacoteComercial.IdPacote))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return View(pacoteComercial);
             }
-            return View(pacoteComercial);
+
+            try
+            {
+                _context.Update(pacoteComercial);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PacoteComercialExists(pacoteComercial.IdPacote))
+                {
+                    return View("EliminarInserir", pacoteComercial);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Ocorreu um erro. Não foi possível guardar o Pacote Comercial. Tente novamente e se o problema persistir contacte a assistência.");
+                    return View(pacoteComercial);
+                }
+            }
+
+            ViewBag.Mensagem = "Pacote Comercial alterado com sucesso";
+            return View("Sucesso");
         }
 
         // GET: PacotesComerciais/Delete/5
@@ -150,7 +155,8 @@ namespace UP_Mobile.Controllers
                 .FirstOrDefaultAsync(m => m.IdPacote == id);
             if (pacoteComercial == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "O Pacote Comercial que estava a tentar apagar foi eliminado por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(pacoteComercial);
@@ -164,7 +170,9 @@ namespace UP_Mobile.Controllers
             var pacoteComercial = await _context.PacoteComercial.FindAsync(id);
             _context.PacoteComercial.Remove(pacoteComercial);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            ViewBag.Mensagem = "O Pacote Comercial foi eliminado com sucesso";
+            return View("Sucesso");
         }
 
         private bool PacoteComercialExists(int id)
