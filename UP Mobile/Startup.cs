@@ -35,13 +35,23 @@ namespace UP_Mobile
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options => { 
+            options.SignIn.RequireConfirmedAccount = false;
+            
+            options.Password.RequireDigit = true;
+            options.Password.RequireLowercase = true;
+            options.Password.RequireNonAlphanumeric = true;
+            options.Password.RequireUppercase = true;
+
+            })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI();
+
             services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UPMobileContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UPMobileContext context, UserManager<IdentityUser> gestorUtilizadores)
         {
             if (env.IsDevelopment())
             {
@@ -70,7 +80,7 @@ namespace UP_Mobile
                 endpoints.MapRazorPages();
             });
 
-            
+            SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
 
             if (env.IsDevelopment())
             {
