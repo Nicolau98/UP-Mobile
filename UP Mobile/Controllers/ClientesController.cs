@@ -66,7 +66,7 @@ namespace UP_Mobile.Controllers
 
             return View(cliente);
         }
-
+        [Authorize]
         // GET: Clientes/Create
         public IActionResult Create()
         {
