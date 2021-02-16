@@ -18,13 +18,14 @@ namespace UP_Mobile.Data
         private const string ROLE_ADMINISTRADOR = "Administrador";
         private const string ROLE_OPERADOR = "Operador";
         private const string ROLE_CLIENTE = "Cliente";
-        
+
 
         internal static void PreencheDadosFicticios(UPMobileContext context)
         {
             InserePacotesComerciaisFicticios(context);
             InserePromoesFicticias(context);
             InsereClientesFicticias(context);
+            InsereOperadoresFicticias(context);
         }
 
         private static void InsereClientesFicticias(UPMobileContext context)
@@ -37,13 +38,13 @@ namespace UP_Mobile.Data
             //{
             //    new Cliente
             //    {
-                    //Nome = ,
-                    //DataNascimento = ,
-                    //Morada = ,
-                    //Contacto = ,
-                    //Email = ,
-                    //NContribuinte = ,
-                    //NIdentificacao = 
+            //Nome = ,
+            //DataNascimento = ,
+            //Morada = ,
+            //Contacto = ,
+            //Email = ,
+            //NContribuinte = ,
+            //NIdentificacao = 
 
             //    }
 
@@ -100,17 +101,17 @@ namespace UP_Mobile.Data
 
         private static void InserePromocoesFicticiasParaTestar(UPMobileContext context)
         {
-           
+
 
             for (int i = 0; i < 10; i++)
             {
                 context.Promocao.Add(new Promocao
                 {
-                    Nome = "UP Teste"+ i,
+                    Nome = "UP Teste" + i,
                     Descricao = "Promoção teste" + i,
                     DataInicio = new DateTime(2021, 02, 01),
                     DataFim = new DateTime(2021, 12, 01),
-                    Preco =i+1,
+                    Preco = i + 1,
                     Conteudo = "Conteudo teste"
                 });
             }
@@ -130,7 +131,7 @@ namespace UP_Mobile.Data
 
         internal static async Task InsereRolesAsync(RoleManager<IdentityRole> gestorRoles)
         {
-            
+
             await CriaRoleSeNecessario(gestorRoles, ROLE_ADMINISTRADOR);
             await CriaRoleSeNecessario(gestorRoles, ROLE_OPERADOR);
             await CriaRoleSeNecessario(gestorRoles, ROLE_CLIENTE);
@@ -223,9 +224,54 @@ namespace UP_Mobile.Data
 
         }
 
-        
-        
+        private static void InsereOperadoresFicticias(UPMobileContext context)
+        {
+            if (context.Operador.Any()) return;
+
+            InsereOperadoresFicticiasParaTestar(context);
+
+            //context.Operador.AddRange(new Operador[]
+            //{
+            //    new Operador
+            //    {
+
+            ////        Nome = "",
+            //DataNascimento = ,
+            //        Morada = "",
+            //        Contacto =,
+            //        Email = "",
+            //        LocalTrabalho = "",
+            //        OperadorAtivo = true
+
+            //    }
+
+            //});
+
+            //context.SaveChanges();
+        }
+
+        private static void InsereOperadoresFicticiasParaTestar(UPMobileContext context)
+        {
+
+
+            for (int i = 0; i < 20; i++)
+            {
+                context.Operador.Add(new Operador
+                {
+                    Nome = "Operador" + i,
+                    DataNascimento = new DateTime(2021, 01, 01),
+                    Morada = "Morada" + i,
+                    Contacto = 928561389 + i,
+                    Email = "Email" + i,
+                    LocalTrabalho = "Local" + i,
+                    OperadorAtivo = true
+                });
+            }
+
+            context.SaveChanges();
+        }
+
+
     }
 }
 
-    
