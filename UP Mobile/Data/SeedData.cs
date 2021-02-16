@@ -10,7 +10,15 @@ namespace UP_Mobile.Data
     public class SeedData
     {
         private const string NOME_UTILIZADOR_ADMIN_PADRAO = "admin@upmobile.com";
+        private const string NOME_UTILIZADOR_CLIENTE = "cliente@upmobile.com";
+        private const string NOME_UTILIZADOR_OPERADOR = "operador@upmobile.com";
         private const string PASSWORD_UTILIZADOR_ADMIN_PADRAO = "Password123#";
+        private const string PASSWORD_UTILIZADOR_CLIENTE = "Password123#";
+        private const string PASSWORD_UTILIZADOR_OPERADOR = "Password123#";
+        private const string ROLE_ADMINISTRADOR = "Administrador";
+        private const string ROLE_OPERADOR = "Operador";
+        private const string ROLE_CLIENTE = "Cliente";
+        
 
         internal static void PreencheDadosFicticios(UPMobileContext context)
         {
@@ -110,20 +118,62 @@ namespace UP_Mobile.Data
             context.SaveChanges();
         }
 
-        internal static async Task InsereAdministradorPadraoAsync(UserManager<IdentityUser> gestorUtilizadores)
+        internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
         {
+            IdentityUser cliente = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_CLIENTE, PASSWORD_UTILIZADOR_CLIENTE);
+            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, cliente, ROLE_CLIENTE);
 
-            IdentityUser utilizador = await gestorUtilizadores.FindByNameAsync(NOME_UTILIZADOR_ADMIN_PADRAO);
-
-            if (utilizador == null) { 
-
-            utilizador = new IdentityUser(NOME_UTILIZADOR_ADMIN_PADRAO);
-
-            await gestorUtilizadores.CreateAsync(utilizador, PASSWORD_UTILIZADOR_ADMIN_PADRAO);
-            }
-
+            IdentityUser operador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_OPERADOR, PASSWORD_UTILIZADOR_OPERADOR);
+            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, operador, ROLE_OPERADOR);
         }
 
+
+        internal static async Task InsereRolesAsync(RoleManager<IdentityRole> gestorRoles)
+        {
+            
+            await CriaRoleSeNecessario(gestorRoles, ROLE_ADMINISTRADOR);
+            await CriaRoleSeNecessario(gestorRoles, ROLE_OPERADOR);
+            await CriaRoleSeNecessario(gestorRoles, ROLE_CLIENTE);
+        }
+
+        private static async Task CriaRoleSeNecessario(RoleManager<IdentityRole> gestorRoles, string funcao)
+        {
+            if (!await gestorRoles.RoleExistsAsync(funcao))
+            {
+                IdentityRole role = new IdentityRole(funcao);
+                await gestorRoles.CreateAsync(role);
+            }
+        }
+
+        internal static async Task InsereAdministradorPadraoAsync(UserManager<IdentityUser> gestorUtilizadores)
+        {
+            IdentityUser utilizador = await CriaUtilizadorSeNaoExiste(gestorUtilizadores, NOME_UTILIZADOR_ADMIN_PADRAO, PASSWORD_UTILIZADOR_ADMIN_PADRAO);
+
+            await AdicionaUtilizadorRoleSeNecessario(gestorUtilizadores, utilizador, ROLE_ADMINISTRADOR);
+        }
+
+        private static async Task AdicionaUtilizadorRoleSeNecessario(UserManager<IdentityUser> gestorUtilizadores, IdentityUser utilizador, string role)
+        {
+            if (!await gestorUtilizadores.IsInRoleAsync(utilizador, role))
+            {
+                await gestorUtilizadores.AddToRoleAsync(utilizador, role);
+            }
+        }
+
+        private static async Task<IdentityUser> CriaUtilizadorSeNaoExiste(UserManager<IdentityUser> gestorUtilizadores, string nomeUtilizador, string password)
+        {
+            IdentityUser utilizador = await gestorUtilizadores.FindByNameAsync(nomeUtilizador);
+
+            if (utilizador == null)
+            {
+
+                utilizador = new IdentityUser(nomeUtilizador);
+
+                await gestorUtilizadores.CreateAsync(utilizador, password);
+            }
+
+            return utilizador;
+        }
 
         private static void InserePacotesComerciaisFicticios(UPMobileContext context)
         {
@@ -170,10 +220,11 @@ namespace UP_Mobile.Data
             }
 
             context.SaveChanges();
+
         }
 
-
-
+        
+        
     }
 }
 

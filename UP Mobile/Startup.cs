@@ -51,7 +51,7 @@ namespace UP_Mobile
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UPMobileContext context, UserManager<IdentityUser> gestorUtilizadores)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UPMobileContext context, UserManager<IdentityUser> gestorUtilizadores, RoleManager<IdentityRole> gestorRoles)
         {
             if (env.IsDevelopment())
             {
@@ -80,11 +80,13 @@ namespace UP_Mobile
                 endpoints.MapRazorPages();
             });
 
+            SeedData.InsereRolesAsync(gestorRoles).Wait();
             SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
 
             if (env.IsDevelopment())
             {
                 SeedData.PreencheDadosFicticios(context);
+                SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
             }
         }
     }
