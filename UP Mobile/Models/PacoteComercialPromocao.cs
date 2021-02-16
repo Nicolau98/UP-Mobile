@@ -23,6 +23,8 @@ namespace UP_Mobile.Models
         public int IdPromocao { get; set; }
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
+        [Column("Preco_total_pacote", TypeName = "decimal(4, 2)")]
+        public decimal PrecoTotalPacote { get; set; }
 
         [ForeignKey(nameof(IdPacote))]
         [InverseProperty(nameof(PacoteComercial.PacoteComercialPromocao))]

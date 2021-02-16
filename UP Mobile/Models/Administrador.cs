@@ -29,5 +29,7 @@ namespace UP_Mobile.Models
         [Column("Local_Trabalho")]
         [StringLength(50)]
         public string LocalTrabalho { get; set; }
+        [Column("Administrador_ativo")]
+        public bool AdministradorAtivo { get; set; }
     }
 }
