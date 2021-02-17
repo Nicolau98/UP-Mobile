@@ -20,7 +20,7 @@ namespace UP_Mobile.Models
         [Column("Id_Conteudo")]
         public int IdConteudo { get; set; }
         [Required]
-        [StringLength(20)]
+        [StringLength(50)]
         public string Nome { get; set; }
         [Required]
         [StringLength(500)]

@@ -222,9 +222,6 @@ namespace UP_Mobile.Data
             context.SaveChanges();
 
         }
-
-        
-        
     }
 }
 

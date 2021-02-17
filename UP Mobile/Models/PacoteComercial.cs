@@ -20,14 +20,14 @@ namespace UP_Mobile.Models
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
         [Required]
-        [StringLength(20)]
+        [StringLength(50)]
         public string Nome { get; set; }
         [Required]
         [StringLength(500)]
         public string Descricao { get; set; }
-        [Column("Data_Inicio_Comercializacao", TypeName = "datetime")]
+        [Column("Data_Inicio_Comercializacao", TypeName = "date")]
         public DateTime DataInicioComercializacao { get; set; }
-        [Column("Data_Fim_Comercializacao", TypeName = "datetime")]
+        [Column("Data_Fim_Comercializacao", TypeName = "date")]
         public DateTime? DataFimComercializacao { get; set; }
         [Column("Preco_base", TypeName = "decimal(4, 2)")]
         public decimal PrecoBase { get; set; }

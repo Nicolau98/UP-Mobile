@@ -18,9 +18,9 @@ namespace UP_Mobile.Models
         public int IdConteudo { get; set; }
         [Column("Id_Contrato")]
         public int IdContrato { get; set; }
-        [Column("Data_Inicio_Conteudo", TypeName = "date")]
+        [Column("Data_Inicio_Conteudo", TypeName = "datetime")]
         public DateTime DataInicioConteudo { get; set; }
-        [Column("Data_Fim_Conteudo", TypeName = "date")]
+        [Column("Data_Fim_Conteudo", TypeName = "datetime")]
         public DateTime? DataFimConteudo { get; set; }
 
         [ForeignKey(nameof(IdConteudo))]

@@ -31,7 +31,7 @@ namespace UP_Mobile.Models
         public DateTime? DataFimContrato { get; set; }
         [Required]
         [Column("Morada_Faturacao")]
-        [StringLength(50)]
+        [StringLength(100)]
         public string MoradaFaturacao { get; set; }
         [Column("Data_Fidelizacao", TypeName = "date")]
         public DateTime? DataFidelizacao { get; set; }
