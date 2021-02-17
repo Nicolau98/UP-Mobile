@@ -78,46 +78,94 @@ namespace UP_Mobile.Data
         {
             if (context.Promocao.Any()) return;
 
-            InserePromocoesFicticiasParaTestar(context);
+            //InserePromocoesFicticiasParaTestar(context);
 
-            //context.Promocao.AddRange(new Promocao[]
-            //{
-            //    new Promocao
-            //    {
-
-            //        Nome = "",
-            //        Descricao = "",
-            //        DataInicio =,
-            //        DataFim=,
-            //        Preco=,
-            //        Conteudo=
-
-            //    }
-
-            //});
-
-            //context.SaveChanges();
-        }
-
-        private static void InserePromocoesFicticiasParaTestar(UPMobileContext context)
-        {
-
-
-            for (int i = 0; i < 10; i++)
+            context.Promocao.AddRange(new Promocao[]
             {
-                context.Promocao.Add(new Promocao
+                new Promocao
                 {
-                    Nome = "UP Teste" + i,
-                    Descricao = "Promoção teste" + i,
-                    DataInicio = new DateTime(2021, 02, 01),
-                    DataFim = new DateTime(2021, 12, 01),
-                    Preco = i + 1,
-                    Conteudo = "Conteudo teste"
-                });
-            }
+
+                    Nome = "Promoção Sport TV",
+                    Descricao = "Na compra deste pacote, oferta de 6 meses de todos os canais Sport TV",
+                    DataInicio =new DateTime(2021, 02, 15),
+                    DataFim=new DateTime(2022, 02, 15),
+                    Preco= 20,
+                    Conteudo="Oferta de Sport TV",
+
+                },
+
+                new Promocao
+                {
+
+                    Nome = "Promoção Tchill",
+                    Descricao = "Na compra deste pacote, oferta de Netflix 6 meses + HBO 24 meses",
+                    DataInicio = new DateTime(2020, 11, 24),
+                    DataFim= new DateTime(2021, 11, 24),
+                    Preco=16,
+                    Conteudo="Oferta de Netflix e HBO"
+
+                },
+
+                new Promocao
+                {
+
+                    Nome = "Promoção S/Promoção",
+                    Descricao = " ",
+                    DataInicio =new DateTime(2020, 08, 15),
+                    DataFim=new DateTime(2021, 08, 15),
+                    Preco=0,
+                    Conteudo=" "
+
+                },
+
+                new Promocao
+                {
+
+                    Nome = "Promoção Mensal",
+                    Descricao = "Na compra deste pacote, oferta de 12 meses de desconto de 5€ mensais",
+                    DataInicio =new DateTime(2021, 01, 08),
+                    DataFim=new DateTime(2022, 01, 08),
+                    Preco=5,
+                    Conteudo="Oferta de Desconto mensal"
+
+                },
+
+                new Promocao
+                {
+
+                    Nome = "Promoção 1 Mensalidade",
+                    Descricao = "Na compra deste pacote, oferta da primeira mensalidade",
+                    DataInicio =new DateTime(2021, 02, 15),
+                    DataFim=new DateTime(2022, 02, 15),
+                    Preco=35,
+                    Conteudo="Oferta de Mensalidade"
+
+                },
+
+            });
 
             context.SaveChanges();
         }
+
+        //private static void InserePromocoesFicticiasParaTestar(UPMobileContext context)
+        //{
+
+
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        context.Promocao.Add(new Promocao
+        //        {
+        //            Nome = "UP Teste" + i,
+        //            Descricao = "Promoção teste" + i,
+        //            DataInicio = new DateTime(2021, 02, 01),
+        //            DataFim = new DateTime(2021, 12, 01),
+        //            Preco = i + 1,
+        //            Conteudo = "Conteudo teste"
+        //        });
+        //    }
+
+        //    context.SaveChanges();
+        //}
 
         internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
         {
