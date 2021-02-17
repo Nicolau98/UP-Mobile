@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -65,6 +66,7 @@ namespace UP_Mobile.Controllers
             return View(pacoteComercial);
         }
 
+        [Authorize]
         // GET: PacotesComerciais/Create
         public IActionResult Create()
         {
@@ -88,6 +90,7 @@ namespace UP_Mobile.Controllers
             return View(pacoteComercial);
         }
 
+        [Authorize]
         // GET: PacotesComerciais/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -143,6 +146,7 @@ namespace UP_Mobile.Controllers
             return View("Sucesso");
         }
 
+        [Authorize]
         // GET: PacotesComerciais/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
