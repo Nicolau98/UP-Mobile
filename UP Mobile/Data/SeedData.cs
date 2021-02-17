@@ -61,11 +61,11 @@ namespace UP_Mobile.Data
             {
                 context.Cliente.Add(new Cliente
                 {
-                    Nome = "UP Teste" + i,
+                    Nome = "Luís José Raposo Godinho" + i,
                     DataNascimento = new DateTime(2021, 02, 01),
-                    Morada = "UP Rua" + i,
+                    Morada = "Bairro Nossa Senhora da Grela, nº6, 1º esquerdo, 6200-456 Covilhã" + i,
                     Contacto = 911111111 + i,
-                    Email = "UP Email" + i,
+                    Email = "godinhozé@sapo.pt" + i,
                     NContribuinte = 1582475628 + i,
                     NIdentificacao = 15796852 + i
                 });
@@ -258,12 +258,12 @@ namespace UP_Mobile.Data
             {
                 context.Operador.Add(new Operador
                 {
-                    Nome = "Operador" + i,
+                    Nome = "Joaquim Manuel Floribela Cunha" + i,
                     DataNascimento = new DateTime(2021, 01, 01),
-                    Morada = "Morada" + i,
+                    Morada = "Rua da Alegria, nº24, 3º direito, 6260-123 Manteigas" + i,
                     Contacto = 928561389 + i,
-                    Email = "Email" + i,
-                    LocalTrabalho = "Local" + i,
+                    Email = "joaquimcunha@iol.pt" + i,
+                    LocalTrabalho = "Rua da Felicidade, nº3, RC, 6300-234 Guarda" + i,
                     OperadorAtivo = true
                 });
             }
