@@ -34,7 +34,7 @@ namespace UP_Mobile.Data
 
             InsereClientesFicticiasParaTestar(context);
 
-            //context.Promocao.AddRange(new Promocao[]
+            //context.Cliente.AddRange(new Cliente[]
             //{
             //    new Cliente
             //    {
@@ -89,7 +89,7 @@ namespace UP_Mobile.Data
                     Descricao = "Na compra deste pacote, oferta de 6 meses de todos os canais Sport TV",
                     DataInicio =new DateTime(2021, 02, 15),
                     DataFim=new DateTime(2022, 02, 15),
-                    Preco= 20,
+                    Preco= 19.99M,
                     Conteudo="Oferta de Sport TV",
 
                 },
@@ -101,7 +101,7 @@ namespace UP_Mobile.Data
                     Descricao = "Na compra deste pacote, oferta de Netflix 6 meses + HBO 24 meses",
                     DataInicio = new DateTime(2020, 11, 24),
                     DataFim= new DateTime(2021, 11, 24),
-                    Preco=16,
+                    Preco=15.99M,
                     Conteudo="Oferta de Netflix e HBO"
 
                 },
@@ -137,7 +137,7 @@ namespace UP_Mobile.Data
                     Descricao = "Na compra deste pacote, oferta da primeira mensalidade",
                     DataInicio =new DateTime(2021, 02, 15),
                     DataFim=new DateTime(2022, 02, 15),
-                    Preco=35,
+                    Preco=34.99M,
                     Conteudo="Oferta de Mensalidade"
 
                 },
