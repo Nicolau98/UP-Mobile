@@ -91,7 +91,7 @@ namespace UP_Mobile.Data
                     DataNascimento = new DateTime(1974, 04, 26),
                     Morada ="Parque do Nascimento Jesus, nº24, 12º esquerdo, 2510-125 Venda das Raparigas",
                     Contacto = 962412493,
-                    Email ="manuelcostaapereir@sapo.pt" ,
+                    Email ="manuelcostaapereira@sapo.pt" ,
                     NContribuinte = 194603876,
                     NIdentificacao = 10348610
 
