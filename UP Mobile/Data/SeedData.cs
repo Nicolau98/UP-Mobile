@@ -33,47 +33,95 @@ namespace UP_Mobile.Data
         {
             if (context.Cliente.Any()) return;
 
-            InsereClientesFicticiasParaTestar(context);
+            //InsereClientesFicticiasParaTestar(context);
 
-            //context.Cliente.AddRange(new Cliente[]
-            //{
-            //    new Cliente
-            //    {
-            //Nome = ,
-            //DataNascimento = ,
-            //Morada = ,
-            //Contacto = ,
-            //Email = ,
-            //NContribuinte = ,
-            //NIdentificacao = 
-
-            //    }
-
-            //});
-
-            //context.SaveChanges();
-        }
-
-        private static void InsereClientesFicticiasParaTestar(UPMobileContext context)
-        {
-
-
-            for (int i = 0; i < 50; i++)
+            context.Cliente.AddRange(new Cliente[]
             {
-                context.Cliente.Add(new Cliente
+                new Cliente
                 {
-                    Nome = "Luís José Raposo Godinho" + i,
-                    DataNascimento = new DateTime(2021, 02, 01),
-                    Morada = "Bairro Nossa Senhora da Grela, nº6, 1º esquerdo, 6200-456 Covilhã" + i,
-                    Contacto = 911111111 + i,
-                    Email = "godinhozé@sapo.pt" + i,
-                    NContribuinte = 1582475628 + i,
-                    NIdentificacao = 15796852 + i
-                });
-            }
+                    Nome ="Pedro Francisco Silva Magalhães" ,
+                    DataNascimento = new DateTime(1994, 09, 14),
+                    Morada ="Praça da Alegria, nº9, 6º direito, 1980-330 Sarzedo",
+                    Contacto = 918306197,
+                    Email ="pepemangalhanes@sapo.pt" ,
+                    NContribuinte = 236194038,
+                    NIdentificacao = 11739165
+
+                },
+
+                new Cliente
+                {
+                    Nome ="Maria da Conceição Santos Nunes" ,
+                    DataNascimento = new DateTime(1987, 12, 29),
+                    Morada ="Avenida da Fortaleza, nº2, 2º direito, 2340-786 Oliveira do Hospital",
+                    Contacto = 961370629,
+                    Email ="marYinunex@iol.pt" ,
+                    NContribuinte = 267093158,
+                    NIdentificacao = 10679234
+
+                },
+
+                new Cliente
+                {
+                    Nome ="Ana Sofia Júlia dos Prazeres Rabaça David" ,
+                    DataNascimento = new DateTime(2000, 07, 18),
+                    Morada ="Rua das Mangueiras, nº68, 1º direito, 6969-096 Amadora",
+                    Contacto = 924197630,
+                    Email ="losHermanosanajulia_8@gmail.com" ,
+                    NContribuinte = 28613026,
+                    NIdentificacao = 16791206
+
+                },
+
+                new Cliente
+                {
+                    Nome ="Patrick Manuel Paiva Constantino" ,
+                    DataNascimento = new DateTime(1995, 09, 01),
+                    Morada ="Jardim dos Ramos, nº20, RC, 5780-683 Pé de Cão" ,
+                    Contacto = 936480369,
+                    Email ="patricKaestrela_97@hotmail.com" ,
+                    NContribuinte = 234910387,
+                    NIdentificacao = 14730658
+
+                },
+
+                new Cliente
+                {
+                    Nome ="Manuel Pereira Costa" ,
+                    DataNascimento = new DateTime(1974, 04, 26),
+                    Morada ="Parque do Nascimento Jesus, nº24, 12º esquerdo, 2510-125 Venda das Raparigas",
+                    Contacto = 962412493,
+                    Email ="manuelcostaapereir@sapo.pt" ,
+                    NContribuinte = 194603876,
+                    NIdentificacao = 10348610
+
+                }
+
+            });
 
             context.SaveChanges();
         }
+
+        //private static void InsereClientesFicticiasParaTestar(UPMobileContext context)
+        //{
+
+
+        //    for (int i = 0; i < 50; i++)
+        //    {
+        //        context.Cliente.Add(new Cliente
+        //        {
+        //            Nome = "Luís José Raposo Godinho" + i,
+        //            DataNascimento = new DateTime(2021, 02, 01),
+        //            Morada = "Bairro Nossa Senhora da Grela, nº6, 1º esquerdo, 6200-456 Covilhã" + i,
+        //            Contacto = 911111111 + i,
+        //            Email = "godinhozé@sapo.pt" + i,
+        //            NContribuinte = 1582475628 + i,
+        //            NIdentificacao = 15796852 + i
+        //        });
+        //    }
+
+        //    context.SaveChanges();
+        //}
 
         private static void InsereConteudoExtraFicticias(UPMobileContext context)
         {
