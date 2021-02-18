@@ -26,6 +26,7 @@ namespace UP_Mobile.Data
             InserePromoesFicticias(context);
             InsereClientesFicticias(context);
             InsereOperadoresFicticias(context);
+            InsereConteudoExtraFicticias(context);
         }
 
         private static void InsereClientesFicticias(UPMobileContext context)
@@ -70,6 +71,62 @@ namespace UP_Mobile.Data
                     NIdentificacao = 15796852 + i
                 });
             }
+
+            context.SaveChanges();
+        }
+
+        private static void InsereConteudoExtraFicticias(UPMobileContext context)
+        {
+            if (context.ConteudoExtra.Any()) return;
+
+            context.ConteudoExtra.AddRange(new ConteudoExtra[]
+            {
+                new ConteudoExtra
+                {
+                    Nome = "Sport TV",
+                    Descricao = "Por pedido do Cliente, foi adicionado o canal Sport TV.",
+                    DataInicioComercializacao=new DateTime(2021, 02, 15),
+                    DataFimComercializacao=new DateTime(2021, 03, 15),
+                    Preco=27.99M,
+                },
+
+                new ConteudoExtra
+                {
+                    Nome = "Netflix",
+                    Descricao = "Por pedido do Cliente, após um mês gratuito do serviço, foi adicionado o canal Netflix.",
+                    DataInicioComercializacao=new DateTime(2020, 09, 14),
+                    DataFimComercializacao=new DateTime(2020, 11, 14),
+                    Preco=13.99M,
+                },
+
+                new ConteudoExtra
+                {
+                    Nome = "Amazon Prime Video",
+                    Descricao = "Por pedido do Cliente, após um mês gratuito do serviço, foi adicionado o canal Amazon Prime Video.",
+                    DataInicioComercializacao=new DateTime(2021, 01, 19),
+                    DataFimComercializacao=new DateTime(2020, 03, 19),
+                    Preco=5.99M,
+                },
+
+                new ConteudoExtra
+                {
+                    Nome = "Pack 5 Canais Conteúdo Adulto",
+                    Descricao = "Por pedido do Cliente, após dois meses gratuitos do serviço, foram adicionados os canais Playboy (SD e HD), Venus, Sextreme e Penthouse Gold.",
+                    DataInicioComercializacao=new DateTime(2020, 05, 27),
+                    DataFimComercializacao=new DateTime(2020, 08, 27),
+                    Preco=15.99M,
+                },
+
+                new ConteudoExtra
+                {
+                    Nome = "HBO",
+                    Descricao = "Por pedido do Cliente, após um período gratuito de 7 dias, foi adicionado o canal HBO.",
+                    DataInicioComercializacao=new DateTime(2020, 07, 07),
+                    DataFimComercializacao=new DateTime(2020, 08, 14),
+                    Preco=4.99M,
+                },
+
+            });
 
             context.SaveChanges();
         }
