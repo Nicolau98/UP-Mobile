@@ -11,7 +11,7 @@
             <h1>Lista de Operadores</h1>
 
             <p>
-                <a asp-action="Create" type="button" class="btn border" style="background-color: #e3f2fd;">Criar Operador</a>
+                <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Operador</a>
             </p>
 
             <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
@@ -108,18 +108,18 @@
                     }
 
                     <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar" style="background-color: #e3f2fd;">Primeiro</a>
+                        <a class="page-link text-black-50 border-info" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar" style="background-color: #e3f2fd;">Primeiro</a>
                     </li>
 
                     @for (int i = paginaInicial; i <= paginaFinal; i++)
                     {
                         <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                            <a class="page-link" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
                         </li>
                     }
 
                     <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-                        <a class="page-link" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
+                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
                     </li>
                 </ul>
             </nav>

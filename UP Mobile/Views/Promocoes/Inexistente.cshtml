@@ -3,15 +3,22 @@
     ViewData["Title"] = "Promoção inexistente";
 }
 
-<div class="card text-white bg-warning mb-3">
-    <div class="card-body">
-        <h5 class="card-title">@ViewBag.Title</h5>
-        <p class="card-text">A Promoção que selecionou já não existe. Possivelmente alguém eliminou o mesmo.</p>
+<main id="main">
+    <section>
+        <div class="container">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.Title</h5>
+                    <p class="card-text">A Promoção que selecionou já não existe. Possivelmente alguém eliminou o mesmo.</p>
 
-        <div>
-            <a class="btn btn-primary" asp-action="Index">
-                Ver lista de Promoções
-            </a>
+
+                </div>
+            </div>
+            <div>
+                <a class="btn btn-primary" asp-action="Index">
+                    Ver lista de Promoções
+                </a>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+</main>

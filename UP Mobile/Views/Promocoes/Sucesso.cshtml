@@ -3,15 +3,21 @@
     ViewData["Title"] = "Sucesso";
 }
 
-<div class="card text-white bg-success mb-3">
-    <div class="card-body">
-        <h5 class="card-title">@ViewBag.Title</h5>
-        <p class="card-text">@ViewBag.Mensagem</p>
-
-        <div>
-            <a class="btn btn-primary" asp-action="Index">
-                Ver lista de Promoções</a>
+<main id="main">
+    <section>
+        <div class="container">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.Title</h5>
+                    <p class="card-text">@ViewBag.Mensagem</p>
+                </div>
+            </div>
+            <div>
+                <a class="btn btn-primary" asp-action="Index">
+                    Ver lista de Promoções
+                </a>
+            </div>
         </div>
-    </div> 
-</div>
+    </section>
+</main>
 
