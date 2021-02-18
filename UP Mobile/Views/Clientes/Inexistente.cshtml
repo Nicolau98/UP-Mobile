@@ -3,15 +3,20 @@
     ViewData["Title"] = "Cliente inexistente";
 }
 
-<div class="card text-white bg-warning mb-3">
-    <div class="card-body">
-        <h5 class="card-title">@ViewBag.Title</h5>
-        <p class="card-text">O Cliente que selecionou já não existe. Possivelmente alguém eliminou o mesmo.</p>
-
-        <div>
-            <a class="btn btn-primary" asp-action="Index">
-                Ver lista de Clientes
-            </a>
+<main id="main">
+    <section>
+        <div class="container">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.Title</h5>
+                    <p class="card-text">O Cliente que selecionou já não existe. Possivelmente alguém eliminou o mesmo.</p>
+                </div>
+            </div>
+            <div>
+                <a class="btn btn-primary" asp-action="Index">
+                    Ver lista de Clientes
+                </a>
+            </div>
         </div>
-    </div>
-</div>
+        </section>
+    </main>
