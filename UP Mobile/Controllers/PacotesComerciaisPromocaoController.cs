@@ -49,8 +49,8 @@ namespace UP_Mobile.Controllers
         // GET: PacotesComerciaisPromocao/Create
         public IActionResult Create()
         {
-            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Descricao");
-            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Descricao");
+            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome");
+            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace UP_Mobile.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Descricao", pacoteComercialPromocao.IdPacote);
-            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Descricao", pacoteComercialPromocao.IdPromocao);
+            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
+            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
             return View(pacoteComercialPromocao);
         }
 
@@ -85,8 +85,8 @@ namespace UP_Mobile.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Descricao", pacoteComercialPromocao.IdPacote);
-            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Descricao", pacoteComercialPromocao.IdPromocao);
+            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
+            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
             return View(pacoteComercialPromocao);
         }
 
@@ -122,8 +122,8 @@ namespace UP_Mobile.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Descricao", pacoteComercialPromocao.IdPacote);
-            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Descricao", pacoteComercialPromocao.IdPromocao);
+            ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
+            ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
             return View(pacoteComercialPromocao);
         }
 

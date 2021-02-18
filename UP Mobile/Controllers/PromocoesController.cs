@@ -59,7 +59,7 @@ namespace UP_Mobile.Controllers
                 .FirstOrDefaultAsync(m => m.IdPromocao == id);
             if (promocao == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
 
             return View(promocao);
@@ -82,7 +82,8 @@ namespace UP_Mobile.Controllers
             {
                 _context.Add(promocao);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.Mensagem = "Promoção adicionada com sucesso.";
+                return View("Sucesso");
             }
             return View(promocao);
         }
@@ -98,7 +99,7 @@ namespace UP_Mobile.Controllers
             var promocao = await _context.Promocao.FindAsync(id);
             if (promocao == null)
             {
-                return NotFound();
+                return View("Inexistente");
             }
             return View(promocao);
         }
@@ -115,27 +116,31 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(promocao);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PromocaoExists(promocao.IdPromocao))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return View(promocao);
             }
-            return View(promocao);
+            try
+            {
+                _context.Update(promocao);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PromocaoExists(promocao.IdPromocao))
+                {
+                    return View("EliminarInserir", promocao);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Ocorreu um erro. Não foi possível guardar a Promoção. Tente novamente e se o problema persistir contacte a assistência.");
+                    return View(promocao);
+                }
+            }
+
+            ViewBag.Mensagem = "Promoção alterada com sucesso";
+            return View("Sucesso");
+
         }
 
         // GET: Promocoes/Delete/5
@@ -150,7 +155,8 @@ namespace UP_Mobile.Controllers
                 .FirstOrDefaultAsync(m => m.IdPromocao == id);
             if (promocao == null)
             {
-                return NotFound();
+                ViewBag.Mensagem = "A promoção que estava a tentar apagar foi eliminado por outra pessoa.";
+                return View("Sucesso");
             }
 
             return View(promocao);
@@ -164,7 +170,9 @@ namespace UP_Mobile.Controllers
             var promocao = await _context.Promocao.FindAsync(id);
             _context.Promocao.Remove(promocao);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            ViewBag.Mensagem = "A Promoção foi eliminada com sucesso";
+            return View("Sucesso");
         }
 
         private bool PromocaoExists(int id)

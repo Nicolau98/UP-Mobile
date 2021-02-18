@@ -74,7 +74,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdOperador,Nome,DataNascimento,Morada,Contacto,Email,LocalTrabalho")] Operador operador)
+        public async Task<IActionResult> Create([Bind("IdOperador,Nome,DataNascimento,Morada,Contacto,Email,LocalTrabalho,OperadorAtivo")] Operador operador)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdOperador,Nome,DataNascimento,Morada,Contacto,Email,LocalTrabalho")] Operador operador)
+        public async Task<IActionResult> Edit(int id, [Bind("IdOperador,Nome,DataNascimento,Morada,Contacto,Email,LocalTrabalho,OperadorAtivo")] Operador operador)
         {
             if (id != operador.IdOperador)
             {
