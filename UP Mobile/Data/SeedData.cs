@@ -172,7 +172,7 @@ namespace UP_Mobile.Data
                     DataInicioComercializacao=new DateTime(2020, 07, 07),
                     DataFimComercializacao=new DateTime(2020, 08, 14),
                     Preco=4.99M,
-                },
+                }
 
             });
 

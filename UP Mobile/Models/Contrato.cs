@@ -35,7 +35,7 @@ namespace UP_Mobile.Models
         public string MoradaFaturacao { get; set; }
         [Column("Data_Fidelizacao", TypeName = "date")]
         public DateTime? DataFidelizacao { get; set; }
-        [Required]
+        //[Required]
         [Column("Nome_Cliente")]
         [StringLength(50)]
         public string NomeCliente { get; set; }

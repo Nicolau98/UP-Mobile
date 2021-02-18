@@ -61,10 +61,16 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdOperador,IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,NomeCliente,NomeOperador,PrecoBaseInicioContrato,PrecoTotal,ConteudoExtraTotal")] Contrato contrato)
+        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdOperador,IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato,PrecoTotal,ConteudoExtraTotal")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {
+                var cliente = await _context.Cliente.FindAsync(contrato.IdCliente);
+                var operador = await _context.Operador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+                contrato.NomeCliente = cliente.Nome;
+                contrato.NomeOperador = operador.Nome;
+
+
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
