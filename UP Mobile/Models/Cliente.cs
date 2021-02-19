@@ -19,11 +19,13 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Cliente")]
+        [Display(Name = "Nº Cliente")]
         public int IdCliente { get; set; }
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
         [Column("Data_Nascimento", TypeName = "date")]
+        [Display(Name = "Data de nascimento")]
         public DateTime DataNascimento { get; set; }
         [Required]
         [StringLength(100)]
@@ -36,10 +38,12 @@ namespace UP_Mobile.Models
         public string Email { get; set; }
         [Required]
         [Column("N_Contribuinte")]
+        [Display(Name = "CC")]
         [StringLength(9)]
         public string NContribuinte { get; set; }
         [Required]
         [Column("N_Identificacao")]
+        [Display(Name = "NIF")]
         [StringLength(8)]
         public string NIdentificacao { get; set; }
 

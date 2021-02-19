@@ -17,11 +17,13 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Operador")]
+        [Display(Name = "Nº Operador")]
         public int IdOperador { get; set; }
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
         [Column("Data_Nascimento", TypeName = "date")]
+        [Display(Name = "Data de nascimento")]
         public DateTime DataNascimento { get; set; }
         [Required]
         [StringLength(100)]
@@ -34,9 +36,11 @@ namespace UP_Mobile.Models
         public string Email { get; set; }
         [Required]
         [Column("Local_Trabalho")]
+        [Display(Name = "Morada do local de trabalho")]
         [StringLength(100)]
         public string LocalTrabalho { get; set; }
         [Column("Operador_ativo")]
+        [Display(Name = "Operador Ativo")]
         public bool OperadorAtivo { get; set; }
 
         [InverseProperty("IdOperadorNavigation")]
