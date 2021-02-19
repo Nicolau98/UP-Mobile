@@ -2,6 +2,9 @@
     ViewData["Title"] = "Home";
 }
 
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -15,21 +18,197 @@
 <main id="main">
     <section>
         <div class="container">
-            <br />
-            <h2 style="text-align: center">Aproveite os pacotes em promoção</h2>
-            <br />
-            <br />
-            <img src="~/img/img1.jpg" class="img-fluid">
-            <br />
-            <br />
-            <br />
-            <br />
-            <h2 style="text-align: center">Escolha a sua oferta na adesão à UPmobile</h2>
-            <br />
-            <br />
-            <img src="~/img/img2.jpg" class="img-fluid">
-            <br />
-            <br />
+            @*<br />
+                <h2 style="text-align: center">Aproveite os pacotes em promoção</h2>
+                <br />
+                <br />
+                <img src="~/img/img1.jpg" class="img-fluid">
+                <br />
+                <br />
+                <br />
+                <br />
+                <h2 style="text-align: center">Escolha a sua oferta na adesão à UPmobile</h2>
+                <br />
+                <br />
+                <img src="~/img/img2.jpg" class="img-fluid">
+                <br />
+                <br />*@
+
+
+            <!-- ======= Pricing Section ======= -->
+            <section id="pricing" class="pricing">
+                <div class="container">
+
+                    <div class="section-title">
+
+                        <h2>OS PACOTES MAIS UP</h2>
+                        <p>Aproveite os pacotes em promoção</p>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150">
+                            <div class="box">
+                                <h2>UP Simples</h2>
+                                <h4><sup>€</sup>24<span> / mês</span></h4><hr />
+                                <ul>
+                                    <li><h5>Internet</h5></li>
+                                    <li>120 Megas</li>
+                                    <li><h5>TV</h5></li>
+                                    <li>90 canais</li>
+                                    <li><h5>Voz</h5></li>
+                                    <li>Chamadas ilimitadas</li>
+                                    <li class="na"><h5>Móvel</h5></li>
+                                </ul>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-buy">Aderir</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in">
+                            <div class="box featured">
+                                <h2>UP Super</h2>
+                                <h4><sup>€</sup>34<span> / mês</span></h4><hr />
+                                <ul>
+                                    <li><h5>Internet</h5></li>
+                                    <li>120 Megas</li>
+                                    <li><h5>TV</h5></li>
+                                    <li>90 canais</li>
+                                    <li><h5>Voz</h5></li>
+                                    <li>Chamadas ilimitadas</li>
+                                    <li><h5>Móvel</h5></li>
+                                    <li>2 GB + 1000 Min/SMS</li>
+                                </ul>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-buy">Aderir</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
+                            <div class="box">
+                                <h2>UP Mega</h2>
+                                <h4><sup>€</sup>44<span> / mês</span></h4><hr />
+                                <ul>
+                                    <li><h5>Internet</h5></li>
+                                    <li>250 Megas</li>
+                                    <li><h5>TV</h5></li>
+                                    <li>140 canais</li>
+                                    <li><h5>Voz</h5></li>
+                                    <li>Chamadas ilimitadas</li>
+                                    <li><h5>Móvel</h5></li>
+                                    <li>4 GB + 2000 Min/SMS</li>
+                                </ul>
+                                <div class="btn-wrap">
+                                    <a href="#" class="btn-buy">Aderir</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section><!-- End Pricing Section -->
+            <!-- ======= Clients Section ======= -->
+            <section id="clients" class="clients">
+                <div class="container" data-aos="zoom-in">
+
+                    <div class="row d-flex align-items-center">
+                        <h3>Os canais mais UP</h3>
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="~/img/sportv.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="~/img/dogtvv.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="~/img/BTV.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="~/img/startv.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="~/img/cine.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6">
+                            <img src="~/img/playboytv.png" class="img-fluid" alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+            </section><!-- End Clients Section -->
+            <!-- ======= Services Section ======= -->
+            <section id="services" class="services">
+                <div class="container">
+
+                    <div class="section-title">
+
+                        <h2>UP Extras</h2>
+                        <p>Dá um UP ao teu pacote para que te não falte nada</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                            <div class="icon-box">
+                                <div class="icon"><i class="fas fa-futbol fa-2x" style="color:white"></i></div>
+                                <h4><a href="">Canais Desportivos</a></h4>
+                                <p>Aficionado de desporto? Então este é o ideal para ti</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
+                            <div class="icon-box">
+                                <div class="icon"><i class="fas fa-pepper-hot fa-2x" style="color:white"></i></div>
+                                <h4><a href="">Canais para Adultos</a></h4>
+                                <p>O pack adultos é composto por 4 canais premium</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box">
+                                <div class="icon"><i class="fas fa-tachometer-alt fa-2x" style="color:white"></i></div>
+                                <h4><a href="">Mais Dados Móveis</a></h4>
+                                <p>O aditivo perfeito para que nunca te falhe a internet</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
+                            <div class="icon-box">
+                                <div class="icon"><i class="fas fa-globe fa-2x" style="color:white"></i></div>
+                                <h4><a href="">Canais Internacionais</a></h4>
+                                <p>Vários canais internacionais disponíveis para subscrição</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
+                            <div class="icon-box">
+                                <div class="icon"><i class="fas fa-play-circle fa-2x" style="color:white"></i></div>
+                                <h4><a href="">Video On Demand</a></h4>
+                                <p>Temos sempre a lista de filmes atualizada para que não percas nenhum</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
+                            <div class="icon-box">
+                                <div class="icon"><i class="fas fa-landmark fa-2x" style="color:white"></i></div>
+                                <h4><a href="">Documentários</a></h4>
+                                <p>Porque o savber não ocupa lugar, descobre os melhores canais de documentários</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section><!-- End Services Section -->
+
+
         </div>
     </section>
 </main>
