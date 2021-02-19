@@ -23,7 +23,6 @@ namespace UP_Mobile.Data
         public virtual DbSet<ConteudoExtra> ConteudoExtra { get; set; }
         public virtual DbSet<Contrato> Contrato { get; set; }
         public virtual DbSet<ContratoConteudo> ContratoConteudo { get; set; }
-        public virtual DbSet<Fatura> Fatura { get; set; }
         public virtual DbSet<Operador> Operador { get; set; }
         public virtual DbSet<PacoteComercial> PacoteComercial { get; set; }
         public virtual DbSet<PacoteComercialPromocao> PacoteComercialPromocao { get; set; }
@@ -66,15 +65,6 @@ namespace UP_Mobile.Data
                     .HasForeignKey(d => d.IdContrato)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Contrato_Conteudo_Contrato");
-            });
-
-            modelBuilder.Entity<Fatura>(entity =>
-            {
-                entity.HasOne(d => d.IdContratoNavigation)
-                    .WithMany(p => p.Fatura)
-                    .HasForeignKey(d => d.IdContrato)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Fatura_Contrato");
             });
 
             modelBuilder.Entity<PacoteComercialPromocao>(entity =>

@@ -13,7 +13,6 @@ namespace UP_Mobile.Models
         public Contrato()
         {
             ContratoConteudo = new HashSet<ContratoConteudo>();
-            Fatura = new HashSet<Fatura>();
         }
 
         [Key]
@@ -35,7 +34,7 @@ namespace UP_Mobile.Models
         public string MoradaFaturacao { get; set; }
         [Column("Data_Fidelizacao", TypeName = "date")]
         public DateTime? DataFidelizacao { get; set; }
-        //[Required]
+        [Required]
         [Column("Nome_Cliente")]
         [StringLength(50)]
         public string NomeCliente { get; set; }
@@ -60,7 +59,5 @@ namespace UP_Mobile.Models
         public virtual PacoteComercialPromocao IdPacoteComercialPromocaoNavigation { get; set; }
         [InverseProperty("IdContratoNavigation")]
         public virtual ICollection<ContratoConteudo> ContratoConteudo { get; set; }
-        [InverseProperty("IdContratoNavigation")]
-        public virtual ICollection<Fatura> Fatura { get; set; }
     }
 }

@@ -42,10 +42,10 @@ namespace UP_Mobile.Data
                     Nome ="Pedro Francisco Silva Magalhães" ,
                     DataNascimento = new DateTime(1994, 09, 14),
                     Morada ="Praça da Alegria, nº9, 6º direito, 1980-330 Sarzedo",
-                    Contacto = 918306197,
+                    Contacto = "918306197",
                     Email ="pepemangalhanes@sapo.pt" ,
-                    NContribuinte = 236194038,
-                    NIdentificacao = 11739165
+                    NContribuinte = "236194038",
+                    NIdentificacao = "11739165"
 
                 },
 
@@ -54,10 +54,10 @@ namespace UP_Mobile.Data
                     Nome ="Maria da Conceição Santos Nunes" ,
                     DataNascimento = new DateTime(1987, 12, 29),
                     Morada ="Avenida da Fortaleza, nº2, 2º direito, 2340-786 Oliveira do Hospital",
-                    Contacto = 961370629,
+                    Contacto = "961370629",
                     Email ="marYinunex@iol.pt" ,
-                    NContribuinte = 267093158,
-                    NIdentificacao = 10679234
+                    NContribuinte = "267093158",
+                    NIdentificacao = "10679234"
 
                 },
 
@@ -66,10 +66,10 @@ namespace UP_Mobile.Data
                     Nome ="Ana Sofia Júlia dos Prazeres Rabaça David" ,
                     DataNascimento = new DateTime(2000, 07, 18),
                     Morada ="Rua das Mangueiras, nº68, 1º direito, 6969-096 Amadora",
-                    Contacto = 924197630,
+                    Contacto = "924197630",
                     Email ="losHermanosanajulia_8@gmail.com" ,
-                    NContribuinte = 28613026,
-                    NIdentificacao = 16791206
+                    NContribuinte = "28613026",
+                    NIdentificacao = "16791206"
 
                 },
 
@@ -78,10 +78,10 @@ namespace UP_Mobile.Data
                     Nome ="Patrick Manuel Paiva Constantino" ,
                     DataNascimento = new DateTime(1995, 09, 01),
                     Morada ="Jardim dos Ramos, nº20, RC, 5780-683 Pé de Cão" ,
-                    Contacto = 936480369,
+                    Contacto = "936480369",
                     Email ="patricKaestrela_97@hotmail.com" ,
-                    NContribuinte = 234910387,
-                    NIdentificacao = 14730658
+                    NContribuinte = "234910387",
+                    NIdentificacao = "14730658"
 
                 },
 
@@ -90,10 +90,10 @@ namespace UP_Mobile.Data
                     Nome ="Manuel Pereira Costa" ,
                     DataNascimento = new DateTime(1974, 04, 26),
                     Morada ="Parque do Nascimento Jesus, nº24, 12º esquerdo, 2510-125 Venda das Raparigas",
-                    Contacto = 962412493,
+                    Contacto = "962412493",
                     Email ="manuelcostaapereira@sapo.pt" ,
-                    NContribuinte = 194603876,
-                    NIdentificacao = 10348610
+                    NContribuinte = "194603876",
+                    NIdentificacao = "10348610"
 
                 }
 
@@ -414,7 +414,7 @@ namespace UP_Mobile.Data
                     Nome = "Joaquim Manuel Floribela Cunha" + i,
                     DataNascimento = new DateTime(2021, 01, 01),
                     Morada = "Rua da Alegria, nº24, 3º direito, 6260-123 Manteigas" + i,
-                    Contacto = 928561389 + i,
+                    Contacto = "928561389",
                     Email = "joaquimcunha@iol.pt" + i,
                     LocalTrabalho = "Rua da Felicidade, nº3, RC, 6300-234 Guarda" + i,
                     OperadorAtivo = true

@@ -19,34 +19,29 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Cliente")]
-        [Display(Name = "Nº Cliente")]
         public int IdCliente { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
-
         [Column("Data_Nascimento", TypeName = "date")]
-        [Display(Name = "Data de nascimento")]
         public DateTime DataNascimento { get; set; }
-
         [Required]
         [StringLength(100)]
         public string Morada { get; set; }
-
-        public int Contacto { get; set; }
-
+        [Required]
+        [StringLength(9)]
+        public string Contacto { get; set; }
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
-
+        [Required]
         [Column("N_Contribuinte")]
-        [Display(Name = "CC")]
-        public int NContribuinte { get; set; }
-
+        [StringLength(9)]
+        public string NContribuinte { get; set; }
+        [Required]
         [Column("N_Identificacao")]
-        [Display(Name = "NIF")]
-        public int NIdentificacao { get; set; }
+        [StringLength(8)]
+        public string NIdentificacao { get; set; }
 
         [InverseProperty("IdClienteNavigation")]
         public virtual ICollection<Contrato> Contrato { get; set; }
