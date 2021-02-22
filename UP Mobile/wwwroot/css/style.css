@@ -567,42 +567,49 @@ section {
 # Why Us
 --------------------------------------------------------------*/
 .why-us {
-  padding-top: 10px;
+    padding-top: 80px;
+    align-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    
 }
 
 .why-us .box {
   padding: 50px 30px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   transition: all ease-in-out 0.3s;
+  
+  
 }
 
-.why-us .box span {
-  display: block;
-  font-size: 28px;
-  font-weight: 700;
-  color: #ed5b5b;
-}
+    .why-us .box span {
+        display: block;
+        font-size: 28px;
+        font-weight: 700;
+        color: #4FD6D9; /*COR DOS ICONS*/
+    }
 
-.why-us .box h4 {
-  font-size: 24px;
-  font-weight: 600;
-  padding: 0;
-  margin: 20px 0;
-  color: #191919;
-}
+    .why-us .box h4 {
+        font-size: 24px;
+        font-weight: 600;
+        padding: 0;
+        margin: 20px 0;
+        color: #4FD6D9;
+    }
 
-.why-us .box p {
-  color: #aaaaaa;
-  font-size: 15px;
-  margin: 0;
-  padding: 0;
-}
+    .why-us .box p {
+        color: #444444;
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+      
+    }
 
-.why-us .box:hover {
-  background: #80f2f3;
-  padding: 30px 30px 70px 30px;
-  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
-}
+    .why-us .box:hover {
+        background: #55ECC3;
+        padding: 30px 30px 70px 30px;
+        box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+    }
 
 .why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
   color: #fff;
@@ -612,14 +619,16 @@ section {
 # Clients
 --------------------------------------------------------------*/
 .clients {
-  background: #f2f2f2;
-  padding: 15px 0;
-  text-align: center;
+    background: #55ECC3;
+    padding: 25px 0;
+    text-align: center;
+    color: white;
 }
 
+
 .clients img {
-  width: 50%;
-  filter: grayscale(100);
+  width: 68%;
+/*  filter: grayscale(10);*/
   transition: all 0.4s ease-in-out;
   display: inline-block;
   padding: 15px 0;
@@ -646,35 +655,35 @@ section {
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-.services .icon-box .icon {
-  margin: 0 auto;
-  width: 64px;
-  height: 64px;
-  background: #80f2f3;
-  transition: all .3s ease-out 0s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transform-style: preserve-3d;
-}
+    .services .icon-box .icon {
+        margin: 0 auto;
+        width: 64px;
+        height: 64px;
+        background: #4FD6D9; /*QUADRADINHOS PEQUENOS*/
+        transition: all .3s ease-out 0s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        transform-style: preserve-3d;
+    }
 
 .services .icon-box .icon i {
   color: #fff;
   font-size: 28px;
 }
 
-.services .icon-box .icon::before {
-  position: absolute;
-  content: '';
-  left: -8px;
-  top: -8px;
-  height: 100%;
-  width: 100%;
-  background: #fce5e5;
-  transition: all .3s ease-out 0s;
-  transform: translateZ(-1px);
-}
+        .services .icon-box .icon::before {
+            position: absolute;
+            content: '';
+            left: -8px;
+            top: -8px;
+            height: 100%;
+            width: 100%;
+            background: #80F2F3; /*TRAS DOS QUADRADINHOS PEQUENOS*/
+            transition: all .3s ease-out 0s;
+            transform: translateZ(-1px);
+        }
 
 .services .icon-box h4 {
   font-weight: 700;
@@ -692,35 +701,43 @@ section {
   margin-bottom: 0;
 }
 
-.services .icon-box:hover {
-  background: #80f2f3;
-  border-color: #80f2f3;
-  padding: 70px 20px 90px 20px;
-}
+    .services .icon-box:hover {
+        background: #4FD6D9; /*QUADRADO GRANDE*/
+        border-color: #4FD6D9;
+        padding: 70px 20px 90px 20px;
+    }
 
-.services .icon-box:hover .icon {
-  background: #fff;
-}
+        .services .icon-box:hover .icon {
+            background: #86F1C5; /*QUADRADINHOS PEQUENOS*/
+        }
 
 .services .icon-box:hover .icon i {
   color: #80f2f3;
 }
 
-.services .icon-box:hover .icon::before {
-  background: #4fd6d9;
+            .services .icon-box:hover .icon::before {
+                background: #fff; /*TRAS DOS QUADRADINHOS PEQUENOS*/
+            }
+
+        .services .icon-box:hover h4 a, .services .icon-box:hover p {
+            color: #FFF;
+        }
+
+.fa-futbol, .fa-pepper-hot, .fa-tachometer-alt, .fa-globe, .fa-play-circle, .fa-landmark {
+    color: white;
 }
 
-.services .icon-box:hover h4 a, .services .icon-box:hover p {
-  color: #fff;
-}
+
+
+
 
 /*--------------------------------------------------------------
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") fixed center center;
-  background-size: cover;
-  padding: 120px 0;
+    background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") fixed center center;
+    background-size: cover;
+    padding: 120px 0;
 }
 
 .cta h3 {
@@ -927,6 +944,7 @@ section {
 --------------------------------------------------------------*/
 .pricing .box {
   padding: 20px;
+  padding-top: 5px;
   background: #f9f9f9;
   text-align: center;
   border-radius: 8px;
@@ -945,7 +963,7 @@ section {
 
 .pricing .box h4 {
   font-size: 42px;
-  color: #80f2f3;
+  color: #4FD6D9; /*PREÇO*/
   font-weight: 500;
   font-family: "Open Sans", sans-serif;
   margin-bottom: 20px;
@@ -977,7 +995,7 @@ section {
 }
 
 .pricing .box ul i {
-  color: #80f2f3;
+  color: #4FD6D9;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -992,27 +1010,27 @@ section {
   text-align: center;
 }
 
-.pricing .box .btn-buy {
-  background: #80f2f3;
-  display: inline-block;
-  padding: 10px 40px;
-  color: #fff;
-  transition: none;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  transition: 0.3s;
-}
+    .pricing .box .btn-buy {
+        background: #55ECC3; /*BOTÃO*/
+        display: inline-block;
+        padding: 10px 40px;
+        color: #fff;
+        transition: none;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+        transition: 0.3s;
+    }
 
 .pricing .box .btn-buy:hover {
-  background: #4fd6d9;
+  background: #82DDF2; /*BOTÃO HOVER*/
 }
 
 .pricing .featured {
-  background: #80f2f3;
-  box-shadow: none;
-  color: #fff;
+    background: #4FD6D9;
+    box-shadow: none;
+    color: #fff;
 }
 
 .pricing .featured h3, .pricing .featured h4, .pricing .featured ul, .pricing .featured ul li, .pricing .featured ul .na {
@@ -1028,14 +1046,15 @@ section {
   text-align: center;
 }
 
-.pricing .featured .btn-buy {
-  background: rgba(255, 255, 255, 0.2);
-}
+    .pricing .featured .btn-buy {
+        background: white;
+        color: #4FD6D9;
+    }
 
-.pricing .featured .btn-buy:hover {
-  background: #fff;
-  color: #80f2f3;
-}
+        .pricing .featured .btn-buy:hover {
+            background: #86F1C5;
+            color: #fff;
+        }
 
 /*--------------------------------------------------------------
 # Team
