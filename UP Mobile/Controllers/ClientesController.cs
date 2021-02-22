@@ -49,7 +49,7 @@ namespace UP_Mobile.Controllers
             return View(modelo);
         }
 
-        //[Authorize(Roles = "Cliente")]
+        [Authorize(Roles = "Cliente, Administrador")]
         // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -84,7 +84,8 @@ namespace UP_Mobile.Controllers
 
             return View(cliente);
         }
-        
+
+        [Authorize(Roles = "Administrador")]
         // GET: Clientes/Create
         public IActionResult Create()
         {
@@ -108,6 +109,7 @@ namespace UP_Mobile.Controllers
             return View(cliente);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Clientes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -164,6 +166,7 @@ namespace UP_Mobile.Controllers
 
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Clientes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

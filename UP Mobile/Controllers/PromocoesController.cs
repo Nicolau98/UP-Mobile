@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,7 @@ namespace UP_Mobile.Controllers
             return View(modelo);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Promocoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -65,6 +67,7 @@ namespace UP_Mobile.Controllers
             return View(promocao);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Promocoes/Create
         public IActionResult Create()
         {
@@ -88,6 +91,7 @@ namespace UP_Mobile.Controllers
             return View(promocao);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Promocoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -143,6 +147,7 @@ namespace UP_Mobile.Controllers
 
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: Promocoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
