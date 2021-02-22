@@ -48,15 +48,16 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Contratos/Create
-        public async Task<IActionResult> CreateAsync()
+        public async Task<IActionResult> Create()
         {
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Email");
             ViewData["IdOperador"] = new SelectList(_context.Operador, "IdOperador", "Email");
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao");
 
-            //var operador = await _context.Operador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+            //var cliente = await _context.Cliente.FindAsync(id);
 
-            //ViewBag.NomeOperador = operador.Nome;
+            var operador = await _context.Operador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+            ViewBag.NomeOperador = operador.Nome;
 
             return View();
         }
