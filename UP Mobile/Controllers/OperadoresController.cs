@@ -62,6 +62,15 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
+            if (operador.OperadorAtivo == true)
+            {
+                ViewBag.Mensagem = "Operador ativo";
+            }
+            else
+            {
+                ViewBag.Mensagem = "Operador inativo";
+            }
+            
             return View(operador);
         }
 
