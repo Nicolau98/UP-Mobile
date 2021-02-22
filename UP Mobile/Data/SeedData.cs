@@ -27,6 +27,7 @@ namespace UP_Mobile.Data
             InsereClientesFicticias(context);
             InsereOperadoresFicticias(context);
             InsereConteudoExtraFicticias(context);
+
         }
 
         private static void InsereClientesFicticias(UPMobileContext context)
@@ -336,44 +337,148 @@ namespace UP_Mobile.Data
 
             InserePacotesComerciaisFicticiasParaTestar(context);
 
-            //context.PacoteComercial.AddRange(new PacoteComercial[]
-            //{
-            //    new PacoteComercial
-            //    {
+            context.PacoteComercial.AddRange(new PacoteComercial[]
+            {
+                new PacoteComercial
+                {
 
-            //        Nome = "UP Teste 500MB",
-            //        Descricao = "Pacote de internet e vais com sorte",
-            //        DataInicioComercializacao = new DateTime(2021,02,15),
-            //        DataFimComercializacao = new DateTime(2021,10,15),
-            //        PrecoBase = 52,
-            //        PeriodoFidelizacao = 12
+                    Nome = "UP Smile",
+                    Descricao = "Internet a 120MB; TV com 90 canais; Chamadas de voz ilimitadas;",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 24,
+                    PeriodoFidelizacao = 12
 
 
-            //    }
+                },
 
-            //});
+                new PacoteComercial
+                {
 
-            //context.SaveChanges();
+                    Nome = "UP Super",
+                    Descricao = "Internet a 120MB; TV com 90 canais; 1 Móvel com 2GB + 1000min/SMS; Chamadas de voz ilimitadas;",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 34,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+                new PacoteComercial
+                {
+
+                    Nome = "UP Mega",
+                    Descricao = "Internet a 250MB; TV com 140 canais; 1 Móvel com 4GB + 2000min/SMS; Chamadas de voz ilimitadas;",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 44,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+                new PacoteComercial
+                {
+
+                    Nome = "UP Mega C",
+                    Descricao = "Internet a 250MB; TV com 140 canais; 2 Móvel com 4GB + 2000min/SMS; Chamadas de voz ilimitadas; 5 Euros por cada serviço Móvel adicional",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 49,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+                new PacoteComercial
+                {
+
+                    Nome = "UP Net",
+                    Descricao = "Internet ilimitada com velocidade de 250MB",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 19,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+                new PacoteComercial
+                {
+
+                    Nome = "UP TV",
+                    Descricao = "Pacote com 140 canais de televisão + 3 canais premium à escolha de oferta; Incluí duas boxes. Oferta de Netflix durante 3 meses com a subscrição.",
+                    DataInicioComercializacao = new DateTime(2021,03,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 84,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+                new PacoteComercial
+                {
+
+                    Nome = "UP Go",
+                    Descricao = "Móvel com 4000min/SMS para todas as redes e 10GB de Internet",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 14,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+                new PacoteComercial
+                {
+
+                    Nome = "UP Max",
+                    Descricao = "Neste pacote é tudo ao máximo. Internet a 250MB; TV com 140 canais; 1 Móvel com 10GB + 4000min/SMS; Chamadas de voz ilimitadas; Oferta de 3 meses de Netflix",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 64,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+                new PacoteComercial
+                {
+
+                    Nome = "UP Voz",
+                    Descricao = "Serviço Pré Pago de Móvel. Carregue quando quiser, use como quiser. Carregamento mínimo de 5 euros. Preço do cartão 5 euros.",
+                    DataInicioComercializacao = new DateTime(2021,01,01),
+                    DataFimComercializacao = new DateTime(2021,12,31),
+                    PrecoBase = 5,
+                    PeriodoFidelizacao = 12
+
+
+                },
+
+            });
+
+            context.SaveChanges();
         }
 
         private static void InserePacotesComerciaisFicticiasParaTestar(UPMobileContext context)
         {
 
 
-            for (int i = 0; i < 50; i++)
-            {
-                context.PacoteComercial.Add(new PacoteComercial
-                {
-                    Nome = "UP Teste 500MB" + i,
-                    Descricao = "Pacote de internet e vais com sorte" + i,
-                    DataInicioComercializacao = new DateTime(2021, 02, 15),
-                    DataFimComercializacao = new DateTime(2021, 10, 15),
-                    PrecoBase = 20 + i,
-                    PeriodoFidelizacao = 12
-                });
-            }
+            //for (int i = 0; i < 50; i++)
+            //{
+            //    context.PacoteComercial.Add(new PacoteComercial
+            //    {
+            //        Nome = "UP Teste 500MB" + i,
+            //        Descricao = "Pacote de internet e vais com sorte" + i,
+            //        DataInicioComercializacao = new DateTime(2021, 02, 15),
+            //        DataFimComercializacao = new DateTime(2021, 10, 15),
+            //        PrecoBase = 20 + i,
+            //        PeriodoFidelizacao = 12
+            //    });
+            //}
 
-            context.SaveChanges();
+            //context.SaveChanges();
 
         }
 
