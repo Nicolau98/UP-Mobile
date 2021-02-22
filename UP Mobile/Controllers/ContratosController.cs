@@ -48,11 +48,16 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Contratos/Create
-        public IActionResult Create()
+        public async Task<IActionResult> CreateAsync()
         {
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Email");
             ViewData["IdOperador"] = new SelectList(_context.Operador, "IdOperador", "Email");
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao");
+
+            //var operador = await _context.Operador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+
+            //ViewBag.NomeOperador = operador.Nome;
+
             return View();
         }
 
@@ -173,6 +178,33 @@ namespace UP_Mobile.Controllers
         private bool ContratoExists(int id)
         {
             return _context.Contrato.Any(e => e.IdContrato == id);
+        }
+
+        public async Task<IActionResult> PesquisaCliente(string nomePesquisar, int pagina = 1)
+        {
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Cliente.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Cliente> Cliente = await _context.Cliente.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaClientesViewModel modelo = new ListaClientesViewModel
+            {
+                Paginacao = paginacao,
+                Cliente = Cliente,
+                NomePesquisar = nomePesquisar
+            };
+
+
+
+            return View(modelo);
         }
     }
 }
