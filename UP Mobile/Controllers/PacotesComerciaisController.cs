@@ -48,6 +48,7 @@ namespace UP_Mobile.Controllers
             return View(modelo);
         }
 
+        [Authorize(Roles = "Administrador, Operador")]
         // GET: PacotesComerciais/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -66,7 +67,7 @@ namespace UP_Mobile.Controllers
             return View(pacoteComercial);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrador")]
         // GET: PacotesComerciais/Create
         public IActionResult Create()
         {
@@ -90,7 +91,7 @@ namespace UP_Mobile.Controllers
             return View(pacoteComercial);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrador")]
         // GET: PacotesComerciais/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -146,7 +147,7 @@ namespace UP_Mobile.Controllers
             return View("Sucesso");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Administrador, Operador")]
         // GET: PacotesComerciais/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
