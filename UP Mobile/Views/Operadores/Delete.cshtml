@@ -12,10 +12,10 @@
 
             <h3>Tem a certeza que deseja apagar o operador nº @Html.DisplayFor(model => model.IdOperador) ?</h3>
             <div>
-                <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
+                <hr />
                     <dl class="row">
-                        <dt class="col-sm">
-                            @Html.DisplayNameFor(model => model.Nome) @Html.DisplayFor(model => model.Nome)
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Nome) 
                         </dt>
                         <dd class="col-sm-10">
                             @Html.DisplayFor(model => model.Nome)
@@ -57,7 +57,7 @@
                         <input type="submit" value="Apagar" class="btn border" style="background-color: #55ecc3;" /> |
                         <a asp-action="Index" type="button" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
                     </form>
-                </div>
+                
             </div>
         </div>
     </section>
