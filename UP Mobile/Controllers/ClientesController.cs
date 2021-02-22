@@ -49,37 +49,37 @@ namespace UP_Mobile.Controllers
             return View(modelo);
         }
 
-        [Authorize(Roles = "Cliente")]
+        //[Authorize(Roles = "Cliente")]
         // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             Cliente cliente;
 
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            //cliente = await _context.Cliente.SingleOrDefaultAsync(c => c.IdCliente == id);
+            cliente = await _context.Cliente.SingleOrDefaultAsync(c => c.IdCliente == id);
 
-            //if (cliente == null)
-            //{
-            //    return NotFound();
-            //}
+            if (cliente == null)
+            {
+                return NotFound();
+            }
             //else
             //{
-                if (!User.IsInRole("Cliente"))
-                {
-                    return NotFound();
-                }
+            //if (!User.IsInRole("Cliente"))
+            //    {
+            //        return NotFound();
+            //    }
 
-                cliente = await _context.Cliente.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
+            //    cliente = await _context.Cliente.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
 
-                if (cliente == null)
-                {
-                    // todo: Enviar para uma página a explicar o problema
-                    return NotFound();
-                }
+            //    if (cliente == null)
+            //    {
+            //        // todo: Enviar para uma página a explicar o problema
+            //        return NotFound();
+            //    }
             //}
 
             return View(cliente);
