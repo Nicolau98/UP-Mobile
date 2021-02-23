@@ -21,28 +21,36 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: PacotesComerciais
-        public async Task<IActionResult> Index(string nomePesquisar, int pagina = 1)
+        public async Task<IActionResult> Index() /*string nomePesquisar, int pagina = 1*/
         {
-            Paginacao paginacao = new Paginacao
+            //Paginacao paginacao = new Paginacao
+            //{
+            //    TotalItems = await _context.PacoteComercial.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+            //    PaginaAtual = pagina
+            //};
+
+            //List<PacoteComercial> PacoteComercial = await _context.PacoteComercial.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+
+            //    .OrderBy(p => p.Nome)
+            //    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+            //    .Take(paginacao.ItemsPorPagina)
+            //    .ToListAsync();
+
+            //ListaPacotesComerciaisViewModel modelo = new ListaPacotesComerciaisViewModel
+            //{
+            //    Paginacao = paginacao,
+            //    PacoteComercial = PacoteComercial,
+            //    NomePesquisar = nomePesquisar
+            //};
+
+            List<PacoteComercialDetalhes> PacoteComercialDetalhes = await _context.PacoteComercialDetalhes.ToListAsync();
+            List<PacoteComercial> PacoteComercials = await _context.PacoteComercial.ToListAsync();
+
+            TesteViewModel modelo = new TesteViewModel
             {
-                TotalItems = await _context.PacoteComercial.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
-                PaginaAtual = pagina
+                PacoteComercialDetalhes = PacoteComercialDetalhes,
+                PacoteComercials = PacoteComercials
             };
-
-            List<PacoteComercial> PacoteComercial = await _context.PacoteComercial.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
-
-                .OrderBy(p => p.Nome)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
-
-            ListaPacotesComerciaisViewModel modelo = new ListaPacotesComerciaisViewModel
-            {
-                Paginacao = paginacao,
-                PacoteComercial = PacoteComercial,
-                NomePesquisar = nomePesquisar
-            };
-
 
 
             return View(modelo);

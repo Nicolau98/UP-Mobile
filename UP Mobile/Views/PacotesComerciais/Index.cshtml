@@ -1,6 +1,56 @@
-﻿@model ListaPacotesComerciaisViewModel
+﻿@model TesteViewModel
 
 @{
-    ViewData["Title"] = "Pacotes Comerciais";
+    ViewData["Title"] = "";
 }
 
+<main id="main">
+    <section>
+        <div class="container">
+
+            <h1 class="text-center" style="color:#4fd6d9">Pacotes Comerciais</h1>
+
+
+            @*COMEÇA AQUI*@
+
+            <section id="pricing" class="pricing">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-5" data-aos="zoom-in" data-aos-delay="150">
+                            <div class="box">
+                                @foreach (var item in Model.PacoteComercials)
+                                {
+                                    <h2>@Html.DisplayFor(modelItem => item.Nome)</h2>
+                                    <h4><sup>€</sup>@Html.DisplayFor(modelItem => item.PrecoBase)<span> / mês</span></h4><hr />}
+
+                              
+                            <ul>
+                                @foreach (var item in Model.PacoteComercialDetalhes)
+                                {
+                                    <li><h5>Internet</h5></li>
+                                    <li>@Html.DisplayFor(modelItem => item.Internet)</li>
+                                    <li><h5>TV</h5></li>
+                                    <li>@Html.DisplayFor(modelItem => item.Tv)</li>
+                                    <li><h5>Voz</h5></li>
+                                    <li>@Html.DisplayFor(modelItem => item.Voz)</li>}
+                                </ul>
+                                    
+                                        <div class="btn-wrap">
+                                            <ul>
+                                                <li><a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a></li>
+                                            </ul>
+                                        </div>
+                                    }
+
+                                   
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                    </section>
+                        
+
+
+                    </div>
+            </section>
+</main>
