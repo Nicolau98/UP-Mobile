@@ -31,6 +31,7 @@ namespace UP_Mobile.Models
         public DateTime? DataFimComercializacao { get; set; }
         [Column(TypeName = "decimal(4, 2)")]
         public decimal? Preco { get; set; }
+        public bool Ativo { get; set; }
 
         [InverseProperty("IdConteudoNavigation")]
         public virtual ICollection<ContratoConteudo> ContratoConteudo { get; set; }

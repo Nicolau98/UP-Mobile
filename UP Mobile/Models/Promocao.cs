@@ -32,6 +32,7 @@ namespace UP_Mobile.Models
         public decimal Preco { get; set; }
         [StringLength(50)]
         public string Conteudo { get; set; }
+        public bool Ativo { get; set; }
 
         [InverseProperty("IdPromocaoNavigation")]
         public virtual ICollection<PacoteComercialPromocao> PacoteComercialPromocao { get; set; }

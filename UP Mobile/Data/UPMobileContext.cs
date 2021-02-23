@@ -18,15 +18,15 @@ namespace UP_Mobile.Data
         {
         }
 
-        public virtual DbSet<Administrador> Administrador { get; set; }
-        public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<ConteudoExtra> ConteudoExtra { get; set; }
         public virtual DbSet<Contrato> Contrato { get; set; }
         public virtual DbSet<ContratoConteudo> ContratoConteudo { get; set; }
-        public virtual DbSet<Operador> Operador { get; set; }
         public virtual DbSet<PacoteComercial> PacoteComercial { get; set; }
+        public virtual DbSet<PacoteComercialDetalhes> PacoteComercialDetalhes { get; set; }
         public virtual DbSet<PacoteComercialPromocao> PacoteComercialPromocao { get; set; }
         public virtual DbSet<Promocao> Promocao { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Utilizador> Utilizador { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,15 +35,15 @@ namespace UP_Mobile.Data
             modelBuilder.Entity<Contrato>(entity =>
             {
                 entity.HasOne(d => d.IdClienteNavigation)
-                    .WithMany(p => p.Contrato)
+                    .WithMany(p => p.ContratoIdClienteNavigation)
                     .HasForeignKey(d => d.IdCliente)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Contrato_Cliente");
+                    .HasConstraintName("FK_Contrato_Utilizador");
 
                 entity.HasOne(d => d.IdOperadorNavigation)
-                    .WithMany(p => p.Contrato)
+                    .WithMany(p => p.ContratoIdOperadorNavigation)
                     .HasForeignKey(d => d.IdOperador)
-                    .HasConstraintName("FK_Contrato_Operador");
+                    .HasConstraintName("FK_Contrato_Utilizador1");
 
                 entity.HasOne(d => d.IdPacoteComercialPromocaoNavigation)
                     .WithMany(p => p.Contrato)
@@ -67,6 +67,20 @@ namespace UP_Mobile.Data
                     .HasConstraintName("FK_Contrato_Conteudo_Contrato");
             });
 
+            modelBuilder.Entity<PacoteComercial>(entity =>
+            {
+                entity.HasOne(d => d.IdPacoteComercialDetalhesNavigation)
+                    .WithMany(p => p.PacoteComercial)
+                    .HasForeignKey(d => d.IdPacoteComercialDetalhes)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Pacote__Comercial_Pacote_Comercial_Detalhes");
+            });
+
+            modelBuilder.Entity<PacoteComercialDetalhes>(entity =>
+            {
+                entity.Property(e => e.IdPacoteComercialDetalhes).ValueGeneratedNever();
+            });
+
             modelBuilder.Entity<PacoteComercialPromocao>(entity =>
             {
                 entity.HasOne(d => d.IdPacoteNavigation)
@@ -80,6 +94,22 @@ namespace UP_Mobile.Data
                     .HasForeignKey(d => d.IdPromocao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Pacote_Comercial_Promocao_Promocao");
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.Property(e => e.IdRole).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<Utilizador>(entity =>
+            {
+                entity.Property(e => e.IdUtilizador).ValueGeneratedNever();
+
+                entity.HasOne(d => d.IdRoleNavigation)
+                    .WithMany(p => p.Utilizador)
+                    .HasForeignKey(d => d.IdRole)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Utilizador_Role");
             });
 
             OnModelCreatingPartial(modelBuilder);

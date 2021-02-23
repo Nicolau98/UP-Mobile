@@ -34,26 +34,17 @@ namespace UP_Mobile.Models
         public string MoradaFaturacao { get; set; }
         [Column("Data_Fidelizacao", TypeName = "date")]
         public DateTime? DataFidelizacao { get; set; }
-        [Required]
-        [Column("Nome_Cliente")]
-        [StringLength(50)]
-        public string NomeCliente { get; set; }
-        [Column("Nome_Operador")]
-        [StringLength(50)]
-        public string NomeOperador { get; set; }
         [Column("Preco_Base_Inicio_Contrato", TypeName = "decimal(4, 2)")]
         public decimal PrecoBaseInicioContrato { get; set; }
         [Column("Preco_Total", TypeName = "decimal(5, 2)")]
         public decimal PrecoTotal { get; set; }
-        [Column("Conteudo_Extra_Total")]
-        public int? ConteudoExtraTotal { get; set; }
 
         [ForeignKey(nameof(IdCliente))]
-        [InverseProperty(nameof(Cliente.Contrato))]
-        public virtual Cliente IdClienteNavigation { get; set; }
+        [InverseProperty(nameof(Utilizador.ContratoIdClienteNavigation))]
+        public virtual Utilizador IdClienteNavigation { get; set; }
         [ForeignKey(nameof(IdOperador))]
-        [InverseProperty(nameof(Operador.Contrato))]
-        public virtual Operador IdOperadorNavigation { get; set; }
+        [InverseProperty(nameof(Utilizador.ContratoIdOperadorNavigation))]
+        public virtual Utilizador IdOperadorNavigation { get; set; }
         [ForeignKey(nameof(IdPacoteComercialPromocao))]
         [InverseProperty(nameof(PacoteComercialPromocao.Contrato))]
         public virtual PacoteComercialPromocao IdPacoteComercialPromocaoNavigation { get; set; }

@@ -50,13 +50,13 @@ namespace UP_Mobile.Controllers
         // GET: Contratos/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Email");
-            ViewData["IdOperador"] = new SelectList(_context.Operador, "IdOperador", "Email");
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email");
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email");
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao");
 
             //var cliente = await _context.Cliente.FindAsync(id);
 
-            var operador = await _context.Operador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+            var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
             ViewBag.NomeOperador = operador.Nome;
 
             return View();
@@ -71,18 +71,17 @@ namespace UP_Mobile.Controllers
         {
             if (ModelState.IsValid)
             {
-                var cliente = await _context.Cliente.FindAsync(contrato.IdCliente);
-                var operador = await _context.Operador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
-                contrato.NomeCliente = cliente.Nome;
-                contrato.NomeOperador = operador.Nome;
+                var cliente = await _context.Utilizador.FindAsync(contrato.IdCliente);
+                var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+                
 
 
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Email", contrato.IdCliente);
-            ViewData["IdOperador"] = new SelectList(_context.Operador, "IdOperador", "Email", contrato.IdOperador);
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao", contrato.IdPacoteComercialPromocao);
             return View(contrato);
         }
@@ -100,8 +99,8 @@ namespace UP_Mobile.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Email", contrato.IdCliente);
-            ViewData["IdOperador"] = new SelectList(_context.Operador, "IdOperador", "Email", contrato.IdOperador);
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao", contrato.IdPacoteComercialPromocao);
             return View(contrato);
         }
@@ -138,8 +137,8 @@ namespace UP_Mobile.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Email", contrato.IdCliente);
-            ViewData["IdOperador"] = new SelectList(_context.Operador, "IdOperador", "Email", contrato.IdOperador);
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao", contrato.IdPacoteComercialPromocao);
             return View(contrato);
         }
@@ -181,31 +180,31 @@ namespace UP_Mobile.Controllers
             return _context.Contrato.Any(e => e.IdContrato == id);
         }
 
-        public async Task<IActionResult> PesquisaCliente(string nomePesquisar, int pagina = 1)
-        {
-            Paginacao paginacao = new Paginacao
-            {
-                TotalItems = await _context.Cliente.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
-                PaginaAtual = pagina
-            };
+        //public async Task<IActionResult> PesquisaCliente(string nomePesquisar, int pagina = 1)
+        //{
+        //    //Paginacao paginacao = new Paginacao
+        //    //{
+        //    //    TotalItems = await _context.Utilizador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+        //    //    PaginaAtual = pagina
+        //    //};
 
-            List<Cliente> Cliente = await _context.Cliente.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
+        //    //List<Utilizador> Cliente = await _context.Utilizador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
 
-                .OrderBy(p => p.Nome)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
+        //    //    .OrderBy(p => p.Nome)
+        //    //    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+        //    //    .Take(paginacao.ItemsPorPagina)
+        //    //    .ToListAsync();
 
-            ListaClientesViewModel modelo = new ListaClientesViewModel
-            {
-                Paginacao = paginacao,
-                Cliente = Cliente,
-                NomePesquisar = nomePesquisar
-            };
+        //    //ListaClientesViewModel modelo = new ListaClientesViewModel
+        //    //{
+        //    //    Paginacao = paginacao,
+        //    //    Cliente = Cliente,
+        //    //    NomePesquisar = nomePesquisar
+        //    //};
 
 
 
-            return View(modelo);
-        }
+        //    return View(modelo);
+        //}
     }
 }
