@@ -1,8 +1,4 @@
-﻿@model ListaClientesViewModel
-
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model ListaPacotesComerciaisViewModel
 
 
 
@@ -10,25 +6,24 @@
     <section>
         <div class="container">
 
-
-            <h1>Lista de Clientes</h1>
+            <h1>Lista de Pacotes Comerciais</h1>
 
             <p>
-                <a asp-action="Create" type="button" class="btn border-info">Criar Cliente</a>
+                <a asp-action="Create" type="button" class="btn border-info" >Criar Pacote Comercial</a>
             </p>
 
-            <div class="card border border-info mb-4">
+            <div class="card border border-info mb-4" >
                 <div class="card-body">
                     <h5 class="card-title">Pesquisa</h5>
                     <form asp-action="Index" method="get">
                         <div class="form-group">
-                            <label for="nomePesquisar" class="control-label">Nome de Cliente</label>
+                            <label for="nomePesquisar" class="control-label">Nome do Pacote Comercial</label>
                             <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
-                            <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Limpar</a>
+                            <input type="submit" value="Pesquisar" class="btn border"  /> |
+                            <a asp-action="Index" class="btn border">Limpar</a>
                         </div>
                     </form>
                 </div>
@@ -38,66 +33,56 @@
                 <thead>
                     <tr>
                         <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].IdCliente)
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].IdPacote)
                         </th>
                         <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].Nome)
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].Nome)
+                        </th>
+
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].DataInicioComercializacao)
                         </th>
                         <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].DataNascimento)
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].DataFimComercializacao)
                         </th>
                         <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].Morada)
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].PrecoBase)
                         </th>
                         <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].Contacto)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].Email)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].NContribuinte)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Cliente[0].NIdentificacao)
+                            @Html.DisplayNameFor(model => model.PacoteComercial[0].PeriodoFidelizacao)
                         </th>
                         <th scope="col">Ações Disponíveis</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Cliente)
+                    @foreach (var item in Model.PacoteComercial)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdCliente)
+                                @Html.DisplayFor(modelItem => item.IdPacote)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Nome)
                             </td>
+
                             <td>
-                                @Html.DisplayFor(modelItem => item.DataNascimento)
+                                @Html.DisplayFor(modelItem => item.DataInicioComercializacao)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Morada)
+                                @Html.DisplayFor(modelItem => item.DataFimComercializacao)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Contacto)
+                                @Html.DisplayFor(modelItem => item.PrecoBase)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Email)
+                                @Html.DisplayFor(modelItem => item.PeriodoFidelizacao)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.NContribuinte)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NIdentificacao)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.IdCliente" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn border" >Editar</a>
                                 <h1></h1>
-                                <a asp-action="Details" asp-route-id="@item.IdCliente" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn border" >Detalhes</a>
                                 <h1></h1>
-                                <a asp-action="Delete" asp-route-id="@item.IdCliente" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn border">Apagar</a>
                             </td>
                         </tr>
                     }
@@ -123,21 +108,21 @@
                     }
 
                     <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
+                        <a class="page-link text-black-50 border-info" asp-action="GerirPac" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
                     </li>
 
                     @for (int i = paginaInicial; i <= paginaFinal; i++)
                     {
                         <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                            <a class="page-link text-black-50 border-info" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                            <a class="page-link text-black-50 border-info" asp-action="GerirPac" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
                         </li>
                     }
 
                     <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
+                        <a class="page-link text-black-50 border-info"  asp-action="GerirPac" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
                     </li>
                 </ul>
             </nav>
-            </div>
-                </section>
-    </main>
+        </div>
+    </section>
+</main>

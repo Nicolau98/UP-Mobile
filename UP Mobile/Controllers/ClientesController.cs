@@ -11,7 +11,7 @@ using UP_Mobile.Models;
 
 namespace UP_Mobile.Controllers
 {
-    
+    [Authorize(Roles = "Cliente")]
     public class ClientesController : Controller
     {
         private readonly UPMobileContext _context;
