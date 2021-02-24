@@ -28,6 +28,9 @@ namespace UP_Mobile.Models
         public string Voz { get; set; }
         [StringLength(50)]
         public string Movel { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Nome { get; set; }
 
         [InverseProperty("IdPacoteComercialDetalhesNavigation")]
         public virtual ICollection<PacoteComercial> PacoteComercial { get; set; }

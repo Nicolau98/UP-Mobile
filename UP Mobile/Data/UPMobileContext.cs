@@ -76,11 +76,6 @@ namespace UP_Mobile.Data
                     .HasConstraintName("FK_Pacote__Comercial_Pacote_Comercial_Detalhes");
             });
 
-            modelBuilder.Entity<PacoteComercialDetalhes>(entity =>
-            {
-                entity.Property(e => e.IdPacoteComercialDetalhes).ValueGeneratedNever();
-            });
-
             modelBuilder.Entity<PacoteComercialPromocao>(entity =>
             {
                 entity.HasOne(d => d.IdPacoteNavigation)
