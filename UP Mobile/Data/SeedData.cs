@@ -255,8 +255,6 @@ namespace UP_Mobile.Data
         {
             if (context.Promocao.Any()) return;
 
-            //InserePromocoesFicticiasParaTestar(context);
-
             context.Promocao.AddRange(new Promocao[]
             {
                 new Promocao
@@ -406,7 +404,8 @@ namespace UP_Mobile.Data
 
             if (context.PacoteComercial.Any()) return;
 
-            //InserePacotesComerciaisFicticiasParaTestar(context);
+            PacoteComercialDetalhes pacotedetalhes = context.PacoteComercialDetalhes.FirstOrDefault(p => p.Nome == "Teste");
+
 
             context.PacoteComercial.AddRange(new PacoteComercial[]
             {
@@ -419,7 +418,8 @@ namespace UP_Mobile.Data
                     DataFimComercializacao = new DateTime(2021,12,31),
                     PrecoBase = 24,
                     PeriodoFidelizacao = 12,
-                    Ativo = true
+                    Ativo = true,
+                    IdPacoteComercialDetalhesNavigation = pacotedetalhes
 
 
                     //},
@@ -587,7 +587,7 @@ namespace UP_Mobile.Data
             {
                 new PacoteComercialDetalhes
                 {
-                    IdPacoteComercialDetalhes = 1,
+                    Nome = "Teste",
                     Internet = "500MB",
                     Tv = "90 canais",
                     Voz = "ilimitado",
