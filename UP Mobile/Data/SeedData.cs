@@ -57,7 +57,7 @@ namespace UP_Mobile.Data
 
         private static void InsereUtilizadoresFicticios(UPMobileContext context)
         {
-            if (context.Role.Any()) return;
+            if (context.Utilizador.Any()) return;
 
 
             Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
@@ -78,11 +78,14 @@ namespace UP_Mobile.Data
                         IdRoleNavigation = rolecliente
 
                     },
-            });
-    
 
-        //private static void InsereClientesFicticias(UPMobileContext context)
-        //{
+            });
+
+            context.SaveChanges();
+
+
+            //private static void InsereClientesFicticias(UPMobileContext context)
+            //{
             //    if (context.Cliente.Any()) return;
 
             //    //InsereClientesFicticiasParaTestar(context);
