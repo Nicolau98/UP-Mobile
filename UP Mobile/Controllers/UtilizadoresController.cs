@@ -20,10 +20,38 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Utilizadores
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexCliente(string nomePesquisar, int pagina = 1)
         {
-            var uPMobileContext = _context.Utilizador.Include(u => u.IdRoleNavigation);
-            return View(await uPMobileContext.ToListAsync());
+            //var uPMobileContext = _context.Utilizador.Include(u => u.IdRoleNavigation)
+            //    .Where(u=>u.IdRole==3);
+
+            //return View(await uPMobileContext.ToListAsync());
+
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Utilizador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar) || p.IdRole==3)
+                .Include(u => u.IdRoleNavigation)
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+            ListaUtilizadoresViewModel modelo = new ListaUtilizadoresViewModel
+            {
+                Paginacao = paginacao,
+                Utilizador = utilizador,
+                NomePesquisar = nomePesquisar
+            };
+
+
+
+            return View(modelo);
+
+
         }
 
         // GET: Utilizadores/Details/5

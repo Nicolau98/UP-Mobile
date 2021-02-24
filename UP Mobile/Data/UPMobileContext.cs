@@ -96,15 +96,8 @@ namespace UP_Mobile.Data
                     .HasConstraintName("FK_Pacote_Comercial_Promocao_Promocao");
             });
 
-            modelBuilder.Entity<Role>(entity =>
-            {
-                entity.Property(e => e.IdRole).ValueGeneratedNever();
-            });
-
             modelBuilder.Entity<Utilizador>(entity =>
             {
-                entity.Property(e => e.IdUtilizador).ValueGeneratedNever();
-
                 entity.HasOne(d => d.IdRoleNavigation)
                     .WithMany(p => p.Utilizador)
                     .HasForeignKey(d => d.IdRole)
