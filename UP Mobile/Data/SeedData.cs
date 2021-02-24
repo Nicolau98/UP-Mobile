@@ -24,14 +24,63 @@ namespace UP_Mobile.Data
         {
             //InserePacotesComerciaisFicticios(context);
             InserePromoesFicticias(context);
-            InsereClientesFicticias(context);
-            
+ 
+            InsereRolesFicticios(context);
+            InsereUtilizadoresFicticios(context);
+
+
             InsereConteudoExtraFicticias(context);
 
         }
 
-        private static void InsereClientesFicticias(UPMobileContext context)
+
+
+        private static void InsereRolesFicticios(UPMobileContext context)
         {
+            GaranteExistenciaRole(context, "Administrador");
+            GaranteExistenciaRole(context, "Operador");
+            GaranteExistenciaRole(context, "Cliente");
+        }
+
+        private static void GaranteExistenciaRole(UPMobileContext context, string nome)
+        {
+            Role role = context.Role.FirstOrDefault(c => c.Nome == nome);
+            if (role == null)
+            {
+                role = new Role { Nome = nome };
+                context.Role.Add(role);
+                context.SaveChanges();
+            }
+        }
+
+        private static void InsereUtilizadoresFicticios(UPMobileContext context)
+        {
+            if (context.Role.Any()) return;
+
+
+            Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            context.Utilizador.AddRange(new Utilizador[]
+            {
+                    new Utilizador
+                    {
+                        Nome ="Pedro Francisco Silva Magalhães" ,
+                        DataNascimento = new DateTime(1994, 09, 14),
+                        Morada ="Praça da Alegria, nº9, 6º direito, 1980-330 Sarzedo",
+                        Contacto = "918306197",
+                        Email ="pepemangalhanes@sapo.pt" ,
+                        NContribuinte = "236194038",
+                        NIdentificacao = "11739165",
+                        Ativo = true,
+                        LocalTrabalho = "",
+                        IdRoleNavigation = rolecliente
+
+                    },
+            });
+    
+
+        //private static void InsereClientesFicticias(UPMobileContext context)
+        //{
             //    if (context.Cliente.Any()) return;
 
             //    //InsereClientesFicticiasParaTestar(context);
@@ -462,26 +511,26 @@ namespace UP_Mobile.Data
         //    context.SaveChanges();
         //}
 
-        private static void InserePacotesComerciaisFicticiasParaTestar(UPMobileContext context)
-        {
+        //private static void InserePacotesComerciaisFicticiasParaTestar(UPMobileContext context)
+        //{
 
 
-            //for (int i = 0; i < 50; i++)
-            //{
-            //    context.PacoteComercial.Add(new PacoteComercial
-            //    {
-            //        Nome = "UP Teste 500MB" + i,
-            //        Descricao = "Pacote de internet e vais com sorte" + i,
-            //        DataInicioComercializacao = new DateTime(2021, 02, 15),
-            //        DataFimComercializacao = new DateTime(2021, 10, 15),
-            //        PrecoBase = 20 + i,
-            //        PeriodoFidelizacao = 12
-            //    });
-            //}
+        //for (int i = 0; i < 50; i++)
+        //{
+        //    context.PacoteComercial.Add(new PacoteComercial
+        //    {
+        //        Nome = "UP Teste 500MB" + i,
+        //        Descricao = "Pacote de internet e vais com sorte" + i,
+        //        DataInicioComercializacao = new DateTime(2021, 02, 15),
+        //        DataFimComercializacao = new DateTime(2021, 10, 15),
+        //        PrecoBase = 20 + i,
+        //        PeriodoFidelizacao = 12
+        //    });
+        //}
 
-            //context.SaveChanges();
+        //context.SaveChanges();
 
-        }
+        //}
 
         //private static void InsereOperadoresFicticias(UPMobileContext context)
         //{
