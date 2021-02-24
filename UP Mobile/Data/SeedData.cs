@@ -406,7 +406,7 @@ namespace UP_Mobile.Data
 
             if (context.PacoteComercial.Any()) return;
 
-            ////InserePacotesComerciaisFicticiasParaTestar(context);
+            //InserePacotesComerciaisFicticiasParaTestar(context);
 
             context.PacoteComercial.AddRange(new PacoteComercial[]
             {
@@ -419,10 +419,7 @@ namespace UP_Mobile.Data
                     DataFimComercializacao = new DateTime(2021,12,31),
                     PrecoBase = 24,
                     PeriodoFidelizacao = 12,
-                    Ativo = true,
-                    IdPacoteComercialDetalhes = 1
-
-
+                    Ativo = true
 
 
                     //},
@@ -590,7 +587,7 @@ namespace UP_Mobile.Data
             {
                 new PacoteComercialDetalhes
                 {
-                    //IdPacoteComercialDetalhes = 1,
+                    IdPacoteComercialDetalhes = 1,
                     Internet = "500MB",
                     Tv = "90 canais",
                     Voz = "ilimitado",
