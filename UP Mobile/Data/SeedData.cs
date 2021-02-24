@@ -61,6 +61,7 @@ namespace UP_Mobile.Data
 
 
             Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
             context.Utilizador.AddRange(new Utilizador[]
             {
@@ -76,6 +77,21 @@ namespace UP_Mobile.Data
                         Ativo = true,
                         LocalTrabalho = "",
                         IdRoleNavigation = rolecliente
+
+                    },
+
+                    new Utilizador
+                    {
+                        Nome ="Maria da Conceição Santos Nunes" ,
+                        DataNascimento = new DateTime(1987, 12, 29),
+                        Morada ="Avenida da Fortaleza, nº2, 2º direito, 2340-786 Oliveira do Hospital",
+                        Contacto = "961370629",
+                        Email ="marYinunex@iol.pt" ,
+                        NContribuinte = "267093158",
+                        NIdentificacao = "10679234",
+                        Ativo = true,
+                        LocalTrabalho = "",
+                        IdRoleNavigation = roleoperador
 
                     },
 
@@ -392,9 +408,6 @@ namespace UP_Mobile.Data
 
             //InserePacotesComerciaisFicticiasParaTestar(context);
 
-            PacoteComercialDetalhes pacotedetalhes = context.PacoteComercialDetalhes.FirstOrDefault(p => p.Nome == "Teste");
-
-
             context.PacoteComercial.AddRange(new PacoteComercial[]
             {
                 new PacoteComercial
@@ -406,8 +419,7 @@ namespace UP_Mobile.Data
                     DataFimComercializacao = new DateTime(2021,12,31),
                     PrecoBase = 24,
                     PeriodoFidelizacao = 12,
-                    Ativo = true,
-                    IdPacoteComercialDetalhesNavigation = pacotedetalhes
+                    Ativo = true
 
 
                     //},
@@ -575,7 +587,7 @@ namespace UP_Mobile.Data
             {
                 new PacoteComercialDetalhes
                 {
-                    Nome = "Teste",
+                    IdPacoteComercialDetalhes = 1,
                     Internet = "500MB",
                     Tv = "90 canais",
                     Voz = "ilimitado",
