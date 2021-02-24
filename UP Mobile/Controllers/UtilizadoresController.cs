@@ -33,13 +33,16 @@ namespace UP_Mobile.Controllers
                 PaginaAtual = pagina
             };
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar) || p.IdRole==3)
+            //Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+             
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRole==3))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                 .Take(paginacao.ItemsPorPagina)
                 .ToListAsync();
-
+            
+            
             ListaUtilizadoresViewModel modelo = new ListaUtilizadoresViewModel
             {
                 Paginacao = paginacao,

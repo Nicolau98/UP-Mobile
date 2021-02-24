@@ -62,7 +62,7 @@ namespace UP_Mobile.Data
 
             Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
             Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
-
+            
             context.Utilizador.AddRange(new Utilizador[]
             {
                     new Utilizador
