@@ -74,7 +74,7 @@ namespace UP_Mobile.Controllers
                 var cliente = await _context.Utilizador.FindAsync(contrato.IdCliente);
                 var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
                 
-
+                contrato.IdCliente=cliente.IdUtilizador;
 
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
