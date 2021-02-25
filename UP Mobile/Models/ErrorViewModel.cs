@@ -1,5 +1,3 @@
-using System;
-
 namespace UP_Mobile.Models
 {
     public class ErrorViewModel

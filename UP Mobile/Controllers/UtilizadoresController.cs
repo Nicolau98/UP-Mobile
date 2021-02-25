@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using UP_Mobile.Data;
 using UP_Mobile.Models;
 
@@ -34,15 +34,15 @@ namespace UP_Mobile.Controllers
             };
 
             //Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
-             
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRole==3))
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRole == 3))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                 .Take(paginacao.ItemsPorPagina)
                 .ToListAsync();
-            
-            
+
+
             ListaUtilizadoresViewModel modelo = new ListaUtilizadoresViewModel
             {
                 Paginacao = paginacao,
@@ -110,7 +110,7 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
-            if(utilizador.Ativo == true)
+            if (utilizador.Ativo == true)
             {
                 ViewBag.Ativo = "Utilizador Ativo";
             }
