@@ -50,6 +50,9 @@
                             @Html.DisplayNameFor(model => model.ConteudoExtra[0].Preco)
                         </th>
                         <th>
+                        @Html.DisplayNameFor(model => model.ConteudoExtra[0].Ativo)
+                        </th>
+                        <th>
                             Ações Disponíveis
                         </th>
                     </tr>
@@ -57,34 +60,67 @@
                 <tbody>
                     @foreach (var item in Model.ConteudoExtra)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdConteudo)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataInicioComercializacao)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataFimComercializacao)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Preco)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a> 
-                                <h1></h1>
-                                <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                <h1></h1>
-                                <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
-                            </td>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdConteudo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataInicioComercializacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataFimComercializacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Preco)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ativo)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                            <h1></h1>
+                            <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                            <h1></h1>
+                            <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                        </td>
 
-                        </tr>
+                    </tr>
                     }
                 </tbody>
             </table>
+
+            <section id="services" class="services">
+                <div class="container">
+
+                    <div class="section-title">
+
+                        <h2>UP Extras</h2>
+                        <p>Dá um UP ao teu pacote para que te não falte nada</p><br />
+                    </div>
+
+                    @foreach (var item in Model.ConteudoExtra)
+                    { 
+                        <div class="row card-group">
+                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                                <div class="icon-box">
+                                    <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
+                                    <h4>@Html.DisplayFor(modelItem => item.Nome)</h4>
+                                    <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
+                                    <h1></h1>
+                                    <h3>@Html.DisplayFor(modelItem => item.Preco) €</h3>
+                                    <h1></h1>
+                                    <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a> -
+                                    <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a> -
+                                    <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a> 
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
 
             <nav>
                 <ul class="pagination">

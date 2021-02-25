@@ -208,6 +208,7 @@ namespace UP_Mobile.Data
                     DataInicioComercializacao=new DateTime(2021, 02, 15),
                     DataFimComercializacao=new DateTime(2021, 03, 15),
                     Preco=27.99M,
+                    Ativo = true
                 },
 
                 new ConteudoExtra
@@ -217,6 +218,7 @@ namespace UP_Mobile.Data
                     DataInicioComercializacao=new DateTime(2020, 09, 14),
                     DataFimComercializacao=new DateTime(2020, 11, 14),
                     Preco=13.99M,
+                    Ativo = true
                 },
 
                 new ConteudoExtra
@@ -226,6 +228,7 @@ namespace UP_Mobile.Data
                     DataInicioComercializacao=new DateTime(2021, 01, 19),
                     DataFimComercializacao=new DateTime(2020, 03, 19),
                     Preco=5.99M,
+                    Ativo = true
                 },
 
                 new ConteudoExtra
@@ -235,6 +238,7 @@ namespace UP_Mobile.Data
                     DataInicioComercializacao=new DateTime(2020, 05, 27),
                     DataFimComercializacao=new DateTime(2020, 08, 27),
                     Preco=15.99M,
+                    Ativo = true
                 },
 
                 new ConteudoExtra
@@ -244,6 +248,7 @@ namespace UP_Mobile.Data
                     DataInicioComercializacao=new DateTime(2020, 07, 07),
                     DataFimComercializacao=new DateTime(2020, 08, 14),
                     Preco=4.99M,
+                    Ativo = true
                 }
 
             });
@@ -266,6 +271,7 @@ namespace UP_Mobile.Data
                     DataFim=new DateTime(2022, 02, 15),
                     Preco= 19.99M,
                     Conteudo="Oferta de Sport TV",
+                    Ativo = true
 
                 },
 
@@ -277,7 +283,8 @@ namespace UP_Mobile.Data
                     DataInicio = new DateTime(2020, 11, 24),
                     DataFim= new DateTime(2021, 11, 24),
                     Preco=15.99M,
-                    Conteudo="Oferta de Netflix e HBO"
+                    Conteudo="Oferta de Netflix e HBO",
+                    Ativo = true
 
                 },
 
@@ -289,7 +296,8 @@ namespace UP_Mobile.Data
                     DataInicio =new DateTime(2020, 08, 15),
                     DataFim=new DateTime(2021, 08, 15),
                     Preco=0,
-                    Conteudo=" "
+                    Conteudo=" ",
+                    Ativo = true
 
                 },
 
@@ -301,7 +309,8 @@ namespace UP_Mobile.Data
                     DataInicio =new DateTime(2021, 01, 08),
                     DataFim=new DateTime(2022, 01, 08),
                     Preco=5,
-                    Conteudo="Oferta de Desconto mensal"
+                    Conteudo="Oferta de Desconto mensal",
+                    Ativo = true
 
                 },
 
@@ -313,7 +322,8 @@ namespace UP_Mobile.Data
                     DataInicio =new DateTime(2021, 02, 15),
                     DataFim=new DateTime(2022, 02, 15),
                     Preco=34.99M,
-                    Conteudo="Oferta de Mensalidade"
+                    Conteudo="Oferta de Mensalidade",
+                    Ativo = true
 
                 },
 
