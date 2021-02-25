@@ -494,7 +494,7 @@ namespace UP_Mobile.Data
                         PrecoBase = 19,
                         PeriodoFidelizacao = 12,
                         Ativo = true,
-                        Internet = null,
+                        Internet = "250 MB",
                         Voz = null,
                         Tv = null,
                         Movel = null

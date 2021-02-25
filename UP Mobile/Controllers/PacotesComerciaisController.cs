@@ -17,42 +17,11 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: PacotesComerciais
-        public async Task<IActionResult> Index() /*string nomePesquisar, int pagina = 1*/
+        public async Task<IActionResult> Index()
         {
-            //Paginacao paginacao = new Paginacao
-            //{
-            //    TotalItems = await _context.PacoteComercial.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
-            //    PaginaAtual = pagina
-            //};
-
-            //List<PacoteComercial> PacoteComercial = await _context.PacoteComercial.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar))
-
-            //    .OrderBy(p => p.Nome)
-            //    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-            //    .Take(paginacao.ItemsPorPagina)
-            //    .ToListAsync();
-
-            //ListaPacotesComerciaisViewModel modelo = new ListaPacotesComerciaisViewModel
-            //{
-            //    Paginacao = paginacao,
-            //    PacoteComercial = PacoteComercial,
-            //    NomePesquisar = nomePesquisar
-            //};
-
-            //List<PacoteComercialDetalhes> PacoteComercialDetalhes = await _context.PacoteComercialDetalhes.ToListAsync();
-            //List<PacoteComercial> PacoteComercials = await _context.PacoteComercial.ToListAsync();
-
-            //TesteViewModel modelo = new TesteViewModel
-            //{
-            //    PacoteComercialDetalhes = PacoteComercialDetalhes,
-            //    PacoteComercials = PacoteComercials
-            //};
-
-
-            return View();
+            return View(await _context.PacoteComercial.ToListAsync());
         }
 
-        //[Authorize(Roles = "Administrador, Operador")]
         // GET: PacotesComerciais/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -71,7 +40,6 @@ namespace UP_Mobile.Controllers
             return View(pacoteComercial);
         }
 
-        //[Authorize(Roles = "Administrador")]
         // GET: PacotesComerciais/Create
         public IActionResult Create()
         {
@@ -83,7 +51,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPacote,Nome,Descricao,DataInicioComercializacao,DataFimComercializacao,PrecoBase,PeriodoFidelizacao")] PacoteComercial pacoteComercial)
+        public async Task<IActionResult> Create([Bind("IdPacote,Nome,Descricao,DataInicioComercializacao,DataFimComercializacao,PrecoBase,PeriodoFidelizacao,Ativo,Internet,Voz,Tv,Movel")] PacoteComercial pacoteComercial)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +63,6 @@ namespace UP_Mobile.Controllers
             return View(pacoteComercial);
         }
 
-        //[Authorize(Roles = "Administrador")]
         // GET: PacotesComerciais/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -117,41 +84,40 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPacote,Nome,Descricao,DataInicioComercializacao,DataFimComercializacao,PrecoBase,PeriodoFidelizacao")] PacoteComercial pacoteComercial)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPacote,Nome,Descricao,DataInicioComercializacao,DataFimComercializacao,PrecoBase,PeriodoFidelizacao,Ativo,Internet,Voz,Tv,Movel")] PacoteComercial pacoteComercial)
         {
             if (id != pacoteComercial.IdPacote)
             {
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 return View(pacoteComercial);
             }
-
-            try
-            {
-                _context.Update(pacoteComercial);
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PacoteComercialExists(pacoteComercial.IdPacote))
+                try
                 {
-                    return View("EliminarInserir", pacoteComercial);
+                    _context.Update(pacoteComercial);
+                    await _context.SaveChangesAsync();
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
+                    if (!PacoteComercialExists(pacoteComercial.IdPacote))
+                    {
+                      return View("EliminarInserir", pacoteComercial);
+                      }
+                
+                    else
+                    {
                     ModelState.AddModelError("", "Ocorreu um erro. Não foi possível guardar o Pacote Comercial. Tente novamente e se o problema persistir contacte a assistência.");
                     return View(pacoteComercial);
                 }
-            }
-
+                }
             ViewBag.Mensagem = "Pacote Comercial alterado com sucesso";
             return View("Sucesso");
         }
+        
 
-        //[Authorize(Roles = "Administrador, Operador")]
         // GET: PacotesComerciais/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
