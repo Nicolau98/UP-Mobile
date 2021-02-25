@@ -123,7 +123,7 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Utilizadores/Create
-        public IActionResult Create()
+        public IActionResult CreateCliente()
         {
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
             return View();
@@ -134,7 +134,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho")] Utilizador utilizador)
+        public async Task<IActionResult> CreateCliente([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho")] Utilizador utilizador)
         {
             if (ModelState.IsValid)
             {
@@ -142,6 +142,31 @@ namespace UP_Mobile.Controllers
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexCliente));
+            }
+            ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
+            return View(utilizador);
+        }
+
+        // GET: Utilizadores/Create
+        public IActionResult CreateOperador()
+        {
+            ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
+            return View();
+        }
+
+        // POST: Utilizadores/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateOperador([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho")] Utilizador utilizador)
+        {
+            if (ModelState.IsValid)
+            {
+                utilizador.IdRole = 2;
+                _context.Add(utilizador);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(IndexOperador));
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
             return View(utilizador);

@@ -14,7 +14,7 @@
             <h1>Lista de Clientes</h1>
 
             <p>
-                <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Cliente</a>
+                <a asp-action="CreateCliente" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Cliente</a>
             </p>
 
             <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
@@ -67,9 +67,9 @@
                         @*<th scope="col">
                             @Html.DisplayNameFor(model => model.Utilizador[0].LocalTrabalho)
                         </th>*@
-                        <th scope="col">
+                        @*<th scope="col">
                             @Html.DisplayNameFor(model => model.Utilizador[0].IdRoleNavigation)
-                        </th>
+                        </th>*@
                         <th scope="col">Ações Disponíveis</th>
                     </tr>
                 </thead>
@@ -107,9 +107,9 @@
                         @*<td>
                             @Html.DisplayFor(modelItem => item.LocalTrabalho)
                         </td>*@
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.IdRoleNavigation.Nome)
-                        </td>
+                        </td>*@
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
                             <h1></h1>
