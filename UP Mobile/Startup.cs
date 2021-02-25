@@ -1,16 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using UP_Mobile.Data;
 
 namespace UP_Mobile
@@ -35,13 +29,14 @@ namespace UP_Mobile
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options => { 
-            options.SignIn.RequireConfirmedAccount = false;
-            
-            options.Password.RequireDigit = true;
-            options.Password.RequireLowercase = true;
-            options.Password.RequireNonAlphanumeric = true;
-            options.Password.RequireUppercase = true;
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
 
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -80,14 +75,14 @@ namespace UP_Mobile
                 endpoints.MapRazorPages();
             });
 
-            SeedData.InsereRolesAsync(gestorRoles).Wait();
-            SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
+            //SeedData.InsereRolesAsync(gestorRoles).Wait();
+            //SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
 
-            if (env.IsDevelopment())
-            {
-                SeedData.PreencheDadosFicticios(context);
-                SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    SeedData.PreencheDadosFicticios(context);
+            //    SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
+            //}
         }
     }
 }
