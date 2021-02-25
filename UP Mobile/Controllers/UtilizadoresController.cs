@@ -194,7 +194,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho,IdRole")] Utilizador utilizador)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho, IdRole")] Utilizador utilizador)
         {
             if (id != utilizador.IdUtilizador)
             {
@@ -219,7 +219,17 @@ namespace UP_Mobile.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
+                var role = utilizador.IdRole;
+
+                if (role == 3) 
+                {
+                    return RedirectToAction(nameof(IndexCliente));
+                }else if(role == 2) 
+                {
+                    return RedirectToAction(nameof(IndexOperador));
+                }
+                
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
             return View(utilizador);
