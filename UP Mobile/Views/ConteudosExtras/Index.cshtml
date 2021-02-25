@@ -100,10 +100,12 @@
                         <h2>UP Extras</h2>
                         <p>Dá um UP ao teu pacote para que te não falte nada</p><br />
                     </div>
+                    <div class="row card-group">
+                        @foreach (var item in Model.ConteudoExtra)
+                        {
 
-                    @foreach (var item in Model.ConteudoExtra)
-                    { 
-                        <div class="row card-group">
+
+
                             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
                                 <div class="icon-box">
                                     <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
@@ -114,12 +116,14 @@
                                     <h1></h1>
                                     <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a> -
                                     <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a> -
-                                    <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a> 
+                                    <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
                                 </div>
                             </div>
-                        </div>
-                    }
-                </div>
+                           
+
+                        }
+                    </div>
+                    </div>
             </section>
 
             <nav>

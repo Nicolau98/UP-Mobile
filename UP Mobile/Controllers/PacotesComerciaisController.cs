@@ -43,17 +43,17 @@ namespace UP_Mobile.Controllers
             //    NomePesquisar = nomePesquisar
             //};
 
-            List<PacoteComercialDetalhes> PacoteComercialDetalhes = await _context.PacoteComercialDetalhes.ToListAsync();
-            List<PacoteComercial> PacoteComercials = await _context.PacoteComercial.ToListAsync();
+            //List<PacoteComercialDetalhes> PacoteComercialDetalhes = await _context.PacoteComercialDetalhes.ToListAsync();
+            //List<PacoteComercial> PacoteComercials = await _context.PacoteComercial.ToListAsync();
 
-            TesteViewModel modelo = new TesteViewModel
-            {
-                PacoteComercialDetalhes = PacoteComercialDetalhes,
-                PacoteComercials = PacoteComercials
-            };
+            //TesteViewModel modelo = new TesteViewModel
+            //{
+            //    PacoteComercialDetalhes = PacoteComercialDetalhes,
+            //    PacoteComercials = PacoteComercials
+            //};
 
 
-            return View(modelo);
+            return View();
         }
 
         //[Authorize(Roles = "Administrador, Operador")]

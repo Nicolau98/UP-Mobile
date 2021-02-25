@@ -22,7 +22,7 @@ namespace UP_Mobile.Data
 
         internal static void PreencheDadosFicticios(UPMobileContext context)
         {
-            InserePacotesComerciaisDetalhesFicticias(context);
+            //InserePacotesComerciaisDetalhesFicticias(context);
             InserePacotesComerciaisFicticios(context);
             InserePromoesFicticias(context);
  
@@ -414,7 +414,7 @@ namespace UP_Mobile.Data
 
             if (context.PacoteComercial.Any()) return;
 
-            PacoteComercialDetalhes pacotedetalhes = context.PacoteComercialDetalhes.FirstOrDefault(p => p.Nome == "Teste");
+            
 
 
             context.PacoteComercial.AddRange(new PacoteComercial[]
@@ -429,7 +429,7 @@ namespace UP_Mobile.Data
                     PrecoBase = 24,
                     PeriodoFidelizacao = 12,
                     Ativo = true,
-                    IdPacoteComercialDetalhesNavigation = pacotedetalhes
+                    
 
 
                     //},
@@ -589,26 +589,26 @@ namespace UP_Mobile.Data
 
         //context.SaveChanges();
 
-        private static void InserePacotesComerciaisDetalhesFicticias(UPMobileContext context)
-        {
-            if (context.PacoteComercialDetalhes.Any()) return;
+        //private static void InserePacotesComerciaisDetalhesFicticias(UPMobileContext context)
+        //{
+        //    if (context.PacoteComercialDetalhes.Any()) return;
 
-            context.PacoteComercialDetalhes.AddRange(new PacoteComercialDetalhes[]
-            {
-                new PacoteComercialDetalhes
-                {
-                    Nome = "Teste",
-                    Internet = "500MB",
-                    Tv = "90 canais",
-                    Voz = "ilimitado",
-                    Movel = "2G + 1000Min"
+        //    context.PacoteComercialDetalhes.AddRange(new PacoteComercialDetalhes[]
+        //    {
+        //        new PacoteComercialDetalhes
+        //        {
+        //            Nome = "Teste",
+        //            Internet = "500MB",
+        //            Tv = "90 canais",
+        //            Voz = "ilimitado",
+        //            Movel = "2G + 1000Min"
                     
-                 }
+        //         }
 
-            });
+        //    });
 
-            context.SaveChanges();
-        }
+        //    context.SaveChanges();
+        //}
     }
 }
 
