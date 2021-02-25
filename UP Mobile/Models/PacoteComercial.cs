@@ -22,7 +22,6 @@ namespace UP_Mobile.Models
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
-        [Required]
         [StringLength(500)]
         public string Descricao { get; set; }
         [Column("Data_Inicio_Comercializacao", TypeName = "date")]
@@ -33,13 +32,16 @@ namespace UP_Mobile.Models
         public decimal PrecoBase { get; set; }
         [Column("Periodo_Fidelizacao")]
         public int PeriodoFidelizacao { get; set; }
-        [Column("Id_Pacote_Comercial_Detalhes")]
-        public int IdPacoteComercialDetalhes { get; set; }
         public bool Ativo { get; set; }
+        [StringLength(50)]
+        public string Internet { get; set; }
+        [StringLength(50)]
+        public string Voz { get; set; }
+        [StringLength(50)]
+        public string Tv { get; set; }
+        [StringLength(50)]
+        public string Movel { get; set; }
 
-        [ForeignKey(nameof(IdPacoteComercialDetalhes))]
-        [InverseProperty(nameof(PacoteComercialDetalhes.PacoteComercial))]
-        public virtual PacoteComercialDetalhes IdPacoteComercialDetalhesNavigation { get; set; }
         [InverseProperty("IdPacoteNavigation")]
         public virtual ICollection<PacoteComercialPromocao> PacoteComercialPromocao { get; set; }
     }
