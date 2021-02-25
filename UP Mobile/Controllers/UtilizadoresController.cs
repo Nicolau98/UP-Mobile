@@ -110,6 +110,15 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
+            if(utilizador.Ativo == true)
+            {
+                ViewBag.Ativo = "Utilizador Ativo";
+            }
+            else
+            {
+                ViewBag.Ativo = "Utilizador Inativo";
+            }
+
             return View(utilizador);
         }
 
