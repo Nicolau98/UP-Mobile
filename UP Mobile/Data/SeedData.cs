@@ -22,7 +22,7 @@ namespace UP_Mobile.Data
 
         internal static void PreencheDadosFicticios(UPMobileContext context)
         {
-            //InserePacotesComerciaisDetalhesFicticias(context);
+            
             InserePacotesComerciaisFicticios(context);
             InserePromoesFicticias(context);
  
@@ -414,8 +414,6 @@ namespace UP_Mobile.Data
 
             if (context.PacoteComercial.Any()) return;
 
-            
-
 
             context.PacoteComercial.AddRange(new PacoteComercial[]
             {
@@ -423,121 +421,155 @@ namespace UP_Mobile.Data
                 {
 
                     Nome = "UP Smile",
-                    Descricao = "Internet a 120MB; TV com 90 canais; Chamadas de voz ilimitadas;",
+                    Descricao = "Um pacote para deixar qualquer um com um sorriso nos lábio. Incluí Internet com velocidade de 120MB; Televisão com 90 canais; Chamadas de voz ilimitadas para qualquer rede nacional. A adesão obriga a um periodo de fidelização de 24 meses.",
                     DataInicioComercializacao = new DateTime(2021,01,01),
                     DataFimComercializacao = new DateTime(2021,12,31),
                     PrecoBase = 24,
-                    PeriodoFidelizacao = 12,
+                    PeriodoFidelizacao = 24,
                     Ativo = true,
-                    
+                    Internet = "120 MB",
+                    Voz = "Ilimitado",
+                    Tv = "90 canais",
+                    Movel = null
 
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Super",
+                        Descricao = "O pacote com o essencial para qualquer um. Internet com velocidade de 120MB; Televisão com 90 canais; 1 cartão de telemóvel com 2GB/mês de internet + 1000min/SMS para todas as redes nacionais; As chamadas de voz  do serviço fixo são ilimitadas. A adesão a este pacote obriga a um periodo de fidelização de 24 meses.",
+                        DataInicioComercializacao = new DateTime(2021,01,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 34,
+                        PeriodoFidelizacao = 24,
+                        Ativo = true,
+                        Internet = "120 MB",
+                        Voz = "Ilimitado",
+                        Tv = "90 canais",
+                        Movel = "2GB + 1000 Min/SMS"
 
-                    //    Nome = "UP Super",
-                    //    Descricao = "Internet a 120MB; TV com 90 canais; 1 Móvel com 2GB + 1000min/SMS; Chamadas de voz ilimitadas;",
-                    //    DataInicioComercializacao = new DateTime(2021,01,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 34,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Mega",
+                        Descricao = "Queres gastar ainda mais? Sem problemas! Temos o Mega para ti. Internet com velocidade de 250MB; Televisão com 140 canais; 1 cartão de telemóvel com 4GB + 2000 min/SMS; s chamadas de voz  do serviço fixo são ilimitadas. A adesão a este pacote obriga a um periodo de fidelização de 24 meses.",
+                        DataInicioComercializacao = new DateTime(2021,01,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 44,
+                        PeriodoFidelizacao = 12,
+                        Ativo = true,
+                        Internet = "250 MB",
+                        Voz = "Ilimitado",
+                        Tv = "140 canais",
+                        Movel = "4GB + 2000 Min/SMS"
 
-                    //    Nome = "UP Mega",
-                    //    Descricao = "Internet a 250MB; TV com 140 canais; 1 Móvel com 4GB + 2000min/SMS; Chamadas de voz ilimitadas;",
-                    //    DataInicioComercializacao = new DateTime(2021,01,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 44,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Mega C",
+                        Descricao = "Este é o pacote ideal para ti e para os teus. Neste pacote podes adicionar um serviço móvel por mais 5€/mês. Contas num pacote com Internet a 250MB; Televisão com 140 canais; 2 cartões de telemóvel com 4GB + 2000min/SMS; Chamadas de voz ilimitadas; As chamadas de voz  do serviço fixo são ilimitadas. A adesão a este pacote obriga a um periodo de fidelização de 24 meses.",
+                        DataInicioComercializacao = new DateTime(2021,01,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 49,
+                        PeriodoFidelizacao = 12,
+                        Ativo = true,
+                        Internet = "250 MB",
+                        Voz = "Ilimitado",
+                        Tv = "140 canais",
+                        Movel = "4GB + 2000 Min/SMS"
 
-                    //    Nome = "UP Mega C",
-                    //    Descricao = "Internet a 250MB; TV com 140 canais; 2 Móvel com 4GB + 2000min/SMS; Chamadas de voz ilimitadas; 5 Euros por cada serviço Móvel adicional",
-                    //    DataInicioComercializacao = new DateTime(2021,01,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 49,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Net",
+                        Descricao = "Só te interessa teres Internet? Okay. Temos então internet ilimitada com velocidade de 250MB. A adesão a este pacote obriga a um periodo de fidelização de 12 meses.",
+                        DataInicioComercializacao = new DateTime(2021,01,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 19,
+                        PeriodoFidelizacao = 12,
+                        Ativo = true,
+                        Internet = null,
+                        Voz = null,
+                        Tv = null,
+                        Movel = null
 
-                    //    Nome = "UP Net",
-                    //    Descricao = "Internet ilimitada com velocidade de 250MB",
-                    //    DataInicioComercializacao = new DateTime(2021,01,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 19,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Tv",
+                        Descricao = "Estar no sofá em frente à televisão, é onde estás bem? Temos o pacote perfeito então. Pacote com 140 canais de televisão + 3 canais premium à escolha de oferta. Incluí duas boxes e ainda oferecemos a Netflix durante 3 meses. A adesão a este pacote obriga a um periodo de fidelização de 24 meses.",
+                        DataInicioComercializacao = new DateTime(2021,03,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 84,
+                        PeriodoFidelizacao = 24,
+                        Ativo = true,
+                        Internet = null,
+                        Voz = null,
+                        Tv = "140 canais + 3 premium + Netflix",
+                        Movel = null
 
-                    //    Nome = "UP TV",
-                    //    Descricao = "Pacote com 140 canais de televisão + 3 canais premium à escolha de oferta; Incluí duas boxes. Oferta de Netflix durante 3 meses com a subscrição.",
-                    //    DataInicioComercializacao = new DateTime(2021,03,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 84,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Go",
+                        Descricao = "O pacote ideal para aqueles em que os dados móveis no telemóvel nunca te chegam até ao fim do mês. Neste pacote tens, serviço móvel com 4000min/SMS para todas as redes e 20GB de Internet. A adesão a este pacote obriga a um periodo de fidelização de 12 meses.",
+                        DataInicioComercializacao = new DateTime(2021,01,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 14,
+                        PeriodoFidelizacao = 12,
+                        Ativo = true,
+                        Internet = null,
+                        Voz = null,
+                        Tv = null,
+                        Movel = "20GB + 4000 Min/SMS"
 
-                    //    Nome = "UP Go",
-                    //    Descricao = "Móvel com 4000min/SMS para todas as redes e 10GB de Internet",
-                    //    DataInicioComercializacao = new DateTime(2021,01,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 14,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Max",
+                        Descricao = "É tudo à grande! Neste pacote é tudo ao máximo. Internet com velocidade de 250MB; Televisão com 140 canais; 1 serviço móvel com 10GB + 4000min/SMS; Chamadas de voz ilimitadas. E ainda oferta de 3 meses de Netflix. A adesão a este pacote obriga a um periodo de fidelização de 24 meses.",
+                        DataInicioComercializacao = new DateTime(2021,01,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 64,
+                        PeriodoFidelizacao = 12,
+                        Ativo = true,
+                        Internet = "250 MB",
+                        Voz = "Ilimitado",
+                        Tv = "140 canais + Netflix",
+                        Movel = "10GB + 4000 Min/SMS"
 
-                    //    Nome = "UP Max",
-                    //    Descricao = "Neste pacote é tudo ao máximo. Internet a 250MB; TV com 140 canais; 1 Móvel com 10GB + 4000min/SMS; Chamadas de voz ilimitadas; Oferta de 3 meses de Netflix",
-                    //    DataInicioComercializacao = new DateTime(2021,01,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 64,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
+                    },
 
-                    //},
+                    new PacoteComercial
+                    {
 
-                    //new PacoteComercial
-                    //{
+                        Nome = "UP Voz",
+                        Descricao = "Pako pako pako.. Se a referência ao tarifário pako não faz soar nenhuma campainha, não importa, nós explicamos. O UP Voz é um serviço Pré Pago de telemóvel. Carregas quando quiseres, usas como quiseres. Carregamento mínimo de 5 euros. Preço do cartão 5 euros. Sem periodo de fidelização. Obriga apenas a um carregamento ou chamada de 3 em 3 meses para manter o serviço ativo.",
+                        DataInicioComercializacao = new DateTime(2021,01,01),
+                        DataFimComercializacao = new DateTime(2021,12,31),
+                        PrecoBase = 5,
+                        PeriodoFidelizacao = 0,
+                        Ativo = true,
+                        Internet = null,
+                        Voz = null,
+                        Tv = null,
+                        Movel = "Pré-pago"
 
-                    //    Nome = "UP Voz",
-                    //    Descricao = "Serviço Pré Pago de Móvel. Carregue quando quiser, use como quiser. Carregamento mínimo de 5 euros. Preço do cartão 5 euros.",
-                    //    DataInicioComercializacao = new DateTime(2021,01,01),
-                    //    DataFimComercializacao = new DateTime(2021,12,31),
-                    //    PrecoBase = 5,
-                    //    PeriodoFidelizacao = 12,
-                    //    Ativo = true
-
-                    //},
-                }
+                    }
+                
             });
 
             context.SaveChanges();
@@ -589,26 +621,7 @@ namespace UP_Mobile.Data
 
         //context.SaveChanges();
 
-        //private static void InserePacotesComerciaisDetalhesFicticias(UPMobileContext context)
-        //{
-        //    if (context.PacoteComercialDetalhes.Any()) return;
-
-        //    context.PacoteComercialDetalhes.AddRange(new PacoteComercialDetalhes[]
-        //    {
-        //        new PacoteComercialDetalhes
-        //        {
-        //            Nome = "Teste",
-        //            Internet = "500MB",
-        //            Tv = "90 canais",
-        //            Voz = "ilimitado",
-        //            Movel = "2G + 1000Min"
-                    
-        //         }
-
-        //    });
-
-        //    context.SaveChanges();
-        //}
+        
     }
 }
 
