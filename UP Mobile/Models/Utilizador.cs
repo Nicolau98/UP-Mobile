@@ -20,11 +20,13 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Utilizador")]
+        [Display(Name = "Nº Utilizador")]
         public int IdUtilizador { get; set; }
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
         [Column("Data_Nascimento", TypeName = "date")]
+        [Display(Name = "Data_Nascimento")]
         public DateTime DataNascimento { get; set; }
         [Required]
         [StringLength(100)]
@@ -38,16 +40,20 @@ namespace UP_Mobile.Models
         [Required]
         [Column("N_Contribuinte")]
         [StringLength(9)]
+        [Display(Name = "N_Contribuinte")]
         public string NContribuinte { get; set; }
         [Required]
         [Column("N_Identificacao")]
         [StringLength(8)]
+        [Display(Name = "N_Identificacao")]
         public string NIdentificacao { get; set; }
         public bool Ativo { get; set; }
         [Column("Local_Trabalho")]
         [StringLength(100)]
+        [Display(Name = "Local_Trabalho")]
         public string LocalTrabalho { get; set; }
         [Column("Id_Role")]
+        [Display(Name = "Nº Role")]
         public int IdRole { get; set; }
 
         [ForeignKey(nameof(IdRole))]
