@@ -75,14 +75,14 @@ namespace UP_Mobile
                 endpoints.MapRazorPages();
             });
 
-            //SeedData.InsereRolesAsync(gestorRoles).Wait();
-            //SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
+            SeedData.InsereRolesAsync(gestorRoles).Wait();
+            SeedData.InsereAdministradorPadraoAsync(gestorUtilizadores).Wait();
 
-            //if (env.IsDevelopment())
-            //{
-            //    SeedData.PreencheDadosFicticios(context);
-            //    SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
-            //}
+            if (env.IsDevelopment())
+            {
+                SeedData.PreencheDadosFicticios(context);
+                SeedData.InsereUtilizadoresFicticiosAsync(gestorUtilizadores).Wait();
+            }
         }
     }
 }
