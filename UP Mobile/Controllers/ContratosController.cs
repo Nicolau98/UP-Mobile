@@ -73,7 +73,7 @@ namespace UP_Mobile.Controllers
                 var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
 
                 contrato.IdCliente = cliente.IdUtilizador;
-
+                contrato.IdOperador = operador.IdUtilizador;
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

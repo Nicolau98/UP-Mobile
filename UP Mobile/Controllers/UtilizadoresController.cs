@@ -33,9 +33,9 @@ namespace UP_Mobile.Controllers
                 PaginaAtual = pagina
             };
 
-            //Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRole == 3))
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRoleNavigation == rolecliente))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -70,9 +70,9 @@ namespace UP_Mobile.Controllers
                 PaginaAtual = pagina
             };
 
-            //Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRole == 3))
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRoleNavigation==roleoperador))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -138,7 +138,10 @@ namespace UP_Mobile.Controllers
         {
             if (ModelState.IsValid)
             {
-                utilizador.IdRole = 3;
+                Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+                utilizador.IdRoleNavigation = rolecliente;
+
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexCliente));
@@ -163,7 +166,10 @@ namespace UP_Mobile.Controllers
         {
             if (ModelState.IsValid)
             {
-                utilizador.IdRole = 2;
+                Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
+
+                utilizador.IdRoleNavigation = roleoperador;
+                
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexOperador));
@@ -219,13 +225,16 @@ namespace UP_Mobile.Controllers
                         throw;
                     }
                 }
+                Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+                Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
-                var role = utilizador.IdRole;
+                var role = utilizador.IdRoleNavigation;
 
-                if (role == 3) 
+
+                if (role == rolecliente) 
                 {
                     return RedirectToAction(nameof(IndexCliente));
-                }else if(role == 2) 
+                }else if(role == roleoperador) 
                 {
                     return RedirectToAction(nameof(IndexOperador));
                 }
@@ -260,20 +269,29 @@ namespace UP_Mobile.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var utilizador = await _context.Utilizador.FindAsync(id);
+
+            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
+
+            var role = utilizador.IdRoleNavigation;
+
             _context.Utilizador.Remove(utilizador);
             await _context.SaveChangesAsync();
 
-            var role = utilizador.IdRole;
 
-            if (role == 3)
+
+            
+
+
+            if (role == rolecliente)
             {
                 return RedirectToAction(nameof(IndexCliente));
             }
-            else if (role == 2)
+            else 
             {
                 return RedirectToAction(nameof(IndexOperador));
             }
-            return RedirectToAction(nameof(Index));
+            ///return RedirectToAction(nameof(Index));
         }
 
         private bool UtilizadorExists(int id)

@@ -97,7 +97,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPacoteComercialPromocao,IdPromocao,IdPacote, PrecoTotalPacote")] PacoteComercialPromocao pacoteComercialPromocao)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPacoteComercialPromocao,IdPromocao,IdPacote")] PacoteComercialPromocao pacoteComercialPromocao)
         {
             if (id != pacoteComercialPromocao.IdPacoteComercialPromocao)
             {
@@ -108,6 +108,10 @@ namespace UP_Mobile.Controllers
             {
                 try
                 {
+                    var promocao = await _context.Promocao.FindAsync(pacoteComercialPromocao.IdPromocao);
+                    var pacote = await _context.PacoteComercial.FindAsync(pacoteComercialPromocao.IdPacote);
+
+                    pacoteComercialPromocao.PrecoTotalPacote = pacote.PrecoBase - promocao.Preco;
                     _context.Update(pacoteComercialPromocao);
                     await _context.SaveChangesAsync();
                 }

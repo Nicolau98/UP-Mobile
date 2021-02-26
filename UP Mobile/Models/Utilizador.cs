@@ -22,29 +22,28 @@ namespace UP_Mobile.Models
         [Column("Id_Utilizador")]
         [Display(Name = "Nº Utilizador")]
         public int IdUtilizador { get; set; }
+       
         [Required]
         [StringLength(50)]
-
         public string Nome { get; set; }
 
         [Column("Data_Nascimento", TypeName = "date")]
         [Display(Name = "Data Nascimento")]
         public DateTime DataNascimento { get; set; }
+
         [Required]
         [StringLength(100)]
-        [Display(Name = "Data de nascimento")]
-
+        [Display(Name = "Morada")]
         public string Morada { get; set; }
+
         [Required]
         [StringLength(9)]
-        [Display(Name = "Morada")]
-
-        public string Contacto { get; set; }
-        [Required]
         [RegularExpression(@"(9[1236]|2\d)\d{7}", ErrorMessage = "Telefone Inválido")]
-        [StringLength(50)]
         [Display(Name = "Contacto")]
+        public string Contacto { get; set; }
 
+        [Required]
+        [StringLength(50)]
         public string Email { get; set; }
 
         [Required]
