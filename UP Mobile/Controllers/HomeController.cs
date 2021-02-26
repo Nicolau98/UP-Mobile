@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using UP_Mobile.Models;
 
 namespace UP_Mobile.Controllers
@@ -19,6 +15,11 @@ namespace UP_Mobile.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Main()
         {
             return View();
         }

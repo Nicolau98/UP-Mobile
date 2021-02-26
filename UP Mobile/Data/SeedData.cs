@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UP_Mobile.Models;
@@ -22,16 +21,16 @@ namespace UP_Mobile.Data
 
         internal static void PreencheDadosFicticios(UPMobileContext context)
         {
-            
+
             InserePacotesComerciaisFicticios(context);
             InserePromoesFicticias(context);
- 
+
             InsereRolesFicticios(context);
             InsereUtilizadoresFicticios(context);
 
 
             InsereConteudoExtraFicticias(context);
-            
+
 
         }
 
@@ -62,7 +61,7 @@ namespace UP_Mobile.Data
 
             Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
             Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
-            
+
             context.Utilizador.AddRange(new Utilizador[]
             {
                     new Utilizador
@@ -569,7 +568,7 @@ namespace UP_Mobile.Data
                         Movel = "Pré-pago"
 
                     }
-                
+
             });
 
             context.SaveChanges();
@@ -621,11 +620,11 @@ namespace UP_Mobile.Data
 
         //context.SaveChanges();
 
-        
+
     }
 }
 
-        
+
 
 
 
