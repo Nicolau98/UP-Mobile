@@ -85,7 +85,7 @@ namespace UP_Mobile.Data
                         DataNascimento = new DateTime(1987, 12, 29),
                         Morada ="Avenida da Fortaleza, nº2, 2º direito, 2340-786 Oliveira do Hospital",
                         Contacto = "961370629",
-                        Email ="marYinunex@iol.pt" ,
+                        Email ="operador@upmobile.com" ,
                         NContribuinte = "267093158",
                         NIdentificacao = "10679234",
                         Ativo = true,
