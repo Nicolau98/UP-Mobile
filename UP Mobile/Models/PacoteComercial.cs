@@ -22,6 +22,7 @@ namespace UP_Mobile.Models
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
+
         [StringLength(500)]
         public string Descricao { get; set; }
         [Column("Data_Inicio_Comercializacao", TypeName = "date")]

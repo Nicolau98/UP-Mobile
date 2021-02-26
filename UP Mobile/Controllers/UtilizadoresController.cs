@@ -72,7 +72,7 @@ namespace UP_Mobile.Controllers
 
             //Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRole == 2))
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRole == 3))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -262,6 +262,17 @@ namespace UP_Mobile.Controllers
             var utilizador = await _context.Utilizador.FindAsync(id);
             _context.Utilizador.Remove(utilizador);
             await _context.SaveChangesAsync();
+
+            var role = utilizador.IdRole;
+
+            if (role == 3)
+            {
+                return RedirectToAction(nameof(IndexCliente));
+            }
+            else if (role == 2)
+            {
+                return RedirectToAction(nameof(IndexOperador));
+            }
             return RedirectToAction(nameof(Index));
         }
 
