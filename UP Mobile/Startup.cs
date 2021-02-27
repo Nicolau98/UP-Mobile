@@ -33,6 +33,7 @@ namespace UP_Mobile
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -48,7 +49,10 @@ namespace UP_Mobile
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI();
 
+
             services.AddControllersWithViews();
+            services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
