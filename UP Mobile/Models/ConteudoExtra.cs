@@ -24,7 +24,7 @@ namespace UP_Mobile.Models
         [Display(Name = "Nº Conteudo")]
 
         public string Nome { get; set; }
-        [Required(ErrorMessage = "Deve preencher o nome.")]
+        [Required]
         [StringLength(500)]
         [Display(Name = "Nome de Conteudo")]
 
