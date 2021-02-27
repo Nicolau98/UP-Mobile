@@ -23,7 +23,7 @@ namespace UP_Mobile.Models
         [Display(Name = "Nº Utilizador")]
         public int IdUtilizador { get; set; }
        
-        [Required]
+        [Required(ErrorMessage = "Deve preencher o nome.")]
         [StringLength(50)]
         public string Nome { get; set; }
 
@@ -31,28 +31,28 @@ namespace UP_Mobile.Models
         [Display(Name = "Data Nascimento")]
         public DateTime DataNascimento { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher a morada.")]
         [StringLength(100)]
         [Display(Name = "Morada")]
         public string Morada { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher o contacto.")]
         [StringLength(9)]
         [RegularExpression(@"(9[1236]|2\d)\d{7}", ErrorMessage = "Telefone Inválido")]
         [Display(Name = "Contacto")]
         public string Contacto { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher o Email.")]
         [StringLength(50)]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher o número de contribuinte.")]
         [Column("N_Contribuinte")]
         [StringLength(9)]
         [Display(Name = "Nº Contribuinte")]
         public string NContribuinte { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher o número de identificação.")]
         [Column("N_Identificacao")]
         [StringLength(8)]
         [Display(Name = "Nº Identificacao")]
