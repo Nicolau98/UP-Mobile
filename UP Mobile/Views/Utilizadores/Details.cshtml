@@ -73,6 +73,11 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.IdUtilizador">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <a asp-action="Edit" asp-route-id="@Model.IdUtilizador" class="btn btn-primary">Editar</a>
+    <a onclick="history.go(-1)" class="btn btn-primary">Cancelar</a>
+    @if (User.IsInRole("Operador"))
+    { 
+        <a asp-controller="Contratos" asp-action="Create" asp-route-id="@Model.IdUtilizador" class="btn btn-primary">Novo Contrato</a>
+    }
+
+    </div>

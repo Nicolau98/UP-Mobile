@@ -46,13 +46,13 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Contratos/Create
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int? id)
         {
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email");
-            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email");
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao");
 
-            //var cliente = await _context.Cliente.FindAsync(id);
+            var cliente = await _context.Utilizador.FindAsync(id);
 
             var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
             ViewBag.NomeOperador = operador.Nome;
@@ -73,13 +73,13 @@ namespace UP_Mobile.Controllers
                 var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
 
                 contrato.IdCliente = cliente.IdUtilizador;
-
+                contrato.IdOperador = operador.IdUtilizador;
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
-            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdCliente);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdOperador);
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao", contrato.IdPacoteComercialPromocao);
             return View(contrato);
         }

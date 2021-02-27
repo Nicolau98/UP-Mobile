@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
@@ -20,19 +21,32 @@ namespace UP_Mobile.Models
         public int IdConteudo { get; set; }
         [Required]
         [StringLength(50)]
+        [Display(Name = "Nº Conteudo")]
+
         public string Nome { get; set; }
         [Required]
         [StringLength(500)]
+        [Display(Name = "Nome de Conteudo")]
+
         public string Descricao { get; set; }
+
         [Column("Data_Inicio_Comercializacao", TypeName = "date")]
+        [Display(Name = "Data de início da comercialização")]
         public DateTime DataInicioComercializacao { get; set; }
+
         [Column("Data_Fim_Comercializacao", TypeName = "date")]
+        [Display(Name = "Data de fim da comercialização")]
         public DateTime? DataFimComercializacao { get; set; }
+
         [Column(TypeName = "decimal(4, 2)")]
+
         public decimal? Preco { get; set; }
+
         public bool Ativo { get; set; }
 
         [InverseProperty("IdConteudoNavigation")]
         public virtual ICollection<ContratoConteudo> ContratoConteudo { get; set; }
     }
 }
+
+

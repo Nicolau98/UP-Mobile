@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
@@ -22,36 +22,49 @@ namespace UP_Mobile.Models
         [Column("Id_Utilizador")]
         [Display(Name = "Nº Utilizador")]
         public int IdUtilizador { get; set; }
+       
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
+
         [Column("Data_Nascimento", TypeName = "date")]
-        [Display(Name = "Data_Nascimento")]
+        [Display(Name = "Data Nascimento")]
         public DateTime DataNascimento { get; set; }
+
         [Required]
         [StringLength(100)]
+        [Display(Name = "Morada")]
         public string Morada { get; set; }
+
         [Required]
         [StringLength(9)]
+        [RegularExpression(@"(9[1236]|2\d)\d{7}", ErrorMessage = "Telefone Inválido")]
+        [Display(Name = "Contacto")]
         public string Contacto { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
+
         [Required]
         [Column("N_Contribuinte")]
         [StringLength(9)]
-        [Display(Name = "N_Contribuinte")]
+        [Display(Name = "Nº Contribuinte")]
         public string NContribuinte { get; set; }
+
         [Required]
         [Column("N_Identificacao")]
         [StringLength(8)]
-        [Display(Name = "N_Identificacao")]
+        [Display(Name = "Nº Identificacao")]
         public string NIdentificacao { get; set; }
+
         public bool Ativo { get; set; }
+
         [Column("Local_Trabalho")]
         [StringLength(100)]
-        [Display(Name = "Local_Trabalho")]
+        [Display(Name = "Local de Trabalho")]
         public string LocalTrabalho { get; set; }
+
         [Column("Id_Role")]
         [Display(Name = "Nº Role")]
         public int IdRole { get; set; }
