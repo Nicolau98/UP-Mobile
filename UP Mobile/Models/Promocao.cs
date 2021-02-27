@@ -24,7 +24,7 @@ namespace UP_Mobile.Models
         [Display(Name = "Nº Promoção")]
         public string Nome { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher a descrição.")]
         [StringLength(500)]
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
