@@ -97,17 +97,18 @@ namespace UP_Mobile.Controllers
         // GET: Utilizadores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
             var utilizador = await _context.Utilizador
                 .Include(u => u.IdRoleNavigation)
                 .FirstOrDefaultAsync(m => m.IdUtilizador == id);
             if (utilizador == null)
             {
-                return NotFound();
+                utilizador = await _context.Utilizador.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
+                return View(utilizador);
             }
 
             if (utilizador.Ativo == true)
