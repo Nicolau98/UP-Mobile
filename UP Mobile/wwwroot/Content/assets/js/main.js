@@ -1,20 +1,11 @@
 /**
-* Template Name: Day - v2.2.1
-* Template URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
+* Template Name: Maxim - v2.3.1
+* Template URL: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
 !(function($) {
   "use strict";
-
-  // Preloader
-  $(window).on('load', function() {
-    if ($('#preloader').length) {
-      $('#preloader').delay(100).fadeOut('slow', function() {
-        $(this).remove();
-      });
-    }
-  });
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
   var scrolltoOffset = $('#header').outerHeight() - 1;
@@ -99,7 +90,7 @@
 
   // Navigation active state on scroll
   var nav_sections = $('section');
-  var main_nav = $('.nav-menu, #mobile-nav');
+  var main_nav = $('.nav-menu, .mobile-nav');
 
   $(window).on('scroll', function() {
     var cur_pos = $(this).scrollTop() + 200;
@@ -120,22 +111,6 @@
     });
   });
 
-  // Toggle .header-scrolled class to #header when page is scrolled
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('#header').addClass('header-scrolled');
-      $('#topbar').addClass('topbar-scrolled');
-    } else {
-      $('#header').removeClass('header-scrolled');
-      $('#topbar').removeClass('topbar-scrolled');
-    }
-  });
-
-  if ($(window).scrollTop() > 100) {
-    $('#header').addClass('header-scrolled');
-    $('#topbar').addClass('topbar-scrolled');
-  }
-
   // Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
@@ -152,10 +127,29 @@
     return false;
   });
 
+  // Testimonials carousel (uses the Owl Carousel library)
+  $(".testimonials-carousel").owlCarousel({
+    autoplay: true,
+    dots: true,
+    loop: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      768: {
+        items: 2
+      },
+      900: {
+        items: 3
+      }
+    }
+  });
+
   // Porfolio isotope and filter
   $(window).on('load', function() {
     var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item'
+      itemSelector: '.portfolio-item',
+      layoutMode: 'fitRows'
     });
 
     $('#portfolio-flters li').on('click', function() {
