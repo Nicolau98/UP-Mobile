@@ -18,10 +18,14 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Contratos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            var uPMobileContext = _context.Contrato.Include(c => c.IdClienteNavigation).Include(c => c.IdOperadorNavigation).Include(c => c.IdPacoteComercialPromocaoNavigation);
-            return View(await uPMobileContext.ToListAsync());
+            var contrato = await _context.Contrato.Where(c=> c.IdCliente == id)
+                .Include(c => c.IdClienteNavigation)
+                .Include(c => c.IdOperadorNavigation)
+                .Include(c => c.IdPacoteComercialPromocaoNavigation)
+                .ToListAsync();
+            return View(contrato);
         }
 
         // GET: Contratos/Details/5
@@ -48,14 +52,17 @@ namespace UP_Mobile.Controllers
         // GET: Contratos/Create
         public async Task<IActionResult> Create(int? id)
         {
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
+            ViewData["IdCliente"] = id;
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
             ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao");
 
-            var cliente = await _context.Utilizador.FindAsync(id);
+            //var cliente = await _context.Utilizador.FindAsync(id);
 
             var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+
             ViewBag.NomeOperador = operador.Nome;
+            //ViewBag.Cliente = cliente.IdUtilizador;
+            //ViewBag.NomeCliente = cliente.Nome;
 
             return View();
         }
@@ -65,14 +72,14 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdOperador,IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato,PrecoTotal,ConteudoExtraTotal")] Contrato contrato)
+        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato,PrecoTotal,ConteudoExtraTotal")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {
-                var cliente = await _context.Utilizador.FindAsync(contrato.IdCliente);
+                //var cliente = await _context.Utilizador.FindAsync(contrato.IdCliente);
                 var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
 
-                contrato.IdCliente = cliente.IdUtilizador;
+                //contrato.IdCliente = cliente.IdUtilizador;
                 contrato.IdOperador = operador.IdUtilizador;
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
