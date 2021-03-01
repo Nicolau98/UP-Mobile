@@ -78,7 +78,14 @@
 
             <div>
                 <a asp-action="Edit" asp-route-id="@Model.Utilizador.IdUtilizador" class="btn btn-primary">Editar</a>
-                <a onclick="history.go(-1)" class="btn btn-primary">Cancelar</a>
+                
+            </div>
+            
+            <br />
+            <div>
+
+                <a asp-area="Identity" asp-page="/Account/Manage/Email" class="btn btn-primary">Confidenciais</a>
+                
             </div>
 
             @foreach (var item in Model.Contrato)
