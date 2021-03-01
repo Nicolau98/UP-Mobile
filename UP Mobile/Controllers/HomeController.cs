@@ -24,7 +24,7 @@ namespace UP_Mobile.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult UP()
         {
             return View();
         }
