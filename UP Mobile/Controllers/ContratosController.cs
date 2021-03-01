@@ -54,7 +54,10 @@ namespace UP_Mobile.Controllers
         {
             ViewData["IdCliente"] = id;
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
-            ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao");
+
+            var pp = _context.PacoteComercialPromocao.Include(c => c.IdPacoteNavigation).Select(p => new { p.IdPacoteComercialPromocao, Nome = p.IdPacoteNavigation.Nome });
+
+            ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
 
             //var cliente = await _context.Utilizador.FindAsync(id);
 
@@ -87,7 +90,7 @@ namespace UP_Mobile.Controllers
             }
             ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdCliente);
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdOperador);
-            ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "IdPacoteComercialPromocao", contrato.IdPacoteComercialPromocao);
+            ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao.Include(c => c.IdPacoteNavigation), "IdPacoteComercialPromocao", "Nome", contrato.IdPacoteComercialPromocao);
             return View(contrato);
         }
 
