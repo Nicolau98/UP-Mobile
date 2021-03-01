@@ -30,6 +30,8 @@ namespace UP_Mobile.Data
 
 
             InsereConteudoExtraFicticias(context);
+            //InserePacotePromocoaoFicticias(context);
+            //InsereContratoFicticias(context);
 
 
         }
@@ -573,6 +575,54 @@ namespace UP_Mobile.Data
 
             context.SaveChanges();
         }
+
+
+        //private static void InsereContratoFicticias(UPMobileContext context)
+
+        //{
+        //    if (context.Contrato.Any()) return;
+
+        //    context.Contrato.AddRange(new Contrato[]
+        //    {
+        //        new Contrato
+        //        {
+        //            IdCliente = 2004,
+        //            IdOperador = null,
+        //            IdPacoteComercialPromocao = 1,
+        //            DataInicioContrato = new DateTime(2021, 10, 15),
+        //            DataFimContrato = null,
+        //            MoradaFaturacao = "dada",
+        //            DataFidelizacao = null,
+        //            PrecoBaseInicioContrato = 12.20M,
+        //            PrecoTotal = 12.20M
+
+        //        }
+        //        });
+
+        //    context.SaveChanges();
+        //}
+
+
+        //private static void InserePacotePromocoaoFicticias(UPMobileContext context)
+
+        //{
+        //    if (context.PacoteComercialPromocao.Any()) return;
+
+        //    context.PacoteComercialPromocao.AddRange(new PacoteComercialPromocao[]
+        //    {
+        //        new PacoteComercialPromocao
+        //        {
+        //            IdPromocao = 1,
+        //            IdPacote = 1002,
+        //            PrecoTotalPacote = 25.20M
+
+        //        }
+        //        });
+
+        //    context.SaveChanges();
+        //}
+
+
 
         //private static void InserePacotesComerciaisFicticiasParaTestar(UPMobileContext context)
         //{

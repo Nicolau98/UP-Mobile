@@ -123,6 +123,42 @@ namespace UP_Mobile.Controllers
             return View(utilizador);
         }
 
+        public async Task<IActionResult> DetailsPessoaisCliente(int? id)
+        {
+
+            var utilizador = await _context.Utilizador.SingleOrDefaultAsync(u => u.Email == User.Identity.Name);
+                //.Include(u => u.IdRoleNavigation)
+                //.FirstOrDefaultAsync(m => m.IdUtilizador == id);
+
+            var contrato = await _context.Contrato
+                .ToListAsync();
+                
+
+            if (utilizador == null)
+            {
+                utilizador = await _context.Utilizador.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
+                return View(utilizador);
+            }
+
+            if (utilizador.Ativo == true)
+            {
+                ViewBag.Ativo = "Utilizador Ativo";
+            }
+            else
+            {
+                ViewBag.Ativo = "Utilizador Inativo";
+            }
+
+
+            ListaUtilizadoresAreaClienteViewModel modelo = new ListaUtilizadoresAreaClienteViewModel
+            {
+                Utilizador = utilizador,
+                Contrato = contrato
+            };
+
+            return base.View(modelo);
+        }
+
         // GET: Utilizadores/Create
         public IActionResult CreateCliente()
         {
