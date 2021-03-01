@@ -17,16 +17,12 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Role")]
-        [Display(Name = "Nº Role")]
         public int IdRole { get; set; }
         [Required]
         [StringLength(20)]
-
         public string Nome { get; set; }
-
 
         [InverseProperty("IdRoleNavigation")]
         public virtual ICollection<Utilizador> Utilizador { get; set; }
     }
 }
-

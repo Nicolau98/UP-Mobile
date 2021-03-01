@@ -20,27 +20,17 @@ namespace UP_Mobile.Models
         public int IdPromocao { get; set; }
         [Required]
         [StringLength(50)]
-
-        [Display(Name = "Nº Promoção")]
         public string Nome { get; set; }
-
-        [Required(ErrorMessage ="Deve preencher a descrição.")]
+        [Required]
         [StringLength(500)]
-        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
-
         [Column("Data_Inicio", TypeName = "date")]
         public DateTime DataInicio { get; set; }
-        [Display(Name = "Data de início da promoção")]
-
+        [Column("Data_Fim", TypeName = "date")]
         public DateTime? DataFim { get; set; }
         [Column(TypeName = "decimal(4, 2)")]
-        [Display(Name = "Data de fim da promoção")]
-
         public decimal Preco { get; set; }
         [StringLength(50)]
-        [Display(Name = "Preço da promoção")]
-
         public string Conteudo { get; set; }
         public bool Ativo { get; set; }
 
@@ -48,4 +38,3 @@ namespace UP_Mobile.Models
         public virtual ICollection<PacoteComercialPromocao> PacoteComercialPromocao { get; set; }
     }
 }
-

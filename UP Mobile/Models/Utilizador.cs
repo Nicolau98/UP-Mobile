@@ -20,53 +20,34 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Utilizador")]
-        [Display(Name = "Nº Utilizador")]
         public int IdUtilizador { get; set; }
-       
-        [Required(ErrorMessage = "Deve preencher o nome.")]
+        [Required]
         [StringLength(50)]
         public string Nome { get; set; }
-
         [Column("Data_Nascimento", TypeName = "date")]
-        [Display(Name = "Data Nascimento")]
         public DateTime DataNascimento { get; set; }
-
-        [Required(ErrorMessage = "Deve preencher a morada.")]
+        [Required]
         [StringLength(100)]
-        [Display(Name = "Morada")]
         public string Morada { get; set; }
-
-        [Required(ErrorMessage = "Deve preencher o contacto.")]
+        [Required]
         [StringLength(9)]
-        [RegularExpression(@"(9[1236]|2\d)\d{7}", ErrorMessage = "Telefone Inválido")]
-        [Display(Name = "Contacto")]
         public string Contacto { get; set; }
-
-        [Required(ErrorMessage = "Deve preencher o Email.")]
+        [Required]
         [StringLength(50)]
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Deve preencher o número de contribuinte.")]
+        [Required]
         [Column("N_Contribuinte")]
         [StringLength(9)]
-        [Display(Name = "Nº Contribuinte")]
         public string NContribuinte { get; set; }
-
-        [Required(ErrorMessage = "Deve preencher o número de identificação.")]
+        [Required]
         [Column("N_Identificacao")]
         [StringLength(8)]
-        [Display(Name = "Nº Identificacao")]
         public string NIdentificacao { get; set; }
-
         public bool Ativo { get; set; }
-
         [Column("Local_Trabalho")]
         [StringLength(100)]
-        [Display(Name = "Local de Trabalho")]
         public string LocalTrabalho { get; set; }
-
         [Column("Id_Role")]
-        [Display(Name = "Nº Role")]
         public int IdRole { get; set; }
 
         [ForeignKey(nameof(IdRole))]
