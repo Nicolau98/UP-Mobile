@@ -78,7 +78,7 @@
     @if (User.IsInRole("Operador"))
     {
         <a asp-controller="Contratos" asp-action="Create" asp-route-id="@Model.IdUtilizador" class="btn btn-primary">Novo Contrato</a>
-        <a asp-controller="Contratos" asp-action="Index" asp-route-id="@Model.IdUtilizador" class="btn btn-primary">Novo Contrato</a>
+        <a asp-controller="Contratos" asp-action="Index" asp-route-id="@Model.IdUtilizador" class="btn btn-primary">Ver Contratos</a>
     }
 
 </div>
