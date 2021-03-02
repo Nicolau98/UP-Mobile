@@ -46,22 +46,50 @@
 </head>
 
 <body>
-    @*======= Top Bar =======*@
-    <section id="topbar" class="d-flex align-items-center">
-        <div class="container d-flex justify-content-center justify-content-md-between">
-            <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope-fill"></i>@*<a href="mailto:contact@example.com">suporte@upmobile.com</a>*@suporte@upmobile.com
-                <i class="bi bi-phone-fill phone-icon"></i> 16211
-            </div>
+    @if (User.IsInRole("Administrador"))
+    {
+        @*======= Top Bar =======*@
+        <section id="topbar" class="d-flex align-items-center" style="background-color:#ff6a00">
+            <div class="container d-flex justify-content-center justify-content-md-between">
 
-            <div class="social-links d-none d-md-block">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <b>Menu do Administrador</b>
+
             </div>
-        </div>
-    </section>
+        </section>
+    }
+
+    @if (User.IsInRole("Operador"))
+    {
+        @*======= Top Bar =======*@
+        <section id="topbar" class="d-flex align-items-center" style="background-color:#ff6a00">
+            <div class="container d-flex justify-content-center justify-content-md-between">
+
+                <b>Menu do Operador</b>
+
+            </div>
+        </section>
+    }
+
+    @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
+    {
+
+        @*======= Top Bar =======*@
+        <section id="topbar" class="d-flex align-items-center">
+            <div class="container d-flex justify-content-center justify-content-md-between">
+                <div class="contact-info d-flex align-items-center">
+                    <i class="bi bi-envelope-fill"></i>@*<a href="mailto:contact@example.com">suporte@upmobile.com</a>*@suporte@upmobile.com
+                    <i class="bi bi-phone-fill phone-icon"></i> 16211
+                </div>
+
+                <div class="social-links d-none d-md-block">
+                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </section>
+    }
 
     <!-- ======= Header ======= -->
 
@@ -95,37 +123,37 @@
 
 
                         @*<li class="dropdown">
-                        <a href="#"><span>Pacotes</span></a>
-                        <ul>
-                            <li><a href="#">TV + NET + VOZ</a></li>
-                            <li><a href="#">MOVEL</a></li>
-                            <li><a href="#">INTERNET</a></li>
-                            <li><a href="#">TODOS OS PACOTES</a></li>
-                        </ul>
-                    </li>*@
+                                <a href="#"><span>Pacotes</span></a>
+                                <ul>
+                                    <li><a href="#">TV + NET + VOZ</a></li>
+                                    <li><a href="#">MOVEL</a></li>
+                                    <li><a href="#">INTERNET</a></li>
+                                    <li><a href="#">TODOS OS PACOTES</a></li>
+                                </ul>
+                            </li>*@
 
 
                         @*<li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
 
-                    <li class="dropdown">
-                        <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
                             <li class="dropdown">
-                                <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                                <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                                 <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                    <li><a href="#">Drop Down 1</a></li>
+                                    <li class="dropdown">
+                                        <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                                        <ul>
+                                            <li><a href="#">Deep Drop Down 1</a></li>
+                                            <li><a href="#">Deep Drop Down 2</a></li>
+                                            <li><a href="#">Deep Drop Down 3</a></li>
+                                            <li><a href="#">Deep Drop Down 4</a></li>
+                                            <li><a href="#">Deep Drop Down 5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Drop Down 2</a></li>
+                                    <li><a href="#">Drop Down 3</a></li>
+                                    <li><a href="#">Drop Down 4</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                        </ul>
-                    </li>*@
+                            </li>*@
 
                     </ul>
 
@@ -147,12 +175,12 @@
                         <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="DetailsPessoaisCliente">My UPmobile&nbsp;&nbsp;</a></b></li>
                         <partial name="_LoginPartial" />
                         @*<li class="dropdown">
-                            <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Cliente&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
-                            <ul>
-                                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-                                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
-                            </ul>
-                        </li>*@
+                                <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Cliente&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
+                                <ul>
+                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
+                                </ul>
+                            </li>*@
 
                     </ul>
 
@@ -168,11 +196,11 @@
 
                     <ul>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></b></li>
+                            <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                            <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                            <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
+                            @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
+                            <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></b></li>
                         <partial name="_LoginPartial" />
                     </ul>
 
@@ -204,93 +232,145 @@
 
     @RenderBody()
     <!--<main id="main">-->
-        @*======= About Section =======*@
+    @*======= About Section =======*@
 
-        <!--<section>
-            <div class="container">
+    <!--<section>
+        <div class="container">
 
 
 
-            </div>
-        </section>--> @*End Contact Section*@
+        </div>
+    </section>-->
+    @*End Contact Section*@
     <!--</main>--> @*End #main*@
 
 
     <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
+    @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
+    {
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-info">
-                            <h3>Somos UPmobile</h3>
-                            <p>
-                                Queres saber mais? <br>
-                                Contacta-nos.<br><br>
-                                <strong>E-mail:</strong> suporte@upmobile.com<br>
-                                <strong>Telefone:</strong> 16211<br>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-info">
+                                <h3>Somos UPmobile</h3>
+                                <p>
+                                    Queres saber mais? <br>
+                                    Contacta-nos.<br><br>
+                                    <strong>E-mail:</strong> suporte@upmobile.com<br>
+                                    <strong>Telefone:</strong> 16211<br>
 
-                            </p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                                </p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-2 col-md-6 footer-links">
+                            <h4>Mais Sobre Nós</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">A UPmobile</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Responsabilidade Social</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Qualidade</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Trabalhar na UPmobile</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Politica de Privacidade</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 footer-links">
+                            <h4>Links Úteis</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Serviços</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Promoções</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Rede 5G</a></li>
+                            </ul>
+                        </div>
+
+
+
+                        <div class="col-lg-4 col-md-6 footer-newsletter">
+                            <h4>Subscreve a nossa Newsletter</h4>
+                            <p>E fica sempre a par das novidades e das nossas promoções</p>
+                            <form action="" method="post">
+                                <input type="email" name="email"><input type="submit" value="Subscrever">
+                            </form>
+
+                        </div>
+
                     </div>
-
-                    <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Mais Sobre Nós</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">A UPmobile</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Responsabilidade Social</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Qualidade</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Trabalhar na UPmobile</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Politica de Privacidade</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Links Úteis</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Serviços</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Promoções</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Rede 5G</a></li>
-                        </ul>
-                    </div>
-
-
-
-                    <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Subscreve a nossa Newsletter</h4>
-                        <p>E fica sempre a par das novidades e das nossas promoções</p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscrever">
-                        </form>
-
-                    </div>
-
                 </div>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>UPmobile</span></strong>. Todos os direitos reservados
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>UPmobile</span></strong>. Todos os direitos reservados
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
+                    Feito por <a href="https://bootstrapmade.com/">UPmobile Dream Team</a>
+                </div>
             </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
-                Feito por <a href="https://bootstrapmade.com/">UPmobile Dream Team</a>
+        </footer>
+    }
+
+
+    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+    {
+        <footer id="footer" style="background-color:#ff6a00">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-3 footer-links">
+                            <h4>Linhas de Apoio</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Geral - 16211</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Técnico - 16212</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Faturação - 16215</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Retenção - 16220</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 footer-links">
+                            <h4>Acessos Rápido</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Pacotes Comerciais</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Clientes</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Operadores</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 footer-links">
+                            <h4>Atalhos Úteis</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Site</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ'S</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Resolução de Problemas</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Literatura</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Linhas</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer><!-- End Footer -->
+
+        </footer>
+    }
+
+
+    <!-- End Footer -->
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>

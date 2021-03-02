@@ -5,222 +5,333 @@
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 
+@if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
+{
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+            <h1>Alguém disse UP?</h1>
+            <h2>Quem é UPmobile não precisa de mais nada</h2>
+            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-get-started scrollto">Aderir</a>
+        </div>
+    </section>
 
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
-        <h1>Alguém disse UP?</h1>
-        <h2>Quem é UPmobile não precisa de mais nada</h2>
-        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-get-started scrollto">Aderir</a>
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="box">
+                        <span><i class=" fas fa-euro-sign fa-2x"></i></span>
+                        <h4>Melhores Preços</h4>
+                        <p>Euros, dolares, francos, escudos, libras...não importa como lhe chamas, porque os preços na UP são Down</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="box">
+                        <span><i class="fas fa-broadcast-tower fa-2x"></i></span>
+                        <h4>Muita Rede</h4>
+                        <p>A qualidade das redes 4G e 5G e Fibra da UP garantem uma fidelidade e estabilidade superior</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="box">
+                        <span><i class="fas fa-gift fa-2x"></i></span>
+                        <h4> Promoções</h4>
+                        <p>Parece que na UP estamos sempre em época de saldos...Ou pelo menos em alguma black friday constante</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>OS PACOTES MAIS UP</h2>
+                <p>Aproveita os pacotes mais vantajosos</p><br />
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="box">
+                        <h2>UP Simples</h2>
+                        <h4><sup>€</sup>24<span> / mês</span></h4><hr />
+                        <ul>
+                            <li><h5>Internet</h5></li>
+                            <li>120 Megas</li>
+                            <li><h5>TV</h5></li>
+                            <li>90 canais</li>
+                            <li><h5>Voz</h5></li>
+                            <li>Chamadas ilimitadas</li>
+                            <li class="na"><h5>Móvel</h5></li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in">
+                    <div class="box featured">
+                        <h2>UP Super</h2>
+                        <h4><sup>€</sup>34<span> / mês</span></h4><hr />
+                        <ul>
+                            <li><h5>Internet</h5></li>
+                            <li>120 Megas</li>
+                            <li><h5>TV</h5></li>
+                            <li>90 canais</li>
+                            <li><h5>Voz</h5></li>
+                            <li>Chamadas ilimitadas</li>
+                            <li><h5>Móvel</h5></li>
+                            <li>2 GB + 1000 Min/SMS</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="box">
+                        <h2>UP Mega</h2>
+                        <h4><sup>€</sup>44<span> / mês</span></h4><hr />
+                        <ul>
+                            <li><h5>Internet</h5></li>
+                            <li>250 Megas</li>
+                            <li><h5>TV</h5></li>
+                            <li>140 canais</li>
+                            <li><h5>Voz</h5></li>
+                            <li>Chamadas ilimitadas</li>
+                            <li><h5>Móvel</h5></li>
+                            <li>4 GB + 2000 Min/SMS</li>
+                        </ul>
+                        <div class="btn-wrap">
+                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="row d-flex align-items-center">
+                <h3 class="mb-4">Os canais mais UP</h3>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="~/img/sportv.png" class="img-fluid" alt="SportTV">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="~/img/dogtvv.png" class="img-fluid" alt="DogTV">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="~/img/BTV.png" class="img-fluid" alt="BenficaTV">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="~/img/startv.png" class="img-fluid" alt="StarTV">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="~/img/cine.png" class="img-fluid" alt="TVCine">
+                </div>
+
+                <div class="col-lg-2 col-md-4 col-6">
+                    <img src="~/img/playboytv.png" class="img-fluid" alt="PLayboyTV">
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Clients Section -->
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>UP Extras</h2>
+                <p>Dá um UP ao teu pacote para que te não falte nada</p><br />
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
+                        <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Canais Desportivos</a></h4>
+                        <p>Aficionado em desporto? Então este é o nosso extra ideal para ti</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-pepper-hot fa-2x"></i></div>
+                        <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Canais para Adultos</a></h4>
+                        <p>O pack adultos é composto por 4 canais premium, para todos os gostos</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-tachometer-alt fa-2x"></i></div>
+                        <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Mais Dados Móveis</a></h4>
+                        <p>O aditivo perfeito para que nunca te falte a internet onde quer que estejas</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-globe fa-2x"></i></div>
+                        <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Canais Internacionais</a></h4>
+                        <p>Vários canais internacionais disponíveis para subscrição</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-play-circle fa-2x"></i></div>
+                        <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Video On Demand</a></h4>
+                        <p>Temos sempre a lista de filmes atualizada para que não percas nenhum</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-landmark fa-2x"></i></div>
+                        <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Documentários</a></h4>
+                        <p>Porque o saber não ocupa lugar, descobre os melhores canais de documentários</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
+}
+
+@if (User.IsInRole("Operador"))
+{
+
+<section id="why-us" class="why-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <h3 class="card-header">Pacotes Comerciais</h3>
+                    <div class="card-body">
+                        <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
+                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-primary">Ver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="card">
+                    <h3 class="card-header">Promoções</h3>
+                    <div class="card-body">
+                        <p class="card-text">Ver lista das promoções disponíveis</p>
+                        <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-primary">Ver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                <div class="card">
+                    <h3 class="card-header">Conteúdos Extra</h3>
+                    <div class="card-body">
+                        <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
+                        <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-primary">Ver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="card">
+                    <h3 class="card-header">Clientes</h3>
+                    <div class="card-body">
+                        <p class="card-text">Aceder aos clientes</p>
+                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-primary">Ver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+}
 
-<!-- ======= Why Us Section ======= -->
-<section id="why-us" class="why-us">
-    <div class="container">
+@if (User.IsInRole("Administrador"))
+{
 
-        <div class="row">
-
-            <div class="col-lg-4" data-aos="fade-up">
-                <div class="box">
-                    <span><i class=" fas fa-euro-sign fa-2x"></i></span>
-                    <h4>Melhores Preços</h4>
-                    <p>Euros, dolares, francos, escudos, libras...não importa como lhe chamas, porque os preços na UP são Down</p>
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <h3 class="card-header">Pacotes Comerciais</h3>
+                        <div class="card-body">
+                            <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
+                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
-                <div class="box">
-                    <span><i class="fas fa-broadcast-tower fa-2x"></i></span>
-                    <h4>Muita Rede</h4>
-                    <p>A qualidade das redes 4G e 5G e Fibra da UP garantem uma fidelidade e estabilidade superior</p>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="card">
+                        <h3 class="card-header">Promoções</h3>
+                        <div class="card-body">
+                            <p class="card-text">Ver lista das promoções disponíveis</p>
+                            <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-                <div class="box">
-                    <span><i class="fas fa-gift fa-2x"></i></span>
-                    <h4> Promoções</h4>
-                    <p>Parece que na UP estamos sempre em época de saldos...Ou pelo menos em alguma black friday constante</p>
+                <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                    <div class="card">
+                        <h3 class="card-header">Conteúdos Extra</h3>
+                        <div class="card-body">
+                            <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
+                            <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-        </div>
-
-    </div>
-</section><!-- End Why Us Section -->
-
-<!-- ======= Pricing Section ======= -->
-<section id="pricing" class="pricing">
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>OS PACOTES MAIS UP</h2>
-            <p>Aproveita os pacotes mais vantajosos</p><br />
-        </div>
-
-        <div class="row">
-
-            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150">
-                <div class="box">
-                    <h2>UP Simples</h2>
-                    <h4><sup>€</sup>24<span> / mês</span></h4><hr />
-                    <ul>
-                        <li><h5>Internet</h5></li>
-                        <li>120 Megas</li>
-                        <li><h5>TV</h5></li>
-                        <li>90 canais</li>
-                        <li><h5>Voz</h5></li>
-                        <li>Chamadas ilimitadas</li>
-                        <li class="na"><h5>Móvel</h5></li>
-                    </ul>
-                    <div class="btn-wrap">
-                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="card">
+                        <h3 class="card-header">Clientes</h3>
+                        <div class="card-body">
+                            <p class="card-text">Aceder aos clientes</p>
+                            <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4 mt-lg-0">
+                    <div class="card">
+                        <h3 class="card-header">Operadores</h3>
+                        <div class="card-body">
+                            <p class="card-text">Aceder aos operadores</p>
+                            <a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador" class="btn btn-primary">Ver</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in">
-                <div class="box featured">
-                    <h2>UP Super</h2>
-                    <h4><sup>€</sup>34<span> / mês</span></h4><hr />
-                    <ul>
-                        <li><h5>Internet</h5></li>
-                        <li>120 Megas</li>
-                        <li><h5>TV</h5></li>
-                        <li>90 canais</li>
-                        <li><h5>Voz</h5></li>
-                        <li>Chamadas ilimitadas</li>
-                        <li><h5>Móvel</h5></li>
-                        <li>2 GB + 1000 Min/SMS</li>
-                    </ul>
-                    <div class="btn-wrap">
-                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
-                <div class="box">
-                    <h2>UP Mega</h2>
-                    <h4><sup>€</sup>44<span> / mês</span></h4><hr />
-                    <ul>
-                        <li><h5>Internet</h5></li>
-                        <li>250 Megas</li>
-                        <li><h5>TV</h5></li>
-                        <li>140 canais</li>
-                        <li><h5>Voz</h5></li>
-                        <li>Chamadas ilimitadas</li>
-                        <li><h5>Móvel</h5></li>
-                        <li>4 GB + 2000 Min/SMS</li>
-                    </ul>
-                    <div class="btn-wrap">
-                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
+    </section>
 
-    </div>
-</section><!-- End Pricing Section -->
-
-<!-- ======= Clients Section ======= -->
-<section id="clients" class="clients">
-    <div class="container" data-aos="zoom-in">
-
-        <div class="row d-flex align-items-center">
-            <h3 class="mb-4">Os canais mais UP</h3>
-            <div class="col-lg-2 col-md-4 col-6">
-                <img src="~/img/sportv.png" class="img-fluid" alt="SportTV">
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-6">
-                <img src="~/img/dogtvv.png" class="img-fluid" alt="DogTV">
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-6">
-                <img src="~/img/BTV.png" class="img-fluid" alt="BenficaTV">
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-6">
-                <img src="~/img/startv.png" class="img-fluid" alt="StarTV">
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-6">
-                <img src="~/img/cine.png" class="img-fluid" alt="TVCine">
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-6">
-                <img src="~/img/playboytv.png" class="img-fluid" alt="PLayboyTV">
-            </div>
-
-        </div>
-
-    </div>
-</section><!-- End Clients Section -->
-<!-- ======= Services Section ======= -->
-<section id="services" class="services">
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>UP Extras</h2>
-            <p>Dá um UP ao teu pacote para que te não falte nada</p><br />
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-                <div class="icon-box">
-                    <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
-                    <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Canais Desportivos</a></h4>
-                    <p>Aficionado em desporto? Então este é o nosso extra ideal para ti</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
-                <div class="icon-box">
-                    <div class="icon"><i class="fas fa-pepper-hot fa-2x"></i></div>
-                    <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Canais para Adultos</a></h4>
-                    <p>O pack adultos é composto por 4 canais premium, para todos os gostos</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box">
-                    <div class="icon"><i class="fas fa-tachometer-alt fa-2x"></i></div>
-                    <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Mais Dados Móveis</a></h4>
-                    <p>O aditivo perfeito para que nunca te falte a internet onde quer que estejas</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
-                <div class="icon-box">
-                    <div class="icon"><i class="fas fa-globe fa-2x"></i></div>
-                    <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Canais Internacionais</a></h4>
-                    <p>Vários canais internacionais disponíveis para subscrição</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="icon-box">
-                    <div class="icon"><i class="fas fa-play-circle fa-2x"></i></div>
-                    <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Video On Demand</a></h4>
-                    <p>Temos sempre a lista de filmes atualizada para que não percas nenhum</p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
-                <div class="icon-box">
-                    <div class="icon"><i class="fas fa-landmark fa-2x"></i></div>
-                    <h4><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Documentários</a></h4>
-                    <p>Porque o saber não ocupa lugar, descobre os melhores canais de documentários</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section><!-- End Services Section -->
+}
