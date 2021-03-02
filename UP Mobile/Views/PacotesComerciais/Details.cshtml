@@ -84,8 +84,8 @@
             <div>
                 @if (User.IsInRole("Administrador"))
                 {
-                    <a asp-action="Edit" asp-route-id="@Model.IdPacote" class="btn btn-primary">Editar</a>}
-                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+                    <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdPacote">Editar</a>} |
+                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Voltar</a>
             </div>
         </div>
     </section>

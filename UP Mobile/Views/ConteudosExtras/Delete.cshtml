@@ -10,7 +10,7 @@
 
             <h1>Apagar Conteúdo Extra</h1>
 
-            <h3>Tem a certeza que deseja apagar o pacote comercial nº @Html.DisplayFor(model => model.IdConteudo) ?</h3>
+            <h3>Tem a certeza que deseja apagar o conteúdo extra nº @Html.DisplayFor(model => model.Nome) ?</h3>
             <div>
                 <hr />
                 <dl class="row">
@@ -48,8 +48,8 @@
 
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="IdConteudo" />
-                    <input type="submit" value="Apagar" class="btn btn-danger" /> |
-                    <a asp-action="Index" class="btn btn-primary">Cancelar e Voltar</a>
+                    <input type="submit" value="Apagar" class="btn border" style="background-color: #55ecc3;" /> |
+                    <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
                 </form>
             </div>
 

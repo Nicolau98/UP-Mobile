@@ -8,12 +8,10 @@
     <section>
         <div class="container">
 
-            <h1>Create</h1>
+            <h1>Criar Pacote Comercial Promoção</h1>
 
-            <h4>PacoteComercialPromocao</h4>
-            <hr />
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md">
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">
@@ -26,21 +24,19 @@
                         </div>
 
                         @*<div class="form-group">
-                            <label asp-for="PrecoTotalPacote" class="control-label"></label>
-                            <input asp-for="PrecoTotalPacote" class="form-control" />
-                            <span asp-validation-for="PrecoTotalPacote" class="text-danger"></span>
-                        </div>*@
+                                <label asp-for="PrecoTotalPacote" class="control-label"></label>
+                                <input asp-for="PrecoTotalPacote" class="form-control" />
+                                <span asp-validation-for="PrecoTotalPacote" class="text-danger"></span>
+                            </div>*@
 
                         <div class="form-group">
-                            <input type="submit" value="Create" class="btn btn-primary" />
+                            <input type="submit" value="Guardar" class="btn border" style="background-color: #55ecc3;" /> |
+                            <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div>
-                <a asp-action="Index">Back to List</a>
-            </div>
 
             @section Scripts {
                 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
