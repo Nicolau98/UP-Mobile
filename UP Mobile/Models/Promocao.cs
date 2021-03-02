@@ -27,6 +27,7 @@ namespace UP_Mobile.Models
         [Column("Data_Inicio", TypeName = "date")]
         public DateTime DataInicio { get; set; }
         [Column("Data_Fim", TypeName = "date")]
+        [DataType(DataType.Date)]
         public DateTime? DataFim { get; set; }
         [Column(TypeName = "decimal(4, 2)")]
         public decimal Preco { get; set; }

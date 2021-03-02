@@ -21,6 +21,7 @@ namespace UP_Mobile.Models
         [Column("Data_Inicio_Conteudo", TypeName = "datetime")]
         public DateTime DataInicioConteudo { get; set; }
         [Column("Data_Fim_Conteudo", TypeName = "datetime")]
+        [DataType(DataType.Date)]
         public DateTime? DataFimConteudo { get; set; }
 
         [ForeignKey(nameof(IdConteudo))]

@@ -28,13 +28,16 @@ namespace UP_Mobile.Models
         public DateTime DataInicioContrato { get; set; }
         [Column("Data_Fim_Contrato", TypeName = "datetime")]
         public DateTime? DataFimContrato { get; set; }
+        [DataType(DataType.Date)]
         [Required]
         [Column("Morada_Faturacao")]
         [StringLength(100)]
         public string MoradaFaturacao { get; set; }
         [Column("Data_Fidelizacao", TypeName = "date")]
+        [DataType(DataType.Date)]
         public DateTime? DataFidelizacao { get; set; }
         [Column("Preco_Base_Inicio_Contrato", TypeName = "decimal(4, 2)")]
+        [DataType(DataType.Date)]
         public decimal PrecoBaseInicioContrato { get; set; }
         [Column("Preco_Total", TypeName = "decimal(5, 2)")]
         public decimal PrecoTotal { get; set; }
