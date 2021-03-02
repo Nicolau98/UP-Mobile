@@ -70,9 +70,15 @@ namespace UP_Mobile.Controllers
                 PaginaAtual = pagina
             };
 
+            if (nomePesquisar == null)
+            {
+
+                List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxx"));
+            }
+
             Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRoleNavigation==roleoperador))
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation==roleoperador))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))

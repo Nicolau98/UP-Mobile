@@ -315,18 +315,18 @@ namespace UP_Mobile.Data
 
                 },
 
-                new Promocao
-                {
+                //new Promocao
+                //{
 
-                    Nome = "Promoção 1 Mensalidade",
-                    Descricao = "Na compra deste pacote, oferta da primeira mensalidade",
-                    DataInicio =new DateTime(2021, 02, 15),
-                    DataFim=new DateTime(2022, 02, 15),
-                    Preco=34.99M,
-                    Conteudo="Oferta de Mensalidade",
-                    Ativo = true
+                //    Nome = "Promoção 1 Mensalidade",
+                //    Descricao = "Na compra deste pacote, oferta da primeira mensalidade",
+                //    DataInicio =new DateTime(2021, 02, 15),
+                //    DataFim=new DateTime(2022, 02, 15),
+                //    Preco=34.99M,
+                //    Conteudo="Oferta de Mensalidade",
+                //    Ativo = true
 
-                },
+                //},
 
             });
 
