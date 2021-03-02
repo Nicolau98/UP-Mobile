@@ -1,117 +1,116 @@
 ﻿@model ListaUtilizadoresAreaClienteViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Área Pessoal";
 }
-
-
 
 <main id="main">
     <section>
         <div class="container">
 
-            <h1>Privado</h1>
+            <h1 class="topo text-center mb-5" style="color:#55ecc3">Bem-Vindo à sua Área Pessoal @Html.DisplayFor(model => model.Utilizador.Nome)</h1>
 
-            <hr />
-            <dl class="row">
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.Nome)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.Nome)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.DataNascimento)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.DataNascimento)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.Morada)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.Morada)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.Contacto)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.Contacto)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.Email)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.Email)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.NContribuinte)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.NContribuinte)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.NIdentificacao)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.NIdentificacao)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.Ativo)
-                </dt>
-                <dd class="col-sm-10">
-                    @ViewBag.Ativo
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.LocalTrabalho)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.LocalTrabalho)
-                </dd>
-                <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Utilizador.IdRoleNavigation)
-                </dt>
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Utilizador.IdRoleNavigation.Nome)
-                </dd>
-            </dl>
+            <div class="mb-2">
+                <h3 class="mb-3">Dados Pessoais</h3>
 
-            <div>
-                <a asp-action="Edit" asp-route-id="@Model.Utilizador.IdUtilizador" class="btn btn-primary">Editar</a>
-                
-            </div>
-            
-            <br />
-            <div>
-
-                <a asp-area="Identity" asp-page="/Account/Manage/Email" class="btn btn-primary">Confidenciais</a>
-                
+                <table class="table table-hover" style="background-color:#86f1c5">
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="width: 30%">@Html.DisplayNameFor(model => model.Utilizador.Nome)</th>
+                            <td>@Html.DisplayFor(model => model.Utilizador.Nome)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Utilizador.DataNascimento)</th>
+                            <td>@Html.DisplayFor(model => model.Utilizador.DataNascimento)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Utilizador.Morada)</th>
+                            <td>@Html.DisplayFor(model => model.Utilizador.Morada)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Utilizador.Contacto)</th>
+                            <td>@Html.DisplayFor(model => model.Utilizador.Contacto)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Utilizador.Email)</th>
+                            <td>@Html.DisplayFor(model => model.Utilizador.Email)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Utilizador.NContribuinte)</th>
+                            <td>@Html.DisplayFor(model => model.Utilizador.NContribuinte)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Utilizador.NIdentificacao)</th>
+                            <td>@Html.DisplayFor(model => model.Utilizador.NIdentificacao)</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            @foreach (var item in Model.Contrato)
-            {
-                <dl class="row">
-                    <dt class="col-sm-2">
-                        Nome
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(modelItem => item.IdCliente)
-                    </dd>
-                    <dt class="col-sm-2">
-                        Outro Nome
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(modelItem => item.DataInicioContrato)
-                    </dd>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(modelItem => item.MoradaFaturacao)
-                    </dd>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(modelItem => item.PrecoTotal)
-                    </dd>
+            <div class="mb-5">
+                <a asp-action="Edit" asp-route-id="@Model.Utilizador.IdUtilizador" class="btn btn-primary">Editar Dados Pessoais</a>
+            </div>
 
-                </dl>
-            }
+            <div class="mb-5">
+                <h3 class="mb-3">Informações do contrato</h3>
+                @foreach (var item in Model.Contrato)
+                {
+            <div class="card">
+                <div class="card-header">
+                    @Html.DisplayNameFor(modelItem => item.IdContrato)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.IdContrato)</p>
+                </div>
+                <div class="card-header">
+                    @Html.DisplayNameFor(modelItem => item.IdCliente)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.IdCliente)</p>
+                </div>
+                <div class="card-header">
+                    @Html.DisplayNameFor(modelItem => item.DataInicioContrato)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.DataInicioContrato)</p>
+                </div>
+                <div class="card-header">
+                    @Html.DisplayNameFor(modelItem => item.DataFimContrato)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.DataFimContrato)</p>
+                </div>
+                <div class="card-header">
+                    @Html.DisplayNameFor(modelItem => item.MoradaFaturacao)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.MoradaFaturacao)</p>
+                </div>
+                <div class="card-header">
+                    @Html.DisplayNameFor(modelItem => item.IdPacoteComercialPromocao)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.IdPacoteComercialPromocao)</p>
+                </div>
+                <div class="card-header">
+                    @Html.DisplayNameFor(modelItem => item.PrecoTotal)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.PrecoTotal)</p>
+                </div>
+            </div>
+                }
 
-        </div>
+                </div>
+
+                <h3>Alterar Password</h3>
+                <br />
+                <div>
+
+                    <a asp-area="Identity" asp-page="/Account/Manage/Email" class="btn btn-primary">Confidenciais</a>
+
+                </div>
+
+            </div>
     </section>
 </main>

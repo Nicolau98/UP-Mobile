@@ -21,35 +21,49 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Utilizador")]
         public int IdUtilizador { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
+
         [Column("Data_Nascimento", TypeName = "date")]
         [DataType(DataType.Date)]
+        [Display(Name = "Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Morada { get; set; }
+
         [Required]
         [StringLength(9)]
         public string Contacto { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
+
         [Required]
         [Column("N_Contribuinte")]
         [StringLength(9)]
+        [Display(Name = "Número de Contribuinte")]
         public string NContribuinte { get; set; }
+
         [Required]
         [Column("N_Identificacao")]
         [StringLength(8)]
+        [Display(Name = "Cartão de Cidadão")]
         public string NIdentificacao { get; set; }
+
         public bool Ativo { get; set; }
+
         [Column("Local_Trabalho")]
         [StringLength(100)]
         public string LocalTrabalho { get; set; }
+
         [Column("Id_Role")]
         public int IdRole { get; set; }
+
 
         [ForeignKey(nameof(IdRole))]
         [InverseProperty(nameof(Role.Utilizador))]

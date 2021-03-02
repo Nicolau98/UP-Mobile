@@ -196,6 +196,22 @@
     margin-top: 70px;
 }
 
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #55ecc3 !important;
+    color: #55ecc3 !important;
+}
+
+.table-hover tbody tr:hover td {
+    background: aqua;
+}
+
+.table-hover thead tr:hover th, .table-hover tbody tr:hover td {
+    background-color: #D1D119;
+}
+
+table.table-hover tbody tr td:hover {
+    background-color: #55ecc3;
+}
 /*--------------------------------------------------------------
 # Header - ID: Pesquisa
 --------------------------------------------------------------*/
