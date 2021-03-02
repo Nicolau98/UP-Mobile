@@ -25,6 +25,7 @@ namespace UP_Mobile.Models
         [StringLength(50)]
         public string Nome { get; set; }
         [Column("Data_Nascimento", TypeName = "date")]
+        [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
         [Required]
         [StringLength(100)]

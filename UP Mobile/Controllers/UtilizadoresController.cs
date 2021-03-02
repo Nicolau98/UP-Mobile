@@ -130,7 +130,7 @@ namespace UP_Mobile.Controllers
                 //.Include(u => u.IdRoleNavigation)
                 //.FirstOrDefaultAsync(m => m.IdUtilizador == id);
 
-            var contrato = await _context.Contrato
+            var contrato = await _context.Contrato.Where(p => p.IdCliente == utilizador.IdUtilizador)
                 .ToListAsync();
                 
 
@@ -336,6 +336,7 @@ namespace UP_Mobile.Controllers
                 if (role == rolecliente) 
                 {
                     return RedirectToAction(nameof(IndexCliente));
+
                 }else if(role == roleoperador) 
                 {
                     return RedirectToAction(nameof(IndexOperador));

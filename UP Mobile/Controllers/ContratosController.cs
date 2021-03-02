@@ -55,7 +55,7 @@ namespace UP_Mobile.Controllers
             ViewData["IdCliente"] = id;
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
 
-            var pp = _context.PacoteComercialPromocao.Include(c => c.IdPacoteNavigation).Select(p => new { p.IdPacoteComercialPromocao, Nome = p.IdPacoteNavigation.Nome });
+            var pp = _context.PacoteComercialPromocao.Include(c => c.IdPacoteNavigation).Select(p => new { p.IdPacoteComercialPromocao, Nome = p.IdPacoteNavigation.Nome + "/" + p.IdPromocaoNavigation.Nome });
 
             ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
 
@@ -75,18 +75,24 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato,PrecoTotal,ConteudoExtraTotal")] Contrato contrato)
+        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {
-                //var cliente = await _context.Utilizador.FindAsync(contrato.IdCliente);
+                
                 var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
 
-                //contrato.IdCliente = cliente.IdUtilizador;
+                var pacotepromocao = await _context.PacoteComercialPromocao.FindAsync(contrato.IdPacoteComercialPromocao);
+
+                contrato.PrecoBaseInicioContrato = pacotepromocao.PrecoTotalPacote;
+                contrato.PrecoTotal = pacotepromocao.PrecoTotalPacote;
+
+                
                 contrato.IdOperador = operador.IdUtilizador;
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var cliente = contrato.IdCliente;
+                return RedirectToAction("Details", "Utilizadores", new { id = cliente });
             }
             ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdCliente);
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdOperador);
