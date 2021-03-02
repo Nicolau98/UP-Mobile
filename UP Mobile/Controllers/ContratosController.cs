@@ -91,7 +91,8 @@ namespace UP_Mobile.Controllers
                 contrato.IdOperador = operador.IdUtilizador;
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var cliente = contrato.IdCliente;
+                return RedirectToAction("Details", "Utilizadores", new { id = cliente });
             }
             ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdCliente);
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email", contrato.IdOperador);
