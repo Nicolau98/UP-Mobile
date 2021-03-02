@@ -22,20 +22,34 @@ namespace UP_Mobile.Controllers
         // GET: Utilizadores
         public async Task<IActionResult> IndexCliente(string nomePesquisar, int pagina = 1)
         {
-            //var uPMobileContext = _context.Utilizador.Include(u => u.IdRoleNavigation)
-            //    .Where(u=>u.IdRole==3);
-
-            //return View(await uPMobileContext.ToListAsync());
-
             Paginacao paginacao = new Paginacao
             {
                 TotalItems = await _context.Utilizador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
                 PaginaAtual = pagina
             };
 
-            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            if (nomePesquisar == null)
+            {
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRoleNavigation == rolecliente))
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxxxx"))
+                    .ToListAsync();
+
+                ListaUtilizadoresViewModel modelo1 = new ListaUtilizadoresViewModel
+                {
+                    Paginacao = paginacao,
+                    Utilizador = utilizador1,
+                    NomePesquisar = nomePesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+
+
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation == roleoperador))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -57,6 +71,8 @@ namespace UP_Mobile.Controllers
 
         }
 
+    }
+
         public async Task<IActionResult> IndexOperador(string nomePesquisar, int pagina = 1)
         {
             //var uPMobileContext = _context.Utilizador.Include(u => u.IdRoleNavigation)
@@ -73,18 +89,31 @@ namespace UP_Mobile.Controllers
             if (nomePesquisar == null)
             {
 
-                List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxx"));
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxxxx"))
+                    .ToListAsync();
+
+                ListaUtilizadoresViewModel modelo1 = new ListaUtilizadoresViewModel
+                {
+                    Paginacao = paginacao,
+                    Utilizador = utilizador1,
+                    NomePesquisar = nomePesquisar
+                };
+
+
+                return View(modelo1);
+
             }
+            
 
-            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
+                Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation==roleoperador))
-                .Include(u => u.IdRoleNavigation)
-                .OrderBy(p => p.Nome)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
-
+                List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation == roleoperador))
+                    .Include(u => u.IdRoleNavigation)
+                    .OrderBy(p => p.Nome)
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
+            
 
             ListaUtilizadoresViewModel modelo = new ListaUtilizadoresViewModel
             {
