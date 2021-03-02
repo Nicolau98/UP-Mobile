@@ -71,7 +71,7 @@ namespace UP_Mobile.Controllers
 
         }
 
-    }
+    
 
         public async Task<IActionResult> IndexOperador(string nomePesquisar, int pagina = 1)
         {
