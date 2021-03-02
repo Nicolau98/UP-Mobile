@@ -22,20 +22,34 @@ namespace UP_Mobile.Controllers
         // GET: Utilizadores
         public async Task<IActionResult> IndexCliente(string nomePesquisar, int pagina = 1)
         {
-            //var uPMobileContext = _context.Utilizador.Include(u => u.IdRoleNavigation)
-            //    .Where(u=>u.IdRole==3);
-
-            //return View(await uPMobileContext.ToListAsync());
-
             Paginacao paginacao = new Paginacao
             {
                 TotalItems = await _context.Utilizador.Where(p => nomePesquisar == null || p.Nome.Contains(nomePesquisar)).CountAsync(),
                 PaginaAtual = pagina
             };
 
-            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            if (nomePesquisar == null)
+            {
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRoleNavigation == rolecliente))
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxxxx"))
+                    .ToListAsync();
+
+                ListaUtilizadoresViewModel modelo1 = new ListaUtilizadoresViewModel
+                {
+                    Paginacao = paginacao,
+                    Utilizador = utilizador1,
+                    NomePesquisar = nomePesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+
+
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation == roleoperador))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -57,6 +71,8 @@ namespace UP_Mobile.Controllers
 
         }
 
+    
+
         public async Task<IActionResult> IndexOperador(string nomePesquisar, int pagina = 1)
         {
             //var uPMobileContext = _context.Utilizador.Include(u => u.IdRoleNavigation)
@@ -70,15 +86,34 @@ namespace UP_Mobile.Controllers
                 PaginaAtual = pagina
             };
 
-            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
+            if (nomePesquisar == null)
+            {
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.IdRoleNavigation==roleoperador))
-                .Include(u => u.IdRoleNavigation)
-                .OrderBy(p => p.Nome)
-                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                .Take(paginacao.ItemsPorPagina)
-                .ToListAsync();
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxxxx"))
+                    .ToListAsync();
 
+                ListaUtilizadoresViewModel modelo1 = new ListaUtilizadoresViewModel
+                {
+                    Paginacao = paginacao,
+                    Utilizador = utilizador1,
+                    NomePesquisar = nomePesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+            
+
+                Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
+
+                List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation == roleoperador))
+                    .Include(u => u.IdRoleNavigation)
+                    .OrderBy(p => p.Nome)
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
+            
 
             ListaUtilizadoresViewModel modelo = new ListaUtilizadoresViewModel
             {
@@ -160,7 +195,7 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Utilizadores/Create
-        public IActionResult CreateCliente()
+        public IActionResult CreateCliente(string nif)
         {
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
             return View();
@@ -171,14 +206,47 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateCliente([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho")] Utilizador utilizador)
+        public async Task<IActionResult> CreateCliente([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho")] Utilizador utilizador)
         {
+            string nif = utilizador.NContribuinte;
+
+            char firstChar = nif[0];
+            if (firstChar.Equals('1') ||
+                firstChar.Equals('2') ||
+                firstChar.Equals('3') ||
+                firstChar.Equals('5') ||
+                firstChar.Equals('6') ||
+                firstChar.Equals('8') ||
+                firstChar.Equals('9'))
+            {
+                int checkDigit = (Convert.ToInt32(firstChar.ToString()) * 9);
+                for (int i = 2; i <= 8; ++i)
+                {
+                    checkDigit += Convert.ToInt32(nif[i - 1].ToString()) * (10 - i);
+                }
+
+                checkDigit = 11 - (checkDigit % 11);
+                if (checkDigit >= 10)
+                {
+                    checkDigit = 0;
+                }
+
+                if (checkDigit.ToString() != nif[8].ToString())
+                {
+                    ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                    return View(utilizador);
+                }
+            };
+
+
+
             if (ModelState.IsValid)
             {
                 Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
 
                 utilizador.IdRoleNavigation = rolecliente;
 
+                utilizador.Ativo = true;
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexCliente));
@@ -190,6 +258,7 @@ namespace UP_Mobile.Controllers
         // GET: Utilizadores/Create
         public IActionResult CreateOperador()
         {
+            
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
             return View();
         }
@@ -199,14 +268,45 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateOperador([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho")] Utilizador utilizador)
+        public async Task<IActionResult> CreateOperador([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho")] Utilizador utilizador)
         {
+            string nif = utilizador.NContribuinte;
+
+            char firstChar = nif[0];
+            if (firstChar.Equals('1') ||
+                firstChar.Equals('2') ||
+                firstChar.Equals('3') ||
+                firstChar.Equals('5') ||
+                firstChar.Equals('6') ||
+                firstChar.Equals('8') ||
+                firstChar.Equals('9'))
+            {
+                int checkDigit = (Convert.ToInt32(firstChar.ToString()) * 9);
+                for (int i = 2; i <= 8; ++i)
+                {
+                    checkDigit += Convert.ToInt32(nif[i - 1].ToString()) * (10 - i);
+                }
+
+                checkDigit = 11 - (checkDigit % 11);
+                if (checkDigit >= 10)
+                {
+                    checkDigit = 0;
+                }
+
+                if (checkDigit.ToString() != nif[8].ToString())
+                {
+                    ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                    return View(utilizador);
+                }
+            };
+
             if (ModelState.IsValid)
             {
                 Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
                 utilizador.IdRoleNavigation = roleoperador;
-                
+
+                utilizador.Ativo = true;
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexOperador));
