@@ -210,6 +210,12 @@ namespace UP_Mobile.Controllers
         {
             string nif = utilizador.NContribuinte;
 
+            if(nif.Length < 9)
+            {
+                ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                return View(utilizador);
+            }
+
             char firstChar = nif[0];
             if (firstChar.Equals('1') ||
                 firstChar.Equals('2') ||
@@ -272,6 +278,19 @@ namespace UP_Mobile.Controllers
         {
             string nif = utilizador.NContribuinte;
 
+            var isNContribuinteAlreadyExists = _context.Utilizador.Any(x => x.NContribuinte == utilizador.NContribuinte);
+            if (isNContribuinteAlreadyExists)
+            {
+                ModelState.AddModelError("NContribuinte", "User with this email already exists");
+                return View(utilizador);
+            }
+
+            if (nif.Length < 9)
+            {
+                ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                return View(utilizador);
+            }
+
             char firstChar = nif[0];
             if (firstChar.Equals('1') ||
                 firstChar.Equals('2') ||
@@ -298,7 +317,7 @@ namespace UP_Mobile.Controllers
                     ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
                     return View(utilizador);
                 }
-            };
+            }; 
 
             if (ModelState.IsValid)
             {
