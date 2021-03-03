@@ -16,14 +16,12 @@
             <table class="table">
                 <thead>
                     <tr>
+
                         <th>
-                            @Html.DisplayNameFor(model => model.IdPacoteNavigation)
+                            @Html.DisplayNameFor(model => model.Nome)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdPromocaoNavigation)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.PrecoTotalPacote)
+                             @Html.DisplayNameFor(model => model.PrecoTotalPacote)
                         </th>
                         <th></th>
                     </tr>
@@ -33,11 +31,9 @@
                     {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.IdPacoteNavigation.Nome)
+                            @Html.DisplayFor(modelItem => item.Nome)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdPromocaoNavigation.Nome)
-                        </td>
+
                         <td>
                             @Html.DisplayFor(modelItem => item.PrecoTotalPacote)
                         </td>
