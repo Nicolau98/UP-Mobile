@@ -370,6 +370,12 @@ namespace UP_Mobile.Controllers
 
                 if (role == rolecliente) 
                 {
+                    if (User.IsInRole("Cliente"))
+                    {
+                        var cliente = utilizador.IdUtilizador;
+                        return RedirectToAction("DetailsPessoaisCliente", "Utilizadores", new { id = cliente });
+                    }
+                        
                     return RedirectToAction(nameof(IndexCliente));
 
                 }else if(role == roleoperador) 
