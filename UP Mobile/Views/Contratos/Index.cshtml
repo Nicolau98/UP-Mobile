@@ -8,11 +8,11 @@
     <section>
         <div class="container">
 
-            <h1>Index</h1>
+            <h1>Contratos</h1>
 
-            <p>
+            @*<p>
                 <a asp-action="Create">Create New</a>
-            </p>
+            </p>*@
             <table class="table">
                 <thead>
                     <tr>
@@ -79,7 +79,7 @@
                                 @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
                             </td>
                             <td>
-                                @ViewBag.IdPacoteComercialPromocao
+                                @Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.Nome)
                             </td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.IdContrato">Edit</a> |
