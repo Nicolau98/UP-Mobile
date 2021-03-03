@@ -25,6 +25,10 @@ namespace UP_Mobile.Controllers
                 .Include(c => c.IdOperadorNavigation)
                 .Include(c => c.IdPacoteComercialPromocaoNavigation)
                 .ToListAsync();
+            var pp = _context.PacoteComercialPromocao.Include(c => c.IdPacoteNavigation).Select(p => new { p.IdPacoteComercialPromocao, Nome = p.IdPacoteNavigation.Nome + "/" + p.IdPromocaoNavigation.Nome });
+
+            ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
+
             return View(contrato);
         }
 

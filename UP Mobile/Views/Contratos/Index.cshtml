@@ -73,13 +73,13 @@
                             </td>
                             
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Email)
+                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Email)
+                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.IdPacoteNavigation.Nome)
+                                @ViewBag.IdPacoteComercialPromocao
                             </td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.IdContrato">Edit</a> |
