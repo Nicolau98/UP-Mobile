@@ -28,7 +28,6 @@ namespace UP_Mobile.Models
         [Column("Data_Inicio_Comercializacao", TypeName = "date")]
         public DateTime DataInicioComercializacao { get; set; }
         [Column("Data_Fim_Comercializacao", TypeName = "date")]
-        [DataType(DataType.Date)]
         public DateTime? DataFimComercializacao { get; set; }
         [Column(TypeName = "decimal(4, 2)")]
         public decimal? Preco { get; set; }

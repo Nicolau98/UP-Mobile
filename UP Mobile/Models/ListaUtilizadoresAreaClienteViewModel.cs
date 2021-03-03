@@ -14,9 +14,9 @@ namespace UP_Mobile.Models
 
 
 
-        public string Password { get; set; }
+        //public string Password { get; set; }
 
-        [Compare("Password", ErrorMessage = "Password não coincide")]
-        public string ConfirmarPassword { get; set; }
+        //[Compare("Password", ErrorMessage = "Password não coincide")]
+        //public string ConfirmarPassword { get; set; }
     }
 }
