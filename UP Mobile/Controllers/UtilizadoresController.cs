@@ -209,10 +209,19 @@ namespace UP_Mobile.Controllers
         public async Task<IActionResult> CreateCliente([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho")] Utilizador utilizador)
         {
             string nif = utilizador.NContribuinte;
+            string nid = utilizador.NIdentificacao;
 
-            if(nif.Length < 9)
+            var isNContribuinteAlreadyExists = _context.Utilizador.Any(x => x.NContribuinte == utilizador.NContribuinte);
+            var isNIdentificacaoAlreadyExists = _context.Utilizador.Any(x => x.NIdentificacao == utilizador.NIdentificacao);
+
+            if (isNContribuinteAlreadyExists || isNIdentificacaoAlreadyExists || nid.Length != 8 || nif.Length < 9)
             {
-                ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                if (isNIdentificacaoAlreadyExists) ModelState.AddModelError("NIdentificacao", "Este número já esta associado a uma conta");
+                if (isNContribuinteAlreadyExists) ModelState.AddModelError("NContribuinte", "Este contribuinte já esta associado a uma conta");
+
+                if (nif.Length < 9) ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto"); 
+                if (nid.Length != 8) ModelState.AddModelError("NIdentificacao", "Nº de identificação incorreto"); 
+
                 return View(utilizador);
             }
 
@@ -243,8 +252,6 @@ namespace UP_Mobile.Controllers
                     return View(utilizador);
                 }
             };
-
-
 
             if (ModelState.IsValid)
             {
@@ -277,17 +284,19 @@ namespace UP_Mobile.Controllers
         public async Task<IActionResult> CreateOperador([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho")] Utilizador utilizador)
         {
             string nif = utilizador.NContribuinte;
+            string nid = utilizador.NIdentificacao;
 
             var isNContribuinteAlreadyExists = _context.Utilizador.Any(x => x.NContribuinte == utilizador.NContribuinte);
-            if (isNContribuinteAlreadyExists)
-            {
-                ModelState.AddModelError("NContribuinte", "User with this email already exists");
-                return View(utilizador);
-            }
+            var isNIdentificacaoAlreadyExists = _context.Utilizador.Any(x => x.NIdentificacao == utilizador.NIdentificacao);
 
-            if (nif.Length < 9)
+            if (isNContribuinteAlreadyExists || isNIdentificacaoAlreadyExists || nid.Length != 8 || nif.Length < 9)
             {
-                ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                if (isNIdentificacaoAlreadyExists) ModelState.AddModelError("NIdentificacao", "Este número já esta associado a uma conta");
+                if (isNContribuinteAlreadyExists) ModelState.AddModelError("NContribuinte", "Este contribuinte já esta associado a uma conta");
+
+                if (nif.Length < 9) ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                if (nid.Length != 8) ModelState.AddModelError("NIdentificacao", "Nº de identificação incorreto");
+
                 return View(utilizador);
             }
 
