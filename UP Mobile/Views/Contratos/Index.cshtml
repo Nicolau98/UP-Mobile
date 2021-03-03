@@ -82,10 +82,15 @@
                                 @Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.Nome)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.IdContrato">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.IdContrato">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.IdContrato">Delete</a>
+
+                                <a asp-action="Edit" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                <h1></h1>
+                                <a asp-action="Details" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                <h1></h1>
+                                <a asp-action="Delete" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
                             </td>
+
+                            
                         </tr>
                     }
                 </tbody>
