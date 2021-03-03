@@ -175,7 +175,7 @@
     }
 
     #header .logo {
-        font-size: 30px;
+        /*font-size: 15px;*/
         margin: 0;
         padding: 0;
         line-height: 1;
@@ -185,7 +185,7 @@
     }
 
         #header .logo a {
-            color: #e82d2d;
+            color: #808080;
         }
 
         #header .logo img {
