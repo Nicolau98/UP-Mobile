@@ -49,7 +49,7 @@ namespace UP_Mobile.Controllers
 
             Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
 
-            List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation == roleoperador))
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.Nome.Contains(nomePesquisar) || p.NContribuinte.Contains(nomePesquisar)) && (p.IdRoleNavigation == roleoperador))
                 .Include(u => u.IdRoleNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -107,7 +107,7 @@ namespace UP_Mobile.Controllers
 
                 Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
-                List<Utilizador> utilizador = await _context.Utilizador.Where(p => p.Nome.Contains(nomePesquisar) && (p.IdRoleNavigation == roleoperador))
+                List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.Nome.Contains(nomePesquisar) || p.NContribuinte.Contains(nomePesquisar)) && (p.IdRoleNavigation == roleoperador))
                     .Include(u => u.IdRoleNavigation)
                     .OrderBy(p => p.Nome)
                     .Skip(paginacao.ItemsPorPagina * (pagina - 1))
@@ -195,7 +195,7 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Utilizadores/Create
-        public IActionResult CreateCliente(string nif)
+        public IActionResult CreateCliente()
         {
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
             return View();

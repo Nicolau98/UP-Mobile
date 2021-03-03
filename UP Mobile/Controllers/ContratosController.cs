@@ -183,10 +183,12 @@ namespace UP_Mobile.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var cliente = id;
             var contrato = await _context.Contrato.FindAsync(id);
             _context.Contrato.Remove(contrato);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            
+            return RedirectToAction("Details", "Utilizadores", new { id = cliente });
         }
 
         private bool ContratoExists(int id)
