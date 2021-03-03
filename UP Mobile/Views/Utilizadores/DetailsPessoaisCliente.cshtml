@@ -13,7 +13,7 @@
             <div class="mb-2">
                 <h3 class="mb-3">Dados Pessoais</h3>
 
-                <table class="table table-hover" style="background-color:#86f1c5">
+                <table class="table table-hover" @*style="background-color:#86f1c5"*@>
                     <tbody>
                         <tr>
                             <th scope="row" style="width: 30%">@Html.DisplayNameFor(model => model.Utilizador.Nome)</th>
@@ -59,7 +59,7 @@
                 <div class="card-header">
                     @Html.DisplayNameFor(modelItem => item.IdContrato)
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="width:5rem">
                     <p>@Html.DisplayFor(modelItem => item.IdContrato)</p>
                 </div>
                 <div class="card-header">
@@ -103,11 +103,11 @@
 
                 </div>
 
-                <h3>Alterar Passwordi</h3>
+                <h3>Alterar Password</h3>
                 <br />
                 <div>
 
-                    <a asp-area="Identity" asp-page="/Account/Manage/Email" class="btn btn-primary">Confidenciais</a>
+                    <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="btn btn-primary">Confidenciais</a>
 
                 </div>
 
