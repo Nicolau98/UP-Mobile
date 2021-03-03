@@ -368,10 +368,14 @@
                         <div class="col-lg-3 col-md-3 footer-links">
                             <h4>Acessos Rápido</h4>
                             <ul>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Pacotes Comerciais</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Clientes</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Operadores</a></li>
+                                <li><a asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes Comerciais</a></li>
+                                <li><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                                <li><a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></li>
+                                <li><a asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                                @if (User.IsInRole("Administrador"))
+                                {
+                                    <li><a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></li>
+                                }
                             </ul>
                         </div>
 
@@ -384,6 +388,10 @@
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Literatura</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Linhas</a></li>
                             </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 footer-links">
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
                         </div>
                     </div>
                 </div>

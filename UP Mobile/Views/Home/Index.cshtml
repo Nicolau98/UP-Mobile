@@ -229,109 +229,118 @@
 
 @if (User.IsInRole("Operador"))
 {
+    <main id="main">
+        <section>
+            <div class="container">
+                <section id="why-us" class="why-us">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Pacotes Comerciais</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
+                                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
 
-<section id="why-us" class="why-us">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <h3 class="card-header">Pacotes Comerciais</h3>
-                    <div class="card-body">
-                        <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
-                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>
-            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Promoções</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Ver lista das promoções disponíveis</p>
+                                        <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
 
-            <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="card">
-                    <h3 class="card-header">Promoções</h3>
-                    <div class="card-body">
-                        <p class="card-text">Ver lista das promoções disponíveis</p>
-                        <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                <div class="card">
-                    <h3 class="card-header">Conteúdos Extra</h3>
-                    <div class="card-body">
-                        <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
-                        <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="card">
-                    <h3 class="card-header">Clientes</h3>
-                    <div class="card-body">
-                        <p class="card-text">Aceder aos clientes</p>
-                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-primary">Ver</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-}
-
-@if (User.IsInRole("Administrador"))
-{
-
-    <section id="why-us" class="why-us">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card">
-                        <h3 class="card-header">Pacotes Comerciais</h3>
-                        <div class="card-body">
-                            <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
-                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-primary">Ver</a>
+                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Conteúdos Extra</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
+                                        <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Clientes</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Aceder aos clientes</p>
+                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </section>
                 </div>
+            </section>
+        </main>
 
-                <div class="col-lg-4 mt-4 mt-lg-0">
-                    <div class="card">
-                        <h3 class="card-header">Promoções</h3>
-                        <div class="card-body">
-                            <p class="card-text">Ver lista das promoções disponíveis</p>
-                            <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-primary">Ver</a>
-                        </div>
-                    </div>
-                </div>
+                }
 
-                <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                    <div class="card">
-                        <h3 class="card-header">Conteúdos Extra</h3>
-                        <div class="card-body">
-                            <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
-                            <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-primary">Ver</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mt-4 mt-lg-0">
-                    <div class="card">
-                        <h3 class="card-header">Clientes</h3>
-                        <div class="card-body">
-                            <p class="card-text">Aceder aos clientes</p>
-                            <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-primary">Ver</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mt-4 mt-lg-0">
-                    <div class="card">
-                        <h3 class="card-header">Operadores</h3>
-                        <div class="card-body">
-                            <p class="card-text">Aceder aos operadores</p>
-                            <a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador" class="btn btn-primary">Ver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                @if (User.IsInRole("Administrador"))
+                {
+                    <main id="main">
+                        <section>
+                            <div class="container">
+                                <section id="why-us" class="why-us">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="card">
+                                                    <h3 class="card-header" style="background-color:#55ECC3">Pacotes Comerciais</h3>
+                                                    <div class="card-body">
+                                                        <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
+                                                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-info">Ver</a>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-}
+                                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                                <div class="card">
+                                                    <h3 class="card-header" style="background-color:#55ECC3">Promoções</h3>
+                                                    <div class="card-body">
+                                                        <p class="card-text">Ver lista das promoções disponíveis</p>
+                                                        <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-info">Ver</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                                                <div class="card">
+                                                    <h3 class="card-header" style="background-color:#55ECC3">Conteúdos Extra</h3>
+                                                    <div class="card-body">
+                                                        <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
+                                                        <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-info">Ver</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                                <div class="card">
+                                                    <h3 class="card-header" style="background-color:#55ECC3">Clientes</h3>
+                                                    <div class="card-body">
+                                                        <p class="card-text">Aceder aos clientes</p>
+                                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-info">Ver</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                                <div class="card">
+                                                    <h3 class="card-header" style="background-color:#55ECC3">Operadores</h3>
+                                                    <div class="card-body">
+                                                        <p class="card-text">Aceder aos operadores</p>
+                                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador" class="btn btn-info">Ver</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </section>
+                    </main>
+                }
