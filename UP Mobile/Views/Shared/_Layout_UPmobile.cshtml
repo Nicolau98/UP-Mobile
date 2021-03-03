@@ -46,29 +46,7 @@
 </head>
 
 <body>
-    @if (User.IsInRole("Administrador"))
-    {
-        @*======= Top Bar =======*@
-        <section id="topbar" class="d-flex align-items-center" style="background-color:#ff6a00">
-            <div class="container d-flex justify-content-center justify-content-md-between">
-
-                <b>Menu do Administrador</b>
-
-            </div>
-        </section>
-    }
-
-    @if (User.IsInRole("Operador"))
-    {
-        @*======= Top Bar =======*@
-        <section id="topbar" class="d-flex align-items-center" style="background-color:#ff6a00">
-            <div class="container d-flex justify-content-center justify-content-md-between">
-
-                <b>Menu do Operador</b>
-
-            </div>
-        </section>
-    }
+    
 
     @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
     {
@@ -91,18 +69,22 @@
         </section>
     }
 
+   
+    @*AQUI*@
+
     <!-- ======= Header ======= -->
+    <!-- ======= Visitante ======= -->
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <header id="header" class="d-flex align-items-center border-bottom">
+            <div class="container d-flex align-items-center justify-content-between">
 
-    <header id="header" class="d-flex align-items-center border-bottom">
-        <div class="container d-flex align-items-center justify-content-between">
+                <!-- Uncomment below if you prefer to use text/title -->
+                <!--<h1 class="logo"><a href="index.html">UP Mobile</a></h1>-->
 
-            <!-- Uncomment below if you prefer to use text/title -->
-            <!--<h1 class="logo"><a href="index.html">UP Mobile</a></h1>-->
+                <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
 
-            <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
 
-            @if (!User.Identity.IsAuthenticated)
-            {
                 <nav id="navbar" class="navba">
 
                     <ul>
@@ -160,10 +142,24 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
 
                 </nav><!-- .navbar -->
-            }
 
-            @if (User.IsInRole("Cliente"))
-            {
+            </div>
+        </header>
+    }<!-- End Header -->
+
+    <!-- ======= Cliente ======= -->
+    @if (User.IsInRole("Cliente"))
+    {
+        <header id="header" class="d-flex align-items-center border-bottom">
+            <div class="container d-flex align-items-center justify-content-between">
+
+                <!-- Uncomment below if you prefer to use text/title -->
+                <!--<h1 class="logo"><a href="index.html">UP Mobile</a></h1>-->
+
+                <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
+
+
+
                 <nav id="navbar" class="navba">
 
                     <ul>
@@ -187,11 +183,24 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
 
                 </nav><!-- .navbar -->
-            }
+            </div>
+        </header>
+    }<!-- End Header -->
+
+    <!-- ======= Administrador ======= -->
+    @if (User.IsInRole("Administrador"))
+    {
+        <header id="header" class="d-flex align-items-center border-bottom" style="background-color:#82DDF2">
+            <div class="container d-flex align-items-center justify-content-between">
 
 
-            @if (User.IsInRole("Administrador"))
-            {
+                <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Administrador</a></h3>
+
+                <!-- Uncomment below if you prefer to use Logotipo -->
+                @*<a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>*@
+
+
+
                 <nav id="navbar" class="navba">
 
                     <ul>
@@ -207,10 +216,22 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
 
                 </nav><!-- .navbar -->
-            }
+            </div>
+        </header>
+    }<!-- End Header -->
+    <!-- ======= Operador ======= -->
 
-            @if (User.IsInRole("Operador"))
-            {
+    @if (User.IsInRole("Operador"))
+    {
+        <header id="header" class="d-flex align-items-center border-bottom" style="background-color:#82DDF2">
+            <div class="container d-flex align-items-center justify-content-between">
+
+                
+                <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Operador</a></h3>
+
+                <!-- Uncomment below if you prefer to use Logotipo -->
+                @*<a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>*@
+
                 <nav id="navbar" class="navba">
 
                     <ul>
@@ -225,154 +246,11 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
 
                 </nav><!-- .navbar -->
-            }
-
-        </div>
-    </header><!-- End Header -->
-
+            </div>
+        </header>
+    }<!-- End Header -->
 
     @*AQUI*@
-
-    <!-- ======= Header ======= -->
-
-    <header id="header" class="d-flex align-items-center border-bottom">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <!-- Uncomment below if you prefer to use text/title -->
-            <!--<h1 class="logo"><a href="index.html">UP Mobile</a></h1>-->
-
-            <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
-
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <nav id="navbar" class="navba">
-
-                    <ul>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
-                        <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><a class="nav-link scrollto" href="#portfolio">5G</a></li>
-                        @*<li><b><a class="nav-link scrollto mr-4 dropdown" href="#contact">Área Cliente&nbsp;&nbsp;<i class="far fa-user"></i></a></b></li>*@
-                        @*<partial name="_LoginPartial" />*@
-                        <li class="dropdown">
-                            <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Pessoal&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
-                            <ul>
-                                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-                                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
-                            </ul>
-                        </li>
-
-
-                        @*<li class="dropdown">
-                                <a href="#"><span>Pacotes</span></a>
-                                <ul>
-                                    <li><a href="#">TV + NET + VOZ</a></li>
-                                    <li><a href="#">MOVEL</a></li>
-                                    <li><a href="#">INTERNET</a></li>
-                                    <li><a href="#">TODOS OS PACOTES</a></li>
-                                </ul>
-                            </li>*@
-
-
-                        @*<li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-
-                            <li class="dropdown">
-                                <a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                                <ul>
-                                    <li><a href="#">Drop Down 1</a></li>
-                                    <li class="dropdown">
-                                        <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                                        <ul>
-                                            <li><a href="#">Deep Drop Down 1</a></li>
-                                            <li><a href="#">Deep Drop Down 2</a></li>
-                                            <li><a href="#">Deep Drop Down 3</a></li>
-                                            <li><a href="#">Deep Drop Down 4</a></li>
-                                            <li><a href="#">Deep Drop Down 5</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Drop Down 2</a></li>
-                                    <li><a href="#">Drop Down 3</a></li>
-                                    <li><a href="#">Drop Down 4</a></li>
-                                </ul>
-                            </li>*@
-
-                    </ul>
-
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-
-                </nav><!-- .navbar -->
-            }
-
-            @if (User.IsInRole("Cliente"))
-            {
-                <nav id="navbar" class="navba">
-
-                    <ul>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
-                        <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><a class="nav-link scrollto" href="#portfolio">5G</a></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="DetailsPessoaisCliente">My UPmobile&nbsp;&nbsp;</a></b></li>
-                        <partial name="_LoginPartial" />
-                        @*<li class="dropdown">
-                                <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Cliente&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
-                                <ul>
-                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
-                                </ul>
-                            </li>*@
-
-                    </ul>
-
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-
-                </nav><!-- .navbar -->
-            }
-
-
-            @if (User.IsInRole("Administrador"))
-            {
-                <nav id="navbar" class="navba">
-
-                    <ul>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
-                        @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></b></li>
-                        <partial name="_LoginPartial" />
-                    </ul>
-
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-
-                </nav><!-- .navbar -->
-            }
-
-            @if (User.IsInRole("Operador"))
-            {
-                <nav id="navbar" class="navba">
-
-                    <ul>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>
-                        <partial name="_LoginPartial" />
-                    </ul>
-
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-
-                </nav><!-- .navbar -->
-            }
-
-        </div>
-    </header><!-- End Header -->
-    @*AQUI*@
-
 
 
     @RenderBody()
@@ -472,7 +350,7 @@
 
     @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
     {
-        <footer id="footer" style="background-color:#ff6a00">
+        <footer id="footer" style="background-color:#82DDF2">
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
