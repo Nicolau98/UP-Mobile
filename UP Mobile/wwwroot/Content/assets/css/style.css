@@ -422,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero1 {
     width: 100%;
     height: 70vh;
-    background: url("../../assets/img/5gggg.png") center center;
+    background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.3)), url("../../assets/img/5gggg.png") center center;
     background-size: cover;
     position: relative;
     margin-top: 72px;
@@ -502,6 +502,258 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+
+#herop {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(2, 2, 2, 0.8), rgba(0, 0, 0, 0.8)), url("../../assets/img/promo.jpg") center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 72px;
+    padding: 0;
+}
+
+    #herop:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #herop .container {
+        z-index: 2;
+    }
+
+    #herop h1 {
+        margin: 0 0 10px 0;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 56px;
+        color: #00ffd0;
+    }
+
+    #herop h2 {
+        color: rgb(113 235 209 / 0,80);
+        margin-bottom: 35px;
+        font-size: 24px;
+    }
+
+    #herop .btn-get-started {
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 8px 28px;
+        border-radius: 4px;
+        transition: 0.5s;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+        #herop .btn-get-started:hover {
+            border-color: #1bac91;
+            background: #1bac91;
+        }
+
+@media (min-width: 1024px) {
+    #herop {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 992px) {
+    #herop {
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    #herop h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #herop h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+
+#herou {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(2, 2, 2, 0.8), rgba(0, 0, 0, 0.8)), url("../../assets/img/technology.jpg") center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 72px;
+    padding: 0;
+}
+
+    #herou:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #herou .container {
+        z-index: 2;
+    }
+
+    #herou h1 {
+        margin: 0 0 10px 0;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 56px;
+        color: #fff;
+    }
+
+    #herou h2 {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 35px;
+        font-size: 24px;
+    }
+
+    #herou .btn-get-started {
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 8px 28px;
+        border-radius: 4px;
+        transition: 0.5s;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+        #herou .btn-get-started:hover {
+            border-color: #1bac91;
+            background: #1bac91;
+        }
+
+@media (min-width: 1024px) {
+    #herou {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 992px) {
+    #herou {
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    #herou h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #herou h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+#empresa {
+    width: 100%;
+    height: 60vh;
+    background: url("../../assets/img/empresa.jpg") center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 50px;
+    padding: 0;
+}
+
+    #empresa:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+#empresa .container {
+    z-index: 2;
+}
+
+#empresa h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #00fccd;
+}
+
+#empresa h2 {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+    font-size: 18px;
+    
+    
+}
+
+#empresa .btn-get-started {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 4px;
+    transition: 0.5s;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+#empresa .btn-get-started:hover {
+    border-color: #1bac91;
+    background: #02e6bc;
+}
+
+@media (min-width: 1024px) {
+    #empresa {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 992px) {
+    #empresa {
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    #empresa h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #empresa h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -521,9 +773,10 @@ section {
 
 .section-title h2 {
   font-size: 36px;
-  font-weight: 300;
-  margin-bottom: 20px;
-  padding-bottom: 0;
+  font-weight: 200;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  margin-top: 30px;
   color: #21413c;
 }
 
@@ -595,6 +848,33 @@ section {
 # About
 --------------------------------------------------------------*/
 .about h3 {
+  font-weight: 400;
+  font-size: 34px;
+  color: #21413c;
+}
+
+.about .icon-box {
+  margin-top: 44px;
+}
+
+.about .icon-box i {
+  font-size: 48px;
+  float: left;
+  color: #1bac91;
+}
+
+.about .icon-box h4 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-left: 60px;
+  color: #21413c;
+}
+
+.about .icon-box p {
+  font-size: 15px;
+  color: #848484;
+  margin-left: 60px;
+}.about h3 {
   font-weight: 400;
   font-size: 34px;
   color: #21413c;
@@ -1201,6 +1481,10 @@ section {
 /*--------------------------------------------------------------
 # F.A.Q
 --------------------------------------------------------------*/
+
+.faq.section-bg {
+    background-color: #add1c3;
+}
 .faq .faq-list {
   padding: 0 100px;
 }
@@ -1681,10 +1965,83 @@ section {
             border: 2px solid #cc1616;
         }
 
+.ct2 {
+    background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/empresa.jpg") fixed center center;
+    background-size: cover;
+    padding: 120px 0;
+}
+
+    .ct2 h3 {
+        color: #fff;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .ct2 p {
+        color: #fff;
+    }
+
+    .ct2 .ct2-btn {
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 10px 28px;
+        transition: 0.5s;
+        margin-top: 10px;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+        .ct2 .ct2-btn:hover {
+            background: #cc1616;
+            border: 2px solid #cc1616;
+        }
+/*--------------------------------------------------------------
+# Cta
+--------------------------------------------------------------*/
+.ctv {
+    background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/filmeseries.jpg") fixed center center;
+    background-size: cover;
+    padding: 120px 0;
+}
+
+    .ctv h3 {
+        color: #fff;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .ctv p {
+        color: #fff;
+    }
+
+    .ctv .ctv-btn {
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 10px 28px;
+        transition: 0.5s;
+        margin-top: 10px;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+        .ctv .ctv-btn:hover {
+            background: #cc1616;
+            border: 2px solid #cc1616;
+        }
+
 
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+
 .about1 h3 {
     font-weight: 400;
     font-size: 34px;
@@ -1713,3 +2070,121 @@ section {
         color: #848484;
         margin-left: 60px;
     }
+
+/*--------------------------------------------------------------
+# Pricing
+--------------------------------------------------------------*/
+.pricing .box {
+    padding: 20px;
+    background: linear-gradient(rgba(88, 246, 189, 0.16),rgba(0, 243, 132, 0.19),rgba(100, 242, 195, 0.24));
+    text-align: center;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;   
+}
+
+.pricing h3 {
+    font-weight: 400;
+    margin: -20px -20px 20px -20px;
+    padding: 20px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #656262;
+    background: radial-gradient();
+}
+
+.pricing h4 {
+    font-size: 36px;
+    color: rgba(25, 139, 108, 0.48);
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+}
+
+    .pricing h4 sup {
+        font-size: 20px;
+        top: -15px;
+        left: -3px;
+    }
+
+    .pricing h4 span {
+        color: #bababa;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+.pricing ul {
+    padding: 0;
+    list-style: none;
+    color: #313030;
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+}
+
+    .pricing ul li {
+        padding-bottom: 16px;
+    }
+
+    .pricing ul i {
+        color: rgba(0, 209, 171, 0.32);
+        
+        font-size: 20px;
+        padding-right: 4px;
+    }
+
+    .pricing ul .na {
+        color: #ccc;
+        text-decoration: line-through;
+    }
+
+.pricing .btn-wrap {
+    margin: 20px -20px -20px -20px;
+    padding: 20px 15px;
+    background: ;
+    text-align: center;
+}
+
+.pricing .btn-buy {
+    background: black;
+    display: inline-block;
+    padding: 6px 35px 8px 35px;
+    border-radius: 4px;
+    color: #fff;
+    transition: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    box-shadow: 0 5px 10px #04d09e;
+    transition: 0.3s;
+}
+
+    .pricing .btn-buy:hover {
+        background: #04d09e;
+    }
+
+.pricing .featured h3 {
+    color: #fff;
+    background: #16efc7;
+    box-shadow: 0 3px 7px rgba(255, 88, 33, 0.4);
+}
+.pricing .featured {
+    color: #fff;
+    background: linear-gradient(rgba(138, 242, 207, 0.51),rgba(80, 255, 153, 0.52),rgba(19, 239, 192, 0.21));
+    box-shadow: 0 3px 7px rgba(0, 255, 177, 0.61);
+}
+.pricing .advanced {
+    width: 200px;
+    position: absolute;
+    top: 18px;
+    right: -68px;
+    transform: rotate(45deg);
+    z-index: 1;
+    font-size: 14px;
+    padding: 1px 0 3px 0;
+    background: black;
+    color: #fff;
+}
+
