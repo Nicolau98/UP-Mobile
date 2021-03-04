@@ -58,7 +58,7 @@
                                     <div class="btn-wrap">
                                         <ul>
                                             <li>
-                                                <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy mb-3">Aderir</a>
+                                                <a href="#" class="btn-buy mb-3 btnAderir">Aderir</a>
                                                 <a asp-route-id="@item.IdPacote" asp-action="Details" class="btn-buy">Saber Mais</a>
                                             </li>
                                         </ul>
@@ -80,3 +80,42 @@
         </div>
     </section>
 </main>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@section scripts{
+    <scripy type="text/javascript">
+
+        $(document).ready(function ()  {
+
+        $(".btnAderir").click(function () {
+
+        $('#myModal').modal(show)
+        });
+        });
+    </scripy>
+}*@

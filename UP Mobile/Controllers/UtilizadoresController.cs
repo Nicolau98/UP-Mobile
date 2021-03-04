@@ -213,11 +213,13 @@ namespace UP_Mobile.Controllers
 
             var isNContribuinteAlreadyExists = _context.Utilizador.Any(x => x.NContribuinte == utilizador.NContribuinte);
             var isNIdentificacaoAlreadyExists = _context.Utilizador.Any(x => x.NIdentificacao == utilizador.NIdentificacao);
+            var isEmailAlreadyExists = _context.Utilizador.Any(x => x.Email == utilizador.Email);
 
-            if (isNContribuinteAlreadyExists || isNIdentificacaoAlreadyExists || nid.Length != 8 || nif.Length < 9)
+            if (isNContribuinteAlreadyExists || isNIdentificacaoAlreadyExists || isEmailAlreadyExists || nid.Length != 8 || nif.Length < 9)
             {
                 if (isNIdentificacaoAlreadyExists) ModelState.AddModelError("NIdentificacao", "Este número já esta associado a uma conta");
                 if (isNContribuinteAlreadyExists) ModelState.AddModelError("NContribuinte", "Este contribuinte já esta associado a uma conta");
+                if (isEmailAlreadyExists) ModelState.AddModelError("Email", "Este email já esta associado a uma conta");
 
                 if (nif.Length < 9) ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto"); 
                 if (nid.Length != 8) ModelState.AddModelError("NIdentificacao", "Nº de identificação incorreto"); 
@@ -288,11 +290,13 @@ namespace UP_Mobile.Controllers
 
             var isNContribuinteAlreadyExists = _context.Utilizador.Any(x => x.NContribuinte == utilizador.NContribuinte);
             var isNIdentificacaoAlreadyExists = _context.Utilizador.Any(x => x.NIdentificacao == utilizador.NIdentificacao);
+            var isEmailAlreadyExists = _context.Utilizador.Any(x => x.Email == utilizador.Email);
 
-            if (isNContribuinteAlreadyExists || isNIdentificacaoAlreadyExists || nid.Length != 8 || nif.Length < 9)
+            if (isNContribuinteAlreadyExists || isNIdentificacaoAlreadyExists || isEmailAlreadyExists || nid.Length != 8 || nif.Length < 9)
             {
                 if (isNIdentificacaoAlreadyExists) ModelState.AddModelError("NIdentificacao", "Este número já esta associado a uma conta");
                 if (isNContribuinteAlreadyExists) ModelState.AddModelError("NContribuinte", "Este contribuinte já esta associado a uma conta");
+                if (isEmailAlreadyExists) ModelState.AddModelError("Email", "Este email já esta associado a uma conta");
 
                 if (nif.Length < 9) ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
                 if (nid.Length != 8) ModelState.AddModelError("NIdentificacao", "Nº de identificação incorreto");
