@@ -55,23 +55,32 @@
                                         }
                                     </ul>
 
-                                    <div class="btn-wrap">
-                                        <ul>
-                                            <li>
-                                                <a data-toggle="modal" data-target="#ExemploModalCentralizado" class="btn-buy mb-3 btnAderir">Aderir</a>
-                                                <a asp-route-id="@item.IdPacote" asp-action="Details" class="btn-buy">Saber Mais</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    @if (User.IsInRole("Administrador"))
+                                    @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
                                     {
-                                        <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
-                                        <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                        <div class="btn-wrap">
+                                            <ul>
+                                                <li>
+                                                    <a data-toggle="modal" data-target="#ExemploModalCentralizado" class="btn-buy mb-3 btnAderir">Aderir</a>
+                                                    <a asp-route-id="@item.IdPacote" asp-action="Details" class="btn-buy">Saber Mais</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     }
 
-                                </div>
+                                        @if (User.IsInRole("Administrador"))
+                                        {
+                                            <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                        }
+                                        @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                                        {
+                                            <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                        }
+                                        @if (User.IsInRole("Administrador"))
+                                        {
+                                            <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                        }
+
+                                    </div>
                             </div>
                         }
                     </div>

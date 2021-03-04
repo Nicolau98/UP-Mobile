@@ -8,159 +8,173 @@
     <section>
         <div class="container">
 
-            <h1>Lista de Conteudo Extra</h1>
+            @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+            {
+                <h1>Lista de Conteudo Extra</h1>
 
-            <p>
-                <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Conteudo Extra</a>
-            </p>
+                @if (User.IsInRole("Administrador"))
+                {
+                    <p>
+                        <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Conteudo Extra</a>
+                    </p>
+                }
+                <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pesquisa</h5>
+                        <form asp-action="Index" method="get">
+                            <div class="form-group">
+                                <label for="nomePesquisar" class="control-label">Nome do Conteudo Extra</label>
+                                <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
+                            </div>
 
-            <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                <div class="card-body">
-                    <h5 class="card-title">Pesquisa</h5>
-                    <form asp-action="Index" method="get">
-                        <div class="form-group">
-                            <label for="nomePesquisar" class="control-label">Nome do Conteudo Extra</label>
-                            <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
-                        </div>
-
-                        <div class="form-group">
-                            <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
-                            <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Limpar</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <table class="table table-bordered">
-                <thead style="background-color: #e3f2fd;">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ConteudoExtra[0].IdConteudo)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ConteudoExtra[0].Nome)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ConteudoExtra[0].DataInicioComercializacao)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ConteudoExtra[0].DataFimComercializacao)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ConteudoExtra[0].Preco)
-                        </th>
-                        <th>
-                        @Html.DisplayNameFor(model => model.ConteudoExtra[0].Ativo)
-                        </th>
-                        <th>
-                            Ações Disponíveis
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.ConteudoExtra)
-                    {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdConteudo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DataInicioComercializacao)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DataFimComercializacao)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Preco)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Ativo)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
-                            <h1></h1>
-                            <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                            <h1></h1>
-                            <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
-                        </td>
-
-                    </tr>
-                    }
-                </tbody>
-            </table>
-
-            <section id="services" class="services">
-                <div class="container">
-
-                    <div class="section-title">
-
-                        <h2>UP Extras</h2>
-                        <p>Dá um UP ao teu pacote para que te não falte nada</p><br />
+                            <div class="form-group">
+                                <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
+                                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Limpar</a>
+                            </div>
+                        </form>
                     </div>
-                    <div class="row card-group">
+                </div>
+
+                <table class="table table-bordered">
+                    <thead style="background-color: #e3f2fd;">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ConteudoExtra[0].IdConteudo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ConteudoExtra[0].Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ConteudoExtra[0].DataInicioComercializacao)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ConteudoExtra[0].DataFimComercializacao)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ConteudoExtra[0].Preco)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ConteudoExtra[0].Ativo)
+                            </th>
+                            <th>
+                                Ações Disponíveis
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         @foreach (var item in Model.ConteudoExtra)
                         {
-
-
-
-                            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
-                                <div class="icon-box">
-                                    <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
-                                    <h4>@Html.DisplayFor(modelItem => item.Nome)</h4>
-                                    <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdConteudo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataInicioComercializacao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataFimComercializacao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Preco)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ativo)
+                                </td>
+                                <td>
+                                    @if (User.IsInRole("Administrador"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                        <h1></h1>}
+                                    <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
                                     <h1></h1>
-                                    <h3>@Html.DisplayFor(modelItem => item.Preco) €</h3>
-                                    <h1></h1>
-                                    <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a> -
-                                    <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a> -
-                                    <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                    @if (User.IsInRole("Administrador"))
+                                    {
+                                        <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+            @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
+            {
+                <section id="services" class="services">
+                    <div class="container">
+
+                        <div class="section-title">
+
+                            <h2>UP Extras</h2>
+                            <p>Dá um UP ao teu pacote para que te não falte nada</p><br />
+                        </div>
+                        <div class="row card-group">
+                            @foreach (var item in Model.ConteudoExtra)
+                            {
+
+
+
+                                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                                    <div class="icon-box">
+                                        <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
+                                        <h4>@Html.DisplayFor(modelItem => item.Nome)</h4>
+                                        <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
+                                        <h1></h1>
+                                        <h3>@Html.DisplayFor(modelItem => item.Preco) €</h3>
+                                        <h1></h1>
+                                        <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    </div>
                                 </div>
-                            </div>
-                           
 
-                        }
+
+                            }
+                        </div>
                     </div>
-                    </div>
-            </section>
+                </section>
+            }
 
-            <nav>
-                <ul class="pagination">
-                    @{
-                        int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                        //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
-                        if (paginaInicial < 1)
-                        {
-                            paginaInicial = 1;
+            @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+            {
+
+                <nav>
+                    <ul class="pagination">
+                        @{
+                            int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                            //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
+                            if (paginaInicial < 1)
+                            {
+                                paginaInicial = 1;
+                            }
+
+                            int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                            //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
+                            if (paginaFinal > Model.Paginacao.TotalPaginas)
+                            {
+                                paginaFinal = Model.Paginacao.TotalPaginas;
+                            }
                         }
 
-                        int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                        //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
-                        if (paginaFinal > Model.Paginacao.TotalPaginas)
-                        {
-                            paginaFinal = Model.Paginacao.TotalPaginas;
-                        }
-                    }
-
-                    <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
-                    </li>
-
-                    @for (int i = paginaInicial; i <= paginaFinal; i++)
-                    {
-                        <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                        <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
+                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
                         </li>
-                    }
 
-                    <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
-                    </li>
-                </ul>
-            </nav>
+                        @for (int i = paginaInicial; i <= paginaFinal; i++)
+                        {
+                            <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
+                                <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                            </li>
+                        }
 
-        </div>
+                        <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas ? "disabled" : "")">
+                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
+                        </li>
+                    </ul>
+                </nav>
+                            }
+            </div>
     </section>
 </main>

@@ -49,37 +49,40 @@
                     <dd class="col-sm-8">
                         @Html.DisplayFor(model => model.PeriodoFidelizacao)
                     </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Ativo)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Ativo)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Internet)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Internet)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Voz)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Voz)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Tv)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Tv)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Movel)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Movel)
-                    </dd>
-                </dl>
+                    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                    {
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Ativo)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Ativo)
+                        </dd>
+                    }
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Internet)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Internet)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Voz)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Voz)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Tv)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Tv)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Movel)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Movel)
+                        </dd>
+                    </dl>
             </div>
             <div>
                 @if (User.IsInRole("Administrador"))

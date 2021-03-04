@@ -46,9 +46,11 @@
                 </dl>
             </div>
             <div>
-                
-                <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdConteudo">Editar </a> |
-                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
+                @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                {
+                    <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdConteudo">Editar </a> 
+                }
+            <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
 
 
             </div>
