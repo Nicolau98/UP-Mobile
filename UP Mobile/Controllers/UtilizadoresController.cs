@@ -168,7 +168,6 @@ namespace UP_Mobile.Controllers
             var contrato = await _context.Contrato.Where(p => p.IdCliente == utilizador.IdUtilizador)
                 .ToListAsync();
                 
-
             if (utilizador == null)
             {
                 utilizador = await _context.Utilizador.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
