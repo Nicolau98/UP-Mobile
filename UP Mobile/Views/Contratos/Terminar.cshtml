@@ -1,0 +1,81 @@
+﻿@model UP_Mobile.Models.Contrato
+
+@{
+    ViewData["Title"] = "Terminar Contrato";
+}
+
+<main id="main">
+    <section>
+        <div class="container">
+
+            <h1>Terminar</h1>
+
+            <h4>Contrato</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Terminar">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="IdContrato" />
+                        <div class="form-group">
+                            <input type="hidden" asp-for="IdCliente" class="form-control" />
+                            @*<select type="hidden" asp-for="IdCliente" class="form-control" asp-items="ViewBag.IdCliente"></select>*@
+                            <span asp-validation-for="IdCliente" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="IdOperador" class="form-control" />
+                            @*<select type="hidden" asp-for="IdOperador" class="form-control" asp-items="ViewBag.IdOperador"></select>*@
+                            <span asp-validation-for="IdOperador" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" asp-for="IdPacoteComercialPromocao" class="form-control" />
+                            @*<select asp-for="IdPacoteComercialPromocao" class="form-control" asp-items="ViewBag.IdPacoteComercialPromocao"></select>*@
+                            <span asp-validation-for="IdPacoteComercialPromocao" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="hidden" asp-for="DataInicioContrato" class="form-control" />
+                            <span asp-validation-for="DataInicioContrato" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="DataFimContrato" class="control-label"></label>
+                            <input asp-for="DataFimContrato" class="form-control" />
+                            <span asp-validation-for="DataFimContrato" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="hidden" asp-for="MoradaFaturacao" class="form-control" />
+                            <span asp-validation-for="MoradaFaturacao" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="hidden" asp-for="DataFidelizacao" class="form-control" />
+                            <span asp-validation-for="DataFidelizacao" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="hidden" asp-for="PrecoBaseInicioContrato" class="form-control" />
+                            <span asp-validation-for="PrecoBaseInicioContrato" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+
+                            <input type="hidden" asp-for="PrecoTotal" class="form-control" />
+                            <span asp-validation-for="PrecoTotal" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" class="btn btn-primary" />
+                            <a onclick="history.go(-1)" class="btn btn-primary">Voltar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
+
+        </div>
+    </section>
+</main>

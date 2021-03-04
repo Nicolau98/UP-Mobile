@@ -201,7 +201,78 @@ namespace UP_Mobile.Controllers
         private bool ContratoExists(int id)
         {
             return _context.Contrato.Any(e => e.IdContrato == id);
+
         }
+
+
+        // GET: Contratos/Edit/5
+        public async Task<IActionResult> Terminar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var contrato = await _context.Contrato.FindAsync(id);
+            if (contrato == null)
+            {
+                return NotFound();
+            }
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
+            ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "Nome", contrato.IdPacoteComercialPromocao);
+            return View(contrato);
+        }
+
+        // POST: Contratos/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Terminar(int id, [Bind("IdContrato,IdCliente, IdOperador, IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato, PrecoTotal")] Contrato contrato)
+        {
+            if (id != contrato.IdContrato)
+            {
+                return NotFound();
+            }
+            
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    
+                    _context.Update(contrato);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ContratoExists(contrato.IdContrato))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                var cliente = contrato.IdCliente;
+                return RedirectToAction("Index", "Contratos", new { id = cliente });
+            }
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
+            ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "Nome", contrato.IdPacoteComercialPromocao);
+            return View(contrato);
+        }
+
+
+
+
+
+
+
+
+
+
 
         //public async Task<IActionResult> PesquisaCliente(string nomePesquisar, int pagina = 1)
         //{
