@@ -128,7 +128,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdContrato,IdPacoteComercialPromocao")] Contrato contrato)
+        public async Task<IActionResult> Edit(int id, [Bind("IdContrato,IdCliente, IdOperador, IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato")] Contrato contrato)
         {
             if (id != contrato.IdContrato)
             {
@@ -155,7 +155,8 @@ namespace UP_Mobile.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                var cliente = contrato.IdCliente;
+                return RedirectToAction("Index", "Contratos", new { id = cliente });
             }
             ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
