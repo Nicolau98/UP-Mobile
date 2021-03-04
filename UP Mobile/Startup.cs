@@ -47,7 +47,10 @@ namespace UP_Mobile
 
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultUI();
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
+
+            //services.AddIdentity<ApplicationDbContext, IdentityRole>()
 
 
             services.AddControllersWithViews();
