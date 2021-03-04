@@ -166,6 +166,9 @@ namespace UP_Mobile.Controllers
                 //.FirstOrDefaultAsync(m => m.IdUtilizador == id);
 
             var contrato = await _context.Contrato.Where(p => p.IdCliente == utilizador.IdUtilizador)
+                .Include(c => c.IdClienteNavigation)
+                .Include(c => c.IdOperadorNavigation)
+                .Include(c => c.IdPacoteComercialPromocaoNavigation)
                 .ToListAsync();
                 
             if (utilizador == null)

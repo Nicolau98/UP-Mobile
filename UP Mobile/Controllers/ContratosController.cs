@@ -79,7 +79,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato")] Contrato contrato)
+        public async Task<IActionResult> Create([Bind("IdContrato,IdCliente,IdPacoteComercialPromocao,DataInicioContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato")] Contrato contrato)
         {
             if (ModelState.IsValid)
             {
@@ -88,10 +88,13 @@ namespace UP_Mobile.Controllers
 
                 var pacotepromocao = await _context.PacoteComercialPromocao.FindAsync(contrato.IdPacoteComercialPromocao);
 
+                var pacote= await _context.PacoteComercial.FindAsync(pacotepromocao.IdPacote);
+
+                int data = pacote.PeriodoFidelizacao;
+
+                contrato.DataFidelizacao = contrato.DataInicioContrato.AddMonths(data);
                 contrato.PrecoBaseInicioContrato = pacotepromocao.PrecoTotalPacote;
                 contrato.PrecoTotal = pacotepromocao.PrecoTotalPacote;
-
-                
                 contrato.IdOperador = operador.IdUtilizador;
                 _context.Add(contrato);
                 await _context.SaveChangesAsync();
