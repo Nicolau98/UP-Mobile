@@ -46,7 +46,7 @@
 </head>
 
 <body>
-    
+
 
     @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
     {
@@ -69,7 +69,7 @@
         </section>
     }
 
-   
+
     @*AQUI*@
 
     <!-- ======= Header ======= -->
@@ -146,7 +146,6 @@
             </div>
         </header>
     }<!-- End Header -->
-
     <!-- ======= Cliente ======= -->
     @if (User.IsInRole("Cliente"))
     {
@@ -186,7 +185,6 @@
             </div>
         </header>
     }<!-- End Header -->
-
     <!-- ======= Administrador ======= -->
     @if (User.IsInRole("Administrador"))
     {
@@ -226,7 +224,7 @@
         <header id="header" class="d-flex align-items-center border-bottom" style="background-color:#82DDF2">
             <div class="container d-flex align-items-center justify-content-between">
 
-                
+
                 <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Operador</a></h3>
 
                 <!-- Uncomment below if you prefer to use Logotipo -->
@@ -249,7 +247,6 @@
             </div>
         </header>
     }<!-- End Header -->
-
     @*AQUI*@
 
 
@@ -413,6 +410,10 @@
     <script src="~/js/isotope.pkgd.min.js"></script>
     <script src="~/js/validate.js"></script>
     <script src="~/js/swiper-bundle.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
