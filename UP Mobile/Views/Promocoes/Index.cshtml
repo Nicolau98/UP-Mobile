@@ -79,11 +79,15 @@
                                 @Html.DisplayFor(modelItem => item.Conteudo)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a> 
+
+                                <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
                                 <h1></h1>
-                                <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a> 
-                                <h1></h1>
-                                <a asp-action="Delete" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                @if (User.IsInRole("Administrador"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                    <h1></h1>
+                                    <a asp-action="Delete" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                }
                             </td>
                         </tr>
                     }

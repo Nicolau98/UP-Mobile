@@ -46,7 +46,7 @@ namespace UP_Mobile.Controllers
             return View(modelo);
         }
 
-        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador, Operador")]
         // GET: Promocoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
