@@ -95,7 +95,7 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Password Incorreta. Tente novamente.");
                     return Page();
                 }
             }
