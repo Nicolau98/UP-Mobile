@@ -14,12 +14,16 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Contrato_Conteudo")]
         public int IdContratoConteudo { get; set; }
+
         [Column("Id_Conteudo")]
         public int IdConteudo { get; set; }
+
         [Column("Id_Contrato")]
         public int IdContrato { get; set; }
+
         [Column("Data_Inicio_Conteudo", TypeName = "datetime")]
         public DateTime DataInicioConteudo { get; set; }
+
         [Column("Data_Fim_Conteudo", TypeName = "datetime")]
         public DateTime? DataFimConteudo { get; set; }
 

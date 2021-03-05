@@ -19,19 +19,28 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
+
         [Required]
         [StringLength(50)]
+        [Display(Name = "Nome")]
         public string Nome { get; set; }
+
         [StringLength(500)]
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
+
         [Column("Data_Inicio_Comercializacao", TypeName = "date")]
         public DateTime DataInicioComercializacao { get; set; }
+
         [Column("Data_Fim_Comercializacao", TypeName = "date")]
         public DateTime? DataFimComercializacao { get; set; }
+
         [Column("Preco_base", TypeName = "decimal(4, 2)")]
         public decimal PrecoBase { get; set; }
+
         [Column("Periodo_Fidelizacao")]
         public int PeriodoFidelizacao { get; set; }
+
         public bool Ativo { get; set; }
         [StringLength(50)]
         public string Internet { get; set; }
