@@ -229,7 +229,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Terminar(int id, [Bind("IdContrato,IdCliente, IdOperador, IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato, PrecoTotal")] Contrato contrato)
+        public async Task<IActionResult> Terminar(int id, [Bind("IdContrato,IdCliente, IdOperador, IdPacoteComercialPromocao,DataInicioContrato,DataFimContrato,MoradaFaturacao,DataFidelizacao,PrecoBaseInicioContrato")] Contrato contrato)
         {
             if (id != contrato.IdContrato)
             {
@@ -240,7 +240,7 @@ namespace UP_Mobile.Controllers
             {
                 try
                 {
-                    
+                    contrato.PrecoTotal = 0;
                     _context.Update(contrato);
                     await _context.SaveChangesAsync();
                 }
