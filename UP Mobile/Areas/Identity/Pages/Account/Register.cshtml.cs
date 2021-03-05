@@ -44,12 +44,12 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Deve Preencher o Email.")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Deve Preencher a Password.")]
             [StringLength(100, ErrorMessage = "A {0} tem de ter um minimo de {2} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]

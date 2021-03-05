@@ -266,7 +266,8 @@ namespace UP_Mobile.Controllers
                 utilizador.Ativo = true;
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(IndexCliente));
+                ViewBag.Mensagem = "Cliente adicionado com sucesso.";
+                return View("Sucesso");
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
             return View(utilizador);
