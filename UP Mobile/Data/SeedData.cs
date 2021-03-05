@@ -266,12 +266,12 @@ namespace UP_Mobile.Data
                 new Promocao
                 {
 
-                    Nome = "Promoção Sport TV",
-                    Descricao = "Na compra deste pacote, oferta de 6 meses de todos os canais Sport TV",
-                    DataInicio =new DateTime(2021, 02, 15),
-                    DataFim=new DateTime(2022, 02, 15),
-                    Preco= 19.99M,
-                    Conteudo="Oferta de Sport TV",
+                    Nome = "SportTV",
+                    Descricao = "Oferta dos canais SportTV. Oferta válida para os Pacotes UP Mega, UP Mega C, UP TV e UP Max.",
+                    DataInicio = new DateTime(2021, 01, 01),
+                    DataFim= new DateTime(2021, 12, 31),
+                    Preco= 0,
+                    Conteudo="Ativação grátis dos canais Sport TV",
                     Ativo = true
 
                 },
@@ -279,12 +279,12 @@ namespace UP_Mobile.Data
                 new Promocao
                 {
 
-                    Nome = "Promoção Tchill",
-                    Descricao = "Na compra deste pacote, oferta de Netflix 6 meses + HBO 24 meses",
-                    DataInicio = new DateTime(2020, 11, 24),
-                    DataFim= new DateTime(2021, 11, 24),
-                    Preco=15.99M,
-                    Conteudo="Oferta de Netflix e HBO",
+                    Nome = "Tchill",
+                    Descricao = "É no sofá que te sentes bem? Então relaxa. Adere a um pacote UPmobile e tem oferta de Netflix e HBO por 3 meses. Oferta válida para os Pacotes UP Smile, UP Super, UP Mega, UP Mega C, UP TV e UP Max.",
+                    DataInicio = new DateTime(2021, 01, 01),
+                    DataFim= new DateTime(2021, 12, 31),
+                    Preco= 0,
+                    Conteudo="Netflix e HBO",
                     Ativo = true
 
                 },
@@ -292,12 +292,12 @@ namespace UP_Mobile.Data
                 new Promocao
                 {
 
-                    Nome = "Promoção S/Promoção",
-                    Descricao = " ",
-                    DataInicio =new DateTime(2020, 08, 15),
-                    DataFim=new DateTime(2021, 08, 15),
-                    Preco=0,
-                    Conteudo=" ",
+                    Nome = "UP UP UP",
+                    Descricao = "Se nenhuma das nossas promoções se adequa a ti, não te preocupes. Se prometemos ser UP, cumprimos. Contacta-nos e descobre ofertas especiais que temos para ti.",
+                    DataInicio = new DateTime(2021, 01, 01),
+                    DataFim= new DateTime(2021, 12, 31),
+                    Preco= 0,
+                    Conteudo="Promoção especial. Ver caso a caso.",
                     Ativo = true
 
                 },
@@ -305,28 +305,41 @@ namespace UP_Mobile.Data
                 new Promocao
                 {
 
-                    Nome = "Promoção Mensal",
-                    Descricao = "Na compra deste pacote, oferta de 12 meses de desconto de 5€ mensais",
-                    DataInicio =new DateTime(2021, 01, 08),
-                    DataFim=new DateTime(2022, 01, 08),
-                    Preco=5,
-                    Conteudo="Oferta de Desconto mensal",
+                    Nome = "Móvel Grátis",
+                    Descricao = "Fala, escreve, navega pela Internet sem pagares nada. Oferta de um serviço móvel. Oferta válida para os Pacotes UP Mega, UP Mega C, UP TV e UP Max.",
+                    DataInicio = new DateTime(2021, 01, 01),
+                    DataFim= new DateTime(2021, 12, 31),
+                    Preco=10,
+                    Conteudo="Serviço móvel gratuito",
                     Ativo = true
 
                 },
 
-                //new Promocao
-                //{
+                new Promocao
+                {
 
-                //    Nome = "Promoção 1 Mensalidade",
-                //    Descricao = "Na compra deste pacote, oferta da primeira mensalidade",
-                //    DataInicio =new DateTime(2021, 02, 15),
-                //    DataFim=new DateTime(2022, 02, 15),
-                //    Preco=34.99M,
-                //    Conteudo="Oferta de Mensalidade",
-                //    Ativo = true
+                    Nome = "Desconto UP 15€",
+                    Descricao = "Como presente de Boas-Vindas à UPmobile, fazemos questão de te oferecer um desconto de 15€ no 1º mês. Oferta válida para os Pacotes UP Smile, UP Super, UP Mega, UP Mega C, UP TV e UP Max.",
+                    DataInicio = new DateTime(2021, 01, 01),
+                    DataFim= new DateTime(2021, 12, 31),
+                    Preco=10,
+                    Conteudo="Oferta de desconto de  15€ no 1º mês.",
+                    Ativo = true
 
-                //},
+                },
+
+                new Promocao
+                {
+
+                    Nome = "Desconto UP 5€",
+                    Descricao = "É fazer as contas! Durante 12 meses damos-te um desconto de 5€ mensalmente. Oferta válida para os Pacotes UP Smile, UP Super, UP Mega, UP Mega C, UP TV e UP Max.",
+                    DataInicio = new DateTime(2021, 01, 01),
+                    DataFim= new DateTime(2021, 12, 31),
+                    Preco=10,
+                    Conteudo="Oferta de desconto de 5€ durante 12 mês.",
+                    Ativo = true
+
+                }
 
             });
 
