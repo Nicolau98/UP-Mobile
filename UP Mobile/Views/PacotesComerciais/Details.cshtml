@@ -10,86 +10,173 @@
 
             <h1>Detalhes do pacote @Html.DisplayFor(model => model.Nome)</h1>
 
-            <div>
-                <hr />
-                <dl class="row">
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Nome)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Nome)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Descricao)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Descricao)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.DataInicioComercializacao)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.DataInicioComercializacao)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.DataFimComercializacao)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.DataFimComercializacao)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.PrecoBase)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.PrecoBase)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.PeriodoFidelizacao)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.PeriodoFidelizacao)
-                    </dd>
-                    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
-                    {
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.Ativo)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.Ativo)
-                        </dd>
-                    }
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.Internet)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.Internet)
-                        </dd>
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.Voz)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.Voz)
-                        </dd>
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.Tv)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.Tv)
-                        </dd>
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.Movel)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.Movel)
-                        </dd>
-                    </dl>
+            <div class="mb-2">
+
+                <table class="table table-hover" @*style="background-color:#86f1c5"*@>
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="width: 30%">@Html.DisplayNameFor(model => model.Nome)</th>
+                            <td>@Html.DisplayFor(model => model.Nome)</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Descricao)</th>
+                            <td>@Html.DisplayFor(model => model.Descricao)</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.DataInicioComercializacao)</th>
+                            <td>@Html.DisplayFor(model => model.DataInicioComercializacao)</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.DataFimComercializacao)</th>
+                            <td>@Html.DisplayFor(model => model.DataFimComercializacao) </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.PrecoBase)</th>
+                            <td>@Html.DisplayFor(model => model.PrecoBase)</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.PeriodoFidelizacao)</th>
+                            <td>@Html.DisplayFor(model => model.PeriodoFidelizacao)</td>
+                        </tr>
+                        
+                        @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                        {
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.Ativo)</th>
+                                <td>@Html.DisplayFor(model => model.Ativo)</td>
+                            </tr>
+                           
+                        }
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Internet)</th>
+                            <td>@Html.DisplayFor(model => model.Internet)</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Voz)</th>
+                            <td>@Html.DisplayFor(model => model.Voz)</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Tv)</th>
+                            <td>@Html.DisplayFor(model => model.Tv)</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Movel)</th>
+                            <td>@Html.DisplayFor(model => model.Movel)</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div>
                 @if (User.IsInRole("Administrador"))
                 {
-                    <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdPacote">Editar</a>} 
+                    <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdPacote">Editar</a>
+                }
                 <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Voltar</a>
             </div>
         </div>
     </section>
 </main>
+
+
+
+
+
+
+
+@*<main id="main">
+        <section>
+            <div class="container">
+
+                <h1>Detalhes do pacote @Html.DisplayFor(model => model.Nome)</h1>
+
+                <div>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Nome)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Descricao)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.DataInicioComercializacao)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.DataInicioComercializacao)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.DataFimComercializacao)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.DataFimComercializacao)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.PrecoBase)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.PrecoBase)
+                        </dd>
+                        <dt class="col-sm-4">
+                            @Html.DisplayNameFor(model => model.PeriodoFidelizacao)
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.PeriodoFidelizacao)
+                        </dd>
+                        @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                        {
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.Ativo)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.Ativo)
+                            </dd>
+                        }
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.Internet)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.Internet)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.Voz)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.Voz)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.Tv)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.Tv)
+                            </dd>
+                            <dt class="col-sm-4">
+                                @Html.DisplayNameFor(model => model.Movel)
+                            </dt>
+                            <dd class="col-sm-8">
+                                @Html.DisplayFor(model => model.Movel)
+                            </dd>
+                        </dl>
+                </div>
+                <div>
+                    @if (User.IsInRole("Administrador"))
+                    {
+                        <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdPacote">Editar</a>}
+                    <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Voltar</a>
+                </div>
+            </div>
+        </section>
+    </main>*@
