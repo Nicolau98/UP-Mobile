@@ -98,7 +98,7 @@ namespace UP_Mobile.Areas.Identity.Pages.Account.Manage
                     protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
-                    "Confirm your email",
+                    "Confirme o email",
                     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 StatusMessage = "Confirmation link to change email sent. Please check your email.";
