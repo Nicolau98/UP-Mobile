@@ -18,6 +18,7 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Conteudo")]
+        [Display(Name = "Nº do Conteúdo")]
         public int IdConteudo { get; set; }
 
         [Required(ErrorMessage = "Deve preencher o nome.")]
@@ -31,12 +32,17 @@ namespace UP_Mobile.Models
         public string Descricao { get; set; }
 
         [Column("Data_Inicio_Comercializacao", TypeName = "date")]
+        [Display(Name = "Data Inicio de Comercialização")]
+        [DataType(DataType.Date)]
         public DateTime DataInicioComercializacao { get; set; }
 
         [Column("Data_Fim_Comercializacao", TypeName = "date")]
+        [Display(Name = "Data Fim de Comercialização")]
+        [DataType(DataType.Date)]
         public DateTime? DataFimComercializacao { get; set; }
 
         [Column(TypeName = "decimal(4, 2)")]
+        [Display(Name = "Preço")]
         public decimal? Preco { get; set; }
         public bool Ativo { get; set; }
 

@@ -1,16 +1,16 @@
 ﻿@model UP_Mobile.Models.Promocao
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Promoção";
 }
 
 <main id="main">
     <section>
         <div class="container">
 
-            <h1>Editar</h1>
+            <h2>Editar</h2>
 
-            <h4>Promoção nº @Html.DisplayFor(model => model.IdPromocao)</h4>
+            <h4 class="mb-4">Promoção <b>@Html.DisplayFor(model => model.Nome)</b></h4>
             
             <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
                 <div class="card-body">

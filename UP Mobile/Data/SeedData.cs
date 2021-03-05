@@ -205,9 +205,9 @@ namespace UP_Mobile.Data
                 new ConteudoExtra
                 {
                     Nome = "Sport TV",
-                    Descricao = "Por pedido do Cliente, foi adicionado o canal Sport TV.",
-                    DataInicioComercializacao=new DateTime(2021, 02, 15),
-                    DataFimComercializacao=new DateTime(2021, 03, 15),
+                    Descricao = "Adira aos canais SportTV. São 6 canais totalmente dedicados ao desporto",
+                    DataInicioComercializacao=new DateTime(2021, 01, 01),
+                    DataFimComercializacao=new DateTime(2021, 12, 31),
                     Preco=27.99M,
                     Ativo = true
                 },
@@ -215,40 +215,50 @@ namespace UP_Mobile.Data
                 new ConteudoExtra
                 {
                     Nome = "Netflix",
-                    Descricao = "Por pedido do Cliente, após um mês gratuito do serviço, foi adicionado o canal Netflix.",
-                    DataInicioComercializacao=new DateTime(2020, 09, 14),
-                    DataFimComercializacao=new DateTime(2020, 11, 14),
+                    Descricao = "Veja séries e filmes originais na Netflix Portugal, na Tv Box da UPmobile",
+                    DataInicioComercializacao=new DateTime(2021, 01, 01),
+                    DataFimComercializacao=new DateTime(2021, 12, 31),
                     Preco=13.99M,
                     Ativo = true
                 },
 
                 new ConteudoExtra
                 {
-                    Nome = "Amazon Prime Video",
-                    Descricao = "Por pedido do Cliente, após um mês gratuito do serviço, foi adicionado o canal Amazon Prime Video.",
-                    DataInicioComercializacao=new DateTime(2021, 01, 19),
-                    DataFimComercializacao=new DateTime(2020, 03, 19),
+                    Nome = "Amazon Prime",
+                    Descricao = "Aproveite o conteúdo exclusivo que a Amazon tem para si. Séries de TV e filmes populares e originais únicos.",
+                    DataInicioComercializacao=new DateTime(2021, 01, 01),
+                    DataFimComercializacao=new DateTime(2021, 12, 31),
                     Preco=5.99M,
                     Ativo = true
                 },
 
                 new ConteudoExtra
                 {
-                    Nome = "Pack 5 Canais Conteúdo Adulto",
-                    Descricao = "Por pedido do Cliente, após dois meses gratuitos do serviço, foram adicionados os canais Playboy (SD e HD), Venus, Sextreme e Penthouse Gold.",
-                    DataInicioComercializacao=new DateTime(2020, 05, 27),
-                    DataFimComercializacao=new DateTime(2020, 08, 27),
+                    Nome = "Playboy TV",
+                    Descricao = "O melhor conteúdo da industria porno está na Playboy TV. Disponível na sua Tv Box também em HD",
+                    DataInicioComercializacao=new DateTime(2021, 01, 01),
+                    DataFimComercializacao=new DateTime(2021, 12, 31),
                     Preco=15.99M,
                     Ativo = true
                 },
 
                 new ConteudoExtra
                 {
-                    Nome = "HBO",
-                    Descricao = "Por pedido do Cliente, após um período gratuito de 7 dias, foi adicionado o canal HBO.",
-                    DataInicioComercializacao=new DateTime(2020, 07, 07),
-                    DataFimComercializacao=new DateTime(2020, 08, 14),
-                    Preco=4.99M,
+                    Nome = "Benfica TV",
+                    Descricao = "Não perca os jogos do S.L. Benfica em casa e ainda as prestações do seu clube em várias outras modalidades",
+                    DataInicioComercializacao=new DateTime(2021, 01, 01),
+                    DataFimComercializacao=new DateTime(2021, 12, 31),
+                    Preco=9.99M,
+                    Ativo = true
+                },
+
+                new ConteudoExtra
+                {
+                    Nome = "Dog TV",
+                    Descricao = "Se o animal de quatro patas é o seu melhor amigo, susbcreva o Dog TV. Gargalhadas, shows e ensinamentos, não vão faltar",
+                    DataInicioComercializacao=new DateTime(2021, 01, 01),
+                    DataFimComercializacao=new DateTime(2021, 12, 31),
+                    Preco=5.99M,
                     Ativo = true
                 }
 
@@ -310,7 +320,7 @@ namespace UP_Mobile.Data
                     Descricao = "Como presente de Boas-Vindas à UPmobile, fazemos questão de te oferecer um desconto de 15€ no 1º mês. Oferta válida para os Pacotes UP Smile, UP Super, UP Mega, UP Mega C, UP TV e UP Max.",
                     DataInicio = new DateTime(2021, 01, 01),
                     DataFim= new DateTime(2021, 12, 31),
-                    Preco=10,
+                    Preco=15,
                     Conteudo="Desconto de  15€ no 1º mês.",
                     Ativo = true
 
@@ -323,7 +333,7 @@ namespace UP_Mobile.Data
                     Descricao = "É fazer as contas! Durante 12 meses damos-te um desconto de 5€ mensalmente. Oferta válida para os Pacotes UP Mega, UP Mega C, UP TV e UP Max.",
                     DataInicio = new DateTime(2021, 01, 01),
                     DataFim= new DateTime(2021, 12, 31),
-                    Preco=10,
+                    Preco=5,
                     Conteudo="Desconto de 5€ durante 12 meses.",
                     Ativo = true
 

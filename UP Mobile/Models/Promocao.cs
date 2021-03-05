@@ -17,11 +17,12 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Promocao")]
+        [Display(Name = "Nº da Promoção")]
         public int IdPromocao { get; set; }
 
         [Required(ErrorMessage = "Deve preencher o nome.")]
         [StringLength(50)]
-        [Display(Name = "Nome")]
+        [Display(Name = "Nome da Promoção")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Deve preencher a descrição.")]
@@ -30,12 +31,17 @@ namespace UP_Mobile.Models
         public string Descricao { get; set; }
 
         [Column("Data_Inicio", TypeName = "date")]
+        [Display(Name = "Data de Inicio de Comercialização")]
+        [DataType(DataType.Date)]
         public DateTime DataInicio { get; set; }
 
         [Column("Data_Fim", TypeName = "date")]
+        [Display(Name = "Data de Fim de Comercialização")]
+        [DataType(DataType.Date)]
         public DateTime? DataFim { get; set; }
 
         [Column(TypeName = "decimal(4, 2)")]
+        [Display(Name = "Valor")]
         public decimal Preco { get; set; }
 
         [StringLength(50)]

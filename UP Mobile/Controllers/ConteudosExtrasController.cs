@@ -66,6 +66,7 @@ namespace UP_Mobile.Controllers
             return View(conteudoExtra);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: ConteudosExtras/Create
         public IActionResult Create()
         {
@@ -88,6 +89,7 @@ namespace UP_Mobile.Controllers
             return View(conteudoExtra);
         }
 
+        [Authorize(Roles = "Administrador")]
         // GET: ConteudosExtras/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

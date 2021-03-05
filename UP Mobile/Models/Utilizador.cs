@@ -20,6 +20,7 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Utilizador")]
+        [Display(Name = "Número")]
         public int IdUtilizador { get; set; }
 
         [Required(ErrorMessage = "Deve preencher o nome.")]
@@ -28,6 +29,8 @@ namespace UP_Mobile.Models
         public string Nome { get; set; }
 
         [Column("Data_Nascimento", TypeName = "date")]
+        [Display(Name = "Data de Nascimento")]
+        [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
 
         [Required(ErrorMessage = "Deve preencher a morada.")]
@@ -57,6 +60,7 @@ namespace UP_Mobile.Models
         [Display(Name = "Nº de Identificação")]
         public string NIdentificacao { get; set; }
 
+        [Display(Name = "Ativo/Inativo")]
         public bool Ativo { get; set; }
 
         [Column("Local_Trabalho")]
