@@ -19,12 +19,12 @@ namespace UP_Mobile.Models
         [Column("Id_Promocao")]
         public int IdPromocao { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher o nome.")]
         [StringLength(50)]
         [Display(Name = "Nome")]
         public string Nome { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher a descrição.")]
         [StringLength(500)]
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }

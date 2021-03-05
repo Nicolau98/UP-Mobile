@@ -34,7 +34,7 @@ namespace UP_Mobile.Models
         [Column("Data_Fim_Contrato", TypeName = "datetime")]
         public DateTime? DataFimContrato { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Deve preencher a morada de faturação.")]
         [Column("Morada_Faturacao")]
         [StringLength(100)]
         [Display(Name = "Morada de Faturação")]
