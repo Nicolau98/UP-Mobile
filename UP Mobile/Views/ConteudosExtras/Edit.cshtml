@@ -1,17 +1,17 @@
 ﻿@model UP_Mobile.Models.ConteudoExtra
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Extra";
 }
 
 <main id="main">
     <section>
         <div class="container">
 
-            <h1>Editar</h1>
+            <h2>Editar</h2>
 
-            <hr />
-            <h4>Conteúdo Extra nº @Html.DisplayFor(model => model.IdConteudo)</h4>
+            <h4 class="mb-4">Conteúdo Extra <b>@Html.DisplayFor(model => model.Nome)</b></h4>
+
             <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
                 <div class="card-body">
                     <div class="col-md">

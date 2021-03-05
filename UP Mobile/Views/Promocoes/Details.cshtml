@@ -1,14 +1,15 @@
 ﻿@model UP_Mobile.Models.Promocao
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Informação Promoção";
 }
 
 <main id="main">
     <section>
         <div class="container">
 
-            <h1>Detalhes da promoção @Html.DisplayFor(model => model.Nome)</h1>
+            <h1 class="mb-2 text-center">Informações sobre a promoção</h1>
+            <h1 class="mb-5 text-center" style="color:#4fd6d9"><b>@Html.DisplayFor(model => model.Nome)</b></h1>
 
             <div>
                 <hr />
@@ -25,38 +26,41 @@
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.Descricao)
                     </dd>
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.DataInicio)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.DataInicio)
-                    </dd>
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.DataFim)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.DataFim)
-                    </dd>
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Preco)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.Preco)
-                    </dd>
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Conteudo)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.Conteudo)
-                    </dd>
-                </dl>
+                    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.DataInicio)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.DataInicio)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.DataFim)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.DataFim)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Preco)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Preco)€
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Conteudo)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Conteudo)
+                        </dd>
+                    }
+                    </dl>
             </div>
             <div>
                 @if (User.IsInRole("Administrador"))
                 {
-                    <a asp-action="Edit" asp-route-id="@Model.IdPromocao" class="btn border" style="background-color: #55ecc3;">Editar</a> 
+                    <a asp-action="Edit" asp-route-id="@Model.IdPromocao" class="btn border" style="background-color: #55ecc3;">Editar</a>
                 }
-            <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Voltar</a>
+                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Voltar</a>
             </div>
         </div>
     </section>

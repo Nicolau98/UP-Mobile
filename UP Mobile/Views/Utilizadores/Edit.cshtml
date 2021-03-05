@@ -1,7 +1,7 @@
 ﻿@model UP_Mobile.Models.Utilizador
 
 @{
-    ViewData["Title"] = "Editar Cliente";
+    ViewData["Title"] = "Editar";
 }
 
 <main id="main">
@@ -9,7 +9,7 @@
         <div class="container">
             @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
             {
-                <h1>Editar dados do Cliente</h1>
+                <h1>Editar dados</h1>
 
                 <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
                     <div class="card-body">
@@ -78,7 +78,7 @@
                                 <h1></h1>
                                 <div class="form-group">
                                     <input type="submit" value="Guardar" class="btn border" style="background-color: #55ecc3;" /> |
-                                    <a asp-action="IndexCliente" type="button" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
+                                    <a onclick="history.go(-1)" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
                                 </div>
                             </form>
                         </div>

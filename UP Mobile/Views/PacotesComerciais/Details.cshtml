@@ -8,7 +8,8 @@
     <section>
         <div class="container">
 
-            <h1>Detalhes do pacote @Html.DisplayFor(model => model.Nome)</h1>
+            <h1 class="mb-2 text-center">Informações sobre o pacote</h1>
+            <h1 class="mb-5 text-center" style="color:#4fd6d9"><b>@Html.DisplayFor(model => model.Nome)</b></h1>
 
             <div class="mb-2">
 
@@ -18,60 +19,61 @@
                             <th scope="row" style="width: 30%">@Html.DisplayNameFor(model => model.Nome)</th>
                             <td>@Html.DisplayFor(model => model.Nome)</td>
                         </tr>
-                        
+
                         <tr>
                             <th scope="row">@Html.DisplayNameFor(model => model.Descricao)</th>
                             <td>@Html.DisplayFor(model => model.Descricao)</td>
                         </tr>
-                        
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.DataInicioComercializacao)</th>
-                            <td>@Html.DisplayFor(model => model.DataInicioComercializacao)</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.DataFimComercializacao)</th>
-                            <td>@Html.DisplayFor(model => model.DataFimComercializacao) </td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.PrecoBase)</th>
-                            <td>@Html.DisplayFor(model => model.PrecoBase)</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.PeriodoFidelizacao)</th>
-                            <td>@Html.DisplayFor(model => model.PeriodoFidelizacao)</td>
-                        </tr>
-                        
                         @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
                         {
                             <tr>
-                                <th scope="row">@Html.DisplayNameFor(model => model.Ativo)</th>
-                                <td>@Html.DisplayFor(model => model.Ativo)</td>
+                                <th scope="row">@Html.DisplayNameFor(model => model.DataInicioComercializacao)</th>
+                                <td>@Html.DisplayFor(model => model.DataInicioComercializacao)</td>
                             </tr>
-                           
+
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.DataFimComercializacao)</th>
+                                <td>@Html.DisplayFor(model => model.DataFimComercializacao) </td>
+                            </tr>
                         }
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.Internet)</th>
-                            <td>@Html.DisplayFor(model => model.Internet)</td>
-                        </tr>
-                        
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.Voz)</th>
-                            <td>@Html.DisplayFor(model => model.Voz)</td>
-                        </tr>
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.PrecoBase)</th>
+                                <td>@Html.DisplayFor(model => model.PrecoBase)€</td>
+                            </tr>
 
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.Tv)</th>
-                            <td>@Html.DisplayFor(model => model.Tv)</td>
-                        </tr>
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.PeriodoFidelizacao)</th>
+                                <td>@Html.DisplayFor(model => model.PeriodoFidelizacao) meses</td>
+                            </tr>
 
-                        <tr>
-                            <th scope="row">@Html.DisplayNameFor(model => model.Movel)</th>
-                            <td>@Html.DisplayFor(model => model.Movel)</td>
-                        </tr>
-                    </tbody>
+                            @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                            {
+                                <tr>
+                                    <th scope="row">@Html.DisplayNameFor(model => model.Ativo)</th>
+                                    <td>@Html.DisplayFor(model => model.Ativo)</td>
+                                </tr>
+
+                            }
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.Internet)</th>
+                                <td>@Html.DisplayFor(model => model.Internet)</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.Voz)</th>
+                                <td>@Html.DisplayFor(model => model.Voz)</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.Tv)</th>
+                                <td>@Html.DisplayFor(model => model.Tv)</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.Movel)</th>
+                                <td>@Html.DisplayFor(model => model.Movel)</td>
+                            </tr>
+                        </tbody>
                 </table>
             </div>
             <div>
