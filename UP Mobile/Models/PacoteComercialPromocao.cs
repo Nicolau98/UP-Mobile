@@ -26,7 +26,7 @@ namespace UP_Mobile.Models
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
 
-        
+        //[Required(ErrorMessage = "Deve preencher o nome.")]
         [StringLength(50)]
         [Display(Name = "Nome")]
         public string Nome { get; set; }
