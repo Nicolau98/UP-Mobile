@@ -66,7 +66,7 @@ namespace UP_Mobile.Controllers
 
             var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
 
-            ViewBag.NomeOperador = operador.Nome;e;
+            ViewBag.NomeOperador = operador.Nome;
 
             return View();
         }
