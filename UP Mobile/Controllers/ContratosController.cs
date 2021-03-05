@@ -63,13 +63,10 @@ namespace UP_Mobile.Controllers
 
             ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
 
-            //var cliente = await _context.Utilizador.FindAsync(id);
 
             var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
 
-            ViewBag.NomeOperador = operador.Nome;
-            //ViewBag.Cliente = cliente.IdUtilizador;
-            //ViewBag.NomeCliente = cliente.Nome;
+            ViewBag.NomeOperador = operador.Nome;e;
 
             return View();
         }
@@ -208,7 +205,7 @@ namespace UP_Mobile.Controllers
         }
 
 
-        // GET: Contratos/Edit/5
+        // GET: Contratos/Terminar/5
         public async Task<IActionResult> Terminar(int? id)
         {
             if (id == null)
@@ -227,7 +224,7 @@ namespace UP_Mobile.Controllers
             return View(contrato);
         }
 
-        // POST: Contratos/Edit/5
+        // POST: Contratos/Terminar/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
