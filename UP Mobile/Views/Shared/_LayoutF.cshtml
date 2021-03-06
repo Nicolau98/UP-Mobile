@@ -40,29 +40,32 @@
         <div class="container d-flex">
 
             <div class="logo mr-auto">
-                <h1 class="text-light"><a href="index.html">Maxim</a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
             </div>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+            </div>-->
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
 
+
+
                     <li class="drop-down">
                         <a asp-area="" asp-controller="Home" asp-action="">Pacotes</a>
-                        <ul>
+                        <!-- <ul>
                             <li><a href="#">Net+Voz</a></li>
                             <li><a href="#">Tv+Net+Voz</a></li>
                             <li><a href="#">Tv+Net+Voz+Móvel</a></li>
                             <li><a href="#">UP à tua medida</a></li>
-                        </ul>
+                        </ul>-->
                     </li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="UP">Promoções</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="">Promoções</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="">Extras</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Main">5G</a></li>
-                   
-                    
-                    <li class="drop-down">
+
+
+                    <!-- <li class="drop-down">
                         <a asp-area="" asp-controller="Home" asp-action="">TV</a>
                         <ul>
                             <li><a href="#">Lista Canais</a></li>
@@ -72,7 +75,7 @@
                             <li><a href="#">Apps TV</a></li>
                         </ul>
                     </li>
-                    
+
 
                     <li class="drop-down">
                         <a href="">NET</a>
@@ -93,7 +96,7 @@
                             <li><a href="#">Apps</a></li>
 
                         </ul>
-                    </li>
+                    </li>-->
                     <li class="drop-down">
                         <a class="nav-link scrollto"><b><span>Área Pessoal&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
 
@@ -144,18 +147,18 @@
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Promoções</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">5G</a></li>
-                         
+
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">UPmobile</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Sustentabilidade</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="UP">UPmobile</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">SSSSSS</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Trabalhar na UPmobile</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Política de Privacidade</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="UP" >Trabalhar na UPmobile</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a></li>
                         </ul>
                     </div>
 
