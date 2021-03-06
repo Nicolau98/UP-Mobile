@@ -31,7 +31,7 @@ namespace UP_Mobile.Controllers
             if (nomePesquisar == null)
             {
 
-                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxxxx"))
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome == null)
                     .ToListAsync();
 
                 ListaUtilizadoresViewModel modelo1 = new ListaUtilizadoresViewModel
@@ -89,7 +89,7 @@ namespace UP_Mobile.Controllers
             if (nomePesquisar == null)
             {
 
-                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome.Contains("xxxxxxx"))
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome == null)
                     .ToListAsync();
 
                 ListaUtilizadoresViewModel modelo1 = new ListaUtilizadoresViewModel
