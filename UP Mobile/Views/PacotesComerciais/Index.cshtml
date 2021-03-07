@@ -67,20 +67,20 @@
                                         </div>
                                     }
 
-                                        @if (User.IsInRole("Administrador"))
-                                        {
-                                            <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
-                                        }
-                                        @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
-                                        {
-                                            <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                        }
-                                        @if (User.IsInRole("Administrador"))
-                                        {
-                                            <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
-                                        }
+                                    @if (User.IsInRole("Administrador"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                    }
+                                    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                                    {
+                                        <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    }
+                                    @if (User.IsInRole("Administrador"))
+                                    {
+                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                    }
 
-                                    </div>
+                                </div>
                             </div>
                         }
                     </div>
@@ -90,28 +90,44 @@
     </section>
 </main>
 
-<!-- Button trigger modal -->
-<!-- Botão para acionar modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado">
-    Abrir modal de demonstração
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
+            <div class="modal-header" style="background-color: #55ecc3;">
+                <h3 class="modal-title text-center" id="TituloModalCentralizado"><b>Conheça as ofertas que temos para si. Adira já!</b></h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <p><i class="bi bi-telephone-outbound-fill"></i>   Ligamos-lhe grátis</p>
+                <p><i class="bi bi-clock-fill"></i>   Disponível entre as 8h e as 22h</p>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar mudanças</button>
+            <div class="modal-footer" style="background-color: #55ecc3;">
+                <input class="form-control" type="text" placeholder="Contacto">
+                <button type="button" class="btn btn-buy mb-3 border" style="background-color: #ffffff;" data-dismiss="modal" data-toggle="modal" data-target="#ExemploModalCentralizado2">Liguem-me</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ExemploModalCentralizado2" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #55ecc3;">
+                <h3 class="modal-title text-center" id="TituloModalCentralizado"><b>Obrigado pela sua confiança</b></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><i class="bi bi-telephone-outbound-fill"></i>   Será contactado num intervalo de 10 min</p>
+            </div>
+            <div class="modal-footer" style="background-color: #55ecc3;">
+                <p class="modal-title text-center" id="TituloModalCentralizado"><b>Até ja</b></p>
             </div>
         </div>
     </div>
