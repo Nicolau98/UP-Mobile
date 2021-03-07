@@ -20,11 +20,11 @@ namespace UP_Mobile.Models
         [Column("Id_Pacote_Comercial_Promocao")]
         public int IdPacoteComercialPromocao { get; set; }
 
-        [Display(Name = "Pacote")]
+        [Display(Name = "Promoção")]
         [Column("Id_Promocao")]
         public int IdPromocao { get; set; }
 
-        [Display(Name = "Promoção")]
+        [Display(Name = "Pacote")]
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
 

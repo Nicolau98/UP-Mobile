@@ -61,12 +61,17 @@ namespace UP_Mobile.Models
 
         [ForeignKey(nameof(IdCliente))]
         [InverseProperty(nameof(Utilizador.ContratoIdClienteNavigation))]
+        [Display(Name = "Cliente")]
         public virtual Utilizador IdClienteNavigation { get; set; }
+
         [ForeignKey(nameof(IdOperador))]
         [InverseProperty(nameof(Utilizador.ContratoIdOperadorNavigation))]
+        [Display(Name = "Operador")]
         public virtual Utilizador IdOperadorNavigation { get; set; }
+
         [ForeignKey(nameof(IdPacoteComercialPromocao))]
         [InverseProperty(nameof(PacoteComercialPromocao.Contrato))]
+        [Display(Name = "Pacote")]
         public virtual PacoteComercialPromocao IdPacoteComercialPromocaoNavigation { get; set; }
         [InverseProperty("IdContratoNavigation")]
         public virtual ICollection<ContratoConteudo> ContratoConteudo { get; set; }
