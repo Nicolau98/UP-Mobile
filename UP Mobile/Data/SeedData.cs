@@ -342,7 +342,7 @@ namespace UP_Mobile.Data
                 new Promocao
                 {
 
-                    Nome = "UP",
+                    Nome = "Sem Promoção",
                     Descricao = "Se nenhuma das nossas promoções se adequa a ti, não te preocupes. Se prometemos ser UP, cumprimos. Contacta-nos e descobre ofertas especiais que temos para ti.",
                     DataInicio = new DateTime(2021, 01, 01),
                     DataFim= new DateTime(2021, 12, 31),

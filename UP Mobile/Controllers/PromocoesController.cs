@@ -34,7 +34,19 @@ namespace UP_Mobile.Controllers
                 .Take(paginacao.ItemsPorPagina)
                 .ToListAsync();
 
-            ListaPromocoesViewModel modelo = new ListaPromocoesViewModel
+            if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
+            {
+
+                Promocao = await _context.Promocao.Where(p => (nomePesquisar == null || p.Nome.Contains(nomePesquisar)) && (p.Nome != "Sem Promoção"))
+
+                    .OrderBy(p => p.Nome)
+                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                    .Take(paginacao.ItemsPorPagina)
+                    .ToListAsync();
+
+            }
+
+                ListaPromocoesViewModel modelo = new ListaPromocoesViewModel
             {
                 Paginacao = paginacao,
                 Promocao = Promocao,
