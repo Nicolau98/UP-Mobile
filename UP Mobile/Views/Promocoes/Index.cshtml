@@ -8,91 +8,131 @@
     <section>
         <div class="container">
 
-            <h1>Lista de Promoções</h1>
+            @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+            {
+                @if (User.IsInRole("Administrador"))
+                {
+                    <h1>Lista de Promoções</h1>
 
-            <p>
-                <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Promoção</a>
-            </p>
+                    <p>
+                        <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Promoção</a>
+                    </p>
+                }
 
+                <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
+                    <div class="card-body">
+                        <h5 class="card-title">Pesquisa</h5>
+                        <form asp-action="Index" method="get">
+                            <div class="form-group">
+                                <label for="nomePesquisar" class="control-label">Nome da Promoção</label>
+                                <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
+                            </div>
 
-            <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                <div class="card-body">
-                    <h5 class="card-title">Pesquisa</h5>
-                    <form asp-action="Index" method="get">
-                        <div class="form-group">
-                            <label for="nomePesquisar" class="control-label">Nome da Promoção</label>
-                            <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
-                        </div>
-
-                        <div class="form-group">
-                            <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
-                            <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Limpar</a>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
+                                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Limpar</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <table class="table table-bordered">
-                <thead style="background-color: #e3f2fd;">
-                    <tr>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Promocao[0].IdPromocao)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Promocao[0].Nome)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Promocao[0].DataInicio)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Promocao[0].DataFim)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Promocao[0].Preco)
-                        </th>
-                        <th scope="col">
-                            @Html.DisplayNameFor(model => model.Promocao[0].Conteudo)
-                        </th>
-                        <th scope="col">Ações Disponíveis</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.Promocao)
-                    {
+                <table class="table table-bordered">
+                    <thead style="background-color: #e3f2fd;">
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdPromocao)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataInicio)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataFim)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Preco)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Conteudo)
-                            </td>
-                            <td>
-
-                                <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                <h1></h1>
-                                @if (User.IsInRole("Administrador"))
-                                {
-                                    <a asp-action="Edit" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
-                                    <h1></h1>
-                                    <a asp-action="Delete" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
-                                }
-                            </td>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Promocao[0].IdPromocao)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Promocao[0].Nome)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Promocao[0].DataInicio)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Promocao[0].DataFim)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Promocao[0].Preco)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Promocao[0].Conteudo)
+                            </th>
+                            <th scope="col">Ações Disponíveis</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Promocao)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdPromocao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataInicio)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataFim)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Preco)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Conteudo)
+                                </td>
+                                <td>
+
+                                    <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    <h1></h1>
+                                    @if (User.IsInRole("Administrador"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                        <h1></h1>
+                                        <a asp-action="Delete" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+            @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
+            {
+                <section id="services" class="services">
+                    <div class="container">
+
+                        <div class="section-title">
+
+                            <h2>UP Promoções</h2>
+                            <p>Dá um UP á tua vida e aproveita as promoções atuais na adesão de um pacote comercial</p><br />
+                        </div>
+                        <div class="row card-group">
+                            @foreach (var item in Model.Promocao)
+                            {
+
+
+
+                                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                                    <div class="icon-box">
+                                        <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
+                                        <h4>@Html.DisplayFor(modelItem => item.Nome)</h4>
+                                        <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
+                                        <h1></h1>
+                                        <h3>@Html.DisplayFor(modelItem => item.Conteudo) €</h3>
+                                        <h1></h1>
+                                        <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    </div>
+                                </div>
+
+
+                            }
+                        </div>
+                    </div>
+                </section>
+            }
 
             <nav>
                 <ul class="pagination">

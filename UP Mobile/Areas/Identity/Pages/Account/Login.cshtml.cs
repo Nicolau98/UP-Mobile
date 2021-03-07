@@ -39,15 +39,15 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage ="Obrigatório preencher com um e-mail válido.")]
+            [Required(ErrorMessage = "Deve preencher o email.")]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Deve preencher a password.")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Lembrar-me?")]
             public bool RememberMe { get; set; }
         }
 

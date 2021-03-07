@@ -78,7 +78,7 @@
                             <li class="na"><h5>Móvel</h5></li>
                         </ul>
                         <div class="btn-wrap">
-                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
+                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy" data-toggle="modal" data-target="#ExemploModalCentralizado">Aderir</a>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                             <li>2 GB + 1000 Min/SMS</li>
                         </ul>
                         <div class="btn-wrap">
-                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
+                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy" data-toggle="modal" data-target="#ExemploModalCentralizado">Aderir</a>
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                             <li>4 GB + 2000 Min/SMS</li>
                         </ul>
                         <div class="btn-wrap">
-                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy">Aderir</a>
+                            <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn-buy" data-toggle="modal" data-target="#ExemploModalCentralizado">Aderir</a>
                         </div>
                     </div>
                 </div>
@@ -286,81 +286,124 @@
                         </div>
                     </div>
                 </section>
-                </div>
-            </section>
-        </main>
+            </div>
+        </section>
+    </main>
 
-                }
+}
 
-                @if (User.IsInRole("Administrador"))
-                {
-                    <main id="main">
-                        <section>
-                            <div class="container">
-                                <section id="why-us" class="why-us">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-4">
-                                                <div class="card">
-                                                    <h3 class="card-header" style="background-color:#55ECC3">Pacotes Comerciais</h3>
-                                                    <div class="card-body">
-                                                        <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
-                                                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-info">Ver</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-4 mt-4 mt-lg-0">
-                                                <div class="card">
-                                                    <h3 class="card-header" style="background-color:#55ECC3">Promoções</h3>
-                                                    <div class="card-body">
-                                                        <p class="card-text">Ver lista das promoções disponíveis</p>
-                                                        <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-info">Ver</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                                                <div class="card">
-                                                    <h3 class="card-header" style="background-color:#55ECC3">Pacote Comercial / Promoção</h3>
-                                                    <div class="card-body">
-                                                        <p class="card-text">Adicionar Promoção a Pacote Comercial</p>
-                                                        <a asp-area="" asp-controller="PacotesComerciaisPromocao" asp-action="Index" class="btn btn-info">Ver</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                                                <div class="card">
-                                                    <h3 class="card-header" style="background-color:#55ECC3">Conteúdos Extra</h3>
-                                                    <div class="card-body">
-                                                        <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
-                                                        <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-info">Ver</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 mt-4 mt-lg-0">
-                                                <div class="card">
-                                                    <h3 class="card-header" style="background-color:#55ECC3">Clientes</h3>
-                                                    <div class="card-body">
-                                                        <p class="card-text">Aceder aos clientes</p>
-                                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-info">Ver</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 mt-4 mt-lg-0">
-                                                <div class="card">
-                                                    <h3 class="card-header" style="background-color:#55ECC3">Operadores</h3>
-                                                    <div class="card-body">
-                                                        <p class="card-text">Aceder aos operadores</p>
-                                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador" class="btn btn-info">Ver</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+@if (User.IsInRole("Administrador"))
+{
+    <main id="main">
+        <section>
+            <div class="container">
+                <section id="why-us" class="why-us">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Pacotes Comerciais</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
+                                        <a asp-area="" asp-controller="PacotesComerciais" asp-action="Index" class="btn btn-info">Ver</a>
                                     </div>
-                                </section>
+                                </div>
                             </div>
-                        </section>
-                    </main>
-                }
+
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Promoções</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Ver lista das promoções disponíveis</p>
+                                        <a asp-area="" asp-controller="Promocoes" asp-action="Index" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Pacote Comercial / Promoção</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Adicionar Promoção a Pacote Comercial</p>
+                                        <a asp-area="" asp-controller="PacotesComerciaisPromocao" asp-action="Index" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Conteúdos Extra</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Ver lista dos conteúdos extra disponíveis</p>
+                                        <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Clientes</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Aceder aos clientes</p>
+                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Operadores</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Aceder aos operadores</p>
+                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador" class="btn btn-info">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #55ecc3;">
+                <h3 class="modal-title text-center" id="TituloModalCentralizado"><b>Conheça as ofertas que temos para si. Adira já!</b></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><i class="bi bi-telephone-outbound-fill"></i>   Ligamos-lhe grátis</p>
+                <p><i class="bi bi-clock-fill"></i>   Disponível entre as 8h e as 22h</p>
+
+            </div>
+            <div class="modal-footer" style="background-color: #55ecc3;">
+                <input class="form-control" type="text" placeholder="Contacto">
+                <button type="button" class="btn btn-buy mb-3 border" style="background-color: #ffffff;" data-dismiss="modal" data-toggle="modal" data-target="#ExemploModalCentralizado2">Liguem-me</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ExemploModalCentralizado2" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #55ecc3;">
+                <h3 class="modal-title text-center" id="TituloModalCentralizado"><b>Obrigado pela sua confiança</b></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><i class="bi bi-telephone-outbound-fill"></i>   Será contactado num intervalo de 10 min</p>
+            </div>
+            <div class="modal-footer" style="background-color: #55ecc3;">
+                <p class="modal-title text-center" id="TituloModalCentralizado"><b>Até ja</b></p>
+            </div>
+        </div>
+    </div>
+</div>
