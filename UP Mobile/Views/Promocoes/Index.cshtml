@@ -104,25 +104,23 @@
                 <section id="services" class="services">
                     <div class="container">
 
-                        <div class="section-title">
-
-                            <h2>UP Promoções</h2>
-                            <p>Dá um UP á tua vida e aproveita as promoções atuais na adesão de um pacote comercial</p><br />
-                        </div>
+                            <h1 class="text-center mb-3" style="color:#4fd6d9">Promoções que são um UP</h1>
+                            <p class="text-center">Espreita as nossas promoções atuais na adesão de um pacote comercial</p><br />
+                        
                         <div class="row card-group">
                             @foreach (var item in Model.Promocao)
                             {
 
 
 
-                                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5" data-aos="fade-up">
                                     <div class="icon-box">
-                                        <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
-                                        <h4>@Html.DisplayFor(modelItem => item.Nome)</h4>
+                                        <div class="icon"><i class="fas fa-percentage fa-2x"></i></div>
+                                        <h3>@Html.DisplayFor(modelItem => item.Nome)</h3>
                                         <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
-                                        <h1></h1>
-                                        <h3>@Html.DisplayFor(modelItem => item.Conteudo) €</h3>
-                                        <h1></h1>
+                                        <br />
+                                        <h4>@Html.DisplayFor(modelItem => item.Conteudo)</h4>
+                                        <br />
                                         <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
                                     </div>
                                 </div>
@@ -134,40 +132,43 @@
                 </section>
             }
 
-            <nav>
-                <ul class="pagination">
-                    @{
-                        int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                        //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
-                        if (paginaInicial < 1)
-                        {
-                            paginaInicial = 1;
+            @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+            {
+                <nav>
+                    <ul class="pagination">
+                        @{
+                            int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                            //int paginaInicial = Model.Paginacao.PaginaAtual - Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS / 2;
+                            if (paginaInicial < 1)
+                            {
+                                paginaInicial = 1;
+                            }
+
+                            int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
+                            //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
+                            if (paginaFinal > Model.Paginacao.TotalPaginas)
+                            {
+                                paginaFinal = Model.Paginacao.TotalPaginas;
+                            }
                         }
 
-                        int paginaFinal = Model.Paginacao.PaginaAtual + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS;
-                        //int paginaFinal = paginaInicial + Paginacao.NUMERO_PAGINAS_MOSTRAR_ANTES_DEPOIS - 1;
-                        if (paginaFinal > Model.Paginacao.TotalPaginas)
-                        {
-                            paginaFinal = Model.Paginacao.TotalPaginas;
-                        }
-                    }
-
-                    <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
-                    </li>
-
-                    @for (int i = paginaInicial; i <= paginaFinal; i++)
-                    {
-                        <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                        <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
+                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.NomePesquisar">Primeiro</a>
                         </li>
-                    }
 
-                    <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                        @for (int i = paginaInicial; i <= paginaFinal; i++)
+                        {
+                            <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
+                                <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.NomePesquisar">@i</a>
+                            </li>
+                        }
+
+                        <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas ? "disabled" : "")">
+                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.NomePesquisar">Último</a>
+                        </li>
+                    </ul>
+                </nav>
+                            }
+            </div>
     </section>
 </main>

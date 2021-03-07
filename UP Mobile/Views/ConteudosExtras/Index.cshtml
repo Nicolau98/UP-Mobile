@@ -107,25 +107,24 @@
                 <section id="services" class="services">
                     <div class="container">
 
-                        <div class="section-title">
+                        <h1 class="text-center mb-3" style="color:#4fd6d9">UP Extras</h1>
 
-                            <h2>UP Extras</h2>
-                            <p>Dá um UP ao teu pacote para que te não falte nada</p><br />
-                        </div>
+                            <p class="text-center">Dá um UP ao teu pacote para que te não falte nada</p><br />
+                        
                         <div class="row card-group">
                             @foreach (var item in Model.ConteudoExtra)
                             {
 
 
 
-                                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5" data-aos="fade-up">
                                     <div class="icon-box">
-                                        <div class="icon"><i class="fas fa-futbol fa-2x"></i></div>
+                                        <div class="icon"><i class="fas fa-plus fa-2x"></i></div>
                                         <h4>@Html.DisplayFor(modelItem => item.Nome)</h4>
                                         <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
-                                        <h1></h1>
-                                        <h3>@Html.DisplayFor(modelItem => item.Preco) €</h3>
-                                        <h1></h1>
+                                        <br />
+                                        <h4>@Html.DisplayFor(modelItem => item.Preco) €</h4>
+                                        <br />
                                         <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
                                     </div>
                                 </div>
