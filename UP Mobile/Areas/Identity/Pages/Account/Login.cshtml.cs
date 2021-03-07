@@ -39,7 +39,7 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage ="Obrigatório preencher com um e-mail válido.")]
             [EmailAddress]
             public string Email { get; set; }
 
