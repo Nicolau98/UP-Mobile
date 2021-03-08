@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using UP_Mobile.Data;
+using UP_Mobile.Models;
 
 namespace UP_Mobile.Areas.Identity.Pages.Account
 {
@@ -22,17 +25,20 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly UPMobileContext _context;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            UPMobileContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         [BindProperty]
@@ -75,9 +81,14 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                var roleutilizador = await _context.Utilizador.FirstOrDefaultAsync(c => c.Email == Input.Email);
+                Role roleoperador = _context.Role.FirstOrDefault(r => r.IdRole == roleutilizador.IdRole);
+                
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Cliente");
+                    
+                    await _userManager.AddToRoleAsync(user, roleoperador.Nome);
+                    
                     _logger.LogInformation("Criada nova conta com password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
