@@ -50,6 +50,7 @@ namespace UP_Mobile.Models
 
         [Column("Data_Fidelizacao", TypeName = "date")]
         [Display(Name = "Data de Fidelização")]
+        [DataType(DataType.Date)]
         public DateTime? DataFidelizacao { get; set; }
 
         [Column("Preco_Base_Inicio_Contrato", TypeName = "decimal(4, 2)")]

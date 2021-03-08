@@ -78,7 +78,7 @@
                                     @Html.DisplayFor(modelItem => item.DataFimComercializacao)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Preco)
+                                    @Html.DisplayFor(modelItem => item.Preco)€
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Ativo)
@@ -92,7 +92,7 @@
                                     <h1></h1>
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                        <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn btn-danger">Apagar</a>
                                     }
                                 </td>
 
