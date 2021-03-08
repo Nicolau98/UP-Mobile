@@ -62,12 +62,12 @@
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.Ativo)
                     </dd>
-                    <dt class="col-sm-2">
+                    @*<dt class="col-sm-2">
                         @Html.DisplayNameFor(model => model.LocalTrabalho)
                     </dt>
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.LocalTrabalho)
-                    </dd>
+                    </dd>*@
                     <dt class="col-sm-2">
                         @Html.DisplayNameFor(model => model.IdRoleNavigation)
                     </dt>
@@ -78,8 +78,8 @@
 
                 <form asp-action="Delete">
                     <input type="hidden" asp-for="IdUtilizador" />
-                    <input type="submit" value="Apagar" class="btn border" style="background-color: #55ecc3;" /> |
-                    <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
+                    <input type="submit" value="Apagar" class="btn btn-danger"/> |
+                    <a onclick="history.go(-1)" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
                 </form>
             </div>
         </div>

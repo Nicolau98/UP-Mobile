@@ -40,7 +40,7 @@ namespace UP_Mobile.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Deve preencher o novo email.")]
             [EmailAddress]
             [Display(Name = "New email")]
             public string NewEmail { get; set; }

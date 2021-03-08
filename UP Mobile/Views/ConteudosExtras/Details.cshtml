@@ -11,50 +11,47 @@
             <h1 class="mb-2 text-center">Informações sobre o extra</h1>
             <h1 class="mb-5 text-center" style="color:#4fd6d9"><b>@Html.DisplayFor(model => model.Nome)</b></h1>
 
-            <div>
-                <hr />
-                <dl class="row">
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Nome)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Nome)
-                    </dd>
-                    <dt class="col-sm-4">
-                        @Html.DisplayNameFor(model => model.Descricao)
-                    </dt>
-                    <dd class="col-sm-8">
-                        @Html.DisplayFor(model => model.Descricao)
-                    </dd>
-                    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
-                    {
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.DataInicioComercializacao)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.DataInicioComercializacao)
-                        </dd>
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.DataFimComercializacao)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.DataFimComercializacao)
-                        </dd>
-                    }
-                        <dt class="col-sm-4">
-                            @Html.DisplayNameFor(model => model.Preco)
-                        </dt>
-                        <dd class="col-sm-8">
-                            @Html.DisplayFor(model => model.Preco)€/mês
-                        </dd>
-                    </dl>
+            <div class="mb-2">
+                <table class="table table-hover" @*style="background-color:#86f1c5"*@>
+                    <tbody>
+                        <tr>
+                            <th scope="row" style="width: 30%">@Html.DisplayNameFor(model => model.Nome)</th>
+                            <td>@Html.DisplayFor(model => model.Nome)</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Descricao)</th>
+                            <td>@Html.DisplayFor(model => model.Descricao)</td>
+                        </tr>
+                        @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                        {
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.DataInicioComercializacao)</th>
+                                <td>@Html.DisplayFor(model => model.DataInicioComercializacao)</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.DataFimComercializacao)</th>
+                                <td>@Html.DisplayFor(model => model.DataFimComercializacao) </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.Preco)</th>
+                                <td>@Html.DisplayFor(model => model.Preco)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">@Html.DisplayNameFor(model => model.Ativo)</th>
+                                <td>@Html.DisplayFor(model => model.Ativo)</td>
+                            </tr>
+                        }
+                    <tbody>
+                </table>
             </div>
             <div>
                 @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
                 {
-                    <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdConteudo">Editar </a>
+                    <a asp-action="Edit" class="btn border" style="background-color: #55ecc3" asp-route-id="@Model.IdConteudo">Editar </a>
                 }
-                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Voltar</a>
+                <a asp-action="Index" class="btn border" style="background-color: #80f2f3">Voltar</a>
 
 
             </div>

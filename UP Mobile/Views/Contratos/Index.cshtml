@@ -11,7 +11,7 @@
             <h1>Contratos</h1>
 
 
-            <a onclick="history.go(-1)" class="btn btn-primary" style="background-color: #55ecc3;">Voltar</a>
+            <a onclick="history.go(-1)" class="btn btn-border" style="background-color: #80f2f3">Voltar</a>
             <h1></h1>
 
             <table class="table">
@@ -69,9 +69,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.PrecoBaseInicioContrato)
                         </td>*@
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PrecoTotal)
-                            </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrecoTotal)€
+                        </td>
 
                             <td>
                                 @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
@@ -87,7 +87,7 @@
                                 <h1></h1>
                                 <a asp-action="Edit" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Editar Pacote / Promoção</a>
                                 <h1></h1>
-                                <a asp-action="Terminar" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Terminar Contrato</a>
+                                <a asp-action="Terminar" asp-route-id="@item.IdContrato" type="button" class="btn btn-danger">Terminar Contrato</a>
                             </td>
 
 

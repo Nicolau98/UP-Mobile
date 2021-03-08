@@ -77,7 +77,7 @@
                                     }
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Apagar</a>
+                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn btn-danger">Apagar</a>
                                     }
 
                                 </div>
