@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Maxim Bootstrap Template - Index</title>
+    <title>UP Mobile</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="~/Content/assets/img/favicon.png" rel="icon">
+    <link href="~/Content/assets/img/favicon.ico" rel="icon">
     <link href="~/Content/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -35,159 +35,281 @@
     ======================================================== -->
 </head>
 <body>
+
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-        <div class="container d-flex">
+    <!-- ======= Visitante ======= -->
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <header id="header" class="d-flex align-items-center border-bottom">
+            <div class="container d-flex align-items-center justify-content-between">
 
-            <div class="logo mr-auto">
-                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
+                <!-- Uncomment below if you prefer to use text/title -->
+                <!--<h1 class="logo"><a href="index.html">UP Mobile</a></h1>-->
+
+                <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
+
+
+                <nav id="navbar" class="navbar">
+
+                    <ul>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
+                        <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                        <li><a class="nav-link scrollto"  asp-area="" asp-controller="Home" asp-action="Main">5G</a></li>
+                        @*<li><b><a class="nav-link scrollto mr-4 dropdown" href="#contact">Área Cliente&nbsp;&nbsp;<i class="far fa-user"></i></a></b></li>*@
+                        @*<partial name="_LoginPartial" />*@
+                        <li class="dropdown">
+                            <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Pessoal&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
+                            <ul>
+                                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+
+                </nav><!-- .navbar -->
+
             </div>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-            </div>-->
+        </header>
+    }<!-- End Header -->
+    <!-- ======= Cliente ======= -->
+    @if (User.IsInRole("Cliente"))
+    {
+        <header id="header" class="d-flex align-items-center border-bottom">
+            <div class="container d-flex align-items-center justify-content-between">
 
-            <nav class="nav-menu d-none d-lg-block">
-                <ul>
+                <!-- Uncomment below if you prefer to use text/title -->
+                <!--<h1 class="logo"><a href="index.html">UP Mobile</a></h1>-->
 
-
-
-                    <li class="drop-down">
-                        <a asp-area="" asp-controller="Home" asp-action="">Pacotes</a>
-                        <!-- <ul>
-                            <li><a href="#">Net+Voz</a></li>
-                            <li><a href="#">Tv+Net+Voz</a></li>
-                            <li><a href="#">Tv+Net+Voz+Móvel</a></li>
-                            <li><a href="#">UP à tua medida</a></li>
-                        </ul>-->
-                    </li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="">Promoções</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="">Extras</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Main">5G</a></li>
+                <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
 
 
-                    <!-- <li class="drop-down">
-                        <a asp-area="" asp-controller="Home" asp-action="">TV</a>
-                        <ul>
-                            <li><a href="#">Lista Canais</a></li>
-                            <li><a href="#">Canais Premium</a></li>
-                            <li><a href="#">Pack Canais</a></li>
-                            <li><a href="#">Videoclube</a></li>
-                            <li><a href="#">Apps TV</a></li>
-                        </ul>
-                    </li>
+
+                <nav id="navbar" class="navbar">
+
+                    <ul>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
+                        <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Home" asp-action="Main">5G</a></li>
+                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="DetailsPessoaisCliente">My UPmobile&nbsp;&nbsp;</a></b></li>
+                        <partial name="_LoginPartial" />
+                        @*<li class="dropdown">
+                                <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Cliente&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
+                                <ul>
+                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
+                                </ul>
+                            </li>*@
+
+                    </ul>
+
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+
+                </nav><!-- .navbar -->
+            </div>
+        </header>
+    }<!-- End Header -->
+    <!-- ======= Administrador ======= -->
+    @if (User.IsInRole("Administrador"))
+    {
+        <header id="header" class="d-flex align-items-center border-bottom" style="background-color:#82DDF2">
+            <div class="container d-flex align-items-center justify-content-between">
 
 
-                    <li class="drop-down">
-                        <a href="">NET</a>
-                        <ul>
-                            <li><a href="#">Fixa</a></li>
+                <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Administrador</a></h3>
 
-                            <li><a href="#">Móvel</a></li>
-                            <li><a href="#">No Telemóvel</a></li>
+           
 
-                        </ul>
-                    </li>
-                    <li class="drop-down">
-                        <a href="">Telemóvel</a>
-                        <ul>
-                            <li><a href="#">Tarifários</a></li>
-                            <li><a href="#">Net</a></li>
-                            <li><a href="#">Roaming</a></li>
-                            <li><a href="#">Apps</a></li>
+                <nav id="navbar" class="navbar">
 
-                        </ul>
-                    </li>-->
-                    <li class="drop-down">
-                        <a class="nav-link scrollto"><b><span>Área Pessoal&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
+                    <ul>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
+                        @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
+                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></b></li>
+                        <partial name="_LoginPartial" />
+                    </ul>
 
-                        <ul>
-                            <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-                            <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav><!-- .nav-menu -->
+                    <i class="bi bi-list mobile-nav-toggle"></i>
 
-        </div>
-    </header><!-- End Header -->
+                </nav><!-- .navbar -->
+            </div>
+        </header>
+    }<!-- End Header -->
+    <!-- ======= Operador ======= -->
+
+    @if (User.IsInRole("Operador"))
+    {
+        <header id="header" class="d-flex align-items-center border-bottom" style="background-color:#82DDF2">
+            <div class="container d-flex align-items-center justify-content-between">
+
+
+                <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Operador</a></h3>
+
+                <!-- Uncomment below if you prefer to use Logotipo -->
+                @*<a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>*@
+
+                <nav id="navbar" class="navbar">
+
+                    <ul>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
+                        @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
+                        <partial name="_LoginPartial" />
+                    </ul>
+
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+
+                </nav><!-- .navbar -->
+            </div>
+        </header>
+    }<!-- End Header -->
+
 
     <div>
         @RenderBody()
     </div>
 
     <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
+    @if ((!User.Identity.IsAuthenticated) || (User.IsInRole("Cliente")))
+    {
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-info">
-                            <h3>Maxim</h3>
-                            <p>
-                                A108 Adam Street <br>
-                                NY 535022, USA<br><br>
-                                <strong>Phone:</strong> +1 5589 55488 55<br>
-                                <strong>Email:</strong> info@example.com<br>
-                            </p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-info text-center">
+
+                                <h3>Somos UPmobile</h3>
+                                <p>
+                                    Queres saber mais? <br>
+                                    Contacta-nos.<br><br>
+                                    <strong>E-mail:</strong> suporte@upmobile.com<br>
+                                    <strong>Telefone:</strong> 16211<br>
+
+                                </p>
+                                <div class="social-links mt-3">
+                                    <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                    <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="col-lg-2 col-md-6 footer-links">
+                            <h4>Links Úteis</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Pacotes</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Promoções</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">5G</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Mais Sobre Nós</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="UP">A UPmobile</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Responsabilidade Social</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Qualidade</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="UP">Trabalhar na UPmobile</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 footer-newsletter">
+                            <h4>Subscreve a nossa Newsletter</h4>
+                            <p>E fica sempre a par das novidades e das nossas promoções</p>
+                            <form action="" method="post">
+                                <input type="email" name="email"><input type="submit" value="Subscribe">
+                            </form>
+
+                        </div>
+
                     </div>
-
-                    <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Pacotes</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Promoções</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">5G</a></li>
-
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="UP">UPmobile</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">SSSSSS</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="UP" >Trabalhar na UPmobile</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-
-                    </div>
-
                 </div>
             </div>
-        </div>
 
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Maxim</span></strong>. All Rights Reserved
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>UPmobile</span></strong>. Todos os direitos reservados
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/ -->
+                    Feito por <a asp-area="" asp-controller="DreamTeam" asp-action="Index">UPmobile Dream Team</a>
+                </div>
             </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/maxim-free-onepage-bootstrap-theme/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </footer><!-- End Footer -->}
+
+    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+    {
+        <footer id="footer" style="background-color:#82DDF2">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-3 footer-links text-center">
+                            <h4>Linhas de Apoio</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Geral - 16211</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Técnico - 16212</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Faturação - 16215</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Retenção - 16220</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 footer-links">
+                            <h4>Acessos Rápido</h4>
+                            <ul>
+                                <li><a asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes Comerciais</a></li>
+                                <li><a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                                <li><a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></li>
+                                <li><a asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                                @if (User.IsInRole("Administrador"))
+                                {
+                                    <li><a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 footer-links">
+                            <h4>Atalhos Úteis</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Site</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ'S</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Resolução de Problemas</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Literatura</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Linhas</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 footer-links">
+                            <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer><!-- End Footer -->
+
+        </footer>
+    }
 
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
