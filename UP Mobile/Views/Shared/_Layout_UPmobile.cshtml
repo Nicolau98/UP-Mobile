@@ -92,7 +92,7 @@
                         <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><a class="nav-link scrollto" href="#portfolio">5G</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Home" asp-action="Main">5G</a></li>
                         @*<li><b><a class="nav-link scrollto mr-4 dropdown" href="#contact">Área Cliente&nbsp;&nbsp;<i class="far fa-user"></i></a></b></li>*@
                         @*<partial name="_LoginPartial" />*@
                         <li class="dropdown">
@@ -166,7 +166,7 @@
                         <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><a class="nav-link scrollto" href="#portfolio">5G</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Home" asp-action="Main">5G</a></li>
                         <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="DetailsPessoaisCliente">My UPmobile&nbsp;&nbsp;</a></b></li>
                         <partial name="_LoginPartial" />
                         @*<li class="dropdown">
@@ -299,18 +299,18 @@
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Responsabilidade Social</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Qualidade</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Trabalhar na UPmobile</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Politica de Privacidade</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="Privacy">Politica de Privacidade</a></li>
                             </ul>
                         </div>
 
                         <div class="col-lg-2 col-md-6 footer-links">
                             <h4>Links Úteis</h4>
                             <ul>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Serviços</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Promoções</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Extras</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Rede 5G</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a asp-area="" asp-controller="Home" asp-action="Main">Rede 5G</a></li>
                             </ul>
                         </div>
 
