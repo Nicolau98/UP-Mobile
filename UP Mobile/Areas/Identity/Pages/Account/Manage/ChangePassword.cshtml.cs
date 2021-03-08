@@ -30,12 +30,12 @@ namespace UP_Mobile.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Deve preencher a password atual.")]
             [DataType(DataType.Password)]
             [Display(Name = "Password atual")]
             public string OldPassword { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Deve preencher a nova password.")]
             //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Nova password")]
