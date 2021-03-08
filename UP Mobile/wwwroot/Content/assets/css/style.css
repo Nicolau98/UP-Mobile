@@ -2032,9 +2032,10 @@ section {
             border: 2px solid #cc1616;
         }
 .ctemp {
-    background: linear-gradient(rgba(2, 2, 2, 0.6), rgba(0, 0, 0, 0.7)), url("../../assets/img/team.jpg") fixed center center;
+    background: linear-gradient(rgba(2, 2, 2, 0.6), rgba(0, 0, 0, 0.7)), url("../../assets/img/team1.jpg") fixed center center;
     background-size: cover;
     padding: 120px 0;
+    margin-bottom:30px;
 }
 
     .ctemp h3 {
