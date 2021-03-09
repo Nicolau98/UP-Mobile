@@ -80,41 +80,57 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
-                var result = await _userManager.CreateAsync(user, Input.Password);
-                var roleutilizador = await _context.Utilizador.FirstOrDefaultAsync(c => c.Email == Input.Email);
-                Role roleoperador = _context.Role.FirstOrDefault(r => r.IdRole == roleutilizador.IdRole);
                 
-                if (result.Succeeded)
+                var roleutilizador = await _context.Utilizador.FirstOrDefaultAsync(c => c.Email == Input.Email);
+
+                
+
+                
+
+                try
                 {
-                    
-                    await _userManager.AddToRoleAsync(user, roleoperador.Nome);
-                    
-                    _logger.LogInformation("Criada nova conta com password.");
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
-
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirme o email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                    Role roleoperador = _context.Role.FirstOrDefault(r => r.IdRole == roleutilizador.IdRole);
+                    var result = await _userManager.CreateAsync(user, Input.Password);
+                    if (result.Succeeded)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        
+                        await _userManager.AddToRoleAsync(user, roleoperador.Nome);
+
+                        _logger.LogInformation("Criada nova conta com password.");
+
+                        var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                        var callbackUrl = Url.Page(
+                            "/Account/ConfirmEmail",
+                            pageHandler: null,
+                            values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                            protocol: Request.Scheme);
+
+                        await _emailSender.SendEmailAsync(Input.Email, "Confirme o email",
+                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                        if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                        {
+                            return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        }
+                        else
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        }
                     }
-                    else
+                    foreach (var error in result.Errors)
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        ModelState.AddModelError(string.Empty, error.Description);
                     }
                 }
-                foreach (var error in result.Errors)
+                catch (System.Exception)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+
+                    if (roleutilizador == null)
+                    {
+                        ModelState.AddModelError("Email", "Não existe Cliente criado com esse email. Deve solicitar a sua criação");
+                    }
                 }
             }
 
