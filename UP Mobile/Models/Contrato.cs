@@ -25,7 +25,7 @@ namespace UP_Mobile.Models
         public int IdCliente { get; set; }
 
         [Column("Id_Operador")]
-        [Display(Name = "Nº de Operador")]
+        [Display(Name = "Operador")]
         public int? IdOperador { get; set; }
 
         [Column("Id_Pacote_Comercial_Promocao")]

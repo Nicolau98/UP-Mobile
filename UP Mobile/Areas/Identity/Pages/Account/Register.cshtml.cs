@@ -83,10 +83,7 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
                 
                 var roleutilizador = await _context.Utilizador.FirstOrDefaultAsync(c => c.Email == Input.Email);
 
-                
-
-                
-
+ 
                 try
                 {
                     Role roleoperador = _context.Role.FirstOrDefault(r => r.IdRole == roleutilizador.IdRole);
@@ -129,7 +126,7 @@ namespace UP_Mobile.Areas.Identity.Pages.Account
 
                     if (roleutilizador == null)
                     {
-                        ModelState.AddModelError("Email", "Não existe Cliente criado com esse email. Deve solicitar a sua criação");
+                        ModelState.AddModelError("Email", "Não existe Utilizador criado com esse email. Deve solicitar a sua criação");
                     }
                 }
             }
