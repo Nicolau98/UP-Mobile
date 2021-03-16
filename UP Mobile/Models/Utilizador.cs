@@ -22,37 +22,60 @@ namespace UP_Mobile.Models
 
         [Key]
         [Column("Id_Utilizador")]
+        [Display(Name = "Número")]
         public int IdUtilizador { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Deve preencher o nome.")]
         [StringLength(50)]
+        [Display(Name = "Nome")]
         public string Nome { get; set; }
+
         [Column("Data_Nascimento", TypeName = "date")]
+        [Display(Name = "Data de Nascimento")]
+        [DataType(DataType.Date)]
         public DateTime DataNascimento { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Deve preencher a morada.")]
         [StringLength(100)]
+        [Display(Name = "Morada")]
         public string Morada { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Deve preencher o contacto.")]
         [StringLength(9)]
+        [Display(Name = "Contacto")]
         public string Contacto { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Deve preencher o email.")]
         [StringLength(50)]
+        [Display(Name = "Email")]
         public string Email { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Deve preencher o número de contribuinte.")]
         [Column("N_Contribuinte")]
         [StringLength(9)]
+        [Display(Name = "Nº de Contribuinte")]
         public string NContribuinte { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Deve preencher o número de identificação.")]
         [Column("N_Identificacao")]
         [StringLength(8)]
+        [Display(Name = "Nº de Identificação")]
         public string NIdentificacao { get; set; }
+
+        [Display(Name = "Ativo/Inativo")]
         public bool Ativo { get; set; }
+
         [Column("Local_Trabalho")]
         [StringLength(100)]
+        [Display(Name = "Local de Trabalho")]
         public string LocalTrabalho { get; set; }
+
         [Column("Id_Role")]
         public int IdRole { get; set; }
+
         [Column("Data_Criacao", TypeName = "datetime")]
         public DateTime DataCriacao { get; set; }
+
         [Column("Id_Distrito")]
         public int IdDistrito { get; set; }
 

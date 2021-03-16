@@ -19,6 +19,7 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Metodo_Pagamento")]
         public int IdMetodoPagamento { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Metodo { get; set; }

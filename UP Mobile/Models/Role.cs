@@ -18,6 +18,7 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Role")]
         public int IdRole { get; set; }
+
         [Required]
         [StringLength(20)]
         public string Nome { get; set; }

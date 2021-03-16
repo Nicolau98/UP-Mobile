@@ -20,9 +20,11 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Distrito")]
         public int IdDistrito { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
+
 
         [InverseProperty("IdDistritoNavigation")]
         public virtual ICollection<PacoteComercialPromocao> PacoteComercialPromocao { get; set; }
