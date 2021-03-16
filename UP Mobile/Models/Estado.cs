@@ -18,7 +18,6 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Estado")]
         public int IdEstado { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Nome { get; set; }
