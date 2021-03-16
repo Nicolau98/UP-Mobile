@@ -20,7 +20,7 @@ namespace UP_Mobile.Controllers
         // GET: PacotesComerciaisPromocao
         public async Task<IActionResult> Index()
         {
-            var UPMobileContext = _context.PacoteComercialPromocao.Include(p => p.IdPacoteNavigation).Include(p => p.IdPromocaoNavigation);
+            var UPMobileContext = _context.PacoteComercialPromocao.Include(p => p.IdPacoteNavigation).Include(p => p.IdPromocaoNavigation).Include(p => p.IdDistritoNavigation);
             return View(await UPMobileContext.ToListAsync());
         }
 
@@ -35,6 +35,7 @@ namespace UP_Mobile.Controllers
             var pacoteComercialPromocao = await _context.PacoteComercialPromocao
                 .Include(p => p.IdPacoteNavigation)
                 .Include(p => p.IdPromocaoNavigation)
+                .Include(p => p.IdDistritoNavigation)
                 .FirstOrDefaultAsync(m => m.IdPacoteComercialPromocao == id);
             if (pacoteComercialPromocao == null)
             {
@@ -49,6 +50,7 @@ namespace UP_Mobile.Controllers
         {
             ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome");
             ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome");
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View();
         }
 
@@ -74,6 +76,7 @@ namespace UP_Mobile.Controllers
             }
             ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
             ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome", pacoteComercialPromocao.IdDistrito);
             return View(pacoteComercialPromocao);
         }
 
@@ -92,6 +95,7 @@ namespace UP_Mobile.Controllers
             }
             ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
             ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome", pacoteComercialPromocao.IdDistrito);
             return View(pacoteComercialPromocao);
         }
 
@@ -134,6 +138,7 @@ namespace UP_Mobile.Controllers
             }
             ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
             ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome", pacoteComercialPromocao.IdDistrito);
             return View(pacoteComercialPromocao);
         }
 
@@ -148,6 +153,7 @@ namespace UP_Mobile.Controllers
             var pacoteComercialPromocao = await _context.PacoteComercialPromocao
                 .Include(p => p.IdPacoteNavigation)
                 .Include(p => p.IdPromocaoNavigation)
+                .Include(p => p.IdDistritoNavigation)
                 .FirstOrDefaultAsync(m => m.IdPacoteComercialPromocao == id);
             if (pacoteComercialPromocao == null)
             {
