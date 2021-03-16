@@ -19,26 +19,21 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Pacote_Comercial_Promocao")]
         public int IdPacoteComercialPromocao { get; set; }
-
-        [Display(Name = "Promoção")]
         [Column("Id_Promocao")]
         public int IdPromocao { get; set; }
-
-        [Display(Name = "Pacote")]
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
-
-        //[Required(ErrorMessage = "Deve preencher o nome.")]
-        
+        [Required]
         [StringLength(50)]
-        [Display(Name = "Pacote / Promoção")]
         public string Nome { get; set; }
-
-        [Display(Name = "Preço Total")]
-        [Column("Preco_total_pacote", TypeName = "decimal(4, 2)")]
+        [Column("Preco_total_pacote", TypeName = "decimal(5, 2)")]
         public decimal PrecoTotalPacote { get; set; }
+        [Column("Id_Distrito")]
+        public int IdDistrito { get; set; }
 
-
+        [ForeignKey(nameof(IdDistrito))]
+        [InverseProperty(nameof(Distrito.PacoteComercialPromocao))]
+        public virtual Distrito IdDistritoNavigation { get; set; }
         [ForeignKey(nameof(IdPacote))]
         [InverseProperty(nameof(PacoteComercial.PacoteComercialPromocao))]
         public virtual PacoteComercial IdPacoteNavigation { get; set; }

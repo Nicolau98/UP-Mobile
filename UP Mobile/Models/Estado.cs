@@ -8,21 +8,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace UP_Mobile.Models
 {
-    public partial class Role
+    public partial class Estado
     {
-        public Role()
+        public Estado()
         {
-            Utilizador = new HashSet<Utilizador>();
+            Reclamacao = new HashSet<Reclamacao>();
         }
 
         [Key]
-        [Column("Id_Role")]
-        public int IdRole { get; set; }
+        [Column("Id_Estado")]
+        public int IdEstado { get; set; }
         [Required]
-        [StringLength(20)]
+        [StringLength(50)]
         public string Nome { get; set; }
 
-        [InverseProperty("IdRoleNavigation")]
-        public virtual ICollection<Utilizador> Utilizador { get; set; }
+        [InverseProperty("IdEstadoNavigation")]
+        public virtual ICollection<Reclamacao> Reclamacao { get; set; }
     }
 }

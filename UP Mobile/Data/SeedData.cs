@@ -22,6 +22,7 @@ namespace UP_Mobile.Data
         internal static void PreencheDadosFicticios(UPMobileContext context)
         {
 
+            InsereDistritos(context);
             InserePacotesComerciaisFicticios(context);
             InserePromoesFicticias(context);
 
@@ -32,6 +33,8 @@ namespace UP_Mobile.Data
             InsereConteudoExtraFicticias(context);
             //InserePacotePromocoaoFicticias(context);
             //InsereContratoFicticias(context);
+
+            
 
 
         }
@@ -63,6 +66,8 @@ namespace UP_Mobile.Data
 
             Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
             Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
+            Distrito Guarda = context.Distrito.FirstOrDefault(r => r.Nome == "Guarda");
+            Distrito Viseu = context.Distrito.FirstOrDefault(r => r.Nome == "Viseu");
 
             context.Utilizador.AddRange(new Utilizador[]
             {
@@ -77,7 +82,9 @@ namespace UP_Mobile.Data
                         NIdentificacao = "11739165",
                         Ativo = true,
                         LocalTrabalho = "",
-                        IdRoleNavigation = rolecliente
+                        IdRoleNavigation = rolecliente,
+                        DataCriacao = new DateTime(1994, 09, 14),
+                        IdDistritoNavigation = Guarda,
 
                     },
 
@@ -92,8 +99,9 @@ namespace UP_Mobile.Data
                         NIdentificacao = "10679234",
                         Ativo = true,
                         LocalTrabalho = "",
-                        IdRoleNavigation = roleoperador
-
+                        IdRoleNavigation = roleoperador,
+                        DataCriacao = new DateTime(1994, 09, 14),
+                        IdDistritoNavigation = Viseu,
                     },
 
             });
@@ -376,6 +384,31 @@ namespace UP_Mobile.Data
 
         //    context.SaveChanges();
         //}
+
+        private static void InsereDistritos(UPMobileContext context)
+        {
+            if (context.Distrito.Any()) return;
+
+            context.Distrito.AddRange(new Distrito[]
+            {
+                new Distrito
+                {
+                    Nome = "Guarda",
+                },
+
+                new Distrito
+                {
+                    Nome = "Viseu",
+                },
+
+                new Distrito
+                {
+                    Nome = "Castelo Branco",
+                }
+            });  
+
+            context.SaveChanges();
+        }
 
         internal static async Task InsereUtilizadoresFicticiosAsync(UserManager<IdentityUser> gestorUtilizadores)
         {
