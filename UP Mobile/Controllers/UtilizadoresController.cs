@@ -51,6 +51,7 @@ namespace UP_Mobile.Controllers
 
             List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.Nome.Contains(nomePesquisar) || p.NContribuinte.Contains(nomePesquisar)) && (p.IdRoleNavigation == roleoperador))
                 .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
                 .OrderBy(p => p.Nome)
                 .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                 .Take(paginacao.ItemsPorPagina)
@@ -109,6 +110,7 @@ namespace UP_Mobile.Controllers
 
                 List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.Nome.Contains(nomePesquisar) || p.NContribuinte.Contains(nomePesquisar)) && (p.IdRoleNavigation == roleoperador))
                     .Include(u => u.IdRoleNavigation)
+                    .Include(d => d.IdDistritoNavigation)
                     .OrderBy(p => p.Nome)
                     .Skip(paginacao.ItemsPorPagina * (pagina - 1))
                     .Take(paginacao.ItemsPorPagina)
@@ -139,6 +141,7 @@ namespace UP_Mobile.Controllers
 
             var utilizador = await _context.Utilizador
                 .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
                 .FirstOrDefaultAsync(m => m.IdUtilizador == id);
             if (utilizador == null)
             {
@@ -200,6 +203,7 @@ namespace UP_Mobile.Controllers
         public IActionResult CreateCliente()
         {
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View();
         }
 
@@ -208,7 +212,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateCliente([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho")] Utilizador utilizador)
+        public async Task<IActionResult> CreateCliente([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho,IdDistrito")] Utilizador utilizador)
         {
             string nif = utilizador.NContribuinte;
             string nid = utilizador.NIdentificacao;
@@ -264,12 +268,14 @@ namespace UP_Mobile.Controllers
                 utilizador.IdRoleNavigation = rolecliente;
 
                 utilizador.Ativo = true;
+                utilizador.DataCriacao = System.DateTime.Now;
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
                 ViewBag.Mensagem = "Cliente adicionado com sucesso.";
                 return View("Sucesso");
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View(utilizador);
         }
 
@@ -278,6 +284,7 @@ namespace UP_Mobile.Controllers
         {
             
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View();
         }
 
@@ -286,7 +293,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateOperador([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho")] Utilizador utilizador)
+        public async Task<IActionResult> CreateOperador([Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,LocalTrabalho,IdDistrito")] Utilizador utilizador)
         {
             string nif = utilizador.NContribuinte;
             string nid = utilizador.NIdentificacao;
@@ -342,11 +349,13 @@ namespace UP_Mobile.Controllers
                 utilizador.IdRoleNavigation = roleoperador;
 
                 utilizador.Ativo = true;
+                utilizador.DataCriacao = System.DateTime.Now;
                 _context.Add(utilizador);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(IndexOperador));
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View(utilizador);
         }
 
@@ -364,6 +373,7 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View(utilizador);
         }
 
@@ -372,7 +382,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho, IdRole")] Utilizador utilizador)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho, IdRole, IdDistrito")] Utilizador utilizador)
         {
             if (id != utilizador.IdUtilizador)
             {
@@ -420,6 +430,7 @@ namespace UP_Mobile.Controllers
                 
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View(utilizador);
         }
 
@@ -433,6 +444,7 @@ namespace UP_Mobile.Controllers
 
             var utilizador = await _context.Utilizador
                 .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
                 .FirstOrDefaultAsync(m => m.IdUtilizador == id);
             if (utilizador == null)
             {
@@ -456,10 +468,6 @@ namespace UP_Mobile.Controllers
 
             _context.Utilizador.Remove(utilizador);
             await _context.SaveChangesAsync();
-
-
-
-            
 
 
             if (role == rolecliente)

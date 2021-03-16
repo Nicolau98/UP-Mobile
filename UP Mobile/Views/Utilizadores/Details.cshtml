@@ -33,6 +33,13 @@
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.Morada)
                     </dd>
+                    </dd>
+                    <dt class="col-sm-2">
+                        Distrito
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayNameFor(model => model.IdDistritoNavigation.Nome)
+                    </dd>
                     <dt class="col-sm-2">
                         @Html.DisplayNameFor(model => model.Contacto)
                     </dt>
@@ -57,28 +64,33 @@
                     <dd class="col-sm-10">
                         @Html.DisplayFor(model => model.NIdentificacao)
                     </dd>
-                    @if((User.IsInRole("Administrador")) || (User.IsInRole("Operador"))) 
-                    { 
-                    <dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.Ativo)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @ViewBag.Ativo
-                    </dd>
-                    @*<dt class="col-sm-2">
-                        @Html.DisplayNameFor(model => model.LocalTrabalho)
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.LocalTrabalho)
-                    </dd>*@
-                    <dt class="col-sm-2">
-                        @*@Html.DisplayNameFor(model => model.IdRoleNavigation)*@
-                        Categoria
-                    </dt>
-                    <dd class="col-sm-10">
-                        @Html.DisplayFor(model => model.IdRoleNavigation.Nome)
-                    </dd>
+                    @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
+                    {
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Ativo)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @ViewBag.Ativo
+                        </dd>
+                        @*<dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LocalTrabalho)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LocalTrabalho)
+            </dd>*@
+                        <dt class="col-sm-2">
+                            Categoria
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.IdRoleNavigation.Nome)
+                        </dd>
                     }
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.DataCriacao)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.DataCriacao)
+                    </dd>
                 </dl>
             </div>
             <div>
