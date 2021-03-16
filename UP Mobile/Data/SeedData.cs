@@ -393,18 +393,89 @@ namespace UP_Mobile.Data
             {
                 new Distrito
                 {
+                    Nome = "Aveiro",
+                },
+
+                new Distrito
+                {
+                    Nome = "Beja",
+                },
+
+                new Distrito
+                {
+                    Nome = "Bragança",
+                },
+
+                new Distrito
+                {
+                    Nome = "Castelo Branco",
+                },
+
+                new Distrito
+                {
+                    Nome = "Coimbra",
+                },
+
+               
+                new Distrito
+                {
+                    Nome = "Évora",
+                },
+
+                new Distrito
+                {
+                    Nome = "Faro",
+                },
+
+                new Distrito
+                {
                     Nome = "Guarda",
+                },
+
+                new Distrito
+                {
+                    Nome = "Leiria",
+                },
+
+                new Distrito
+                {
+                    Nome = "Lisboa",
+                },
+
+                new Distrito
+                {
+                    Nome = "Portalegre",
+                },
+
+                new Distrito
+                {
+                    Nome = "Porto",
+                },
+
+                new Distrito
+                {
+                    Nome = "Santarém",
+                },
+
+                new Distrito
+                {
+                    Nome = "Setúbal",
+                },
+
+                new Distrito
+                {
+                    Nome = "Viana do Castelo",
+                },
+
+                new Distrito
+                {
+                    Nome = "Vila Real",
                 },
 
                 new Distrito
                 {
                     Nome = "Viseu",
                 },
-
-                new Distrito
-                {
-                    Nome = "Castelo Branco",
-                }
             });  
 
             context.SaveChanges();
