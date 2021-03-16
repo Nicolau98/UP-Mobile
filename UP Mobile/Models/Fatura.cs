@@ -26,9 +26,8 @@ namespace UP_Mobile.Models
         public decimal PrecoTotal { get; set; }
         [Column("Id_Metodo_Pagamento")]
         public int IdMetodoPagamento { get; set; }
-        [Column("Data_Pagamento")]
-        [StringLength(50)]
-        public string DataPagamento { get; set; }
+        [Column("Data_Pagamento", TypeName = "datetime")]
+        public DateTime DataPagamento { get; set; }
 
         [ForeignKey(nameof(IdContrato))]
         [InverseProperty(nameof(Contrato.Fatura))]

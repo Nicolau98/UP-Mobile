@@ -22,7 +22,7 @@ namespace UP_Mobile.Data
         public virtual DbSet<Contrato> Contrato { get; set; }
         public virtual DbSet<ContratoConteudo> ContratoConteudo { get; set; }
         public virtual DbSet<Distrito> Distrito { get; set; }
-        public virtual DbSet<Estado> Estado { get; set; }
+        public virtual DbSet<Estados> Estados { get; set; }
         public virtual DbSet<Fatura> Fatura { get; set; }
         public virtual DbSet<MetodoPagamento> MetodoPagamento { get; set; }
         public virtual DbSet<PacoteComercial> PacoteComercial { get; set; }
@@ -119,7 +119,7 @@ namespace UP_Mobile.Data
                     .WithMany(p => p.Reclamacao)
                     .HasForeignKey(d => d.IdEstado)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Reclamacao_Estado");
+                    .HasConstraintName("FK_Reclamacao_Estados");
 
                 entity.HasOne(d => d.IdOperadorNavigation)
                     .WithMany(p => p.ReclamacaoIdOperadorNavigation)
