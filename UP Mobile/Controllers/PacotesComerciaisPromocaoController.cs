@@ -59,7 +59,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPacoteComercialPromocao,IdPromocao,IdPacote")] PacoteComercialPromocao pacoteComercialPromocao)
+        public async Task<IActionResult> Create([Bind("IdPacoteComercialPromocao,IdPromocao,IdPacote,IdDistrito")] PacoteComercialPromocao pacoteComercialPromocao)
         {
             if (ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace UP_Mobile.Controllers
             }
             ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
             ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome", pacoteComercialPromocao.IdDistrito);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View(pacoteComercialPromocao);
         }
 

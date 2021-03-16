@@ -23,7 +23,7 @@ namespace UP_Mobile.Models
         public int IdPromocao { get; set; }
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
-        [Required]
+        
         [StringLength(50)]
         public string Nome { get; set; }
         [Column("Preco_total_pacote", TypeName = "decimal(5, 2)")]
