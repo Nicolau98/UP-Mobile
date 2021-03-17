@@ -28,7 +28,7 @@ namespace UP_Mobile.Data
 
             InsereRolesFicticios(context);
             InsereUtilizadoresFicticios(context);
-
+            InsereOperadoresFicticiasParaTestar(context);
 
             InsereConteudoExtraFicticias(context);
             //InserePacotePromocoaoFicticias(context);
@@ -68,6 +68,9 @@ namespace UP_Mobile.Data
             Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
             Distrito Guarda = context.Distrito.FirstOrDefault(r => r.Nome == "Guarda");
             Distrito Viseu = context.Distrito.FirstOrDefault(r => r.Nome == "Viseu");
+            Distrito Lisboa = context.Distrito.FirstOrDefault(r => r.Nome == "Lisboa");
+            Distrito Leiria = context.Distrito.FirstOrDefault(r => r.Nome == "Leiria");
+            Distrito Porto = context.Distrito.FirstOrDefault(r => r.Nome == "Porto");
 
             context.Utilizador.AddRange(new Utilizador[]
             {
@@ -103,6 +106,55 @@ namespace UP_Mobile.Data
                         DataCriacao = new DateTime(1994, 09, 14),
                         IdDistritoNavigation = Viseu,
                     },
+
+                    new Utilizador
+                    {
+                        Nome ="João Felix Antunes" ,
+                        DataNascimento = new DateTime(1987, 12, 10),
+                        Morada ="Avenida da Mira, nº4, 2340-786 Oliveira do Hospital",
+                        Contacto = "961370529",
+                        Email ="jantunes@upmobile.com" ,
+                        NContribuinte = "206905068",
+                        NIdentificacao = "10679231",
+                        Ativo = true,
+                        LocalTrabalho = "",
+                        IdRoleNavigation = roleoperador,
+                        DataCriacao = new DateTime(1994, 09, 10),
+                        IdDistritoNavigation = Lisboa,
+                    },
+
+                    new Utilizador
+                    {
+                        Nome ="Rui Fonseca Pires" ,
+                        DataNascimento = new DateTime(1988, 08, 15),
+                        Morada ="Rua Gizo, nº6, 2340-786 Oliveira do Hospital",
+                        Contacto = "961360529",
+                        Email ="rpires@upmobile.com" ,
+                        NContribuinte = "230965520",
+                        NIdentificacao = "10679232",
+                        Ativo = true,
+                        LocalTrabalho = "",
+                        IdRoleNavigation = roleoperador,
+                        DataCriacao = new DateTime(1992, 10, 10),
+                        IdDistritoNavigation = Leiria,
+                    },
+
+                    new Utilizador
+                    {
+                        Nome ="Rute Fonseca Lopes" ,
+                        DataNascimento = new DateTime(1986, 03, 22),
+                        Morada ="Rua Vai e Vem, nº6, 2340-786 Oliveira do Hospital",
+                        Contacto = "931360529",
+                        Email ="Rlopes@upmobile.com" ,
+                        NContribuinte = "274099063",
+                        NIdentificacao = "10679233",
+                        Ativo = true,
+                        LocalTrabalho = "",
+                        IdRoleNavigation = roleoperador,
+                        DataCriacao = new DateTime(1990, 01, 02),
+                        IdDistritoNavigation = Porto,
+                    }
+
 
             });
 
@@ -203,6 +255,79 @@ namespace UP_Mobile.Data
             //    context.SaveChanges();
             //}
         }
+
+
+        private static void InsereOperadoresFicticiasParaTestar(UPMobileContext context)
+        {
+            if (context.Utilizador.Any()) return;
+
+            Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
+            Distrito Guarda = context.Distrito.FirstOrDefault(r => r.Nome == "Guarda");
+            Distrito Viseu = context.Distrito.FirstOrDefault(r => r.Nome == "Viseu");
+            Distrito Leiria = context.Distrito.FirstOrDefault(r => r.Nome == "Leiria");
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Pedro Miguel Lopes " + i,
+                    DataNascimento = new DateTime(1994, 09, 03).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "91830619" + i,
+                    Email = "Plopes@sapo.pt" + i,
+                    NContribuinte = "26665980" + i,
+                    NIdentificacao = "1173920" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = roleoperador,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Guarda,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "João António Miguel " + i,
+                    DataNascimento = new DateTime(1990, 05, 01).AddDays(i),
+                    Morada = "Praça da Paez, 9, 1980-330 Mocho " + i,
+                    Contacto = "93830629" + i,
+                    Email = "jmiguel@sapo.pt" + i,
+                    NContribuinte = "28064366" + i,
+                    NIdentificacao = "1273920" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = roleoperador,
+                    DataCriacao = new DateTime(1988, 08, 02).AddDays(i),
+                    IdDistritoNavigation = Viseu,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Rute Fonseca Dias " + i,
+                    DataNascimento = new DateTime(1987, 02, 02).AddDays(i),
+                    Morada = "Rua Paz, 8, 1980-330 Figueiras " + i,
+                    Contacto = "92830629" + i,
+                    Email = "rdias@sapo.pt" + i,
+                    NContribuinte = "28207738" + i,
+                    NIdentificacao = "1275720" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = roleoperador,
+                    DataCriacao = new DateTime(2004, 09, 07).AddDays(i),
+                    IdDistritoNavigation = Leiria,
+                });
+            }
+
+            context.SaveChanges();
+
+        }
+
+
 
         private static void InsereConteudoExtraFicticias(UPMobileContext context)
         {
