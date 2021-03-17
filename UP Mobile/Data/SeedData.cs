@@ -27,8 +27,8 @@ namespace UP_Mobile.Data
             InserePromoesFicticias(context);
 
             InsereRolesFicticios(context);
-            InsereUtilizadoresFicticios(context);
             InsereOperadoresFicticiasParaTestar(context);
+            
 
             InsereConteudoExtraFicticias(context);
             //InserePacotePromocoaoFicticias(context);
@@ -262,6 +262,7 @@ namespace UP_Mobile.Data
             if (context.Utilizador.Any()) return;
 
             Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
+            Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
             Distrito Guarda = context.Distrito.FirstOrDefault(r => r.Nome == "Guarda");
             Distrito Viseu = context.Distrito.FirstOrDefault(r => r.Nome == "Viseu");
             Distrito Leiria = context.Distrito.FirstOrDefault(r => r.Nome == "Leiria");
@@ -321,15 +322,78 @@ namespace UP_Mobile.Data
                     DataCriacao = new DateTime(2004, 09, 07).AddDays(i),
                     IdDistritoNavigation = Leiria,
                 });
+
             }
 
-            context.SaveChanges();
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Manuel de Jesus Cristo " + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "92314961" + i,
+                    Email = "manujescristo@gmail.com" + i,
+                    NContribuinte = "21198859" + i,
+                    NIdentificacao = "1496204" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Guarda,
+                });
+            }
 
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "José Miguel António " + i,
+                    DataNascimento = new DateTime(1982, 05, 01).AddDays(i),
+                    Morada = "Praça da Paez, 9, 1980-330 Mocho " + i,
+                    Contacto = "93830629" + i,
+                    Email = "joseantonio@sapo.pt" + i,
+                    NContribuinte = "20627256" + i,
+                    NIdentificacao = "1384609" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1988, 08, 02).AddDays(i),
+                    IdDistritoNavigation = Viseu,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Teresa dos Santos Cunha" + i,
+                    DataNascimento = new DateTime(1994, 02, 02).AddDays(i),
+                    Morada = "Rua Paz, 8, 1980-330 Figueiras " + i,
+                    Contacto = "92830629" + i,
+                    Email = "teresassc@sapo.pt" + i,
+                    NContribuinte = "22024545" + i,
+                    NIdentificacao = "1337776" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(2004, 09, 07).AddDays(i),
+                    IdDistritoNavigation = Leiria,
+                });
+            }
+            context.SaveChanges();
         }
 
 
+        
+            
+      
 
-        private static void InsereConteudoExtraFicticias(UPMobileContext context)
+
+
+
+
+            private static void InsereConteudoExtraFicticias(UPMobileContext context)
         {
             if (context.ConteudoExtra.Any()) return;
 
