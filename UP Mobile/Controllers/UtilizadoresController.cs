@@ -72,7 +72,7 @@ namespace UP_Mobile.Controllers
 
         }
 
-    
+
 
         public async Task<IActionResult> IndexOperador(string nomePesquisar, int pagina = 1)
         {
@@ -104,18 +104,18 @@ namespace UP_Mobile.Controllers
                 return View(modelo1);
 
             }
-            
 
-                Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
-                List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.Nome.Contains(nomePesquisar) || p.NContribuinte.Contains(nomePesquisar)) && (p.IdRoleNavigation == roleoperador))
-                    .Include(u => u.IdRoleNavigation)
-                    .Include(d => d.IdDistritoNavigation)
-                    .OrderBy(p => p.Nome)
-                    .Skip(paginacao.ItemsPorPagina * (pagina - 1))
-                    .Take(paginacao.ItemsPorPagina)
-                    .ToListAsync();
-            
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.Nome.Contains(nomePesquisar) || p.NContribuinte.Contains(nomePesquisar)) && (p.IdRoleNavigation == roleoperador))
+                .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
 
             ListaUtilizadoresViewModel modelo = new ListaUtilizadoresViewModel
             {
@@ -130,6 +130,66 @@ namespace UP_Mobile.Controllers
 
 
         }
+
+
+        public async Task<IActionResult> PesquisaDistrito(int distritopesquisar=0, int pagina = 1)
+
+        {
+
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
+
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Utilizador.Where(p => p.IdDistrito == distritopesquisar).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            if (distritopesquisar == 0)
+            {
+
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome == null)
+                    .ToListAsync();
+
+                ListaPesquisaViewModel modelo1 = new ListaPesquisaViewModel
+                {
+                    Paginacao = paginacao,
+                    Utilizador = utilizador1,
+                    DistritoPesquisar = distritopesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+
+
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.IdDistrito.Equals(distritopesquisar)) && (p.IdRoleNavigation == roleoperador))
+                .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+
+            ListaPesquisaViewModel modelo = new ListaPesquisaViewModel
+            {
+                Paginacao = paginacao,
+                Utilizador = utilizador,
+                DistritoPesquisar = distritopesquisar
+            };
+
+
+
+            return View(modelo);
+
+
+        }
+
+
+
 
         // GET: Utilizadores/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -165,15 +225,15 @@ namespace UP_Mobile.Controllers
         {
 
             var utilizador = await _context.Utilizador.SingleOrDefaultAsync(u => u.Email == User.Identity.Name);
-                //.Include(u => u.IdRoleNavigation)
-                //.FirstOrDefaultAsync(m => m.IdUtilizador == id);
+            //.Include(u => u.IdRoleNavigation)
+            //.FirstOrDefaultAsync(m => m.IdUtilizador == id);
 
             var contrato = await _context.Contrato.Where(p => p.IdCliente == utilizador.IdUtilizador)
                 .Include(c => c.IdClienteNavigation)
                 .Include(c => c.IdOperadorNavigation)
                 .Include(c => c.IdPacoteComercialPromocaoNavigation)
                 .ToListAsync();
-                
+
             if (utilizador == null)
             {
                 utilizador = await _context.Utilizador.SingleOrDefaultAsync(c => c.Email == User.Identity.Name);
@@ -227,8 +287,8 @@ namespace UP_Mobile.Controllers
                 if (isNContribuinteAlreadyExists) ModelState.AddModelError("NContribuinte", "Este contribuinte já esta associado a uma conta");
                 if (isEmailAlreadyExists) ModelState.AddModelError("Email", "Este email já esta associado a uma conta");
 
-                if (nif.Length < 9) ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto"); 
-                if (nid.Length != 8) ModelState.AddModelError("NIdentificacao", "Nº de identificação incorreto"); 
+                if (nif.Length < 9) ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
+                if (nid.Length != 8) ModelState.AddModelError("NIdentificacao", "Nº de identificação incorreto");
 
                 return View(utilizador);
             }
@@ -282,7 +342,7 @@ namespace UP_Mobile.Controllers
         // GET: Utilizadores/Create
         public IActionResult CreateOperador()
         {
-            
+
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome");
             ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
             return View();
@@ -340,7 +400,7 @@ namespace UP_Mobile.Controllers
                     ModelState.AddModelError("NContribuinte", "Nº de contribuinte incorreto");
                     return View(utilizador);
                 }
-            }; 
+            };
 
             if (ModelState.IsValid)
             {
@@ -413,21 +473,22 @@ namespace UP_Mobile.Controllers
                 var role = utilizador.IdRoleNavigation;
 
 
-                if (role == rolecliente) 
+                if (role == rolecliente)
                 {
                     if (User.IsInRole("Cliente"))
                     {
                         var cliente = utilizador.IdUtilizador;
                         return RedirectToAction("DetailsPessoaisCliente", "Utilizadores", new { id = cliente });
                     }
-                        
+
                     return RedirectToAction(nameof(IndexCliente));
 
-                }else if(role == roleoperador) 
+                }
+                else if (role == roleoperador)
                 {
                     return RedirectToAction(nameof(IndexOperador));
                 }
-                
+
             }
             ViewData["IdRole"] = new SelectList(_context.Role, "IdRole", "Nome", utilizador.IdRole);
             ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
@@ -474,7 +535,7 @@ namespace UP_Mobile.Controllers
             {
                 return RedirectToAction(nameof(IndexCliente));
             }
-            else 
+            else
             {
                 return RedirectToAction(nameof(IndexOperador));
             }

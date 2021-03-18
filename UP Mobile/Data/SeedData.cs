@@ -375,7 +375,7 @@ namespace UP_Mobile.Data
         //        {
         //            Nome = "UP Teste" + i,
         //            Descricao = "Promoção teste" + i,
-        //            DataInicio = new DateTime(2021, 02, 01),
+        //            DataInicio = new DateTime(2021, 02, 01).AddYears(i),
         //            DataFim = new DateTime(2021, 12, 01),
         //            Preco = i + 1,
         //            Conteudo = "Conteudo teste"
