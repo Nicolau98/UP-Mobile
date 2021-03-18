@@ -163,7 +163,64 @@ namespace UP_Mobile.Controllers
             }
 
 
-            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.IdDistrito.Equals(distritopesquisar)) && (p.IdRoleNavigation == rolecliente))
+                .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
+                .OrderBy(p => p.Nome)
+                .Skip(paginacao.ItemsPorPagina * (pagina - 1))
+                .Take(paginacao.ItemsPorPagina)
+                .ToListAsync();
+
+
+            ListaPesquisaViewModel modelo = new ListaPesquisaViewModel
+            {
+                Paginacao = paginacao,
+                Utilizador = utilizador,
+                DistritoPesquisar = distritopesquisar
+            };
+
+
+
+            return View(modelo);
+
+
+        }
+
+
+        public async Task<IActionResult> PesquisaOperadorDistrito(int distritopesquisar = 0, int pagina = 1)
+
+        {
+
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
+
+            Paginacao paginacao = new Paginacao
+            {
+                TotalItems = await _context.Utilizador.Where(p => p.IdDistrito == distritopesquisar).CountAsync(),
+                PaginaAtual = pagina
+            };
+
+            if (distritopesquisar == 0)
+            {
+
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome == null)
+                    .ToListAsync();
+
+                ListaPesquisaViewModel modelo1 = new ListaPesquisaViewModel
+                {
+                    Paginacao = paginacao,
+                    Utilizador = utilizador1,
+                    DistritoPesquisar = distritopesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+
+
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
 
             List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.IdDistrito.Equals(distritopesquisar)) && (p.IdRoleNavigation == roleoperador))
                 .Include(u => u.IdRoleNavigation)
@@ -187,7 +244,6 @@ namespace UP_Mobile.Controllers
 
 
         }
-
 
 
 
