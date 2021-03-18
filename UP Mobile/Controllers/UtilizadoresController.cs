@@ -188,6 +188,56 @@ namespace UP_Mobile.Controllers
 
         }
 
+        public async Task<IActionResult> ClienteDistritoMaisAntigo(int distritopesquisar = 0, int pagina = 1)
+
+        {
+
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
+
+
+            if (distritopesquisar == 0)
+            {
+
+                List<Utilizador> utilizador1 = await _context.Utilizador.Where(p => p.Nome == null)
+                    .ToListAsync();
+
+                ListaMaisAntigosViewModel modelo1 = new ListaMaisAntigosViewModel
+                {
+                    
+                    Utilizador = utilizador1,
+                    DistritoPesquisar = distritopesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+
+
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            List<Utilizador> utilizador = await _context.Utilizador.Where(p => (p.IdDistrito.Equals(distritopesquisar)) && (p.IdRoleNavigation == roleoperador))
+                .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
+                .OrderBy(p => p.DataCriacao)
+                .Take(10)
+                .ToListAsync();
+
+
+            ListaMaisAntigosViewModel modelo = new ListaMaisAntigosViewModel
+            {
+                
+                Utilizador = utilizador,
+                DistritoPesquisar = distritopesquisar
+            };
+
+
+
+            return View(modelo);
+
+
+        }
+
 
 
 
