@@ -19,7 +19,7 @@
             <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
                 <div class="card-body">
                     <h5 class="card-title">Pesquisa</h5>
-                    <form asp-action="PequisaDistrito" method="get">
+                    <form asp-action="PesquisaClienteDistrito" method="get">
                         <div class="form-group">
                             <label for="nomePesquisar" class="control-label">Distrito</label>
                             @*<input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />*@
@@ -28,7 +28,7 @@
 
                         <div class="form-group">
                             <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
-                            <a asp-action="PesquisaDistrito" class="btn border" style="background-color: #55ecc3;">Limpar</a>
+                            <a asp-action="PesquisaClienteDistrito" class="btn border" style="background-color: #55ecc3;">Limpar</a>
                         </div>
                     </form>
                 </div>
@@ -151,18 +151,18 @@
                     }
 
                     <li class="page-item @(Model.Paginacao.PaginaAtual == 1 ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="1" asp-route-nomePesquisar="@Model.DistritoPesquisar">Primeiro</a>
+                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="PesquisaClienteDistrito" asp-route-pagina="1" asp-route-distritopesquisar="@Model.DistritoPesquisar">Primeiro</a>
                     </li>
 
                     @for (int i = paginaInicial; i <= paginaFinal; i++)
                     {
                         <li class="page-item @(Model.Paginacao.PaginaAtual == i ? "active" : "")">
-                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@i" asp-route-nomePesquisar="@Model.DistritoPesquisar">@i</a>
+                            <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="PesquisaClienteDistrito" asp-route-pagina="@i" asp-route-distritopesquisar="@Model.DistritoPesquisar">@i</a>
                         </li>
                     }
 
                     <li class="page-item @(Model.Paginacao.PaginaAtual == Model.Paginacao.TotalPaginas  ? "disabled" : "")">
-                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="Index" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-nomePesquisar="@Model.DistritoPesquisar">Último</a>
+                        <a class="page-link text-black-50 border-info" style="background-color: #e3f2fd;" asp-action="PesquisaClienteDistrito" asp-route-pagina="@Model.Paginacao.TotalPaginas" asp-route-distritopesquisar="@Model.DistritoPesquisar">Último</a>
                     </li>
                 </ul>
             </nav>

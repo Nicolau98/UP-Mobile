@@ -132,7 +132,7 @@ namespace UP_Mobile.Controllers
         }
 
 
-        public async Task<IActionResult> PesquisaDistrito(int distritopesquisar=0, int pagina = 1)
+        public async Task<IActionResult> PesquisaClienteDistrito(int distritopesquisar=0, int pagina = 1)
 
         {
 
