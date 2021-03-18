@@ -28,6 +28,9 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     @*<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
@@ -206,20 +209,20 @@
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
                         <li class="dropdown">
-                        <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b>
+                            <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b>
                             <ul>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Pesquisar por Cliente</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito">Pesquisar por Distrito</a></li>
                             </ul>
                         </li>
                         @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
-                    <li class="dropdown">
-                        <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></b>
-                        <ul>
-                            <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Pesquisar por Operador</a></li>
-                            <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaOperadorDistrito">Pesquisar por Distrito</a></li>
-                        </ul>
-                    </li>
+                        <li class="dropdown">
+                            <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></b>
+                            <ul>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Pesquisar por Operador</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaOperadorDistrito">Pesquisar por Distrito</a></li>
+                            </ul>
+                        </li>
                         <partial name="_LoginPartial" />
                     </ul>
 
@@ -426,6 +429,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 
