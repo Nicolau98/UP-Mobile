@@ -263,9 +263,26 @@ namespace UP_Mobile.Data
 
             Role roleoperador = context.Role.FirstOrDefault(r => r.Nome == "Operador");
             Role rolecliente = context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+            Distrito Aveiro = context.Distrito.FirstOrDefault(r => r.Nome == "Aveiro");
+            Distrito Beja = context.Distrito.FirstOrDefault(r => r.Nome == "Beja");
+            Distrito Braga = context.Distrito.FirstOrDefault(r => r.Nome == "Braga");
+            Distrito Braganca = context.Distrito.FirstOrDefault(r => r.Nome == "Bragança");
+            Distrito CasteloBranco = context.Distrito.FirstOrDefault(r => r.Nome == "Castelo Branco");
+            Distrito Coimbra = context.Distrito.FirstOrDefault(r => r.Nome == "Coimbra");
+            Distrito Evora = context.Distrito.FirstOrDefault(r => r.Nome == "Évora");
+            Distrito Faro = context.Distrito.FirstOrDefault(r => r.Nome == "Faro");
             Distrito Guarda = context.Distrito.FirstOrDefault(r => r.Nome == "Guarda");
-            Distrito Viseu = context.Distrito.FirstOrDefault(r => r.Nome == "Viseu");
             Distrito Leiria = context.Distrito.FirstOrDefault(r => r.Nome == "Leiria");
+            Distrito Lisboa = context.Distrito.FirstOrDefault(r => r.Nome == "Lisboa");
+            Distrito Portalegre = context.Distrito.FirstOrDefault(r => r.Nome == "Portalegre");
+            Distrito Porto = context.Distrito.FirstOrDefault(r => r.Nome == "Porto");
+            Distrito Santarem = context.Distrito.FirstOrDefault(r => r.Nome == "Santarém");
+            Distrito Setubal = context.Distrito.FirstOrDefault(r => r.Nome == "Setúbal");
+            Distrito VianadoCastelo = context.Distrito.FirstOrDefault(r => r.Nome == "Viana do Castelo");
+            Distrito VilaReal = context.Distrito.FirstOrDefault(r => r.Nome == "Vila Real");
+            Distrito Viseu = context.Distrito.FirstOrDefault(r => r.Nome == "Viseu");
+            
+
 
             for (int i = 0; i < 9; i++)
             {
@@ -379,6 +396,292 @@ namespace UP_Mobile.Data
                     IdRoleNavigation = rolecliente,
                     DataCriacao = new DateTime(2004, 09, 07).AddDays(i),
                     IdDistritoNavigation = Leiria,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Pedro Teixeira Gonçalves" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "92314821" + i,
+                    Email = "pedritogongas@gmail.com" + i,
+                    NContribuinte = "21971608" + i,
+                    NIdentificacao = "1930648" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Aveiro,
+                });
+
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Maria Conceição David" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96714821" + i,
+                    Email = "maridavid@gmail.com" + i,
+                    NContribuinte = "28232998" + i,
+                    NIdentificacao = "1584369" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Beja,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "David Ferreiro Pinto" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96714895" + i,
+                    Email = "didipinto@gmail.com" + i,
+                    NContribuinte = "29608526" + i,
+                    NIdentificacao = "1769135" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Braga,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Luís Pedro Marques Antunes" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "93814895" + i,
+                    Email = "louisemm@gmail.com" + i,
+                    NContribuinte = "23262178" + i,
+                    NIdentificacao = "1736128" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Braganca,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Nuno Alexandre Santos Melo" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96813895" + i,
+                    Email = "nunoasm@gmail.com" + i,
+                    NContribuinte = "22754565" + i,
+                    NIdentificacao = "1356128" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = CasteloBranco,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Manuel Ramalho José" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96819138" + i,
+                    Email = "manuze@gmail.com" + i,
+                    NContribuinte = "28514968" + i,
+                    NIdentificacao = "1531268" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Coimbra,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "João Santos Silva" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96634938" + i,
+                    Email = "josilva@gmail.com" + i,
+                    NContribuinte = "28900407" + i,
+                    NIdentificacao = "1681253" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Evora,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Susete Barata Pinho" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96632406" + i,
+                    Email = "susubaratita@gmail.com" + i,
+                    NContribuinte = "25689964" + i,
+                    NIdentificacao = "1264239" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Faro,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Leonardo Costa Madureira" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96068406" + i,
+                    Email = "macacomadureira@gmail.com" + i,
+                    NContribuinte = "26460476" + i,
+                    NIdentificacao = "1863016" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Lisboa,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Luísa Filipa Santiago Pereira" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96610356" + i,
+                    Email = "lululipa@gmail.com" + i,
+                    NContribuinte = "28507372" + i,
+                    NIdentificacao = "1360159" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Portalegre,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Fabiana Mateus Rato" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "93561356" + i,
+                    Email = "ratofabi@gmail.com" + i,
+                    NContribuinte = "26752584" + i,
+                    NIdentificacao = "1930125" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Porto,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Joana Penedos Costa" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "93566249" + i,
+                    Email = "juupenedos@gmail.com" + i,
+                    NContribuinte = "23629415" + i,
+                    NIdentificacao = "1880325" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Santarem,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Nicolau Francisco Cunha" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "96601286" + i,
+                    Email = "nicolexico@gmail.com" + i,
+                    NContribuinte = "28369747" + i,
+                    NIdentificacao = "1630159" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = Setubal,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Duarte Lopes Mineral" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "92641086" + i,
+                    Email = "mineriodudu@gmail.com" + i,
+                    NContribuinte = "25940491" + i,
+                    NIdentificacao = "1248035" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = VianadoCastelo,
+                });
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                context.Utilizador.Add(new Utilizador
+                {
+                    Nome = "Fernanda Constantino Magalhães" + i,
+                    DataNascimento = new DateTime(1984, 08, 10).AddDays(i),
+                    Morada = "Praça da Alegria, 9, 1980-330 Sarzedo " + i,
+                    Contacto = "92660492" + i,
+                    Email = "nandamangalhaes@gmail.com" + i,
+                    NContribuinte = "20884325" + i,
+                    NIdentificacao = "1680125" + i,
+                    Ativo = true,
+                    LocalTrabalho = "",
+                    IdRoleNavigation = rolecliente,
+                    DataCriacao = new DateTime(1994, 09, 02).AddDays(i),
+                    IdDistritoNavigation = VilaReal,
                 });
             }
             context.SaveChanges();
@@ -588,6 +891,11 @@ namespace UP_Mobile.Data
                 new Distrito
                 {
                     Nome = "Beja",
+                },
+
+                new Distrito
+                {
+                    Nome = "Braga",
                 },
 
                 new Distrito
