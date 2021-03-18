@@ -441,3 +441,259 @@ table.table-hover tbody tr td:hover {
             border: 2px solid #4FD6D9;
         }
 
+/*--------------------------------------------------------------
+# Steps
+--------------------------------------------------------------*/
+.steps {
+    padding: 50px 0 40px 0;
+}
+
+    .steps .row {
+        overflow: hidden;
+    }
+
+    .steps .content-item {
+        padding: 40px;
+        border-left: 1px solid #d4e9e6;
+        border-bottom: 1px solid #d4e9e6;
+        margin: -1px;
+    }
+
+        .steps .content-item span {
+            display: block;
+            font-size: 40px;
+            font-weight: 400;
+            color: #1bac91;
+        }
+
+        .steps .content-item h4 {
+            font-size: 28px;
+            font-weight: 400;
+            padding: 0;
+            margin: 20px 0;
+            color: #21413c;
+        }
+
+        .steps .content-item p {
+            color: #aaaaaa;
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+@media (max-width: 768px) {
+    .steps .content-item {
+        padding: 40px 0;
+    }
+}
+
+
+#empresa {
+    width: 100%;
+    height: 60vh;
+    background: url("../../assets/img/empresa.jpg") center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 50px;
+    padding: 0;
+}
+
+    #empresa:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #empresa .container {
+        z-index: 2;
+    }
+
+    #empresa h1 {
+        margin: 0 0 10px 0;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 56px;
+        color: #00fccd;
+    }
+
+    #empresa h2 {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    #empresa .btn-get-started {
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 8px 28px;
+        border-radius: 4px;
+        transition: 0.5s;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+        #empresa .btn-get-started:hover {
+            border-color: #1bac91;
+            background: #02e6bc;
+        }
+
+@media (min-width: 1024px) {
+    #empresa {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 992px) {
+    #empresa {
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    #empresa h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #empresa h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+
+.ctemp {
+    background: linear-gradient(rgba(2, 2, 2, 0.6), rgba(0, 0, 0, 0.7)), url("../../assets/img/team1.jpg") fixed center center;
+    background-size: cover;
+    padding: 120px 0;
+    margin-bottom: 30px;
+}
+
+    .ctemp h3 {
+        color: #fff;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+#ctemp h2 {
+    color: #4FD6D9;
+    font-size: 20px;
+}
+
+.ctemp .ctemp-btn {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 28px;
+    transition: 0.5s;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+    .ctemp .ctemp-btn:hover {
+        background: #5cface;
+        border: 2px solid #4FD6D9;
+    }
+
+/*--------------------------------------------------------------
+# F.A.Q
+--------------------------------------------------------------*/
+
+#faq h2 {
+    color: #4FD6D9;
+}
+
+.faq.section-bg {
+    background-color: #fff;
+}
+
+.faq .faq-list {
+    padding: 0 100px;
+}
+
+    .faq .faq-list ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .faq .faq-list li + li {
+        margin-top: 15px;
+    }
+
+    .faq .faq-list li {
+        padding: 20px;
+        background: #fff;
+        border-radius: 4px;
+        position: relative;
+    }
+
+    .faq .faq-list a {
+        display: block;
+        position: relative;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+        padding: 0 30px;
+        outline: none;
+    }
+
+    .faq .faq-list .icon-help {
+        font-size: 24px;
+        position: absolute;
+        right: 0;
+        left: 20px;
+        color: #97cac2;
+    }
+
+    .faq .faq-list .icon-show, .faq .faq-list .icon-close {
+        font-size: 24px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .faq .faq-list p {
+        margin-bottom: 0;
+        padding: 10px 0 0 0;
+    }
+
+    .faq .faq-list .icon-show {
+        display: none;
+    }
+
+    .faq .faq-list a.collapsed {
+        color: #343a40;
+    }
+
+        .faq .faq-list a.collapsed:hover {
+            color: #1bac91;
+        }
+
+        .faq .faq-list a.collapsed .icon-show {
+            display: inline-block;
+        }
+
+        .faq .faq-list a.collapsed .icon-close {
+            display: none;
+        }
+
+@media (max-width: 1200px) {
+    .faq .faq-list {
+        padding: 0;
+    }
+}
