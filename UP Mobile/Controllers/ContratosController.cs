@@ -32,6 +32,34 @@ namespace UP_Mobile.Controllers
             return View(contrato);
         }
 
+
+        public async Task<IActionResult> Top10Operador()
+        {
+            var contratos = await _context.Contrato
+                .GroupBy(c => c.IdOperador)
+                .Select( c => new { 
+                    total = c.Sum(x => x.PrecoTotal), operador = _context.Utilizador.SingleOrDefault(u => u.IdUtilizador == c.Key)
+                })
+                .OrderByDescending( c => c.total)
+                .Take(3)
+                .ToListAsync();
+
+            //.FirstOrDefaultAsync(m => m.IdContrato == id);
+
+            //List<Contrato> contrato = LoadProducts();
+            //var contrato = _context.Contrato
+            //    .GroupBy(e => e.IdOperador)
+            //    .Select(
+            //            r => new {
+            //                Operador = contrato.select(x => x.).FirstOrDefault(), 
+            //                total = r.Sum(e => e.PrecoTotal) 
+            //            })
+            //         .Take(10);
+
+
+            return View(contratos);
+        }
+
         // GET: Contratos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
