@@ -257,7 +257,7 @@ table.table-hover tbody tr td:hover {
         font-size: 48px;
         font-weight: 700;
         line-height: 56px;
-        color: #fff;
+        color: #42fac8;
     }
 
     #hero1 h2 {
@@ -441,3 +441,167 @@ table.table-hover tbody tr td:hover {
             border: 2px solid #4FD6D9;
         }
 
+
+.form-account {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background: radial-gradient(circle, rgba(13,255,252,0.45420174905899857) 0%, rgba(30,255,177,0.48501407398897056) 76%);
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form-account {
+        transition: none;
+    }
+}
+
+.form-account::-ms-expand {
+    background-color: transparent;
+    border: 0;
+}
+
+.form-account:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #bbc6c6;
+}
+
+.form-account::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-account::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-account:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-account:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-account:placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.form-account:disabled, .form-account[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+select.form-account:focus::-ms-value {
+    color: #495057;
+    background: radial-gradient(circle, rgba(13,255,252,0.45420174905899857) 0%, rgba(30,255,177,0.48501407398897056) 76%);
+}
+
+.form-account,
+.form-account {
+    display: block;
+    width: 100%;
+}
+
+
+/*Button Login & Register*/
+
+.btnaccount {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 250px;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: linear-gradient(145deg, rgba(253,255,255,1) 0%, rgba(106,244,200,0.2861345221682423) 52%, rgba(247,255,253,0.7875350823923319) 100%);
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 15px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btnaccount {
+        transition: none;
+    }
+}
+
+.btnaccount:hover {
+    color: #212529;
+    text-decoration: none;
+}
+
+.btnaccount:focus, .btnaccount.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0,249,255,0.49) ;
+}
+
+.btnaccount.disabled, .btnaccount:disabled {
+    opacity: 0.65;
+}
+
+a.btnaccount.disabled,
+fieldset:disabled a.btnaccount {
+    pointer-events: none;
+}
+
+/*--------------------------------------------------------------
+# Cth
+--------------------------------------------------------------*/
+.cth {
+    background: linear-gradient(rgb(34, 34, 34, 0.87), rgba(2, 2, 2, 0.6)), url("../Content/assets/img/promo.jpg") fixed center center;
+    background-size: cover;
+    padding: 120px 0;
+}
+
+    .cth h3 {
+        color: #41e2b7;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .cth p {
+        color: #fff;
+    }
+
+    .cth .cth-btn {
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 10px 28px;
+        transition: 0.5s;
+        margin-top: 10px;
+        border: 2px solid #52ffdf;
+        border-radius: 10px;
+        color: #fff;
+    }
+
+        .cth .cth-btn:hover {
+            background: #52ffdf;
+            border: 2px solid #4FD6D9;
+        }
