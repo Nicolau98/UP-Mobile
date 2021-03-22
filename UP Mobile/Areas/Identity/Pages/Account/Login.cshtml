@@ -17,17 +17,17 @@
                             <h4>Faz Log in na tua conta.</h4>
                             <hr />
                             <div asp-validation-summary="All" class="text-danger"></div>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <label asp-for="Input.Email">E-mail</label>
-                                <input asp-for="Input.Email" class="form-control" />
+                                <input asp-for="Input.Email" class="form-account" />
                                 <span asp-validation-for="Input.Email" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <label asp-for="Input.Password"></label>
-                                <input asp-for="Input.Password" class="form-control" />
+                                <input asp-for="Input.Password" class="form-account" />
                                 <span asp-validation-for="Input.Password" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <div class="checkbox">
                                     <label asp-for="Input.RememberMe">
                                         <input asp-for="Input.RememberMe" />
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn border" style="background-color: #55ecc3">Entrar</button>
+                                <button type="submit" class="btnaccount">Entrar</button>
                             </div>
                             <div class="form-group">
                                 <p>
