@@ -18,6 +18,7 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Contratos
+        
         public async Task<IActionResult> Index(int? id)
         {
             var contrato = await _context.Contrato.Where(c=> c.IdCliente == id)
@@ -29,7 +30,7 @@ namespace UP_Mobile.Controllers
 
             ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
 
-            return View(contrato);
+            return View(await _context.Contrato.ToListAsync());
         }
 
         // GET: Contratos/Details/5
