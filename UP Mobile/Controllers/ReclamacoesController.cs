@@ -48,9 +48,11 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Reclamacoes/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto");
+            ViewData["IdCliente"] = id;
+
+            //ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto");
             ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome");
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto");
             return View();
@@ -61,10 +63,15 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdReclamacao,IdCliente,IdOperador,DataAbertura,Assunto,Descricao,IdEstado,DataResolucao,Resolucao")] Reclamacao reclamacao)
+        public async Task<IActionResult> Create([Bind("IdReclamacao,IdCliente,Assunto,Descricao")] Reclamacao reclamacao)
         {
             if (ModelState.IsValid)
             {
+                Estado estadoaberto = _context.Estado.FirstOrDefault(e => e.Nome == "Em Aberto");
+
+                reclamacao.IdEstadoNavigation = estadoaberto;
+                reclamacao.DataAbertura = System.DateTime.Now;
+
                 _context.Add(reclamacao);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

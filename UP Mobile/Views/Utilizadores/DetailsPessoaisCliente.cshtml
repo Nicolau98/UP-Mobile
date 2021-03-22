@@ -56,68 +56,75 @@
 
                 @foreach (var item in Model.Contrato)
                 {
-            <div class="card mb-4">
-                <div class="card-header" style="background-color:#82ddf2">
-                    @Html.DisplayNameFor(modelItem => item.IdContrato)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.IdContrato)</p>
-                </div>
-                <div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.IdCliente)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.IdCliente)</p>
-                </div>
-                <div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.DataInicioContrato)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.DataInicioContrato)</p>
-                </div>
-                @*<div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.DataFimContrato)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.DataFimContrato)</p>
-                </div>*@
-                <div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.DataFidelizacao)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.DataFidelizacao)</p>
-                </div>
-                <div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.MoradaFaturacao)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.MoradaFaturacao)</p>
-                </div>
-                <div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.IdPacoteComercialPromocao)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.Nome)</p>
-                </div>
-                <div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.PrecoTotal)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.PrecoTotal)</p>
-                </div>
-            </div>
+                    <div class="card mb-4">
+                        <div class="card-header" style="background-color:#82ddf2">
+                            @Html.DisplayNameFor(modelItem => item.IdContrato)
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.IdContrato)</p>
+                        </div>
+                        <div class="card-header">
+                            @Html.DisplayNameFor(modelItem => item.IdCliente)
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.IdCliente)</p>
+                        </div>
+                        <div class="card-header">
+                            @Html.DisplayNameFor(modelItem => item.DataInicioContrato)
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.DataInicioContrato)</p>
+                        </div>
+                        @*<div class="card-header">
+                        @Html.DisplayNameFor(modelItem => item.DataFimContrato)
+                    </div>
+                    <div class="card-body">
+                        <p>@Html.DisplayFor(modelItem => item.DataFimContrato)</p>
+                    </div>*@
+                        <div class="card-header">
+                            @Html.DisplayNameFor(modelItem => item.DataFidelizacao)
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.DataFidelizacao)</p>
+                        </div>
+                        <div class="card-header">
+                            @Html.DisplayNameFor(modelItem => item.MoradaFaturacao)
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.MoradaFaturacao)</p>
+                        </div>
+                        <div class="card-header">
+                            @Html.DisplayNameFor(modelItem => item.IdPacoteComercialPromocao)
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.Nome)</p>
+                        </div>
+                        <div class="card-header">
+                            @Html.DisplayNameFor(modelItem => item.PrecoTotal)
+                        </div>
+                        <div class="card-body">
+                            <p>@Html.DisplayFor(modelItem => item.PrecoTotal)</p>
+                        </div>
+                    </div>
                 }
 
             </div>
 
-                <h4>Password e E-mail</h4>
-                <br />
-                <div>
+            <h4>Password e E-mail</h4>
+            <br />
+            <div>
 
-                    <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="btn" style="background-color:#55ecc3">Alterar</a>
-
-                </div>
+                <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="btn" style="background-color:#55ecc3">Alterar</a>
 
             </div>
+
+            <h4>Nova Reclamação</h4>
+            <br />
+            <div>
+                <a asp-controller="Reclamacoes" asp-action="Create" asp-route-id="@Model.Utilizador.IdUtilizador" class="btn border" style="background-color: #86f1c5;">Nova Reclamação</a>
+            </div>
+
+        </div>
+        
     </section>
 </main>
