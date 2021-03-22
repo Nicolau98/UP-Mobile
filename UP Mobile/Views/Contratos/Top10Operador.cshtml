@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UP_Mobile.Models.Contrato>
+﻿@model dynamic
 
 @{
     ViewData["Title"] = "Top 10 Operadores";
@@ -17,70 +17,26 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.DataInicioContrato)
-                        </th>
-                        @*<th>
-                                @Html.DisplayNameFor(model => model.DataFimContrato)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.MoradaFaturacao)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.DataFidelizacao)
-                            </th>
-
-                            <th>
-                                @Html.DisplayNameFor(model => model.PrecoBaseInicioContrato)
-                            </th>*@
-                        <th>
-                            @Html.DisplayNameFor(model => model.PrecoTotal)
-                        </th>
 
                         <th>
-                            @Html.DisplayNameFor(model => model.IdClienteNavigation)
+                            Operador
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdOperadorNavigation)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.IdPacoteComercialPromocaoNavigation)
+                            Total
                         </th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
+                    @foreach (dynamic item in Model)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.DataInicioContrato)
-                            </td>
-                            @*<td>
-                                    @Html.DisplayFor(modelItem => item.DataFimContrato)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.MoradaFaturacao)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DataFidelizacao)
-                                </td>
-
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PrecoBaseInicioContrato)
-                                </td>*@
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PrecoTotal)€
+                                @item.operador
                             </td>
 
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.Nome)
+                                @item.total
                             </td>
                             <td>
                                 <a asp-action="Details" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>

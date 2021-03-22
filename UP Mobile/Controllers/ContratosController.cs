@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UP_Mobile.Data;
 using UP_Mobile.Models;
+
 
 namespace UP_Mobile.Controllers
 {
@@ -35,15 +38,30 @@ namespace UP_Mobile.Controllers
 
         public async Task<IActionResult> Top10Operador()
         {
-            var contratos = await _context.Contrato
+
+            //List<decimal, UP_Mobile.Models.Utilizador> contratos = ;
+            //System.Collections.Generic.List <<> f_AnonymousType11<decimal, UP_Mobile.Models.Utilizador>>;
+            //List<Tuple<T1, T2>>
+            //dynamic contratos ...
+            //var model = Tuple.Create(
+            //var tuple2 = new Tuple<string, double>(
+
+            dynamic contratos = new System.Dynamic.ExpandoObject();
+
+             
+
+            contratos = await _context.Contrato
                 .GroupBy(c => c.IdOperador)
-                .Select( c => new { 
-                    total = c.Sum(x => x.PrecoTotal), operador = _context.Utilizador.SingleOrDefault(u => u.IdUtilizador == c.Key)
+                .Select(c => new {
+                    total = c.Sum(x => x.PrecoTotal),
+                    operador = _context.Utilizador.SingleOrDefault(u => u.IdUtilizador == c.Key)
                 })
-                .OrderByDescending( c => c.total)
+
+                //.OrderByDescending( c => c.total)
                 .Take(3)
                 .ToListAsync();
 
+            
             //.FirstOrDefaultAsync(m => m.IdContrato == id);
 
             //List<Contrato> contrato = LoadProducts();
