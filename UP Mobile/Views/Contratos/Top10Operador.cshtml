@@ -1,0 +1,60 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Top 10 Operadores";
+}
+
+<main id="main">
+    <section>
+        <div class="container">
+
+            <h1>Top 10 Operadores</h1>
+
+
+            <a onclick="history.go(-1)" class="btn btn-border" style="background-color: #80f2f3">Voltar</a>
+            <h1></h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Operador
+                        </th>
+                        <th>
+                            Total
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (dynamic item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.operador
+                            </td>
+
+                            <td>
+                                @item.total
+                            </td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                <h1></h1>
+                                <a asp-action="Edit" asp-route-id="@item.IdContrato" type="button" class="btn border" style="background-color: #55ecc3;">Editar Pacote / Promoção</a>
+                                <h1></h1>
+                                <a asp-action="Terminar" asp-route-id="@item.IdContrato" type="button" class="btn btn-danger">Terminar Contrato</a>
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

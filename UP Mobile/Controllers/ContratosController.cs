@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UP_Mobile.Data;
 using UP_Mobile.Models;
+
 
 namespace UP_Mobile.Controllers
 {
@@ -31,6 +34,49 @@ namespace UP_Mobile.Controllers
             ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
 
             return View(await _context.Contrato.ToListAsync());
+        }
+
+
+        public async Task<IActionResult> Top10Operador()
+        {
+
+            //List<decimal, UP_Mobile.Models.Utilizador> contratos = ;
+            //System.Collections.Generic.List <<> f_AnonymousType11<decimal, UP_Mobile.Models.Utilizador>>;
+            //List<Tuple<T1, T2>>
+            //dynamic contratos ...
+            //var model = Tuple.Create(
+            //var tuple2 = new Tuple<string, double>(
+
+            dynamic contratos = new System.Dynamic.ExpandoObject();
+
+             
+
+            contratos = await _context.Contrato
+                .GroupBy(c => c.IdOperador)
+                .Select(c => new {
+                    total = c.Sum(x => x.PrecoTotal),
+                    operador = _context.Utilizador.SingleOrDefault(u => u.IdUtilizador == c.Key)
+                })
+
+                //.OrderByDescending( c => c.total)
+                .Take(3)
+                .ToListAsync();
+
+            
+            //.FirstOrDefaultAsync(m => m.IdContrato == id);
+
+            //List<Contrato> contrato = LoadProducts();
+            //var contrato = _context.Contrato
+            //    .GroupBy(e => e.IdOperador)
+            //    .Select(
+            //            r => new {
+            //                Operador = contrato.select(x => x.).FirstOrDefault(), 
+            //                total = r.Sum(e => e.PrecoTotal) 
+            //            })
+            //         .Take(10);
+
+
+            return View(contratos);
         }
 
         // GET: Contratos/Details/5
