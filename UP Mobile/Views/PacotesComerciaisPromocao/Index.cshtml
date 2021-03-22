@@ -21,7 +21,10 @@
                             @Html.DisplayNameFor(model => model.Nome)
                         </th>
                         <th>
-                             @Html.DisplayNameFor(model => model.PrecoTotalPacote)
+                            @Html.DisplayNameFor(model => model.PrecoTotalPacote)
+                        </th>
+                        <th>
+                            Distrito
                         </th>
                         <th></th>
                     </tr>
@@ -38,12 +41,15 @@
                             @Html.DisplayFor(modelItem => item.PrecoTotalPacote)
                         </td>
                         <td>
-                                @*<a asp-action="Details" asp-route-id="@item.IdPacoteComercialPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                <h1></h1>*@
-                                <a asp-action="Edit" asp-route-id="@item.IdPacoteComercialPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
-                                <h1></h1>
-                                <a asp-action="Delete" asp-route-id="@item.IdPacoteComercialPromocao" type="button" class="btn btn-danger">Apagar</a>
-                            
+                            @Html.DisplayFor(modelItem => item.IdDistritoNavigation.Nome)
+                        </td>
+                        <td>
+                            @*<a asp-action="Details" asp-route-id="@item.IdPacoteComercialPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+            <h1></h1>*@
+                            <a asp-action="Edit" asp-route-id="@item.IdPacoteComercialPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                            <h1></h1>
+                            <a asp-action="Delete" asp-route-id="@item.IdPacoteComercialPromocao" type="button" class="btn btn-danger">Apagar</a>
+
                         </td>
                     </tr>
                     }

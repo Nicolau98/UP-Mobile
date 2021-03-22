@@ -548,7 +548,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho, IdRole, IdDistrito")] Utilizador utilizador)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUtilizador,Nome,DataNascimento,Morada,Contacto,Email,NContribuinte,NIdentificacao,Ativo,LocalTrabalho, IdRole, IdDistrito, DataCriacao")] Utilizador utilizador)
         {
             if (id != utilizador.IdUtilizador)
             {
