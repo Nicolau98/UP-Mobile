@@ -37,8 +37,75 @@ namespace UP_Mobile.Controllers
         }
 
 
-        public async Task<IActionResult> Top10Operador()
+        public async Task<IActionResult> Top10Operador(int distritopesquisar = 0)
         {
+
+            Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
+
+            List<TotalClienteOperador> operadores = new List<TotalClienteOperador>();
+            decimal total = 0;
+            foreach (var operador in _context.Utilizador)
+            {
+                if (operador.IdRoleNavigation == roleoperador)
+                {
+                    foreach (var contrato in _context.Contrato)
+                    {
+                        if (contrato.IdOperador == operador.IdUtilizador)
+                        {
+                            total += contrato.PrecoTotal;
+                        }
+                    }
+                    operadores.Add(new TotalClienteOperador() { NomeUtilizador = operador.Nome, DistritosId = operador.IdDistrito, Total = total });
+                    total = 0;
+                }
+            }
+
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
+
+
+            if (distritopesquisar == 0)
+            {
+
+                List<TotalClienteOperador> totoperador = operadores
+                     .Where(p => p.DistritosId == 0)
+                     .OrderByDescending(p => p.Total)
+                     .Take(10)
+                     .ToList();
+
+                Top10ViewModel modelo1 = new Top10ViewModel
+                {
+
+                    Totaloperador = totoperador,
+                    DistritoPesquisar = distritopesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+
+
+
+
+
+            List<TotalClienteOperador> totaloperador = operadores
+                 .Where(p => p.DistritosId == distritopesquisar)
+                 .OrderByDescending(p => p.Total)
+                 .Take(10)
+                 .ToList();
+
+            Top10ViewModel top10operadores = new Top10ViewModel
+            {
+                Totaloperador = totaloperador,
+                DistritoPesquisar = distritopesquisar
+            };
+
+            return View(top10operadores);
+
+
+
+
+
 
             //List<decimal, UP_Mobile.Models.Utilizador> contratos = ;
             //System.Collections.Generic.List <<> f_AnonymousType11<decimal, UP_Mobile.Models.Utilizador>>;
@@ -47,36 +114,24 @@ namespace UP_Mobile.Controllers
             //var model = Tuple.Create(
             //var tuple2 = new Tuple<string, double>(
 
-            dynamic contratos = new System.Dynamic.ExpandoObject();
+            //dynamic contratos = new System.Dynamic.ExpandoObject();
 
-             
+            //contratos = await _context.Contrato
+            //.GroupBy(c => c.IdOperador)
+            //.Select(c => new {
+            //    total = c.Sum(x => x.PrecoTotal),
+            //    operador = _context.Utilizador.SingleOrDefault(u => u.IdUtilizador == c.Key)
+            //})
 
-            contratos = await _context.Contrato
-                .GroupBy(c => c.IdOperador)
-                .Select(c => new {
-                    total = c.Sum(x => x.PrecoTotal),
-                    operador = _context.Utilizador.SingleOrDefault(u => u.IdUtilizador == c.Key)
-                })
-
-                //.OrderByDescending( c => c.total)
-                .Take(3)
-                .ToListAsync();
-
-            
-            //.FirstOrDefaultAsync(m => m.IdContrato == id);
-
-            //List<Contrato> contrato = LoadProducts();
-            //var contrato = _context.Contrato
-            //    .GroupBy(e => e.IdOperador)
-            //    .Select(
-            //            r => new {
-            //                Operador = contrato.select(x => x.).FirstOrDefault(), 
-            //                total = r.Sum(e => e.PrecoTotal) 
-            //            })
-            //         .Take(10);
+            ////.OrderByDescending( c => c.total)
+            //.Take(3)
+            //.ToListAsync();
+            //return View(contratos);
 
 
-            return View(contratos);
+
+
+
         }
 
         // GET: Contratos/Details/5
