@@ -12,33 +12,35 @@
             <h1>Reclamações</h1>
 
             <p>
-                <a asp-action="Create">Create New</a>
+                <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar reclamação</a>
             </p>
-            <table class="table">
-                <thead>
+            <h1></h1>
+            
+            <table class="table table-bordered">
+                <thead style="background-color: #e3f2fd;">
                     <tr>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.DataAbertura)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.Assunto)
                         </th>
-                        <th>
+                        <th scope="auto">
                             @Html.DisplayNameFor(model => model.Descricao)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.DataResolucao)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.Resolucao)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.IdClienteNavigation)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.IdEstadoNavigation)
                         </th>
-                        <th>
+                        <th scope="col">
                             @Html.DisplayNameFor(model => model.IdOperadorNavigation)
                         </th>
                         <th></th>
@@ -73,14 +75,14 @@
                                 @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Contacto)
                             </td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.IdReclamacao">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.IdReclamacao">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.IdReclamacao">Delete</a>
+                                <a asp-action="Details" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a> |
+                                <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdReclamacao" type="button" class="btn btn-danger">Apagar</a>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
-            </div>
+        </div>
 </section>
 </main>
