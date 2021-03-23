@@ -33,7 +33,7 @@ namespace UP_Mobile.Controllers
 
             ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
 
-            return View(await _context.Contrato.ToListAsync());
+            return View(contrato);
         }
 
 
@@ -89,7 +89,7 @@ namespace UP_Mobile.Controllers
 
 
             List<TotalClienteOperador> totaloperador = operadores
-                 .Where(p => p.DistritosId == distritopesquisar)
+                 .Where(p => p.DistritosId == distritopesquisar && p.Total > 0)
                  .OrderByDescending(p => p.Total)
                  .Take(10)
                  .ToList();
