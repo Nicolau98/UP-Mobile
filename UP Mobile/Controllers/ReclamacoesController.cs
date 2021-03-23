@@ -75,7 +75,8 @@ namespace UP_Mobile.Controllers
 
                 _context.Add(reclamacao);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.Mensagem = "Reclamação criada com sucesso.";
+                return View("Sucesso");
             }
             ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto", reclamacao.IdCliente);
             ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome", reclamacao.IdEstado);
