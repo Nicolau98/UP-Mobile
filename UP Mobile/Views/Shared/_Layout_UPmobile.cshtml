@@ -216,6 +216,7 @@
                             <ul>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Pesquisar por Cliente</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito">Pesquisar por Distrito</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="ClienteDistritoMaisAntigo">Mais Antigos</a></li>
                             </ul>
                         </li>
                         @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
@@ -224,6 +225,7 @@
                             <ul>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Pesquisar por Operador</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaOperadorDistrito">Pesquisar por Distrito</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Top10Operador">Top 10</a></li>
                             </ul>
                         </li>
                         <partial name="_LoginPartial" />
@@ -255,6 +257,12 @@
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
                         <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
+                        <li class="dropdown">
+                            <b><a>Operadores</a></b>
+                            <ul>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Top10Operador">Top 10</a></li>
+                            </ul>
+                        </li>
                         @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
                         <partial name="_LoginPartial" />
                     </ul>
