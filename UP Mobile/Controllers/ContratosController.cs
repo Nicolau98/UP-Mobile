@@ -37,7 +37,7 @@ namespace UP_Mobile.Controllers
         }
 
 
-        public async Task<IActionResult> Top10Operador(int distritopesquisar = 0)
+        public IActionResult Top10Operador(int distritopesquisar = 0)
         {
 
             Role roleoperador = _context.Role.FirstOrDefault(r => r.Nome == "Operador");
@@ -129,6 +129,75 @@ namespace UP_Mobile.Controllers
             //return View(contratos);
 
 
+
+
+
+        }
+
+        public IActionResult Top10Cliente(int distritopesquisar = 0)
+        {
+
+            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            List<TotalClienteOperador> clientes = new List<TotalClienteOperador>();
+            decimal total = 0;
+            foreach (var cliente in _context.Utilizador)
+            {
+                if (cliente.IdRoleNavigation == rolecliente)
+                {
+                    foreach (var contrato in _context.Contrato)
+                    {
+                        if (contrato.IdCliente == cliente.IdUtilizador)
+                        {
+                            total += contrato.PrecoTotal;
+                        }
+                    }
+                    clientes.Add(new TotalClienteOperador() { NomeUtilizador = cliente.Nome, DistritosId = cliente.IdDistrito, Total = total });
+                    total = 0;
+                }
+            }
+
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome");
+
+
+            if (distritopesquisar == 0)
+            {
+
+                List<TotalClienteOperador> totcliente = clientes
+                     .Where(p => p.DistritosId == 0)
+                     .OrderByDescending(p => p.Total)
+                     .Take(10)
+                     .ToList();
+
+                Top10ViewModel modelo1 = new Top10ViewModel
+                {
+
+                    Totaloperador = totcliente,
+                    DistritoPesquisar = distritopesquisar
+                };
+
+
+                return View(modelo1);
+
+            }
+
+
+
+
+
+            List<TotalClienteOperador> totalcliente = clientes
+                 .Where(p => p.DistritosId == distritopesquisar && p.Total > 0)
+                 .OrderByDescending(p => p.Total)
+                 .Take(10)
+                 .ToList();
+
+            Top10ViewModel top10clientes = new Top10ViewModel
+            {
+                Totaloperador = totalcliente,
+                DistritoPesquisar = distritopesquisar
+            };
+
+            return View(top10clientes);
 
 
 
