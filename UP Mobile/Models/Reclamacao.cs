@@ -12,23 +12,37 @@ namespace UP_Mobile.Models
     {
         [Key]
         [Column("Id_Reclamacao")]
+        [Display(Name = "Nº Reclamação")]
         public int IdReclamacao { get; set; }
+
         [Column("Id_Cliente")]
+        [Display(Name = "Nº Cliente")]
         public int IdCliente { get; set; }
+
         [Column("Id_Operador")]
+        [Display(Name = "Nº Operador")]
         public int? IdOperador { get; set; }
+
         [Column("Data_Abertura", TypeName = "datetime")]
+        [Display(Name = "Data Abertura da Reclamação")]
         public DateTime DataAbertura { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Assunto { get; set; }
+
         [Required]
         [StringLength(500)]
         public string Descricao { get; set; }
+
         [Column("Id_Estado")]
+        [Display(Name = "Estado")]
         public int IdEstado { get; set; }
+
         [Column("Data_Resolucao", TypeName = "datetime")]
+        [Display(Name = "Data de Resolução da Reclamação")]
         public DateTime? DataResolucao { get; set; }
+
         [StringLength(500)]
         public string Resolucao { get; set; }
 
