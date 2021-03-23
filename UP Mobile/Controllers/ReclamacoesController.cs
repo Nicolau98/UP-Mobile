@@ -20,9 +20,10 @@ namespace UP_Mobile.Controllers
         }
 
         // GET: Reclamacoes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            var uPMobileContext = _context.Reclamacao.Include(r => r.IdClienteNavigation).Include(r => r.IdEstadoNavigation).Include(r => r.IdOperadorNavigation);
+            var uPMobileContext = _context.Reclamacao.Where(r=>r.IdCliente==id)
+                .Include(r => r.IdClienteNavigation).Include(r => r.IdEstadoNavigation).Include(r => r.IdOperadorNavigation);
             return View(await uPMobileContext.ToListAsync());
         }
 

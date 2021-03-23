@@ -98,14 +98,15 @@
                 {
                     <a asp-action="Edit" class="btn border" style="background-color: #55ecc3;" asp-route-id="@Model.IdUtilizador"> Editar</a>
                 }
-                    <a onclick="history.go(-1)" class="btn border" style="background-color: #80f2f3">Cancelar</a>
-                    @if (User.IsInRole("Operador"))
-                    {
-                        <a asp-controller="Contratos" asp-action="Create" asp-route-id="@Model.IdUtilizador" class="btn border" style="background-color: #86f1c5;">Novo Contrato</a>
-                        <a asp-controller="Contratos" asp-action="Index" asp-route-id="@Model.IdUtilizador" class="btn border" style="background-color: #55ecc3;">Ver Contratos</a>
-                    }
+                <a onclick="history.go(-1)" class="btn border" style="background-color: #80f2f3">Cancelar</a>
+                @if (User.IsInRole("Operador"))
+                {
+                    <a asp-controller="Contratos" asp-action="Create" asp-route-id="@Model.IdUtilizador" class="btn border" style="background-color: #86f1c5;">Novo Contrato</a>
+                    <a asp-controller="Contratos" asp-action="Index" asp-route-id="@Model.IdUtilizador" class="btn border" style="background-color: #55ecc3;">Ver Contratos</a>
+                    <a asp-controller="Reclamacoes" asp-action="Index" asp-route-id="@Model.IdUtilizador" class="btn border" style="background-color: #55ecc3;">Ver Reclamações</a>
+                }
 
-                </div>
+            </div>
             </div>
 </section>
 </main>
