@@ -1,77 +1,86 @@
 ﻿@model IEnumerable<UP_Mobile.Models.Reclamacao>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Reclamações";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DataAbertura)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Assunto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataResolucao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Resolucao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdClienteNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdEstadoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdOperadorNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataAbertura)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Assunto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataResolucao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resolucao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Contacto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Contacto)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdReclamacao">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdReclamacao">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdReclamacao">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<main id="main">
+    <section>
+        <div class="container">
+
+            <h1>Reclamações</h1>
+
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataAbertura)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Assunto)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DataResolucao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Resolucao)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdClienteNavigation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdEstadoNavigation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdOperadorNavigation)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataAbertura)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Assunto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descricao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataResolucao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Resolucao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Contacto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Contacto)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.IdReclamacao">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.IdReclamacao">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.IdReclamacao">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+</section>
+</main>
