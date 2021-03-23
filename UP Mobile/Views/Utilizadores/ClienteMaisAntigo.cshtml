@@ -1,0 +1,124 @@
+﻿@model IEnumerable<UP_Mobile.Models.Utilizador>
+
+@{
+    ViewData["Title"] = "Clientes Mais Antigos";
+}
+
+
+
+<main id="main">
+    <section>
+        <div class="container">
+
+
+            <h1>Top 10 Clientes mais antigos</h1>
+
+
+            <table class="table table-bordered">
+                <thead style="background-color: #e3f2fd;">
+                    <tr>
+                        <th scope="col">
+                            @*@Html.DisplayNameFor(model => model.Utilizador[0].IdUtilizador)*@
+                            Nº de Cliente
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        @*<th scope="col">
+            @Html.DisplayNameFor(model => model.Utilizador[0].DataNascimento)
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Utilizador[0].Morada)
+        </th>*@
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Contacto)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.NContribuinte)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.DataCriacao)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.NIdentificacao)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Ativo)
+                        </th>
+                        @*<th scope="col">
+            @Html.DisplayNameFor(model => model.Utilizador[0].LocalTrabalho)
+        </th>*@
+                        @*<th scope="col">
+            @Html.DisplayNameFor(model => model.Utilizador[0].IdRoleNavigation)
+        </th>*@
+                        <th scope="col">Ações Disponíveis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdUtilizador)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        @*<td>
+            @Html.DisplayFor(modelItem => item.DataNascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Morada)
+        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contacto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NContribuinte)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataCriacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NIdentificacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ativo)
+                        </td>
+                        @*<td>
+            @Html.DisplayFor(modelItem => item.LocalTrabalho)
+        </td>*@
+                        @*<td>
+            @Html.DisplayFor(modelItem => item.IdRoleNavigation.Nome)
+        </td>*@
+                        <td>
+
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                <h1></h1>
+                                <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                <h1></h1>
+                                <a asp-action="Delete" asp-route-id="@item.IdUtilizador" type="button" class="btn btn-danger">Apagar</a>
+
+                            }
+                            else
+                            {
+                                <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                            }
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </section>
+</main>

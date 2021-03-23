@@ -132,7 +132,7 @@ namespace UP_Mobile.Controllers
         }
 
 
-        public async Task<IActionResult> PesquisaClienteDistrito(int distritopesquisar=0, int pagina = 1)
+        public async Task<IActionResult> PesquisaClienteDistrito(int distritopesquisar = 0, int pagina = 1)
 
         {
 
@@ -203,7 +203,7 @@ namespace UP_Mobile.Controllers
 
                 ListaMaisAntigosViewModel modelo1 = new ListaMaisAntigosViewModel
                 {
-                    
+
                     Utilizador = utilizador1,
                     DistritoPesquisar = distritopesquisar
                 };
@@ -226,7 +226,7 @@ namespace UP_Mobile.Controllers
 
             ListaMaisAntigosViewModel modelo = new ListaMaisAntigosViewModel
             {
-                
+
                 Utilizador = utilizador,
                 DistritoPesquisar = distritopesquisar
             };
@@ -235,6 +235,23 @@ namespace UP_Mobile.Controllers
 
             return View(modelo);
 
+
+        }
+
+        public async Task<IActionResult> ClienteMaisAntigo()
+        { 
+
+            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            var utilizador = await _context.Utilizador.Where(p => p.IdRoleNavigation == rolecliente)
+                .Include(u => u.IdRoleNavigation)
+                .Include(d => d.IdDistritoNavigation)
+                .OrderBy(p => p.DataCriacao)
+                .Take(10)
+                .ToListAsync();
+
+
+            return View(utilizador);
 
         }
 
