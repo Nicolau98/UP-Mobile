@@ -308,6 +308,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="card">
+                                    <h3 class="card-header" style="background-color:#55ECC3">Operadores</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Informações dos operadores</p>
+                                        <a asp-area="" asp-controller="Contratos" asp-action="Top10Operador" class="btn btn-info mt-2">Top 10</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -369,8 +378,9 @@
                                     <h3 class="card-header" style="background-color:#55ECC3">Clientes</h3>
                                     <div class="card-body">
                                         <p class="card-text">Aceder aos clientes</p>
-                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-info">Ver Todos</a> |
+                                        <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btn btn-info">Ver Todos</a>
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito" class="btn btn-info">Ver por Distrito</a>
+                                        <a asp-area="" asp-controller="Utilizadores" asp-action="ClienteDistritoMaisAntigo" class="btn btn-info mt-2">Mais Antigos</a>
                                     </div>
                                 </div>
                             </div>
@@ -381,6 +391,7 @@
                                         <p class="card-text">Aceder aos operadores</p>
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador" class="btn btn-info">Ver Todos</a>
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="PesquisaOperadorDistrito" class="btn btn-info">Ver por Distrito</a>
+                                        <a asp-area="" asp-controller="Contratos" asp-action="Top10Operador" class="btn btn-info mt-2">Top 10</a>
                                     </div>
                                 </div>
                             </div>
