@@ -55,7 +55,7 @@ namespace UP_Mobile.Controllers
 
             //ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto");
             ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome");
-            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto");
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome");
             return View();
         }
 
@@ -78,9 +78,9 @@ namespace UP_Mobile.Controllers
                 ViewBag.Mensagem = "Reclamação criada com sucesso.";
                 return View("Sucesso");
             }
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto", reclamacao.IdCliente);
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdCliente);
             ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome", reclamacao.IdEstado);
-            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto", reclamacao.IdOperador);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdOperador);
             return View(reclamacao);
         }
 
@@ -92,14 +92,21 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
 
+            //ViewData["IdCliente"] = id;
+            var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+
+            ViewBag.NomeOperador = operador.Nome;
+
             var reclamacao = await _context.Reclamacao.FindAsync(id);
             if (reclamacao == null)
             {
                 return NotFound();
             }
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto", reclamacao.IdCliente);
+
+
+            ViewData["IdCliente"] = reclamacao.IdCliente;
             ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome", reclamacao.IdEstado);
-            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto", reclamacao.IdOperador);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdOperador);
             return View(reclamacao);
         }
 
@@ -119,6 +126,11 @@ namespace UP_Mobile.Controllers
             {
                 try
                 {
+                    Estado estadotratamento = _context.Estado.FirstOrDefault(e => e.Nome == "Em tratamento");
+
+                    reclamacao.IdEstadoNavigation = estadotratamento;
+                    var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+                    reclamacao.IdOperador = operador.IdUtilizador;
                     _context.Update(reclamacao);
                     await _context.SaveChangesAsync();
                 }
@@ -133,11 +145,83 @@ namespace UP_Mobile.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                var cliente = reclamacao.IdCliente;
+                return RedirectToAction("Details", "Utilizadores", new { id = cliente });
             }
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto", reclamacao.IdCliente);
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdCliente);
             ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome", reclamacao.IdEstado);
-            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto", reclamacao.IdOperador);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdOperador);
+            return View(reclamacao);
+        }
+
+        // GET: Reclamacoes/Edit/5
+        public async Task<IActionResult> Fechar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            //ViewData["IdCliente"] = id;
+            var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+
+            ViewBag.NomeOperador = operador.Nome;
+
+            var reclamacao = await _context.Reclamacao.FindAsync(id);
+            if (reclamacao == null)
+            {
+                return NotFound();
+            }
+
+
+            ViewData["IdCliente"] = reclamacao.IdCliente;
+            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome", reclamacao.IdEstado);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdOperador);
+            return View(reclamacao);
+        }
+
+        // POST: Reclamacoes/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Fechar(int id, [Bind("IdReclamacao,IdCliente,IdOperador,DataAbertura,Assunto,Descricao,IdEstado,DataResolucao,Resolucao")] Reclamacao reclamacao)
+        {
+            if (id != reclamacao.IdReclamacao)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Estado estadoconcluido = _context.Estado.FirstOrDefault(e => e.Nome == "Concluído");
+
+                    reclamacao.IdEstadoNavigation = estadoconcluido;
+                    var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+                    reclamacao.IdOperador = operador.IdUtilizador;
+                    reclamacao.DataResolucao = System.DateTime.Now;
+                    _context.Update(reclamacao);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ReclamacaoExists(reclamacao.IdReclamacao))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                var cliente = reclamacao.IdCliente;
+                return RedirectToAction("Details", "Utilizadores", new { id = cliente });
+            }
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdCliente);
+            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome", reclamacao.IdEstado);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdOperador);
             return View(reclamacao);
         }
 

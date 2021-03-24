@@ -10,57 +10,57 @@
     <h4>Reclamacao</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DataAbertura)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DataAbertura)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Assunto)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Assunto)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Descricao)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Descricao)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DataResolucao)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DataResolucao)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Resolucao)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Resolucao)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.IdClienteNavigation)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdClienteNavigation.Contacto)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdClienteNavigation.Nome)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.IdEstadoNavigation)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IdEstadoNavigation.Nome)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.IdOperadorNavigation)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdOperadorNavigation.Contacto)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdOperadorNavigation.Nome)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.IdReclamacao">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+   
+    <a onclick="history.go(-1)" class="btn btn-primary" style="background-color: #55ecc3;">Voltar</a>
 </div>

@@ -12,7 +12,7 @@
             <h1>Reclamações</h1>
 
             <p>
-                <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar reclamação</a>
+                <a onclick="history.go(-1)" class="btn btn-border" style="background-color: #80f2f3">Voltar</a>
             </p>
             <h1></h1>
             
@@ -66,18 +66,18 @@
                                 @Html.DisplayFor(modelItem => item.Resolucao)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Contacto)
+                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Contacto)
+                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
                             </td>
                             <td>
-                                <a asp-action="Details" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a> |
-                                <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a> |
-                                <a asp-action="Delete" asp-route-id="@item.IdReclamacao" type="button" class="btn btn-danger">Apagar</a>
+                                <a asp-action="Details" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Tratar</a>
+                                <a asp-action="Fechar" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Fechar</a>
                             </td>
                         </tr>
                     }
