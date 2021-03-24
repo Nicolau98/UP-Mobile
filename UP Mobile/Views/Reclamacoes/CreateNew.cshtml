@@ -1,0 +1,57 @@
+﻿@model UP_Mobile.Models.Reclamacao
+
+@{
+    ViewData["Title"] = "Criar Reclamação";
+}
+
+<main id="main">
+    <section>
+        <div class="container">
+
+            <h1>Criar uma nova Reclamação</h1>
+
+            <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
+                <div class="card-body">
+                    <div class="col-md">
+                        <form asp-action="CreateNew">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="IdCliente" class="control-label"></label>
+                                <input asp-for="IdCliente" class="form-control" value="@ViewBag.IdCliente" readonly />
+                            </div>
+                            @*<div class="form-group">
+                                    <label asp-for="IdOperador" class="control-label"></label>
+                                    <select asp-for="IdOperador" class ="form-control" asp-items="ViewBag.IdOperador"></select>
+                                </div>*@
+                            @*<div class="form-group">
+                                    <label asp-for="DataAbertura" class="control-label"></label>
+                                    <input asp-for="DataAbertura" class="form-control" />
+                                    <span asp-validation-for="DataAbertura" class="text-danger"></span>
+                                </div>*@
+                            <div class="form-group">
+                                <label asp-for="Assunto" class="control-label"></label>
+                                <input asp-for="Assunto" class="form-control" value="@ViewBag.Assunto" readonly />
+                                <span asp-validation-for="Assunto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Descricao" class="control-label"></label>
+                                <textarea asp-for="Descricao" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                                <span asp-validation-for="Descricao" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Submeter" class="btn border" style="background-color: #55ecc3;" />
+                                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -84,6 +84,52 @@ namespace UP_Mobile.Controllers
             return View(reclamacao);
         }
 
+
+        public async Task<IActionResult> CreateNewAsync(int? id)
+        {
+
+            var cliente = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+            int idcliente = cliente.IdUtilizador;
+            ViewData["IdCliente"] = idcliente;
+
+            var reclamacao = await _context.Reclamacao.FindAsync(id);
+            string assunto = reclamacao.Assunto;
+            string novoassunto = "Cliente não satisfeito com a resolução da Reclamação nº " + id 
+                                + ", com o assunto: (" + assunto + ")";
+            ViewData["Assunto"] = novoassunto;
+
+            //ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Contacto");
+            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome");
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome");
+            return View();
+        }
+
+        // POST: Reclamacoes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateNew([Bind("IdReclamacao,IdCliente,Assunto,Descricao")] Reclamacao reclamacao)
+        {
+            if (ModelState.IsValid)
+            {
+                Estado estadoaberto = _context.Estado.FirstOrDefault(e => e.Nome == "Em Aberto");
+
+                reclamacao.IdEstadoNavigation = estadoaberto;
+                reclamacao.DataAbertura = System.DateTime.Now;
+
+                _context.Add(reclamacao);
+                await _context.SaveChangesAsync();
+                ViewBag.Mensagem = "Reclamação criada com sucesso.";
+                return View("Sucesso");
+            }
+            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdCliente);
+            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "Nome", reclamacao.IdEstado);
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Nome", reclamacao.IdOperador);
+            return View(reclamacao);
+        }
+
+
         // GET: Reclamacoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
