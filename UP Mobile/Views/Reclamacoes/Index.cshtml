@@ -75,9 +75,19 @@
                                 @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
                             </td>
                             <td>
-                                <a asp-action="Details" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Tratar</a>
-                                <a asp-action="Fechar" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Fechar</a>
+                                 @if (User.IsInRole("Cliente"))
+                                {
+                                    <a asp-action="Details" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                }
+                                
+                                @if (User.IsInRole("Operador"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Tratar</a>
+                                    <a asp-action="Fechar" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Fechar</a>
+                                }
+
+
+
                             </td>
                         </tr>
                     }

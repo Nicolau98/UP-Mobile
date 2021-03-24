@@ -61,6 +61,18 @@
     </dl>
 </div>
 <div>
-   
+
     <a onclick="history.go(-1)" class="btn btn-primary" style="background-color: #55ecc3;">Voltar</a>
+
+    @{
+        string Estado = Model.IdEstadoNavigation.Nome;
+
+        if (Estado == "Concluído")
+        {
+            <p>Considera que a reclamação não está resolvida? </p>
+
+            <a asp-action="Details" asp-route-id="@Model.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Clique aqui</a>
+          }
+
+        }
 </div>
