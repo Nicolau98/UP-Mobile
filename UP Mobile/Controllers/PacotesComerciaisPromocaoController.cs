@@ -89,6 +89,10 @@ namespace UP_Mobile.Controllers
             }
 
             var pacoteComercialPromocao = await _context.PacoteComercialPromocao.FindAsync(id);
+            //var distritoid = pacoteComercialPromocao.IdDistrito;
+            
+            //var ditritos = await _context.Distrito.FindAsync(distritoid);
+            //var distrito = ditritos.Nome;
             if (pacoteComercialPromocao == null)
             {
                 return NotFound();
@@ -96,6 +100,7 @@ namespace UP_Mobile.Controllers
             ViewData["IdPacote"] = new SelectList(_context.PacoteComercial, "IdPacote", "Nome", pacoteComercialPromocao.IdPacote);
             ViewData["IdPromocao"] = new SelectList(_context.Promocao, "IdPromocao", "Nome", pacoteComercialPromocao.IdPromocao);
             ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nome", pacoteComercialPromocao.IdDistrito);
+            //ViewData["Distrito"] = distrito;
             return View(pacoteComercialPromocao);
         }
 
@@ -104,7 +109,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPacoteComercialPromocao,IdPromocao,IdPacote")] PacoteComercialPromocao pacoteComercialPromocao)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPacoteComercialPromocao,IdPromocao,IdPacote, IdDistrito")] PacoteComercialPromocao pacoteComercialPromocao)
         {
             if (id != pacoteComercialPromocao.IdPacoteComercialPromocao)
             {
@@ -117,9 +122,11 @@ namespace UP_Mobile.Controllers
                 {
                     var promocao = await _context.Promocao.FindAsync(pacoteComercialPromocao.IdPromocao);
                     var pacote = await _context.PacoteComercial.FindAsync(pacoteComercialPromocao.IdPacote);
+                    //var pacoteComProm = pacoteComercialPromocao.IdDistrito;
 
                     pacoteComercialPromocao.Nome = pacote.Nome + " / " + promocao.Nome;
                     pacoteComercialPromocao.PrecoTotalPacote = pacote.PrecoBase - promocao.Preco;
+                    //pacoteComercialPromocao.IdDistrito = pacoteComProm;
                     _context.Update(pacoteComercialPromocao);
                     await _context.SaveChangesAsync();
                 }
