@@ -2106,7 +2106,7 @@ section {
 /*--------------------------------------------------------------
 # Pricing
 --------------------------------------------------------------*/
-.pricing .box {
+.pricing1 .box {
     padding: 20px;
     padding-top: 5px;
     background: #f9f9f9;
@@ -2116,7 +2116,7 @@ section {
     overflow: hidden;
 }
 
-    .pricing .box h3 {
+    .pricing1 .box h3 {
         font-weight: 400;
         padding: 15px;
         font-size: 18px;
@@ -2125,7 +2125,7 @@ section {
         color: #191919;
     }
 
-    .pricing .box h4 {
+    .pricing1 .box h4 {
         font-size: 42px;
         color: #4FD6D9; /*PREÇO*/
         font-weight: 500;
@@ -2133,19 +2133,19 @@ section {
         margin-bottom: 20px;
     }
 
-        .pricing .box h4 sup {
+        .pricing1 .box h4 sup {
             font-size: 20px;
             top: -15px;
             left: -3px;
         }
 
-        .pricing .box h4 span {
+        .pricing1 .box h4 span {
             color: #bababa;
             font-size: 16px;
             font-weight: 300;
         }
 
-    .pricing .box ul {
+    .pricing1 .box ul {
         padding: 0;
         list-style: none;
         color: #191919;
@@ -2154,27 +2154,27 @@ section {
         font-size: 14px;
     }
 
-        .pricing .box ul li {
+        .pricing1 .box ul li {
             padding-bottom: 16px;
         }
 
-        .pricing .box ul i {
+        .pricing1 .box ul i {
             color: #4FD6D9;
             font-size: 18px;
             padding-right: 4px;
         }
 
-        .pricing .box ul .na {
+        .pricing1 .box ul .na {
             color: #ccc;
             text-decoration: line-through;
         }
 
-    .pricing .box .btn-wrap {
+    .pricing1 .box .btn-wrap {
         padding: 15px;
         text-align: center;
     }
 
-    .pricing .box .btn-buy {
+    .pricing1 .box .btn-buy {
         background: #55ECC3; /*BOTÃO*/
         display: inline-block;
         padding: 10px 40px;
@@ -2187,35 +2187,35 @@ section {
         transition: 0.3s;
     }
 
-        .pricing .box .btn-buy:hover {
+        .pricing1 .box .btn-buy:hover {
             background: #82DDF2; /*BOTÃO HOVER*/
         }
 
-.pricing .featured {
+.pricing1 .featured {
     background: #4FD6D9;
     box-shadow: none;
     color: #fff;
 }
 
-    .pricing .featured h3, .pricing .featured h4, .pricing .featured ul, .pricing .featured ul li, .pricing .featured ul .na {
+    .pricing1 .featured h3, .pricing1 .featured h4, .pricing1 .featured ul, .pricing1 .featured ul li, .pricing1 .featured ul .na {
         color: #fff;
     }
 
-        .pricing .featured h4 span {
+        .pricing1 .featured h4 span {
             color: rgba(255, 255, 255, 0.58);
         }
 
-    .pricing .featured .btn-wrap {
+    .pricing1 .featured .btn-wrap {
         padding: 15px;
         text-align: center;
     }
 
-    .pricing .featured .btn-buy {
+    .pricing1 .featured .btn-buy {
         background: white;
         color: #4FD6D9;
     }
 
-        .pricing .featured .btn-buy:hover {
+        .pricing1 .featured .btn-buy:hover {
             background: #86F1C5;
             color: #fff;
         }

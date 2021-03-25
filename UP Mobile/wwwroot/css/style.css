@@ -1068,10 +1068,186 @@ section {
         color: #4FD6D9;
     }
 
-        .pricing .featured .btn-buy:hover {
-            background: #86F1C5;
-            color: #fff;
+
+.pricing1 .box {
+    padding: 20px;
+    background: linear-gradient(119deg, rgba(255,255,255,1) 50%, rgba(124,255,212,1) 100%);
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+    .pricing1 .box h3 {
+        font-weight: 400;
+        padding: 15px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .pricing1 .box h4 {
+        font-size: 42px;
+        font-weight: 500;
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 20px;
+    }
+
+        .pricing1 .box h4 sup {
+            font-size: 20px;
+            top: -15px;
+            left: -3px;
         }
+
+        .pricing1 .box h4 span {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+    .pricing1 .box ul {
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        line-height: 20px;
+        font-size: 14px;
+    }
+
+        .pricing1 .box ul li {
+            padding-bottom: 16px;
+        }
+
+        .pricing1 .box ul i {
+            color: #87a4a9;
+            font-size: 22px;
+            padding-right: 4px;
+        }
+
+        .pricing1 .box ul .na {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: line-through;
+        }
+
+    .pricing1 .box .btn-wrap {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .pricing1 .box .btn-buy {
+        display: inline-block;
+        padding: 10px 40px 12px 40px;
+        border-radius: 4px;
+        color: #4dfbff;
+        transition: none;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+        transition: 0.3s;
+        border: 2px solid #4fd6d9;
+        border-inline-start-color: #00ffba;
+        border-top-color:#00ffc1;
+        
+        border-inline-end-color: #00d8de;
+        
+    }
+
+        .pricing1 .box .btn-buy:hover {
+            border-color: #fff;
+        }
+
+.pricing1 .featured {
+    background: linear-gradient(297deg, rgba(250,252,252,1) 0%, rgba(113,255,213,1) 100%);
+    
+}
+
+
+    .pricing1.featured .box {
+        padding: 20px;
+        padding-top: 5px;
+        text-align: center;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+    }
+
+   
+    .pricing1.featured .box h3 {
+        font-weight: 400;
+        padding: 15px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+.pricing1.featured .box h4 {
+    font-size: 42px;
+    font-weight: 500;
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 20px;
+}
+
+    .pricing1.featured .box h4 sup {
+        font-size: 20px;
+        top: -15px;
+        left: -3px;
+    }
+
+    .pricing1.featured .box h4 span {
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+.pricing1.featured .box ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+    .pricing1.featured .box ul li {
+        padding-bottom: 16px;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    .pricing1.featured .box ul i {
+        color: #fff;
+        font-size: 20px;
+        padding-right: 4px;
+
+    }
+
+    .pricing1.featured .box ul .na {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: line-through;
+    }
+
+.pricing1.featured .box .btn-wrap {
+    padding: 15px;
+    text-align: center;
+}
+
+.pricing1.featured .box .btn-buy {
+    display: inline-block;
+    padding: 10px 40px 12px 40px;
+    border-radius: 4px;
+    color: #4dfbff;
+    transition: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 2px solid #4fd6d9;
+    border-inline-start-color: #00ffba;
+    border-top-color: #00ffc1;
+    border-inline-end-color: #00d8de;
+}
+
+    .pricing1.featured .box .btn-buy:hover {
+        border-color: #fff;
+    }
 
 /*--------------------------------------------------------------
 # Team
@@ -1450,4 +1626,101 @@ section {
 
 #ocultar {
     visibility: hidden !important;
+}
+
+
+.btninfo {
+    font-size: 16px;
+    color: #191919;
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    height: 40px;
+    width: 30%;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(148,250,235,0.6110644941570378) 39%, rgba(255,255,255,0.9247899843531162) 72%);
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s;
+    border: 1px solid #20fef7;
+    cursor: pointer;
+    margin-left: 85px;
+   
+}
+
+btninfo::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(148,250,235,0.6110644941570378) 39%, rgba(255,255,255,0.9247899843531162) 72%);
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+btninfo:hover {
+
+    color: black;
+
+}
+
+/*btninfo:hover:before {
+    opacity:0;
+}
+*/
+
+
+.btninfo1 {
+    font-size: 16px;
+    color: #191919;
+    line-height: 1.2;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    min-width: 140px;
+    height: 40px;
+    width: inherit;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(148,250,235,0.6110644941570378) 39%, rgba(255,255,255,0.9247899843531162) 72%);
+    position: inherit;
+    z-index: 1;
+    transition: all 0.4s;
+    border: 1px solid #20fef7;
+    cursor: pointer;
+    margin-top: 7px;
+    margin-right: 3px;
+    padding-top:7px;
+
+
+
+
+}
+
+btninfo1::before {
+    content: "";
+    display: inline;
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(148,250,235,0.6110644941570378) 39%, rgba(255,255,255,0.9247899843531162) 72%);
+    top: 0;
+    left: 0;
+    opacity: 1;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+btninfo1:hover {
+    color: black;
+    border: 3px solid rgb(35, 174, 154, 0.90);
 }
