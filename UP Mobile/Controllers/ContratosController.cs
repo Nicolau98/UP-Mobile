@@ -230,7 +230,14 @@ namespace UP_Mobile.Controllers
             ViewData["IdCliente"] = id;
             ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
 
-            var pp = _context.PacoteComercialPromocao.Include(c => c.IdPacoteNavigation).Select(p => new { p.IdPacoteComercialPromocao, Nome = p.IdPacoteNavigation.Nome + "/" + p.IdPromocaoNavigation.Nome });
+            var cliente = await _context.Utilizador.SingleOrDefaultAsync(c => c.IdUtilizador == id);
+            var distrito = cliente.IdDistrito;
+
+            var pp = _context.PacoteComercialPromocao.Where(p => p.IdDistrito == distrito)
+                .Include(c => c.IdPacoteNavigation)
+                .Select(p => new { 
+                    p.IdPacoteComercialPromocao, 
+                    Nome = p.IdPacoteNavigation.Nome + "/" + p.IdPromocaoNavigation.Nome });
 
             ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
 
