@@ -1,63 +1,70 @@
 ﻿@model UP_Mobile.Models.Reclamacao
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Fechar Reclamação";
 }
 
-<h1>Tratar</h1>
+<main id="main">
+    <section>
+        <div class="container">
 
-<h4>Reclamacao</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Fechar">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdReclamacao" />
-            <div class="form-group">
-                <label asp-for="IdCliente" class="control-label"></label>
-                <input asp-for="IdCliente" class="form-control" value="@ViewBag.IdCliente" readonly />
+            <h2>Fechar Reclamação</h2>
+
+            <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
+                <div class="row">
+                    <div class="col-md">
+                        <form asp-action="Fechar">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="IdReclamacao" />
+                            <div class="form-group">
+                                <label asp-for="IdCliente" class="control-label"></label>
+                                <input asp-for="IdCliente" class="form-control" value="@ViewBag.IdCliente" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="IdOperador" class="control-label"></label>
+                                <input class="form-control" value="@ViewBag.Nomeoperador" readonly />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DataAbertura" class="control-label"></label>
+                                <input asp-for="DataAbertura" class="form-control" readonly />
+                                <span asp-validation-for="DataAbertura" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Assunto" class="control-label"></label>
+                                <input asp-for="Assunto" class="form-control" readonly />
+                                <span asp-validation-for="Assunto" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Descricao" class="control-label"></label>
+                                <input asp-for="Descricao" class="form-control" readonly />
+                                <span asp-validation-for="Descricao" class="text-danger"></span>
+                            </div>
+                            @*<div class="form-group">
+                                    <label asp-for="IdEstado" class="control-label"></label>
+                                    <input asp-for="IdEstado" class="form-control" value="@ViewBag.IdEstado" readonly >
+                                    <span asp-validation-for="IdEstado" class="text-danger"></span>
+                                </div>*@
+                            @*<div class="form-group">
+                                    <label asp-for="DataResolucao" class="control-label"></label>
+                                    <input asp-for="DataResolucao" class="form-control" />
+                                    <span asp-validation-for="DataResolucao" class="text-danger"></span>
+                                </div>*@
+                            <div class="form-group">
+                                <label asp-for="Resolucao" class="control-label"></label>
+                                <textarea asp-for="Resolucao" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                                <span asp-validation-for="Resolucao" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Guardar" class="btn btn-border" style="background-color: #55ecc3;" />
+                                <a onclick="history.go(-1)" class="btn btn-border" style="background-color: #80f2f3">Voltar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="IdOperador" class="control-label"></label>
-                <input class="form-control" value="@ViewBag.Nomeoperador" readonly />
-            </div>
-            <div class="form-group">
-                <label asp-for="DataAbertura" class="control-label"></label>
-                <input asp-for="DataAbertura" class="form-control" readonly />
-                <span asp-validation-for="DataAbertura" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Assunto" class="control-label"></label>
-                <input asp-for="Assunto" class="form-control" readonly />
-                <span asp-validation-for="Assunto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" readonly />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-                    <label asp-for="IdEstado" class="control-label"></label>
-                    <input asp-for="IdEstado" class="form-control" value="@ViewBag.IdEstado" readonly >
-                    <span asp-validation-for="IdEstado" class="text-danger"></span>
-                </div>*@
-            @*<div class="form-group">
-                <label asp-for="DataResolucao" class="control-label"></label>
-                <input asp-for="DataResolucao" class="form-control" />
-                <span asp-validation-for="DataResolucao" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="Resolucao" class="control-label"></label>
-                <input asp-for="Resolucao" class="form-control" />
-                <span asp-validation-for="Resolucao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-border" style="background-color: #55ecc3;" />
-                <a onclick="history.go(-1)" class="btn btn-border" style="background-color: #80f2f3">Voltar</a>
-            </div>
-        </form>
-    </div>
-</div>
+        </div>
+    </section>
+</main>
 
 
 

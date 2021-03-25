@@ -4,75 +4,82 @@
     ViewData["Title"] = "Detalhes da Reclamação";
 }
 
-<h1>Details</h1>
+<main id="main">
+    <section>
+        <div class="container">
 
-<div>
-    <h4>Reclamacao</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DataAbertura)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DataAbertura)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Assunto)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Assunto)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Descricao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Descricao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DataResolucao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DataResolucao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Resolucao)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Resolucao)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdClienteNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdClienteNavigation.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstadoNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdEstadoNavigation.Nome)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdOperadorNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.IdOperadorNavigation.Nome)
-        </dd>
-    </dl>
-</div>
-<div>
+            <h1>Detalhes</h1>
 
-    <a onclick="history.go(-1)" class="btn btn-primary" style="background-color: #55ecc3;">Voltar</a>
+            <div>
+                <h4>Reclamacao</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.DataAbertura)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.DataAbertura)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Assunto)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Assunto)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Descricao)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.DataResolucao)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.DataResolucao)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Resolucao)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Resolucao)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.IdClienteNavigation)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.IdClienteNavigation.Nome)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.IdEstadoNavigation)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.IdEstadoNavigation.Nome)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.IdOperadorNavigation)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.IdOperadorNavigation.Nome)
+                    </dd>
+                </dl>
+            </div>
+            <div>
 
-    @{
-        string Estado = Model.IdEstadoNavigation.Nome;
+                <a onclick="history.go(-1)" class="btn btn-primary" style="background-color: #55ecc3;">Voltar</a>
 
-        if (Estado == "Concluído")
-        {
-            <p>Considera que a reclamação não está resolvida? </p>
+                @{
+                    string Estado = Model.IdEstadoNavigation.Nome;
 
-            <a asp-action="CreateNew" asp-route-id="@Model.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Clique aqui</a>
-          }
+                    if (Estado == "Concluído")
+                    {
+                        <p>Considera que a reclamação não está resolvida? </p>
 
-        }
-</div>
+                        <a asp-action="CreateNew" asp-route-id="@Model.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Clique aqui</a>
+                    }
+
+                }
+            </div>
+        </div>
+    </section>
+</main>
