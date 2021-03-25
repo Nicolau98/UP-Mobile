@@ -67,12 +67,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Nome)
                         </td>
-                        @*<td>
-            @Html.DisplayFor(modelItem => item.DataNascimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Morada)
-        </td>*@
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Contacto)
                         </td>
@@ -91,27 +86,12 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Ativo)
                         </td>
-                        @*<td>
-            @Html.DisplayFor(modelItem => item.LocalTrabalho)
-        </td>*@
-                        @*<td>
-            @Html.DisplayFor(modelItem => item.IdRoleNavigation.Nome)
-        </td>*@
+
                         <td>
 
-                            @if (User.IsInRole("Administrador"))
-                            {
-                                <a asp-action="Edit" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
-                                <h1></h1>
-                                <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                <h1></h1>
-                                <a asp-action="Delete" asp-route-id="@item.IdUtilizador" type="button" class="btn btn-danger">Apagar</a>
 
-                            }
-                            else
-                            {
                                 <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                            }
+                           
                         </td>
                     </tr>
                     }
