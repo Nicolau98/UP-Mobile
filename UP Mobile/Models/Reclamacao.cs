@@ -25,6 +25,7 @@ namespace UP_Mobile.Models
 
         [Column("Data_Abertura", TypeName = "datetime")]
         [Display(Name = "Data Abertura da Reclamação")]
+        [DataType(DataType.Date)]
         public DateTime DataAbertura { get; set; }
 
         [Required]
@@ -44,6 +45,7 @@ namespace UP_Mobile.Models
         public DateTime? DataResolucao { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Resolução")]
         public string Resolucao { get; set; }
 
         [ForeignKey(nameof(IdCliente))]
