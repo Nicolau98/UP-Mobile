@@ -1,3 +1,4 @@
+using AspCore_Email.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -55,6 +56,10 @@ namespace UP_Mobile
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddTransient<IEmailSender, AuthMessageSender>();
+            services.AddMvc();
 
         }
 
