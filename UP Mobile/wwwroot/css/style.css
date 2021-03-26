@@ -1640,7 +1640,7 @@ section {
     height: 40px;
     width: 30%;
     border-radius: 15px;
-    background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(148,250,235,0.6110644941570378) 39%, rgba(255,255,255,0.9247899843531162) 72%);
+background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(148,250,235,0.6110644941570378) 39%, rgba(255,255,255,0.9247899843531162) 72%);
     position: relative;
     z-index: 1;
     transition: all 0.4s;
@@ -1650,7 +1650,7 @@ section {
    
 }
 
-btninfo::before {
+.btninfo::before {
     content: "";
     display: block;
     position: absolute;
@@ -1666,19 +1666,19 @@ btninfo::before {
     cursor: pointer;
 }
 
-btninfo:hover {
+    .btninfo:hover {
+        color: #779392;
+        border: 1px solid #61ffd4;
+        background: linear-gradient(180deg, rgba(255,255,255,0.767927239255077) 0%, rgba(113,255,213,1) 100%);
+    }
 
-    color: black;
-
-}
-
-/*btninfo:hover:before {
+        /*btninfo:hover:before {
     opacity:0;
 }
 */
 
 
-.btninfo1 {
+  .btninfo1 {
     font-size: 16px;
     color: #191919;
     line-height: 1.2;
@@ -1700,11 +1700,9 @@ btninfo:hover {
     padding-top:7px;
 
 
-
-
 }
 
-btninfo1::before {
+.btninfo1::before {
     content: "";
     display: inline;
     position: relative;
@@ -1720,7 +1718,16 @@ btninfo1::before {
     cursor: pointer;
 }
 
-btninfo1:hover {
-    color: black;
-    border: 3px solid rgb(35, 174, 154, 0.90);
+    .btninfo1:hover {
+        color: #779392;
+        border: 1px solid #61ffd4;
+        background: linear-gradient(180deg, rgba(255,255,255,0.767927239255077) 0%, rgba(113,255,213,1) 100%);
+    }
+
+.card1 {
+    border: 2px solid #d3ece7;
+}
+
+.card-header {
+    background: linear-gradient(180deg, rgba(0,255,182,1) 0%, rgba(178,255,243,1) 77%);
 }
