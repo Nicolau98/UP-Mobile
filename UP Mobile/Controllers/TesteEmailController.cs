@@ -12,7 +12,7 @@ namespace AspCore_Email.Controllers
     public class TesteEmailController : Controller
     {
         private readonly IEmailSender _emailSender;
-        public TesteEmailController(IEmailSender emailSender, IHostingEnvironment env)
+        public TesteEmailController(IEmailSender emailSender, IWebHostEnvironment env)
         {
             _emailSender = emailSender;
         }
@@ -44,9 +44,9 @@ namespace AspCore_Email.Controllers
                 //email destino, assunto do email, mensagem a enviar
                 await _emailSender.SendEmailAsync(email, assunto, mensagem);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
         public ActionResult EmailEnviado()

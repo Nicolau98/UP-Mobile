@@ -35,13 +35,13 @@ namespace AspCore_Email.Services
 
                 MailMessage mail = new MailMessage()
                 {
-                    From = new MailAddress(_emailSettings.UsernameEmail, "Jose Carlos Macoratti")
+                    From = new MailAddress("myupmobileservice@gmail.com", "My UPMobile")
                 };
 
                 mail.To.Add(new MailAddress(toEmail));
-                mail.CC.Add(new MailAddress(_emailSettings.CcEmail));
+                //mail.CC.Add(new MailAddress(_emailSettings.CcEmail));
 
-                mail.Subject = "Macoratti .net - " + subject;
+                mail.Subject = "Faturação" + subject;
                 mail.Body = message;
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
@@ -50,16 +50,16 @@ namespace AspCore_Email.Services
                 //mail.Attachments.Add(new Attachment(arquivo));
                 //
 
-                using (SmtpClient smtp = new SmtpClient(_emailSettings.PrimaryDomain, _emailSettings.PrimaryPort))
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    smtp.Credentials = new NetworkCredential(_emailSettings.UsernameEmail, _emailSettings.UsernamePassword);
+                    smtp.Credentials = new NetworkCredential("myupmobileservice@gmail.com", "UPMobile1*");
                     smtp.EnableSsl = true;
                     await smtp.SendMailAsync(mail);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }
