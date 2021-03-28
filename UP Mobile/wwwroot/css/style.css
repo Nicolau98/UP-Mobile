@@ -1731,3 +1731,31 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 .card-header {
     background: linear-gradient(180deg, rgba(0,255,182,1) 0%, rgba(178,255,243,1) 77%);
 }
+
+
+/*Slider*/
+.carousel, .carousel .carousel-inner, .carousel .carousel-inner .active, .carousel .carousel-inner .carousel-item, .view, body, html {
+    height: 60vh;
+}
+
+.view1 {
+  background-image: url('../Content/assets/img/fiber.jpg'); 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  height: 100%;
+
+}
+
+.view2 {
+    background-image: url("../Content/assets/img/sport.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.view3 {
+    background-image: url("../Content/assets/img/hero-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
