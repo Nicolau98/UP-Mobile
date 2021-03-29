@@ -24,16 +24,11 @@ namespace UP_Mobile.Models
         public string Descricao { get; set; }
         [Column("Preco_Total", TypeName = "decimal(5, 2)")]
         public decimal PrecoTotal { get; set; }
-        [Column("Id_Metodo_Pagamento")]
-        public int IdMetodoPagamento { get; set; }
         [Column("Data_Pagamento", TypeName = "datetime")]
         public DateTime DataPagamento { get; set; }
 
         [ForeignKey(nameof(IdContrato))]
         [InverseProperty(nameof(Contrato.Fatura))]
         public virtual Contrato IdContratoNavigation { get; set; }
-        [ForeignKey(nameof(IdMetodoPagamento))]
-        [InverseProperty(nameof(MetodoPagamento.Fatura))]
-        public virtual MetodoPagamento IdMetodoPagamentoNavigation { get; set; }
     }
 }

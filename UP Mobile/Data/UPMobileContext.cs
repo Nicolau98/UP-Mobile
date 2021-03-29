@@ -24,7 +24,6 @@ namespace UP_Mobile.Data
         public virtual DbSet<Distrito> Distrito { get; set; }
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<Fatura> Fatura { get; set; }
-        public virtual DbSet<MetodoPagamento> MetodoPagamento { get; set; }
         public virtual DbSet<PacoteComercial> PacoteComercial { get; set; }
         public virtual DbSet<PacoteComercialPromocao> PacoteComercialPromocao { get; set; }
         public virtual DbSet<Promocao> Promocao { get; set; }
@@ -78,12 +77,6 @@ namespace UP_Mobile.Data
                     .HasForeignKey(d => d.IdContrato)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Fatura_Contrato");
-
-                entity.HasOne(d => d.IdMetodoPagamentoNavigation)
-                    .WithMany(p => p.Fatura)
-                    .HasForeignKey(d => d.IdMetodoPagamento)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Fatura_Metodo_Pagamento");
             });
 
             modelBuilder.Entity<PacoteComercialPromocao>(entity =>
@@ -119,7 +112,7 @@ namespace UP_Mobile.Data
                     .WithMany(p => p.Reclamacao)
                     .HasForeignKey(d => d.IdEstado)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Reclamacao_Estados");
+                    .HasConstraintName("FK_Reclamacao_Estado");
 
                 entity.HasOne(d => d.IdOperadorNavigation)
                     .WithMany(p => p.ReclamacaoIdOperadorNavigation)
