@@ -295,9 +295,22 @@ namespace UP_Mobile.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);
-            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdOperador", "Email", contrato.IdOperador);
-            ViewData["IdPacoteComercialPromocao"] = new SelectList(_context.PacoteComercialPromocao, "IdPacoteComercialPromocao", "Nome", contrato.IdPacoteComercialPromocao);
+            var idcl = contrato.IdCliente;
+            ViewData["IdCliente"] = id;
+            ViewData["IdOperador"] = new SelectList(_context.Utilizador, "IdUtilizador", "Email");
+
+            var cliente = await _context.Utilizador.SingleOrDefaultAsync(c => c.IdUtilizador == idcl);
+            var distrito = cliente.IdDistrito;
+
+            var pp = _context.PacoteComercialPromocao.Where(p => p.IdDistrito == distrito)
+                .Include(c => c.IdPacoteNavigation)
+                .Select(p => new {
+                    p.IdPacoteComercialPromocao,
+                    Nome = p.IdPacoteNavigation.Nome + "/" + p.IdPromocaoNavigation.Nome
+                });
+
+            ViewData["IdPacoteComercialPromocao"] = new SelectList(pp, "IdPacoteComercialPromocao", "Nome");
+
             return View(contrato);
         }
 
@@ -333,7 +346,11 @@ namespace UP_Mobile.Controllers
                         throw;
                     }
                 }
-                var cliente = contrato.IdCliente;
+                if (User.IsInRole("Cliente"))
+                {
+                    return RedirectToAction("DetailsPessoaisCliente", "Utilizadores");
+                }
+                    var cliente = contrato.IdCliente;
                 return RedirectToAction("Index", "Contratos", new { id = cliente });
             }
             ViewData["IdCliente"] = new SelectList(_context.Utilizador, "IdCliente", "Email", contrato.IdCliente);

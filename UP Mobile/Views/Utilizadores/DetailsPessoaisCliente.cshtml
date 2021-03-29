@@ -54,6 +54,8 @@
             <div class="mb-5">
                 <h3 class="mb-3">Informações do(s) seu(s) contrato(s)</h3>
 
+
+
                 @foreach (var item in Model.Contrato)
                 {
                     <div class="card mb-4">
@@ -76,11 +78,11 @@
                             <p>@Html.DisplayFor(modelItem => item.DataInicioContrato)</p>
                         </div>
                         @*<div class="card-header">
-                        @Html.DisplayNameFor(modelItem => item.DataFimContrato)
-                    </div>
-                    <div class="card-body">
-                        <p>@Html.DisplayFor(modelItem => item.DataFimContrato)</p>
-                    </div>*@
+                    @Html.DisplayNameFor(modelItem => item.DataFimContrato)
+                </div>
+                <div class="card-body">
+                    <p>@Html.DisplayFor(modelItem => item.DataFimContrato)</p>
+                </div>*@
                         <div class="card-header">
                             @Html.DisplayNameFor(modelItem => item.DataFidelizacao)
                         </div>
@@ -98,6 +100,10 @@
                         </div>
                         <div class="card-body">
                             <p>@Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.Nome)</p>
+
+                            <br />
+                                <a asp-controller="Contratos" asp-action="Edit" asp-route-id="@item.IdContrato" class="btn border" style="background-color: #86f1c5;">Alterar Pacote Comercial / Promoção</a>
+
                         </div>
                         <div class="card-header">
                             @Html.DisplayNameFor(modelItem => item.PrecoTotal)
@@ -107,6 +113,8 @@
                         </div>
                     </div>
                 }
+
+
 
             </div>
 

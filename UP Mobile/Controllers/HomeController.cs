@@ -19,7 +19,7 @@ namespace UP_Mobile.Controllers
 
         public IActionResult Index()
         {
-            _notyf.Custom("Custom Notification - closes in 20 seconds.", 20, "#B600FF", "fa fa-home");
+            _notyf.Custom("Custom Notification - closes in 20 seconds.", 20, "#4fd6d9", "fa fa-home");
             return View();           
         }
 
