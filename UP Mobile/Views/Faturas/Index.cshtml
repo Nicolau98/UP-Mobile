@@ -27,9 +27,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.IdContratoNavigation)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdMetodoPagamentoNavigation)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -50,9 +47,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdContratoNavigation.MoradaFaturacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdMetodoPagamentoNavigation.Metodo)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdFatura">Edit</a> |

@@ -22,7 +22,7 @@ namespace UP_Mobile.Controllers
         // GET: Faturas
         public async Task<IActionResult> Index()
         {
-            var uPMobileContext = _context.Fatura.Include(f => f.IdContratoNavigation).Include(f => f.IdMetodoPagamentoNavigation);
+            var uPMobileContext = _context.Fatura.Include(f => f.IdContratoNavigation);
             return View(await uPMobileContext.ToListAsync());
         }
 
@@ -36,7 +36,6 @@ namespace UP_Mobile.Controllers
 
             var fatura = await _context.Fatura
                 .Include(f => f.IdContratoNavigation)
-                .Include(f => f.IdMetodoPagamentoNavigation)
                 .FirstOrDefaultAsync(m => m.IdFatura == id);
             if (fatura == null)
             {
@@ -50,7 +49,6 @@ namespace UP_Mobile.Controllers
         public IActionResult Create()
         {
             ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao");
-            ViewData["IdMetodoPagamento"] = new SelectList(_context.MetodoPagamento, "IdMetodoPagamento", "Metodo");
             return View();
         }
 
@@ -59,7 +57,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdFatura,IdContrato,Data,DataLimitePagamento,Descricao,PrecoTotal,IdMetodoPagamento")] Fatura fatura)
+        public async Task<IActionResult> Create([Bind("IdFatura,IdContrato,Data,DataLimitePagamento,Descricao,PrecoTotal")] Fatura fatura)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +66,6 @@ namespace UP_Mobile.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao", fatura.IdContrato);
-            ViewData["IdMetodoPagamento"] = new SelectList(_context.MetodoPagamento, "IdMetodoPagamento", "Metodo", fatura.IdMetodoPagamento);
             return View(fatura);
         }
 
@@ -86,7 +83,6 @@ namespace UP_Mobile.Controllers
                 return NotFound();
             }
             ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao", fatura.IdContrato);
-            ViewData["IdMetodoPagamento"] = new SelectList(_context.MetodoPagamento, "IdMetodoPagamento", "Metodo", fatura.IdMetodoPagamento);
             return View(fatura);
         }
 
@@ -95,7 +91,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdFatura,IdContrato,Data,DataLimitePagamento,Descricao,PrecoTotal,IdMetodoPagamento")] Fatura fatura)
+        public async Task<IActionResult> Edit(int id, [Bind("IdFatura,IdContrato,Data,DataLimitePagamento,Descricao,PrecoTotal")] Fatura fatura)
         {
             if (id != fatura.IdFatura)
             {
@@ -123,7 +119,6 @@ namespace UP_Mobile.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao", fatura.IdContrato);
-            ViewData["IdMetodoPagamento"] = new SelectList(_context.MetodoPagamento, "IdMetodoPagamento", "Metodo", fatura.IdMetodoPagamento);
             return View(fatura);
         }
 
@@ -137,7 +132,6 @@ namespace UP_Mobile.Controllers
 
             var fatura = await _context.Fatura
                 .Include(f => f.IdContratoNavigation)
-                .Include(f => f.IdMetodoPagamentoNavigation)
                 .FirstOrDefaultAsync(m => m.IdFatura == id);
             if (fatura == null)
             {
