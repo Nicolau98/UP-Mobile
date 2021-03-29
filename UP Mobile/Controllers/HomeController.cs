@@ -1,22 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AspNetCoreHero.ToastNotification;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using UP_Mobile.Models;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace UP_Mobile.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly INotyfService _notyf;
+        public HomeController(ILogger<HomeController> logger, INotyfService notyf)
         {
             _logger = logger;
+            _notyf = notyf;
         }
 
         public IActionResult Index()
         {
-            return View();
+            _notyf.Custom("Custom Notification - closes in 20 seconds.", 20, "#B600FF", "fa fa-home");
+            return View();           
         }
 
         public IActionResult Main()

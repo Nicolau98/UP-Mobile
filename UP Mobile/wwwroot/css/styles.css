@@ -440,10 +440,10 @@ table.table-hover tbody tr td:hover {
             background: #52ffdf;
             border: 2px solid #4FD6D9;
         }
-
+/*
 .form-group {
 background-color: white;
-}
+}*/
 .form-account {
     display: block;
     width: 100%;

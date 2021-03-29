@@ -1,4 +1,6 @@
 using AspCore_Email.Services;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -61,6 +63,8 @@ namespace UP_Mobile
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddMvc();
 
+            services.AddNotyf(config => { config.DurationInSeconds = 20; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+            //app.UseNotyf();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,6 +88,8 @@ namespace UP_Mobile
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseNotyf();
 
             app.UseEndpoints(endpoints =>
             {
