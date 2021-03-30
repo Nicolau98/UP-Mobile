@@ -41,6 +41,19 @@ namespace UP_Mobile.Controllers
             return View(await uPMobileContext.ToListAsync());
         }
 
+        public async Task<IActionResult> EmTratamento()
+        {
+            var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+            Estado estadotratamento = _context.Estado.FirstOrDefault(e => e.Nome == "Em tratamento");
+
+            var idooperador = operador.IdUtilizador;
+
+
+            var uPMobileContext = _context.Reclamacao.Where(r => (r.IdEstadoNavigation == estadotratamento) && (r.IdOperador == idooperador))
+                .Include(r => r.IdClienteNavigation).Include(r => r.IdEstadoNavigation).Include(r => r.IdOperadorNavigation);
+            return View(await uPMobileContext.ToListAsync());
+        }
+
 
         // GET: Reclamacoes/Details/5
         public async Task<IActionResult> Details(int? id)
