@@ -51,66 +51,66 @@
 
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataAbertura)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Assunto)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Descricao)...
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataResolucao)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Resolucao)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
-                            </td>
-                            @{
-                                var estado = item.IdEstadoNavigation.Nome;
-                                if (estado == "Em Aberto")
-                                {
-                                    <td style="color:orangered">
-                                        @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
-                                    </td>
-                                }
-                                else if (estado == "Em tratamento")
-                                {
-                                    <td style="color:gold">
-                                        @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
-                                    </td>
-                                }
-                                else if (estado == "Concluído")
-                                {
-                                    <td style="color:chartreuse">
-                                        @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
-                                    </td>
-                                }
-                            }
-
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
-                            </td>
-                            <td>
-                                @if (User.IsInRole("Cliente"))
-                                {
-                                    <a asp-action="Details" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataAbertura)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Assunto)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descricao)...
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataResolucao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Resolucao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
+                                </td>
+                                @{
+                                    var estado = item.IdEstadoNavigation.Nome;
+                                    if (estado == "Em Aberto")
+                                    {
+                                        <td style="background-color:orange">
+                                            @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+                                        </td>
+                                    }
+                                    else if (estado == "Em tratamento")
+                                    {
+                                        <td style="background-color:yellow">
+                                            @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+                                        </td>
+                                    }
+                                    else if (estado == "Concluído")
+                                    {
+                                        <td style="background-color:chartreuse">
+                                            @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+                                        </td>
+                                    }
                                 }
 
-                                @if (User.IsInRole("Operador"))
-                                {
-                                    <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Tratar</a>
-                                    <a asp-action="Fechar" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Fechar</a>
-                                }
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
+                                </td>
+                                <td>
+                                    @if (User.IsInRole("Cliente"))
+                                    {
+                                        <a asp-action="Details" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    }
+
+                                    @if (User.IsInRole("Operador"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Tratar</a>
+                                        <a asp-action="Fechar" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Fechar</a>
+                                    }
 
 
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>
@@ -172,9 +172,27 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
                                 </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
-                                </td>
+                                @{
+                                    var estado = item.IdEstadoNavigation.Nome;
+                                    if (estado == "Em Aberto")
+                                    {
+                                        <td style="background-color:orange">
+                                            @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+                                        </td>
+                                    }
+                                    else if (estado == "Em tratamento")
+                                    {
+                                        <td style="background-color:yellow">
+                                            @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+                                        </td>
+                                    }
+                                    else if (estado == "Concluído")
+                                    {
+                                        <td style="background-color:chartreuse">
+                                            @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+                                        </td>
+                                    }
+                                }
                                 <td>
                                     @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
                                 </td>
