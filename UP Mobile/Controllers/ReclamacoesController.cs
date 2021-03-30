@@ -27,6 +27,21 @@ namespace UP_Mobile.Controllers
             return View(await uPMobileContext.ToListAsync());
         }
 
+
+        public async Task<IActionResult> EmAberto()
+        {
+            var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+            Estado estadoaberto = _context.Estado.FirstOrDefault(e => e.Nome == "Em Aberto");
+
+            var distritooperador = operador.IdDistrito;
+
+
+            var uPMobileContext = _context.Reclamacao.Where(r => (r.IdEstadoNavigation == estadoaberto) && (r.IdClienteNavigation.IdDistrito == distritooperador))
+                .Include(r => r.IdClienteNavigation).Include(r => r.IdEstadoNavigation).Include(r => r.IdOperadorNavigation);
+            return View(await uPMobileContext.ToListAsync());
+        }
+
+
         // GET: Reclamacoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {

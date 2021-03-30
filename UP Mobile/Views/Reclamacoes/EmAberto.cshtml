@@ -1,0 +1,98 @@
+﻿@model IEnumerable<UP_Mobile.Models.Reclamacao>
+
+@{
+    ViewData["Title"] = "Reclamações em Aberto";
+}
+
+
+<main id="main">
+    <section>
+        <div class="container">
+
+            <h1>Reclamações em Aberto</h1>
+            <br />
+
+
+
+            <table class="table table-bordered">
+
+                <thead style="background-color: #86F1C5;">
+
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.DataAbertura)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Assunto)
+                        </th>
+                        <th scope="auto">
+                            @Html.DisplayNameFor(model => model.Descricao)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.DataResolucao)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.Resolucao)
+                        </th>
+                        <th scope="col">
+                            Nome do Cliente
+                        </th>
+                        <th scope="col">
+                            Estado da Reclamação
+                        </th>
+                        <th scope="col">
+                            Nome do Operador
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataAbertura)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Assunto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descricao)...
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataResolucao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Resolucao)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nome)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdEstadoNavigation.Nome)
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdOperadorNavigation.Nome)
+                            </td>
+                            <td>
+
+                                <a asp-action="Edit" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Tratar</a>
+                                <a asp-action="Fechar" asp-route-id="@item.IdReclamacao" type="button" class="btn border" style="background-color: #55ecc3;">Fechar</a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div>
+                <p>
+                    <a onclick="history.go(-1)" class="btn btn-border" style="background-color: #80f2f3">Voltar</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
