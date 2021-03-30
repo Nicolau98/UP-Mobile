@@ -195,11 +195,11 @@
     <!-- ======= Administrador ======= -->
     @if (User.IsInRole("Administrador"))
     {
-        <header id="header" class="d-flex align-items-center border-bottom" style="background-color:#82DDF2">
+        <header id="header" class="d-flex align-items-center border-bottom" @*style="background-color:#82DDF2"*@>
             <div class="container d-flex align-items-center justify-content-between">
 
 
-                <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Administrador</a></h3>
+          <a class="logo"asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid" /></a>
 
                 <!-- Uncomment below if you prefer to use Logotipo -->
                 @*<a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>*@
