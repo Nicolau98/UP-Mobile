@@ -34,7 +34,7 @@ namespace UP_Mobile.Controllers
                 var distritooperador = operador.IdDistrito;
                 
 
-                var totalemaberto = _context.Reclamacao.Where(c => (c.IdEstadoNavigation == estadoaberto)&& (c.IdClienteNavigation.IdDistrito == distritooperador))
+                var totalemaberto = _context.Reclamacao.Where(c => (c.IdEstadoNavigation == estadoaberto) && (c.IdClienteNavigation.IdDistrito == distritooperador))
                     .Include(c => c.IdEstadoNavigation)
                     .Include(c => c.IdOperadorNavigation)
                     .Include(c => c.IdClienteNavigation)
