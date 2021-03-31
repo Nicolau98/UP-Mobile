@@ -69,6 +69,44 @@ namespace UP_Mobile.Controllers
             return View(fatura);
         }
 
+        public IActionResult CriarFaturas()
+        {
+            
+            return View();
+        }
+
+        // POST: Faturas/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CriarFaturas([Bind("IdFatura,Data")] Fatura fatura)
+        {
+            if (ModelState.IsValid)
+            {
+                var verificadata = fatura.Data.Month;
+                if (DataFaturaExists(verificadata))
+
+                {
+                    foreach (var contrato in _context.Contrato)
+                    {
+
+                        fatura.IdContrato = contrato.IdContrato;
+                        fatura.PrecoTotal = contrato.PrecoTotal;
+                        fatura.Descricao = "Fatura referente ao Contrato nº " + contrato.IdContrato;
+                        _context.Add(fatura);
+                        await _context.SaveChangesAsync();
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
+
+                ModelState.AddModelError("Data", "Já existe faturação para esse mês");
+
+            }
+            
+            return View(fatura);
+        }
+
         // GET: Faturas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -155,6 +193,12 @@ namespace UP_Mobile.Controllers
         private bool FaturaExists(int id)
         {
             return _context.Fatura.Any(e => e.IdFatura == id);
+        }
+
+        private bool DataFaturaExists(int mes)
+        {
+
+            return _context.Fatura.Any(e => e.Data.Month == mes);
         }
     }
 }

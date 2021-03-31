@@ -136,7 +136,7 @@ namespace UP_Mobile.Controllers
 
         }
 
-        public async Task<IActionResult> Top10ClienteAsync(int distritopesquisar = 0)
+        public IActionResult Top10Cliente(int distritopesquisar = 0)
         {
 
             Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
@@ -171,7 +171,7 @@ namespace UP_Mobile.Controllers
                      .Take(10)
                      .ToList();
 
-               
+
 
                 Top10ViewModel modelo1 = new Top10ViewModel
                 {
