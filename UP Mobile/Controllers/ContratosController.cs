@@ -72,6 +72,7 @@ namespace UP_Mobile.Controllers
                      .Take(10)
                      .ToList();
 
+                
                 Top10ViewModel modelo1 = new Top10ViewModel
                 {
 
@@ -79,6 +80,7 @@ namespace UP_Mobile.Controllers
                     DistritoPesquisar = distritopesquisar
                 };
 
+                
 
                 return View(modelo1);
 
@@ -134,7 +136,7 @@ namespace UP_Mobile.Controllers
 
         }
 
-        public IActionResult Top10Cliente(int distritopesquisar = 0)
+        public async Task<IActionResult> Top10ClienteAsync(int distritopesquisar = 0)
         {
 
             Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
@@ -168,6 +170,8 @@ namespace UP_Mobile.Controllers
                      .OrderByDescending(p => p.Total)
                      .Take(10)
                      .ToList();
+
+               
 
                 Top10ViewModel modelo1 = new Top10ViewModel
                 {

@@ -379,6 +379,41 @@ namespace UP_Mobile.Controllers
                 Contrato = contrato
             };
 
+
+
+
+
+            //posição do cliente
+            Role rolecliente = _context.Role.FirstOrDefault(r => r.Nome == "Cliente");
+
+            List<TotalClienteOperador> clientes = new List<TotalClienteOperador>();
+            decimal total = 0;
+            foreach (var cliente in _context.Utilizador)
+            {
+                if (cliente.IdRoleNavigation == rolecliente)
+                {
+                    foreach (var contratos in _context.Contrato)
+                    {
+                        if (contratos.IdCliente == cliente.IdUtilizador)
+                        {
+                            total += contratos.PrecoTotal;
+                        }
+                    }
+                    clientes.Add(new TotalClienteOperador() { NomeUtilizador = cliente.Nome, DistritosId = cliente.IdDistrito, Total = total });
+                    total = 0;
+                }
+            }
+            var nomecliente = utilizador.Nome;
+            var distritopesquisar = utilizador.IdDistrito;
+            List<TotalClienteOperador> totalcliente = clientes
+                 .Where(p => p.DistritosId == distritopesquisar && p.Total > 0)
+                 .OrderByDescending(p => p.Total)
+                 .ToList();
+
+            int index = totalcliente.FindIndex(c => c.NomeUtilizador == nomecliente)+1;
+            ViewData["Indice"] = index;
+
+
             return base.View(modelo);
         }
 

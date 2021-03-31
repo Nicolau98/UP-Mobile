@@ -78,11 +78,11 @@
                             <p>@Html.DisplayFor(modelItem => item.DataInicioContrato)</p>
                         </div>
                         @*<div class="card-header">
-                    @Html.DisplayNameFor(modelItem => item.DataFimContrato)
-                </div>
-                <div class="card-body">
-                    <p>@Html.DisplayFor(modelItem => item.DataFimContrato)</p>
-                </div>*@
+                        @Html.DisplayNameFor(modelItem => item.DataFimContrato)
+                    </div>
+                    <div class="card-body">
+                        <p>@Html.DisplayFor(modelItem => item.DataFimContrato)</p>
+                    </div>*@
                         <div class="card-header">
                             @Html.DisplayNameFor(modelItem => item.DataFidelizacao)
                         </div>
@@ -102,7 +102,7 @@
                             <p>@Html.DisplayFor(modelItem => item.IdPacoteComercialPromocaoNavigation.Nome)</p>
 
                             <br />
-                                <a asp-controller="Contratos" asp-action="Edit" asp-route-id="@item.IdContrato" class="btn border" style="background-color: #86f1c5;">Alterar Pacote Comercial / Promoção</a>
+                            <a asp-controller="Contratos" asp-action="Edit" asp-route-id="@item.IdContrato" class="btn border" style="background-color: #86f1c5;">Alterar Pacote Comercial / Promoção</a>
 
                         </div>
                         <div class="card-header">
@@ -113,18 +113,11 @@
                         </div>
                     </div>
                 }
-
-
-
             </div>
 
-            <h4>Password e E-mail</h4>
             <br />
-            <div>
+            <h3 class="mb-3">Sua posição na lista dos melhores clientes: @ViewBag.Indice º</h3>
 
-                <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="btn" style="background-color:#55ecc3">Alterar</a>
-
-            </div>
 
             <h4 class="mt-5">Reclamações</h4>
             <br />
@@ -135,6 +128,16 @@
             <div>
                 <a asp-controller="Reclamacoes" asp-action="Index" asp-route-id="@Model.Utilizador.IdUtilizador" class="btn border" style="background-color: #82DDF2;">Consultar Reclamações</a>
             </div>
+
+            <br />
+            <h4>Password e E-mail</h4>
+            <br />
+            <div>
+
+                <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" class="btn" style="background-color:#55ecc3">Alterar</a>
+
+            </div>
+
         </div>
         
     </section>
