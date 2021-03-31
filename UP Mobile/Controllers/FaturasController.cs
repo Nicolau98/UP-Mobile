@@ -80,34 +80,36 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CriarFaturas([Bind("IdFatura,Data")] FaturacaoViewModel faturacao)
+        public IActionResult CriarFaturas(FaturacaoViewModel faturacao)
         {
             if (ModelState.IsValid)
             {
-                var verificadata = faturacao.Data.Month;
+                //var verificadata = faturacao.Data.Month;
 
-                if (DataFaturaExists(verificadata))
+                //if (DataFaturaExists(verificadata))
 
+                //{
+                foreach (var contrato in _context.Contrato)
                 {
-                    foreach (var contrato in _context.Contrato)
+                    Fatura fatura = new Fatura
                     {
-                        Fatura fatura = new Fatura
-                        {
-                            Data = faturacao.Data,
-                            IdContrato = contrato.IdContrato,
-                            PrecoTotal = contrato.PrecoTotal,
-                            Descricao = "Fatura referente ao Contrato nº " + contrato.IdContrato,
-                            DataLimitePagamento = faturacao.Data.AddDays(15),
+                        Data = faturacao.Data,
+                        IdContrato = contrato.IdContrato,
+                        PrecoTotal = contrato.PrecoTotal,
+                        Descricao = "Fatura referente ao Contrato nº " + contrato.IdContrato,
+                        DataLimitePagamento = faturacao.Data.AddDays(15),
 
-                        };
-                        
-                    }
-                    return RedirectToAction(nameof(Index));
+                    };
+                    _context.Add(fatura);
+                    _context.SaveChanges();
+
                 }
+                return RedirectToAction(nameof(Index));
+                //}
 
 
-                ModelState.AddModelError("Data", "Já existe faturação para esse mês");
-                
+                //ModelState.AddModelError("Data", "Já existe faturação para esse mês");
+
             }
 
 
@@ -122,96 +124,96 @@ namespace UP_Mobile.Controllers
 
         // GET: Faturas/Edit/5
         public async Task<IActionResult> Edit(int? id)
-{
-    if (id == null)
-    {
-        return NotFound();
-    }
-
-    var fatura = await _context.Fatura.FindAsync(id);
-    if (fatura == null)
-    {
-        return NotFound();
-    }
-    ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao", fatura.IdContrato);
-    return View(fatura);
-}
-
-// POST: Faturas/Edit/5
-// To protect from overposting attacks, enable the specific properties you want to bind to.
-// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-[HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> Edit(int id, [Bind("IdFatura,IdContrato,Data,DataLimitePagamento,Descricao,PrecoTotal")] Fatura fatura)
-{
-    if (id != fatura.IdFatura)
-    {
-        return NotFound();
-    }
-
-    if (ModelState.IsValid)
-    {
-        try
         {
-            _context.Update(fatura);
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!FaturaExists(fatura.IdFatura))
+            if (id == null)
             {
                 return NotFound();
             }
-            else
+
+            var fatura = await _context.Fatura.FindAsync(id);
+            if (fatura == null)
             {
-                throw;
+                return NotFound();
             }
+            ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao", fatura.IdContrato);
+            return View(fatura);
         }
-        return RedirectToAction(nameof(Index));
+
+        // POST: Faturas/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("IdFatura,IdContrato,Data,DataLimitePagamento,Descricao,PrecoTotal")] Fatura fatura)
+        {
+            if (id != fatura.IdFatura)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(fatura);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!FaturaExists(fatura.IdFatura))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao", fatura.IdContrato);
+            return View(fatura);
+        }
+
+        // GET: Faturas/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var fatura = await _context.Fatura
+                .Include(f => f.IdContratoNavigation)
+                .FirstOrDefaultAsync(m => m.IdFatura == id);
+            if (fatura == null)
+            {
+                return NotFound();
+            }
+
+            return View(fatura);
+        }
+
+        // POST: Faturas/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var fatura = await _context.Fatura.FindAsync(id);
+            _context.Fatura.Remove(fatura);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool FaturaExists(int id)
+        {
+            return _context.Fatura.Any(e => e.IdFatura == id);
+        }
+
+        private bool DataFaturaExists(int mes)
+        {
+
+            return _context.Fatura.Any(e => e.Data.Month == mes);
+        }
     }
-    ViewData["IdContrato"] = new SelectList(_context.Contrato, "IdContrato", "MoradaFaturacao", fatura.IdContrato);
-    return View(fatura);
-}
-
-// GET: Faturas/Delete/5
-public async Task<IActionResult> Delete(int? id)
-{
-    if (id == null)
-    {
-        return NotFound();
-    }
-
-    var fatura = await _context.Fatura
-        .Include(f => f.IdContratoNavigation)
-        .FirstOrDefaultAsync(m => m.IdFatura == id);
-    if (fatura == null)
-    {
-        return NotFound();
-    }
-
-    return View(fatura);
-}
-
-// POST: Faturas/Delete/5
-[HttpPost, ActionName("Delete")]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> DeleteConfirmed(int id)
-{
-    var fatura = await _context.Fatura.FindAsync(id);
-    _context.Fatura.Remove(fatura);
-    await _context.SaveChangesAsync();
-    return RedirectToAction(nameof(Index));
-}
-
-private bool FaturaExists(int id)
-{
-    return _context.Fatura.Any(e => e.IdFatura == id);
-}
-
-private bool DataFaturaExists(int mes)
-{
-
-    return _context.Fatura.Any(e => e.Data.Month == mes);
-}
-}
 }
