@@ -80,7 +80,7 @@ namespace UP_Mobile.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CriarFaturas(FaturacaoViewModel faturacao)
+        public async Task<IActionResult> CriarFaturas(FaturacaoViewModel faturacao)
         {
             if (ModelState.IsValid)
             {
@@ -97,11 +97,11 @@ namespace UP_Mobile.Controllers
                         IdContrato = contrato.IdContrato,
                         PrecoTotal = contrato.PrecoTotal,
                         Descricao = "Fatura referente ao Contrato nº " + contrato.IdContrato,
-                        DataLimitePagamento = faturacao.Data.AddDays(15),
+                        DataLimitePagamento = faturacao.Data.AddDays(15)
 
                     };
                     _context.Add(fatura);
-                    _context.SaveChanges();
+                    await _context.SaveChangesAsync();
 
                 }
                 return RedirectToAction(nameof(Index));

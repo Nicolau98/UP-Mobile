@@ -10,11 +10,7 @@ namespace UP_Mobile.Models
     {
 
 
-        public int ContratoId { get; set; }
-
         public DateTime Data { get; set; }
-
-
 
     }
 }
