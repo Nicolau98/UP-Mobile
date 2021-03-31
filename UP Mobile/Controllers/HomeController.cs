@@ -8,6 +8,7 @@ using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace UP_Mobile.Controllers
 {
@@ -29,6 +30,8 @@ namespace UP_Mobile.Controllers
             if (User.IsInRole("Operador"))
             {
                 var operador = await _context.Utilizador.SingleOrDefaultAsync(o => o.Email == User.Identity.Name);
+
+                //Notificação com numero de reclamações em aberto por distrito
                 Estado estadoaberto = _context.Estado.FirstOrDefault(e => e.Nome == "Em Aberto");
 
                 var distritooperador = operador.IdDistrito;
@@ -41,7 +44,25 @@ namespace UP_Mobile.Controllers
                     .Count();
 
                 _notyf.Custom("Existem " + totalemaberto + " Reclamações em aberto no seu Distrito", 20, "#4fd6d9", "fa fa-home");
-                
+
+
+                //total de faturação do operador
+                List<Contrato> contratosperador = await _context.Contrato
+                    .Where(c => c.IdOperador == operador.IdUtilizador)
+                    .ToListAsync();
+                int contacontratos = contratosperador.Count;
+
+
+                decimal totalfaturacao = 0;
+                foreach (var item in contratosperador)
+                {
+
+                    totalfaturacao += item.PrecoTotal;
+
+                }
+                ViewData["totalfaturacao"] = totalfaturacao;
+                ViewData["contacontratos"] = contacontratos;
+
             }
             return View();
         }
