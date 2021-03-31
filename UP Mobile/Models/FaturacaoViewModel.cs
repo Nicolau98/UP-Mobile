@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace UP_Mobile.Models
 {
-    public class Faturacao
+    public class FaturacaoViewModel
     {
 
-        public List<Contrato> Contratos { get; set; }
 
         public int ContratoId { get; set; }
 
         public DateTime Data { get; set; }
 
-        public decimal Total { get; set; }
 
 
     }
