@@ -235,18 +235,18 @@
                         <partial name="_LoginPartial" />
                     </ul>
 
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-
+                    @*<i class="bi bi-list mobile-nav-toggle"></i>*@
+              
                 </nav><!-- .navbar -->
-
+                </div>
         </header>
         <!-- End Header -->
         <!--sidebar start-->
-<aside>
-    <div class="toggle-nav">
+<aside class="scrolled-offset">
+    @*<div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-    </div>
-    <div id="sidebar" class="nav-collapse ">
+    </div>*@
+    <div id="sidebar" class=" col-md-4">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
             <li>
@@ -262,8 +262,10 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="form_component.html">Distritos</a></li>
-                    <li><a class="" href="form_validation.html">Reclamações</a></li>
+                    <li><a class="" href="general.html">Contratos</a></li>
+                    <li><a class="" href="general.html">Reclamações</a></li>
+                    <li><a class="" href="form_component.html">Top 10</a></li>
+                    <li><a class="" href="form_validation.html">Distritos</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
@@ -273,7 +275,7 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="general.html">Elements?</a></li>
+                  
                     <li><a class="" href="buttons.html">Distritos</a></li>
                     <li><a class="" href="grids.html">Top 10</a></li>
                 </ul>
@@ -292,20 +294,6 @@
                 </a>
 
             </li>
-
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
-                    <i class="icon_table"></i>
-                    <span>Tables</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
-                </a>
-                <ul class="sub">
-                    <li><a class="" href="basic_table.html">Basic Table</a></li>
-                </ul>
-            </li>
-
-          
-
         </ul>
         <!-- sidebar menu end-->
     </div>
@@ -353,7 +341,7 @@
                         <partial name="_LoginPartial" />
                     </ul>
 
-                    <i class="bi bi-list mobile-nav-toggle"></i>
+                    @*<i class="bi bi-list mobile-nav-toggle"></i>*@
 
                 </nav><!-- .navbar -->
             </div>

@@ -8,7 +8,7 @@
 
 <main id="main">
     <section>
-        <div class="container">
+        <div class="container offset-3">
 
 
             <h1>Lista de Clientes</h1>
@@ -22,7 +22,7 @@
                     <h5 class="card2-title"><i class="bx bx-search-alt"></i>Pesquisa</h5>
                     <form asp-action="IndexCliente" method="get">
                         <div class="form-group justify-content-between">
-                            <label for="nomePesquisar" class="control-label offset-3">Nome de Cliente / Número de Contribuinte</label>
+                            <label for="nomePesquisar" class="control-label">Nome de Cliente / Número de Contribuinte</label>
                             <input name="nomePesquisar" class="form-control formcontrolc2 " type="search" value="@Model.NomePesquisar" />
 
 
@@ -35,14 +35,14 @@
                 </div>
             </div>
 
-            <table class="table table-bordered">
-                <thead style="background-color: #e3f2fd;">
+            <table class="table table1">
+                <thead class="tbl-header">
                     <tr>
-                        <th scope="col">
+                        <th>
                             @*@Html.DisplayNameFor(model => model.Utilizador[0].IdUtilizador)*@
                             Nº de Cliente
                         </th>
-                        <th scope="col">
+                        <th>
                             @Html.DisplayNameFor(model => model.Utilizador[0].Nome)
                         </th>
                         @*<th scope="col">
@@ -51,19 +51,19 @@
                     <th scope="col">
                         @Html.DisplayNameFor(model => model.Utilizador[0].Morada)
                     </th>*@
-                        <th scope="col">
+                        <th>
                             @Html.DisplayNameFor(model => model.Utilizador[0].Contacto)
                         </th>
-                        <th scope="col">
+                        <th>
                             @Html.DisplayNameFor(model => model.Utilizador[0].Email)
                         </th>
-                        <th scope="col">
+                        <th>
                             @Html.DisplayNameFor(model => model.Utilizador[0].NContribuinte)
                         </th>
-                        <th scope="col">
+                        <th>
                             @Html.DisplayNameFor(model => model.Utilizador[0].NIdentificacao)
                         </th>
-                        <th scope="col">
+                        <th>
                             @Html.DisplayNameFor(model => model.Utilizador[0].Ativo)
                         </th>
                         @*<th scope="col">
@@ -72,7 +72,7 @@
                         @*<th scope="col">
                         @Html.DisplayNameFor(model => model.Utilizador[0].IdRoleNavigation)
                     </th>*@
-                        <th scope="col">Ações Disponíveis</th>
+                        <th ></th>
                     </tr>
                 </thead>
                 <tbody>
