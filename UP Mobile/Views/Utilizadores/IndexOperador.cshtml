@@ -17,18 +17,19 @@
                 <a asp-action="CreateOperador" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Operador</a>
             </p>
 
-            <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                <div class="card-body">
-                    <h5 class="card-title">Pesquisa</h5>
+            <div class="card2 mb-4"">
+                <div class="card2-body">
+                    <h5 class="card2-title"><i class="bx bx-search-alt"></i>Pesquisa</h5>
                     <form asp-action="IndexOperador" method="get">
-                        <div class="form-group">
+                        <div class="form-group justify-content-between">
                             <label for="nomePesquisar" class="control-label">Nome de Operador / Número de Contribuinte</label>
-                            <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
-                        </div>
+                            <input name="nomePesquisar" class="form-control formcontrolc2 offset-1" type="search" value="@Model.NomePesquisar" />
 
-                        <div class="form-group">
-                            <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
+
+                            @*<div class="form-group">*@
+                            <input type="submit" value="Pesquisar" class="btn border ml-4" style="background-color: #55ecc3;" /> |
                             <a asp-action="IndexOperador" class="btn border" style="background-color: #55ecc3;">Limpar</a>
+                            @*</div>*@
                         </div>
                     </form>
                 </div>
