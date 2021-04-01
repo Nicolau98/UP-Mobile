@@ -666,9 +666,9 @@ border-bottom: solid 1px #52ffdf;
 #sidebar {
     height: auto;
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     width: 15%;
-    z-index: 1;
+    z-index: 300;
     background: linear-gradient( 103deg, rgba(0,255,232,0.34) 0%, rgba(0,247,144,0.34) 100%);
     border: 1px solid;
     border-end-end-radius: 20px;
@@ -680,6 +680,7 @@ border-bottom: solid 1px #52ffdf;
     border-right-color: #00ffb1;
     border-bottom-color: #00fea1;
     list-style: none;
+    padding: 0px;
 }
 
 ul.sidebar-menu, ul.sidebar-menu li ul.sub {
@@ -691,7 +692,7 @@ ul.sidebar-menu, ul.sidebar-menu li ul.sub {
 
 
 ul.sidebar-menu {
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 
@@ -736,7 +737,7 @@ ul.sidebar-menu li ul.sub li {
         -o-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
         transition: all 0.3s ease;
-        color: #d0d8df;
+        color: #000000;
         font-size: 14px;
     }
 
@@ -788,7 +789,7 @@ ul.sidebar-menu li {
         color: #000000;
         text-decoration: none;
         display: block;
-        padding: 15px 0 15px 10px;
+        padding: 10px 0 10px 10px;
         font-size: 16px;
         font-weight: 400;
         outline: none;
@@ -916,3 +917,116 @@ element.style {
     display:block;
 }
 
+
+@media (min-width: 980px) {
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+    .inbox-wrapper .inbox-left {
+        width: 30%;
+    }
+
+    .inbox-wrapper .inbox-right {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        position: absolute;
+    }
+
+    /*sidebar*/
+
+    #sidebar {
+        height: auto;
+        overflow: hidden;
+        position: fixed;
+        width: 15%;
+        z-index: 300;
+    }
+
+    #sidebar > ul > li > a > span {
+        line-height: 35px;
+    }
+
+    #sidebar > ul > li {
+        margin: 0 10px 5px 10px;
+    }
+
+        #sidebar > ul > li > a {
+            height: 35px;
+            line-height: 35px;
+            padding: 0 10px;
+            text-align: left;
+        }
+
+            #sidebar > ul > li > a i {
+                /*display: none !important;*/
+            }
+
+    .mail-info, .mail-info:hover {
+        display: none !important;
+    }
+
+    #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
+        margin-right: 10px;
+        margin-top: 15px;
+    }
+
+    #sidebar ul > li.active > a .arrow, #sidebar ul > li > a:hover .arrow, #sidebar ul > li > a:focus .arrow,
+    #sidebar > ul > li.active > a .arrow.open, #sidebar > ul > li > a:hover .arrow.open, #sidebar > ul > li > a:focus .arrow.open {
+        margin-top: 15px;
+    }
+
+    #sidebar > ul > li > a, #sidebar > ul > li > ul.sub > li {
+        width: 100%;
+    }
+
+        #sidebar > ul > li > ul.sub > li > a {
+            background: transparent !important;
+        }
+
+            #sidebar > ul > li > ul.sub > li > a:hover {
+                /*background: #4A8BC2 !important ;*/
+            }
+
+
+    /* sidebar */
+    #sidebar {
+        margin: 0px !important;
+    }
+
+        /* sidebar collabler */
+        #sidebar .btn-navbar.collapsed .arrow {
+            display: none;
+        }
+
+        #sidebar .btn-navbar .arrow {
+            position: absolute;
+            right: 35px;
+            width: 0;
+            height: 0;
+            top: 48px;
+            border-bottom: 15px solid #282e36;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+        }
+
+
+    /*---------*/
+
+    .btn {
+        margin-bottom: 5px;
+    }
+
+
+    .inbox-wrapper aside {
+        display: block;
+    }
+
+    .inbox-wrapper .inbox-left, .inbox-wrapper .inbox-right {
+        width: 100%;
+    }
