@@ -89,7 +89,7 @@ namespace UP_Mobile.Controllers
             {
                 var verificadata = faturacao.Data.Month;
 
-                if (DataFaturaExists(verificadata))
+                if (!DataFaturaExists(verificadata))
 
                 {
 
@@ -110,8 +110,8 @@ namespace UP_Mobile.Controllers
                         var cliente = _context.Utilizador.SingleOrDefault(c => c.IdUtilizador == contrato.IdCliente);
                         var emailcliente = cliente.Email;
                         var assunto = fatura.Descricao;
-                        var mensagem = "O valor da sua fatura de " + fatura.Data + "é de " + fatura.PrecoTotal + "Euros. " +
-                            "O seu pagamento deve ser realizado até" + fatura.DataLimitePagamento;
+                        var mensagem = "O valor da sua fatura de " + fatura.Data + " é de " + fatura.PrecoTotal + " Euros. " +
+                            "O seu pagamento deve ser realizado até " + fatura.DataLimitePagamento;
                         await _emailSender.SendEmailAsync(emailcliente, assunto, mensagem);
                     }
                     return RedirectToAction(nameof(Index));
