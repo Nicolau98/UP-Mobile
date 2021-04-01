@@ -1305,7 +1305,6 @@ section {
     color: #fff;
     font-size: 14px;
     min-height: 440px;
-    position: absolute;
     left: 0;
     bottom: 0;
     right: 0;
@@ -1590,7 +1589,10 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 }
 .card2-body {
     flex: 1 1 auto;
-    padding: 1rem 1rem
+    padding: 1rem 1rem;
+    color: #5cb7aa;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .card2-title {
@@ -1636,6 +1638,41 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
     padding-right: calc(1.5em + 0.75rem);
 
 
+}
+
+    .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    }
+
+
+.formcontrolc3 {
+    display: inline;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #beecdb;
+    border-radius: 10px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+    .formcontrolc3:focus {
+        color: #495057;
+        background-color: #fff;
+        border: 2px solid #52fbcd;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgb(100, 248, 206, 0.40);
+    }
+
+.was-validated .form-control:valid, .form-control.is-valid {
+    border-color: #28a745;
+    padding-right: calc(1.5em + 0.75rem);
 }
 
     .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
