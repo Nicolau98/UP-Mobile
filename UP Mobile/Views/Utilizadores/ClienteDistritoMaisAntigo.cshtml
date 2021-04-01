@@ -21,9 +21,9 @@
                     <h5 class="card2-title"><i class="bx bx-search-alt"></i>Pesquisa</h5>
                     <form asp-action="ClienteDistritoMaisAntigo" method="get">
                         <div class="form-group justify-content-between">
-                            <label for="nomePesquisar" class="control-label">Distrito</label>
+                            <label for="nomePesquisar" class="control-label offset-3">Distrito</label>
                             @*<input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />*@
-                            <select asp-for="@Model.DistritoPesquisar" class="form-control formcontrolc2 offset-2 " type="search" asp-items="ViewBag.IdDistrito"></select>
+                            <select asp-for="@Model.DistritoPesquisar" class="form-control formcontrolc2 col-md-4 " type="search" asp-items="ViewBag.IdDistrito"></select>
                    
 
                         @*<div class="form-group">*@
