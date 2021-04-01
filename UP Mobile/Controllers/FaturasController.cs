@@ -89,20 +89,20 @@ namespace UP_Mobile.Controllers
                 //if (DataFaturaExists(verificadata))
 
                 //{
-                foreach (var contrato in _context.Contrato)
+
+                foreach (var contrato in _context.Contrato.ToList())
                 {
                     Fatura fatura = new Fatura
                     {
-                        Data = faturacao.Data,
                         IdContrato = contrato.IdContrato,
-                        PrecoTotal = contrato.PrecoTotal,
+                        Data = faturacao.Data,
+                        DataLimitePagamento = faturacao.Data.AddDays(15),
                         Descricao = "Fatura referente ao Contrato nº " + contrato.IdContrato,
-                        DataLimitePagamento = faturacao.Data.AddDays(15)
-
+                        PrecoTotal = contrato.PrecoTotal
+                     
                     };
                     _context.Add(fatura);
                     await _context.SaveChangesAsync();
-
                 }
                 return RedirectToAction(nameof(Index));
                 //}
