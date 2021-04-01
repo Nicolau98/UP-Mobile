@@ -19,45 +19,46 @@
                     </p>
                 }
 
-                <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                    <div class="card-body">
-                        <h5 class="card-title">Pesquisa</h5>
-                        <form asp-action="Index" method="get">
-                            <div class="form-group">
-                                <label for="nomePesquisar" class="control-label">Nome da Promoção</label>
-                                <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
-                            </div>
+               <div class="card2 mb-4">
+        <div class="card2-body">
+            <h5 class="card2-title"><i class="bx bx-search-alt"></i>Pesquisa</h5>
+            <form asp-action="Index" method="get">
+                <div class="form-group justify-content-between">
+                    <label for="nomePesquisar" class="control-label offset-3">Nome da Promoção</label>
+                    <input name="nomePesquisar" class="form-control formcontrolc2 col-md-4 " type="search" value="@Model.NomePesquisar" />
 
-                            <div class="form-group">
-                                <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3" /> |
-                                <a asp-action="Index" class="btn border" style="background-color: #55ecc3">Limpar</a>
-                            </div>
-                        </form>
-                    </div>
+
+                    @*<div class="form-group">*@
+                    <input type="submit" value="Pesquisar" class="btn border ml-5" style="background-color: #55ecc3" /> |
+                    <a asp-action="Index" class="btn border" style="background-color: #55ecc3">Limpar</a>
+                    @*</div>*@
                 </div>
+            </form>
+        </div>
+        </div>
 
-                <table class="table table-bordered">
-                    <thead style="background-color: #e3f2fd;">
+                <table class="table table1">
+                    <thead class="tbl-header">
                         <tr>
-                            <th scope="col">
+                            <th>
                                 @Html.DisplayNameFor(model => model.Promocao[0].IdPromocao)
                             </th>
-                            <th scope="col">
+                            <th>
                                 @Html.DisplayNameFor(model => model.Promocao[0].Nome)
                             </th>
-                            <th scope="col">
+                            <th >
                                 @Html.DisplayNameFor(model => model.Promocao[0].DataInicio)
                             </th>
-                            <th scope="col">
+                            <th >
                                 @Html.DisplayNameFor(model => model.Promocao[0].DataFim)
                             </th>
-                            <th scope="col">
+                            <th >
                                 @Html.DisplayNameFor(model => model.Promocao[0].Preco)
                             </th>
-                            <th scope="col">
+                            <th >
                                 @Html.DisplayNameFor(model => model.Promocao[0].Conteudo)
                             </th>
-                            <th scope="col">Ações Disponíveis</th>
+                            <th >@*Ações Disponíveis*@</th>
                         </tr>
                     </thead>
                     <tbody>

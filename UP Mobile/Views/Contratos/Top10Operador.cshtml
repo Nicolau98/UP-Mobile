@@ -16,29 +16,30 @@
 
 
 
-            <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                <div class="card-body">
-                    <h5 class="card-title">Pesquisa</h5>
+            <div class="card2 mb-4">
+                <div class="card2-body">
+                    <h5 class="card2-title"><i class="bx bx-search-alt"></i>Pesquisa</h5>
                     <form asp-action="Top10Operador" method="get">
-                        <div class="form-group">
-                            <label for="nomePesquisar" class="control-label">Distrito</label>
+                        <div class="form-group justify-content-between">
+                            <label for="nomePesquisar" class="control-label offset-3">Distrito</label>
                             @*<input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />*@
-                            <select asp-for="@Model.DistritoPesquisar" class="form-control" type="search" asp-items="ViewBag.IdDistrito"></select>
-                        </div>
+                            <select asp-for="@Model.DistritoPesquisar" class="form-control formcontrolc2 col-md-4 " type="search" asp-items="ViewBag.IdDistrito"></select>
 
-                        <div class="form-group">
-                            <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
+
+                            @*<div class="form-group">*@
+                            <input type="submit" value="Pesquisar" class="btn border ml-5" style="background-color: #55ecc3;" /> |
                             <a asp-action="Top10Operador" class="btn border" style="background-color: #55ecc3;">Limpar</a>
+                            @*</div>*@
                         </div>
                     </form>
                 </div>
             </div>
 
-            <table class="table table-bordered">
-                <thead style="background-color: #e3f2fd;">
+            <table class="table table1">
+                <thead class="tbl-header">
                     <tr>
                         <th scope="col">
-                           Nome do Operador
+                            Nome do Operador
                         </th>
                         <th scope="col">
                             Total
@@ -55,23 +56,23 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Total)€
                             </td>
-                            
+
                             @*<td>
 
-                                @if (User.IsInRole("Administrador"))
-                                {
-                                    <a asp-action="Edit" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
-                                    <h1></h1>
-                                    <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                    <h1></h1>
-                                    <a asp-action="Delete" asp-route-id="@item.IdUtilizador" type="button" class="btn btn-danger">Apagar</a>
+                            @if (User.IsInRole("Administrador"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                <h1></h1>
+                                <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                <h1></h1>
+                                <a asp-action="Delete" asp-route-id="@item.IdUtilizador" type="button" class="btn btn-danger">Apagar</a>
 
-                                }
-                                else
-                                {
-                                    <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
-                                }
-                            </td>*@
+                            }
+                            else
+                            {
+                                <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                            }
+                        </td>*@
                         </tr>
                     }
                 </tbody>
