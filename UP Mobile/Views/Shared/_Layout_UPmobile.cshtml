@@ -23,7 +23,7 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet"> @*FAZ A ORIENTAÇÃO DE TODO O CONTEÚDO*@
     @*<link href="~/css/bootstrap-icons.css" rel="stylesheet">*@
     @*<link href="~/css/boxicons.min.css" rel="stylesheet">*@
-    
+
     <link href="~/Content/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
     <link href="~/Content/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     @*<link href="~/css/glightbox.min.css" rel="stylesheet">*@
@@ -42,6 +42,7 @@
     <!-- CSS Principal -->
     <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Day - v4.0.0
@@ -199,7 +200,7 @@
             <div class="container d-flex align-items-center justify-content-between">
 
 
-          <a class="logo"asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid" /></a>
+                <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid" /></a>
 
                 <!-- Uncomment below if you prefer to use Logotipo -->
                 @*<a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>*@
@@ -237,9 +238,83 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
 
                 </nav><!-- .navbar -->
-            </div>
+
         </header>
-    }<!-- End Header -->
+        <!-- End Header -->
+        <!--sidebar start-->
+<aside>
+    <div class="toggle-nav">
+        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+    </div>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu">
+            <li>
+                <a class="" href="index.html">
+                    <i class="bx bx-home"></i>
+                    Área Admnistrador
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="" class="">
+                    <i class="bx bx-user"></i>
+                    <span>Clientes</span>
+                    <span class="menu-arrow arrow_carrot-right"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="form_component.html">Distritos</a></li>
+                    <li><a class="" href="form_validation.html">Reclamações</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="bx bx-user-plus"></i>
+                    <span>Operadores</span>
+                    <span class="menu-arrow arrow_carrot-right"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="general.html">Elements?</a></li>
+                    <li><a class="" href="buttons.html">Distritos</a></li>
+                    <li><a class="" href="grids.html">Top 10</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="" href="widgets.html">
+                    <i class="bx bx-box"></i>
+                    <span>Pacotes</span>
+                </a>
+            </li>
+            <li>
+                <a class="" href="chart-chartjs.html">
+                    <i class="bx bx-gift"></i>
+                    <span>Promoções</span>
+
+                </a>
+
+            </li>
+
+            <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    <i class="icon_table"></i>
+                    <span>Tables</span>
+                    <span class="menu-arrow arrow_carrot-right"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="basic_table.html">Basic Table</a></li>
+                </ul>
+            </li>
+
+          
+
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+        <!--sidebar end-->
+
+
+    }
+
     <!-- ======= Operador ======= -->
 
     @if (User.IsInRole("Operador"))
@@ -441,6 +516,7 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
+    <script src="~/Content/assets/js/jquery-ui-1.10.2.custom.min.js"></script>
     <script src="~/js/aos.js"></script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/glightbox.min.js"></script>
@@ -461,5 +537,7 @@
     @await Component.InvokeAsync("Notyf")
     @RenderSection("Scripts", required: false)
 
+
+   
 </body>
 </html>
