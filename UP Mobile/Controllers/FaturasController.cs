@@ -109,12 +109,13 @@ namespace UP_Mobile.Controllers
                         await _context.SaveChangesAsync();
                         var cliente = _context.Utilizador.SingleOrDefault(c => c.IdUtilizador == contrato.IdCliente);
                         var emailcliente = cliente.Email;
-                        var assunto = fatura.Descricao;
+                        var assunto = ": "+fatura.Descricao;
                         var mensagem = "O valor da sua fatura de " + fatura.Data + " é de " + fatura.PrecoTotal + " Euros. " +
                             "O seu pagamento deve ser realizado até " + fatura.DataLimitePagamento;
                         await _emailSender.SendEmailAsync(emailcliente, assunto, mensagem);
                     }
-                    return RedirectToAction(nameof(Index));
+                    ViewBag.Mensagem = "Faturas geradas e anviado email para o Cliente com sucesso.";
+                    return View("Sucesso");
                 }
                 
 
