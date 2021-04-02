@@ -842,6 +842,7 @@ section {
 
 .pricing .box ul li {
   padding-bottom: 16px;
+
 }
 
     .pricing .box ul i {
@@ -951,6 +952,7 @@ section {
 
         .pricing1 .box ul li {
             padding-bottom: 16px;
+            font-size:16px;
         }
 
         .pricing1 .box ul i {
@@ -1715,14 +1717,15 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 }
 
 .view2 {
-    background-image: url("../Content/assets/img/cinema1.png");
+    background-image: url("../Content/assets/img/seriesfinal.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     height: 100%;
 }
 
 .view3 {
-    background-image: url("../Content/assets/img/race.jpg");
+   
+    background-image: url("../Content/assets/img/technology.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -1774,3 +1777,28 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
         border: 3px solid #ffff;
         background: linear-gradient(180deg, rgba(203,214,213,1) 0%, rgba(255,255,255,1) 100%);
     }
+
+
+.modal {
+    
+}
+.modal-header {
+    background: rgba(148,250,235,0.61);
+   border-radius: 50px 50px 0px 0px;
+}
+
+.modal-content {
+    border:1px solid #fff;
+    border-radius:50px;
+
+}
+
+.modal-footer {
+    background: aquamarine;
+    border-radius:  0px 0px 50px 50px;
+}
+
+.modalbtn{
+    border:none;
+    
+}
