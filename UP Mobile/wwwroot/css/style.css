@@ -624,10 +624,12 @@ section {
         .why-us .box:hover {
             background: #4a9a9c;
             box-shadow: 10px 15px 30px rgb(122 254 215);
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(209,251,245,0.938) 36%, rgba(162,255,221,0.80) 100%);
+ 
         }
 
 .why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
-  color: #fff;
+  color: #00afb1;
 }
 
 /*--------------------------------------------------------------
@@ -790,13 +792,13 @@ section {
 # Pricing
 --------------------------------------------------------------*/
 .pricing .box {
-  padding: 20px;
-  padding-top: 5px;
-  background: #f9f9f9;
-  text-align: center;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
+    padding: 20px;
+    padding-top: 5px;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(209,251,245,0.938) 36%, rgba(162,255,221,0.80) 100%);
+    text-align: center;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
 .pricing .box h3 {
@@ -808,13 +810,13 @@ section {
   color: #191919;
 }
 
-.pricing .box h4 {
-  font-size: 42px;
-  color: #4FD6D9; /*PREÇO*/
-  font-weight: 500;
-  font-family: "Open Sans", sans-serif;
-  margin-bottom: 20px;
-}
+    .pricing .box h4 {
+        font-size: 42px;
+        color: #008282;
+        font-weight: 600;
+        font-family: "Open Sans", sans-serif;
+        margin-bottom: 20px;
+    }
 
 .pricing .box h4 sup {
   font-size: 20px;
@@ -828,24 +830,26 @@ section {
   font-weight: 300;
 }
 
-.pricing .box ul {
-  padding: 0;
-  list-style: none;
-  color: #191919;
-  text-align: center;
-  line-height: 20px;
-  font-size: 14px;
-}
+    .pricing .box ul {
+        padding: 0;
+        list-style: none;
+        color: #191919;
+        text-align: center;
+        line-height: 20px;
+        font-size: 16px;
+        font-weight: 500;
+    }
 
 .pricing .box ul li {
   padding-bottom: 16px;
+
 }
 
-.pricing .box ul i {
-  color: #4FD6D9;
-  font-size: 18px;
-  padding-right: 4px;
-}
+    .pricing .box ul i {
+        color: #008262;
+        font-size: 18px;
+        padding-right: 4px;
+    }
 
 .pricing .box ul .na {
   color: #ccc;
@@ -858,7 +862,7 @@ section {
 }
 
     .pricing .box .btn-buy {
-        background: #55ECC3; /*BOTÃO*/
+        border-radius: 20px;
         display: inline-block;
         padding: 10px 40px;
         color: #fff;
@@ -868,11 +872,14 @@ section {
         font-family: "Raleway", sans-serif;
         font-weight: 600;
         transition: 0.3s;
+        border: 2px solid #a2fcff;
+        background: linear-gradient(0deg, rgba(0,255,184,0.39537821964723385) 0%, rgba(99,255,235,0.4093838218881303) 44%);
     }
 
-.pricing .box .btn-buy:hover {
-  background: #82DDF2; /*BOTÃO HOVER*/
-}
+        .pricing .box .btn-buy:hover {
+            border: 2px solid #b4fdff;
+            background: linear-gradient(0deg, rgba(0,255,184,0.571848807882528) 0%, rgba(99,255,235,0.5774510487788865) 44%);
+        }
 
 .pricing .featured {
     background: #4FD6D9;
@@ -901,9 +908,9 @@ section {
 
 .pricing1 .box {
     padding: 20px;
-    background: linear-gradient(119deg, rgba(255,255,255,1) 50%, rgba(124,255,212,1) 100%);
+    background: linear-gradient(336deg, rgba(225,255,249,1) 42%, rgba(138,255,234,1) 71%, rgba(110,251,203,1) 100%);
     text-align: center;
-    border-radius: 8px;
+    border-radius: 40px;
     position: relative;
     overflow: hidden;
 }
@@ -945,10 +952,11 @@ section {
 
         .pricing1 .box ul li {
             padding-bottom: 16px;
+            font-size:16px;
         }
 
         .pricing1 .box ul i {
-            color: #87a4a9;
+            color: #28c69f;
             font-size: 22px;
             padding-right: 4px;
         }
@@ -966,24 +974,23 @@ section {
     .pricing1 .box .btn-buy {
         display: inline-block;
         padding: 10px 40px 12px 40px;
-        border-radius: 4px;
-        color: #4dfbff;
+        border-radius: 20px;
+        color: #0e9598;
         transition: none;
         font-size: 14px;
         font-weight: 400;
         font-family: "Raleway", sans-serif;
         font-weight: 600;
         transition: 0.3s;
-        border: 2px solid #4fd6d9;
-        border-inline-start-color: #00ffba;
-        border-top-color:#00ffc1;
-        
-        border-inline-end-color: #00d8de;
-        
+        border: 2px solid #a2fcff;
+        background: linear-gradient(0deg, rgba(0,255,184,0.39537821964723385) 0%, rgba(99,255,235,0.4093838218881303) 44%);
     }
 
         .pricing1 .box .btn-buy:hover {
-            border-color: #fff;
+         
+            border: 2px solid #b4fdff;
+         
+            background: linear-gradient(0deg, rgba(0,255,184,0.571848807882528) 0%, rgba(99,255,235,0.5774510487788865) 44%);
         }
 
 .pricing1 .featured {
@@ -1682,6 +1689,7 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 /*Slider*/
 .carousel, .carousel .carousel-inner, .carousel .carousel-inner .active, .carousel .carousel-inner .carousel-item, .view, body, html {
     height: 60vh;
+    border-radius: 0px 0px 15% 15%;
 }
 
     .h1a {
@@ -1709,14 +1717,15 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 }
 
 .view2 {
-    background-image: url("../Content/assets/img/cinema1.png");
+    background-image: url("../Content/assets/img/seriesfinal.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     height: 100%;
 }
 
 .view3 {
-    background-image: url("../Content/assets/img/race.jpg");
+   
+    background-image: url("../Content/assets/img/technology.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -1768,3 +1777,28 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
         border: 3px solid #ffff;
         background: linear-gradient(180deg, rgba(203,214,213,1) 0%, rgba(255,255,255,1) 100%);
     }
+
+
+.modal {
+    
+}
+.modal-header {
+    background: rgba(148,250,235,0.61);
+   border-radius: 50px 50px 0px 0px;
+}
+
+.modal-content {
+    border:1px solid #fff;
+    border-radius:50px;
+
+}
+
+.modal-footer {
+    background: aquamarine;
+    border-radius:  0px 0px 50px 50px;
+}
+
+.modalbtn{
+    border:none;
+    
+}

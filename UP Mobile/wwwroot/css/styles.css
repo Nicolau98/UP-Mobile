@@ -433,6 +433,7 @@ table.table-hover tbody tr td:hover {
         transition: 0.5s;
         margin-top: 10px;
         border: 2px solid #fff;
+        border-radius:20px;
         color: #fff;
     }
 
@@ -599,7 +600,7 @@ fieldset:disabled a.btnaccount {
         transition: 0.5s;
         margin-top: 10px;
         border: 2px solid #52ffdf;
-        border-radius: 10px;
+        border-radius: 20px;
         color: #fff;
     }
 
