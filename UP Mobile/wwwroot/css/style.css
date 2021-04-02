@@ -624,10 +624,12 @@ section {
         .why-us .box:hover {
             background: #4a9a9c;
             box-shadow: 10px 15px 30px rgb(122 254 215);
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(209,251,245,0.938) 36%, rgba(162,255,221,0.80) 100%);
+ 
         }
 
 .why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
-  color: #fff;
+  color: #00afb1;
 }
 
 /*--------------------------------------------------------------
@@ -794,7 +796,7 @@ section {
     padding-top: 5px;
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(209,251,245,0.938) 36%, rgba(162,255,221,0.80) 100%);
     text-align: center;
-    border-radius: 10px;
+    border-radius: 40px;
     position: relative;
     overflow: hidden;
 }
@@ -843,7 +845,7 @@ section {
 }
 
     .pricing .box ul i {
-        color: #008282;
+        color: #008262;
         font-size: 18px;
         padding-right: 4px;
     }
@@ -859,7 +861,6 @@ section {
 }
 
     .pricing .box .btn-buy {
-        background: #42d0bc;
         border-radius: 20px;
         display: inline-block;
         padding: 10px 40px;
@@ -870,11 +871,14 @@ section {
         font-family: "Raleway", sans-serif;
         font-weight: 600;
         transition: 0.3s;
+        border: 2px solid #a2fcff;
+        background: linear-gradient(0deg, rgba(0,255,184,0.39537821964723385) 0%, rgba(99,255,235,0.4093838218881303) 44%);
     }
 
-.pricing .box .btn-buy:hover {
-  background: #82DDF2; /*BOTÃO HOVER*/
-}
+        .pricing .box .btn-buy:hover {
+            border: 2px solid #b4fdff;
+            background: linear-gradient(0deg, rgba(0,255,184,0.571848807882528) 0%, rgba(99,255,235,0.5774510487788865) 44%);
+        }
 
 .pricing .featured {
     background: #4FD6D9;
@@ -903,9 +907,9 @@ section {
 
 .pricing1 .box {
     padding: 20px;
-    background: linear-gradient(119deg, rgba(255,255,255,1) 50%, rgba(124,255,212,1) 100%);
+    background: linear-gradient(336deg, rgba(225,255,249,1) 42%, rgba(138,255,234,1) 71%, rgba(110,251,203,1) 100%);
     text-align: center;
-    border-radius: 8px;
+    border-radius: 40px;
     position: relative;
     overflow: hidden;
 }
@@ -950,7 +954,7 @@ section {
         }
 
         .pricing1 .box ul i {
-            color: #87a4a9;
+            color: #28c69f;
             font-size: 22px;
             padding-right: 4px;
         }
@@ -969,23 +973,22 @@ section {
         display: inline-block;
         padding: 10px 40px 12px 40px;
         border-radius: 20px;
-        color: #4dfbff;
+        color: #0e9598;
         transition: none;
         font-size: 14px;
         font-weight: 400;
         font-family: "Raleway", sans-serif;
         font-weight: 600;
         transition: 0.3s;
-        border: 2px solid #4fd6d9;
-        border-inline-start-color: #00ffba;
-        border-top-color:#00ffc1;
-        
-        border-inline-end-color: #00d8de;
-        
+        border: 2px solid #a2fcff;
+        background: linear-gradient(0deg, rgba(0,255,184,0.39537821964723385) 0%, rgba(99,255,235,0.4093838218881303) 44%);
     }
 
         .pricing1 .box .btn-buy:hover {
-            border-color: #fff;
+         
+            border: 2px solid #b4fdff;
+         
+            background: linear-gradient(0deg, rgba(0,255,184,0.571848807882528) 0%, rgba(99,255,235,0.5774510487788865) 44%);
         }
 
 .pricing1 .featured {
@@ -1684,6 +1687,7 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 /*Slider*/
 .carousel, .carousel .carousel-inner, .carousel .carousel-inner .active, .carousel .carousel-inner .carousel-item, .view, body, html {
     height: 60vh;
+    border-radius: 0px 0px 15% 15%;
 }
 
     .h1a {
