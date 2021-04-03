@@ -1876,6 +1876,25 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
         display: block;
     }
 
+.dropdown-menu {
+display:block;
+}
+
+
+ .dropdown-item .esc:hover  {
+
+display:none;
+overflow:hidden;
+opacity:0;
+}
+
+ .dropdown-item .esc li:hover {
+    opacity:1;
+    display:block;
+
+    
+}
+
 /**
 * Mobile Navigation 
 */
