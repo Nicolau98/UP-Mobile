@@ -794,11 +794,12 @@ section {
 .pricing .box {
     padding: 20px;
     padding-top: 5px;
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(209,251,245,0.938) 36%, rgba(162,255,221,0.80) 100%);
+    background: linear-gradient( 176deg, rgb(224 241 232) 0%, rgb(254 255 255 / 80%) 100%);
     text-align: center;
     border-radius: 40px;
     position: relative;
     overflow: hidden;
+    border: 2px solid #cdfff3;
 }
 
 .pricing .box h3 {
@@ -812,7 +813,7 @@ section {
 
     .pricing .box h4 {
         font-size: 42px;
-        color: #008282;
+        color: #08dcd2;
         font-weight: 600;
         font-family: "Open Sans", sans-serif;
         margin-bottom: 20px;
@@ -825,7 +826,7 @@ section {
 }
 
 .pricing .box h4 span {
-  color: #bababa;
+  color: #191919;
   font-size: 16px;
   font-weight: 300;
 }
@@ -845,11 +846,11 @@ section {
 
 }
 
-    .pricing .box ul i {
-        color: #008262;
-        font-size: 18px;
-        padding-right: 4px;
-    }
+        .pricing .box ul i {
+            color: #00f5c8;
+            font-size: 18px;
+            padding-right: 4px;
+        }
 
 .pricing .box ul .na {
   color: #ccc;
@@ -1929,4 +1930,171 @@ opacity:0;
     .mobile-nav-active1 .mobile-nav-toggle1 {
         color: #fff;
         background-color: #0563bb;
+    }
+
+.btninfo3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #191919;
+    line-height: 1.2;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    border-radius: 15px;
+    background: linear-gradient( 180deg, rgb(218 239 239) 0%, rgb(213 248 238) 39%, rgb(189 241 231) 72%);
+    position: inherit;
+    z-index: 1;
+    transition: all 0.4s;
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+
+}
+
+    .btninfo3::before {
+        content: "";
+        display: inline;
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        background: linear-gradient( 180deg, rgb(218 239 232) 0%, rgb(213 243 238) 39%, rgb(189 241 231) 72%);
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .btninfo3:hover {
+        display: inline-block;
+        color: #5d5d5d;
+        border: 1px solid #95f1eb;
+        background: linear-gradient( 180deg, rgb(227 236 233) 0%, rgb(206 247 241) 39%, rgb(219 245 247) 72%);
+    }
+
+.btndanger {
+    font-size: 16px;
+    font-weight: 500;
+    color: #191919;
+    line-height: 1.2;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    border-radius: 15px;
+    background: linear-gradient( 180deg, rgb(161 251 251) 0%, rgb(213 248 238) 39%, rgb(136 173 220 / 46%) 72%);
+    position: inherit;
+    z-index: 1;
+    transition: all 0.4s;
+    border: 1px solid #e6e6e6;
+}
+
+    .btndanger::before {
+        content: "";
+        display: inline;
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        background: linear-gradient( 180deg, rgb(161 251 251) 0%, rgb(213 248 238) 39%, rgb(136 173 220 / 46%) 72%);
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .btndanger:hover {
+        display: inline-block;
+        color: #5d5d5d;
+        border: 1px solid #95f1eb;
+        background: linear-gradient( 180deg, rgb(196 239 239) 0%, rgb(213 248 238) 39%, rgb(159 209 239 / 46%) 72%);
+      
+    }
+
+.btnsearch {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    border-radius: 15px;
+    background: linear-gradient( 2deg, rgb(66 255 229) 0%, rgb(152 255 238) 39%, rgb(0 255 208) 72%);
+    position: inherit;
+    z-index: 1;
+    transition: all 0.4s;
+    border: 1px solid #00ffcb;
+}
+
+    .btnsearch::before {
+        content: "";
+        display: inline;
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        background: linear-gradient( 2deg, rgb(66 255 229) 0%, rgb(152 255 238) 39%, rgb(0 255 208) 72%);
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .btnsearch:hover {
+        color: #212529;
+        text-decoration: none;
+        background: linear-gradient( 2deg, rgb(115 208 195) 0%, rgb(135 253 255) 39%, rgb(57 247 212) 72%);
+    }
+
+.btninfo4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #191919;
+    line-height: 1.2;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    border-radius: 15px;
+    background: linear-gradient( 180deg, rgb(218 239 239) 0%, rgb(213 248 238) 39%, rgb(189 241 231) 72%);
+    position: inherit;
+    z-index: 1;
+    transition: all 0.4s;
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+}
+
+    .btninfo4::before {
+        content: "";
+        display: inline;
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        background: linear-gradient( 180deg, rgb(218 239 232) 0%, rgb(213 243 238) 39%, rgb(189 241 231) 72%);
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .btninfo4:hover {
+        display: inline-block;
+        color: #5d5d5d;
+        border: 1px solid #95f1eb;
+        background: linear-gradient( 180deg, rgb(227 236 233) 0%, rgb(206 247 241) 39%, rgb(219 245 247) 72%);
     }

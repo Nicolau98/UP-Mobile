@@ -29,8 +29,8 @@
 
 
                     @*<div class="form-group">*@
-                    <input type="submit" value="Pesquisar" class="btn border ml-5" style="background-color: #55ecc3" /> |
-                    <a asp-action="Index" class="btn border" style="background-color: #55ecc3">Limpar</a>
+                    <input type="submit" value="Pesquisar" class="btn btnsearch ml-5"  /> 
+                    <a asp-action="Index" class="btn btnsearch" >Limpar</a>
                     @*</div>*@
                 </div>
             </form>
@@ -85,13 +85,13 @@
                                 </td>
                                 <td>
 
-                                    <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    <a asp-action="Details" asp-route-id="@item.IdPromocao" type="button" class="btn btninfo3">Detalhes</a>
                                     <h1></h1>
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Edit" asp-route-id="@item.IdPromocao" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                        <a asp-action="Edit" asp-route-id="@item.IdPromocao" type="button" class="btn btninfo3">Editar</a>
                                         <h1></h1>
-                                        <a asp-action="Delete" asp-route-id="@item.IdPromocao" type="button" class="btn btn-danger">Apagar</a>
+                                        <a asp-action="Delete" asp-route-id="@item.IdPromocao" type="button" class="btn btndanger">Apagar</a>
                                     }
                                 </td>
                             </tr>
