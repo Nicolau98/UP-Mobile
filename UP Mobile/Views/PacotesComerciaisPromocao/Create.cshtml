@@ -16,15 +16,15 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group">
                             <label asp-for="IdPacote" class="control-label"></label>
-                            <select asp-for="IdPacote" class="form-control" asp-items="ViewBag.IdPacote"></select>
+                            <select asp-for="IdPacote" class="form-control formcontrolc3" asp-items="ViewBag.IdPacote"></select>
                         </div>
                         <div class="form-group">
                             <label asp-for="IdPromocao" class="control-label"></label>
-                            <select asp-for="IdPromocao" class="form-control" asp-items="ViewBag.IdPromocao"></select>
+                            <select asp-for="IdPromocao" class="form-control formcontrolc3" asp-items="ViewBag.IdPromocao"></select>
                         </div>
                         <div class="form-group">
                             <label asp-for="IdDistrito" class="control-label"></label>
-                            <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                            <select asp-for="IdDistrito" class="form-control formcontrolc3" asp-items="ViewBag.IdDistrito"></select>
                             <span asp-validation-for="IdDistrito" class="text-danger"></span>
                         </div>
 
@@ -35,8 +35,8 @@
         </div>*@
 
                         <div class="form-group">
-                            <input type="submit" value="Guardar" class="btn border" style="background-color: #55ecc3;" /> |
-                            <a asp-action="Index" class="btn border" style="background-color: #80f2f3">Cancelar e Voltar</a>
+                            <input type="submit" value="Guardar" class="btn btnsearch"  /> 
+                            <a asp-action="Index" class="btn btnsearch" >Cancelar e Voltar</a>
                         </div>
                     </form>
                 </div>

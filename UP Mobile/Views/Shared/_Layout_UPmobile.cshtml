@@ -192,61 +192,119 @@
                 </nav><!-- .navbar -->
             </div>
         </header>
+        @*<div class="d-flex flex-column justify-content-center">
+
+            <nav id="navbar" class="navbar nav-menu">
+                <ul>
+                    <li>
+                        <a href="#hero" class="nav-link scrollto dropdown active"><i class="bx bx-home"></i> <span>Área Cliente</span></a>                   
+                    </li>
+                  
+                    <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Reclamações</span></a></li>
+                </ul>
+            </nav>
+        </div>*@
     }<!-- End Header -->
     <!-- ======= Administrador ======= -->
     @if (User.IsInRole("Administrador"))
     {
-<header id="header" class="d-flex align-items-center border-bottom" style="        background-color: #82DDF2">
-    <div class="container d-flex align-items-center justify-content-between">
+        <header id="header" class="d-flex align-items-center border-bottom" style="        background-color: #82DDF2">
+            <div class="container d-flex align-items-center justify-content-between">
 
 
-        <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Administrador</a></h3>
+                <h3 class="logo"><a asp-area="" asp-controller="Home" asp-action="Index">Área Administrador</a></h3>
 
-        <!-- Uncomment below if you prefer to use Logotipo -->
-        @*<a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>*@
+                <!-- Uncomment below if you prefer to use Logotipo -->
+                @*<a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/Logotipo_UPMobile.png" alt="Logo UPMobile" class="img-fluid"></a>*@
 
 
 
-        <nav id="navbar" class="navba">
+                <nav id="navbar" class="navba">
 
-            <ul>
-                <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
-                <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
-                <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                <li class="dropdown">
-                    <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b>
                     <ul>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Pesquisar por Cliente</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito">Pesquisar por Distrito</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="ClienteMaisAntigo">Mais Antigos</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="ClienteDistritoMaisAntigo">Mais Antigos por Distrito</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Top10Cliente">Top 10 (com pacotes mais caros) por distrito</a></li>
-                    </ul>
-                </li>
-                @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
-                <li class="dropdown">
-                    <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Operadores</a></b>
-                    <ul>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Pesquisar por Operador</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaOperadorDistrito">Pesquisar por Distrito</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Top10Operador">Top 10</a></li>
-                    </ul>
-                </li>
-                <partial name="_LoginPartial" />
-            </ul>
+                        <li class="dropdown">
+                            <a><i class="bi bi-bag-fill"></i>  Pacotes</a>
+                            <ul>
+                                <li>
+                                    <a class="nav-link scrollto" asp-action="Create" asp-controller="PacotesComerciais"> Novo Pacote Comercial</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes Comerciais</a>
+                                </li>
+                               
 
-            @*<i class="bi bi-list mobile-nav-toggle"></i>*@
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a><i class="bi bi-gift-fill"></i>  Promoções</a>
+                            <ul>
+                                <li>
+                                    <a class="nav-link scrollto" asp-action="Create" asp-controller="Promocoes">Criar Promoção</a>
+                                </li>
+                                 <li>   <a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
 
-        </nav><!-- .navbar -->
-    </div>
-</header>
+                            </ul>
+                        </li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index"><i class="bi bi-star-fill"></i>  Extras</a></li>
+                        <li class="dropdown">
+                            <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente"><i class="bi bi-person-fill"></i>  Clientes</a></b>
+                            <ul>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Pesquisar por Cliente</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito">Pesquisar por Distrito</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="ClienteMaisAntigo">Mais Antigos</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="ClienteDistritoMaisAntigo">Mais Antigos por Distrito</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Top10Cliente">Top 10 (com pacotes mais caros) por distrito</a></li>
+                            </ul>
+                        </li>
+                        @*<li><b><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Index">Contratos</a></b></li>*@
+                        <li class="dropdown">
+                            <b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador"><i class="bi bi-people-fill"></i>  Operadores</a></b>
+                            <ul>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador">Pesquisar por Operador</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaOperadorDistrito">Pesquisar por Distrito</a></li>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Top10Operador">Top 10</a></li>
+                            </ul>
+                        </li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+
+                    @*<i class="bi bi-list mobile-nav-toggle"></i>*@
+
+                </nav><!-- .navbar -->
+            </div>
+
+
+        </header>
+        @*<div class="d-flex flex-column justify-content-center">
+
+            <nav id="navbar" class="navbar nav-menu">
+                <ul>
+                    <li class=" dropdown-menu">
+                        <a class="nav-link scrollto"><i class="bx bx-user"></i> <span>Clientes</span></a>
+                        <ul> <li class=" dropdown-item esc"> <a href=""> Teste1</a></li>
+                        </ul>
+</li>      
+                  
+                   
+                    <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Clientes</span></a></li>
+                    <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Operadores</span></a></li>
+                    <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Pacotes</span></a></li>
+                    <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Promoções</span></a></li>
+                    <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Reclamações</span></a></li>
+                </ul>
+            </nav>
+        </div>*@
+
+
+
+
+
         <!-- End Header -->
         <!--sidebar start-->
-<!--<aside class="scrolled-offset">-->
-    @*<div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
-    </div>*@
-    <!--<div id="sidebar" class=" col-md-4">-->
+        <!--<aside class="scrolled-offset">-->
+        @*<div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>*@
+        <!--<div id="sidebar" class=" col-md-4">-->
         <!-- sidebar menu start-->
         <!--<ul class="sidebar-menu">
             <li>
@@ -275,7 +333,7 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                  
+
                     <li><a class="" href="buttons.html">Distritos</a></li>
                     <li><a class="" href="grids.html">Top 10</a></li>
                 </ul>
@@ -296,8 +354,8 @@
             </li>
         </ul>-->
         <!-- sidebar menu end-->
-    <!--</div>
-</aside>-->
+        <!--</div>
+        </aside>-->
         <!--sidebar end-->
 
 
@@ -319,12 +377,26 @@
                 <nav id="navbar" class="navba">
 
                     <ul>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                       <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index">Pacotes</a></li>
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index"><i class="bi bi-gift-fill"></i> Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a></b></li>
+
+                        <li class="dropdown"><b><a>Clientes</a></b>
+                                             <ul>
+                                                 <li>
+                                                     <a class="nav-link scrollto" asp-area="" asp-controller="" asp-action="CreateCliente">Novo Cliente</a>
+                                            
+                                                 </li>
+                                                 <li>
+                                                     <a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a>
+                                                 </li>
+
+
+                                             </ul>
+                        </li>
+      
                         <li class="dropdown">
-                            <b><a>Operadores</a></b>
+                            <b><a><i class="bi bi-people-fill"></i> Operadores</a></b>
                             <ul>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Contratos" asp-action="Top10Operador">Top 10</a></li>
                             </ul>
@@ -346,6 +418,24 @@
                 </nav><!-- .navbar -->
             </div>
         </header>
+
+         @*<div class="d-flex flex-column justify-content-center">
+
+        <nav id="navbar" class="navbar nav-menu">
+            <ul>
+                <li><a href="#hero" class="nav-link scrollto dropdown active"><i class="bx bx-home"></i> <span>Home</span></a>
+                    <ul>
+                        <li class=" nav-link dropdown-item"> <a href=""> Teste1</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Clientes</span></a></li>
+                <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-user-plus"></i> <span>Operadores</span></a></li>
+                <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Pacotes</span></a></li>
+                <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Promoções</span></a></li>
+                <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Reclamações</span></a></li>
+            </ul>
+        </nav>
+    </div>*@
     }<!-- End Header -->
     @*AQUI*@
 
@@ -526,6 +616,6 @@
     @RenderSection("Scripts", required: false)
 
 
-   
+
 </body>
 </html>
