@@ -2028,7 +2028,7 @@ opacity:0;
     height: 40px;
     width: auto;
     border-radius: 15px;
-    background: linear-gradient( 2deg, rgb(66 255 229) 0%, rgb(152 255 238) 39%, rgb(0 255 208) 72%);
+    background: linear-gradient( 2deg, rgb(0 212 181 / 88%) 0%, rgb(56 255 208) 39%, rgb(157 245 225) 72%);
     position: inherit;
     z-index: 1;
     transition: all 0.4s;
@@ -2043,7 +2043,7 @@ opacity:0;
         width: 100%;
         height: 100%;
         border-radius: 15px;
-        background: linear-gradient( 2deg, rgb(66 255 229) 0%, rgb(152 255 238) 39%, rgb(0 255 208) 72%);
+        background: linear-gradient( 2deg, rgb(0 212 181 / 88%) 0%, rgb(56 255 208) 39%, rgb(157 245 225) 72%);
         top: 0;
         left: 0;
         opacity: 1;
@@ -2054,7 +2054,7 @@ opacity:0;
     .btnsearch:hover {
         color: #212529;
         text-decoration: none;
-        background: linear-gradient( 2deg, rgb(115 208 195) 0%, rgb(135 253 255) 39%, rgb(57 247 212) 72%);
+        background: linear-gradient( 2deg, rgb(4 202 202) 0%, rgb(51 255 212) 39%, rgb(131 255 226) 72%);
     }
 
 .btninfo4 {
@@ -2068,12 +2068,11 @@ opacity:0;
     height: 40px;
     width: auto;
     border-radius: 15px;
-    background: linear-gradient( 180deg, rgb(218 239 239) 0%, rgb(213 248 238) 39%, rgb(189 241 231) 72%);
+    background: linear-gradient( 183deg, rgb(227 236 233) 0%, rgb(190 251 234) 39%, rgb(198 234 230) 72%);
     position: inherit;
     z-index: 1;
     transition: all 0.4s;
-    border: 1px solid #e6e6e6;
-    cursor: pointer;
+    border: 1px solid #c0fff3
 }
 
     .btninfo4::before {
@@ -2084,7 +2083,7 @@ opacity:0;
         width: 100%;
         height: 100%;
         border-radius: 15px;
-        background: linear-gradient( 180deg, rgb(218 239 232) 0%, rgb(213 243 238) 39%, rgb(189 241 231) 72%);
+        background: linear-gradient( 183deg, rgb(227 236 233) 0%, rgb(190 251 234) 39%, rgb(198 234 230) 72%);
         top: 0;
         left: 0;
         opacity: 1;
@@ -2096,5 +2095,5 @@ opacity:0;
         display: inline-block;
         color: #5d5d5d;
         border: 1px solid #95f1eb;
-        background: linear-gradient( 180deg, rgb(227 236 233) 0%, rgb(206 247 241) 39%, rgb(219 245 247) 72%);
+        background: linear-gradient( 180deg, rgb(227 236 233) 0%, rgb(196 255 239) 39%, rgb(176 255 251) 72%);
     }
