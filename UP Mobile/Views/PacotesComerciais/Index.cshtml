@@ -31,7 +31,7 @@
                                 <div class="box">
 
                                     <h2>@Html.DisplayFor(modelItem => item.Nome)</h2>
-                                    <h4><sup>€</sup>@Html.DisplayFor(modelItem => item.PrecoBase)<span> / mês</span></h4><hr />
+                                    <h4><sup>€</sup>@Html.DisplayFor(modelItem => item.PrecoBase)<span> / mês</span></h4>
                                     <ul>
                                         @if (item.Internet != null)
                                         {
@@ -69,15 +69,15 @@
 
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                        <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn btninfo3">Editar</a>
                                     }
                                     @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
                                     {
-                                        <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                        <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn btninfo3">Detalhes</a>
                                     }
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn btn-danger">Apagar</a>
+                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn btndanger">Apagar</a>
                                     }
 
                                 </div>
