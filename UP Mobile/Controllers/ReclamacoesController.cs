@@ -22,7 +22,7 @@ namespace UP_Mobile.Controllers
         // GET: Reclamacoes
         public async Task<IActionResult> Index(int? id)
         {
-            var uPMobileContext = _context.Reclamacao.Where(r=>r.IdCliente==id)
+            var uPMobileContext = _context.Reclamacao.Where(r => r.IdCliente == id)
                 .Include(r => r.IdClienteNavigation).Include(r => r.IdEstadoNavigation).Include(r => r.IdOperadorNavigation);
             return View(await uPMobileContext.ToListAsync());
         }
@@ -52,6 +52,50 @@ namespace UP_Mobile.Controllers
             var uPMobileContext = _context.Reclamacao.Where(r => (r.IdEstadoNavigation == estadotratamento) && (r.IdOperador == idooperador))
                 .Include(r => r.IdClienteNavigation).Include(r => r.IdEstadoNavigation).Include(r => r.IdOperadorNavigation);
             return View(await uPMobileContext.ToListAsync());
+        }
+
+        public IActionResult Estatisticas()
+        {
+            Estado estadoaberto = _context.Estado.FirstOrDefault(e => e.Nome == "Em Aberto");
+            Estado estadotratamento = _context.Estado.FirstOrDefault(e => e.Nome == "Em tratamento");
+            Estado estadoconcluido = _context.Estado.FirstOrDefault(e => e.Nome == "Concluído");
+
+            var aberto = _context.Reclamacao.Where(r => r.IdEstadoNavigation == estadoaberto)
+                .Include(r => r.IdEstadoNavigation).Count();
+
+            var tratamento = _context.Reclamacao.Where(r => r.IdEstadoNavigation == estadotratamento)
+                .Include(r => r.IdEstadoNavigation).Count();
+
+            var todosconcluidos = _context.Reclamacao.Where(r => r.IdEstadoNavigation == estadoconcluido)
+                .Include(r => r.IdEstadoNavigation);
+
+            var concluido = todosconcluidos.Count();
+
+            var total = 0;
+            var media = 0;
+            var dif = 0;
+            int DaysBetween(DateTime d1, DateTime d2)
+            {
+                TimeSpan span = d2.Subtract(d1);
+                return (int)span.TotalDays;
+            }
+
+            foreach (var item in todosconcluidos)
+            {
+                    
+                    total += 1;
+                    DateTime resol = (DateTime)item.DataResolucao;
+                    DateTime abert = (DateTime)item.DataAbertura;
+                    dif += DaysBetween(abert, resol);
+                    media = dif / total;
+            }
+
+            ViewData["Aberto"] = aberto;
+            ViewData["Tratamento"] = tratamento;
+            ViewData["Concluido"] = concluido;
+            ViewData["Media"] = media;
+
+            return View();
         }
 
 
@@ -122,7 +166,7 @@ namespace UP_Mobile.Controllers
 
             var reclamacao = await _context.Reclamacao.FindAsync(id);
             string assunto = reclamacao.Assunto;
-            string novoassunto = "Cliente não satisfeito com a resolução da Reclamação nº " + id 
+            string novoassunto = "Cliente não satisfeito com a resolução da Reclamação nº " + id
                                 + ", com o assunto: (" + assunto + ")";
             ViewData["Assunto"] = novoassunto;
 

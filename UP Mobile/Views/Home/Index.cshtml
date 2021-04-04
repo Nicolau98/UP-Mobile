@@ -542,7 +542,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
                                 <div class="card1">
                                     <h3 class="card-header">Clientes</h3>
                                     <div class="card-body">
@@ -555,7 +555,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
                                 <div class="card1">
                                     <h3 class="card-header">Operadores</h3>
                                     <div class="card-body">
@@ -563,6 +563,24 @@
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="IndexOperador" class="btninfo1">Ver Todos</a>
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="PesquisaOperadorDistrito" class="btninfo1">Ver por Distrito</a>
                                         <a asp-area="" asp-controller="Contratos" asp-action="Top10Operador" class="btninfo1">Top 10</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                                <div class="card1">
+                                    <h3 class="card-header">Reclamações</h3>
+                                    <div class="card-body">
+                                        <p class="card-text">Informações sobre as Reclamações</p>
+                                        <a asp-controller="Reclamacoes" asp-action="Estatisticas" class="btninfo1">Estatísticas</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                                <div class="card1">
+                                    <h3 class="card-header">Faturação</h3>
+                                    <div class="card-body">
+                                        <p class="card-text" >Informações sobre Faturação</p>
+                                        <a asp-controller="Faturas" asp-action="CriarFaturas" class="btninfo1">Gerar Faturas</a>
                                     </div>
                                 </div>
                             </div>
