@@ -84,13 +84,13 @@ namespace UP_Mobile.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var verificadata = faturacao.Data.Month;
+                var verificadata = faturacao.Data.Month;
 
-                //if (DataFaturaExists(verificadata))
+                if (!DataFaturaExists(verificadata))
 
-                //{
+                {
 
-                foreach (var contrato in _context.Contrato.ToList())
+                    foreach (var contrato in _context.Contrato.ToList())
                 {
                     Fatura fatura = new Fatura
                     {
@@ -105,10 +105,10 @@ namespace UP_Mobile.Controllers
                     await _context.SaveChangesAsync();
                 }
                 return RedirectToAction(nameof(Index));
-                //}
+                }
 
 
-                //ModelState.AddModelError("Data", "Já existe faturação para esse mês");
+                ModelState.AddModelError("Data", "Já existe faturação para esse mês");
 
             }
 
