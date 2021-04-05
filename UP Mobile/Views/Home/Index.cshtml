@@ -46,19 +46,18 @@
                             <!-- Content -->
                             <div class="text-center white-text mx-5 wow fadeIn">
                                 <h1 class="h1a">
-                                    <strong>Learn Bootstrap 4 with MDB</strong>
+                                    <strong>Alguém disse UP?</strong>
                                 </h1>
 
                                 <p class="p1a">
                                     <strong>
-                                        The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written versions
-                                        available. Create your own, stunning website.
+                                        Quem é UPmobile não precisa de mais nada
                                     </strong>
                                 </p>
 
                                 <a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" class="btninfo2">
-                                    Start free tutorial
-                                    <i class="fa fa-graduation-cap ml-2"></i>
+                                    Aderir
+                                    <i class="bx bxs-shopping-bag-alt ml-2"></i>
                                 </a>
                             </div>
                         </div>
@@ -397,14 +396,51 @@
 
 @if (User.IsInRole("Operador"))
 {
-    <main id="main">
-        <section>
-            <div class="container offset-3">
-                <section id="why-us" class="why-us">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
+<main id="main">
+
+
+    <!--<section id="why-us" class="why-us">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="box">
+                        <span><i class="bi bi-award-fill"></i></span>
+                        <h4>Ser UPmobile</h4>
+                        <p>A UPmobile valoriza o mérito e o empenho dos seus colaboradores. 365 dias a reconhecer o teu valor.  </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="box">
+                        <span><i class="fas fa-broadcast-tower fa-2x"></i></span>
+                        <h4>Muita Rede</h4>
+                        <p>A qualidade das redes 4G e 5G e Fibra da UP garantem uma fidelidade e estabilidade superior</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="box">
+                        <span><i class="fas fa-gift fa-2x"></i></span>
+                        <h4> Promoções</h4>
+                        <p>Parece que na UP estamos sempre em época de saldos...Ou pelo menos em alguma black friday constante</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>--><!-- End Why Us Section -->
+
+
+    <section>
+        <div class="container offset-3">
+            <section id="why-us" class="why-us">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                        <div class="card">
                                     <h3 class="card-header" style="background-color:#55ECC3">Pacotes Comerciais</h3>
                                     <div class="card-body">
                                         <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
@@ -413,7 +449,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="col-lg-4 mt-4 mt-lg-0">
                                 <div class="card">
                                     <h3 class="card-header">Promoções</h3>
                                     <div class="card-body">
@@ -423,17 +459,17 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                                <div class="card">
-                                    <h3 class="card-header">Pacote Comercial / Promoção</h3>
-                                    <div class="card-body">
-                                        <p class="card-text">Adicionar Promoção a Pacote Comercial</p>
-                                        <a asp-area="" asp-controller="PacotesComerciaisPromocao" asp-action="Index" class="btninfo1">Consultar</a>
-                                    </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                            <div class="card">
+                                <h3 class="card-header">Pacote Comercial / Promoção</h3>
+                                <div class="card-body">
+                                    <p class="card-text">Adicionar Promoção a Pacote Comercial</p>
+                                    <a asp-area="" asp-controller="PacotesComerciaisPromocao" asp-action="Index" class="btninfo1">Consultar</a>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                        <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
                                 <div class="card">
                                     <h3 class="card-header">Conteúdos Extra</h3>
                                     <div class="card-body">
@@ -460,38 +496,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 mt-4 mt-lg-0">
-                                <div class="card">
-                                    <h3 class="card-header">Reclamações</h3>
-                                    <div class="card-body">
-                                        <p class="card-text">Informações sobre as Reclamações</p>
-                                        <a asp-controller="Reclamacoes" asp-action="EmAberto" class="btninfo1"> Reclamações em aberto</a>
-                                        <a asp-controller="Reclamacoes" asp-action="EmTratamento" class="btninfo1"> Reclamações em tratamento</a>
-                                    </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="card">
+                                <h3 class="card-header">Reclamações</h3>
+                                <div class="card-body">
+                                    <p class="card-text">Informações sobre as Reclamações</p>
+                                    <a asp-controller="Reclamacoes" asp-action="EmAberto" class="btninfo1"> Reclamações em aberto</a>
+                                    <a asp-controller="Reclamacoes" asp-action="EmTratamento" class="btninfo1"> Reclamações em tratamento</a>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
 
-                </section>
 
-                <div class="row">
-                    <div class="col-lg-12 mt-4 mt-lg-0">
-                        <div class="card">
-                            <h3 class="card-header">Os seus Números</h3>
-                            <div class="card-body">
-                                <p class="card-text">Número de contratos efectuados: @ViewBag.contacontratos</p>
-                                <p class="card-text">Total Faturado: @ViewBag.totalfaturacao €</p>
-                            </div>
+                </div>
+
+            </section>
+
+            <div class="row">
+                <div class="col-lg-12 mt-4 mt-lg-0">
+                    <div class="card">
+                        <h3 class="card-header">Os seus Números</h3>
+                        <div class="card-body">
+                            <p class="card-text">Número de contratos efectuados: @ViewBag.contacontratos</p>
+                            <p class="card-text">Total Faturado: @ViewBag.totalfaturacao €</p>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </section>
-    </main>
+
+        </div>
+    </section>
+
+
+</main>
 
 }
 
