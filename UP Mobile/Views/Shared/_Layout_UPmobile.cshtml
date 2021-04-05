@@ -257,6 +257,7 @@
                         <li class="dropdown">
                             <b><a class="nav-link scrollto" ><i class="bi bi-person-fill"></i>  Clientes</a></b>
                             <ul>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="CreateCliente">Novo Cliente</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Pesquisar por Cliente</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito">Pesquisar por Distrito</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="ClienteMaisAntigo">Mais Antigos</a></li>
@@ -330,22 +331,7 @@
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index"><i class="bi bi-bag-fill"></i>Pacotes</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index"><i class="bi bi-gift-fill"></i> Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index"><i class="bi bi-star-fill"></i>Extras</a></li>
-
-                        <li class="dropdown">
-                            <b><a><i class="bi bi-person-fill"></i>Clientes</a></b>
-                            <ul>
-                                <li>
-                                    <a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="CreateCliente">Novo Cliente</a>
-
-                                </li>
-                                <li>
-                                    <a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a>
-                                </li>
-
-
-                            </ul>
-                        </li>
-
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente"><i class="bi bi-person-fill"></i>Clientes</a></li>
                         <li class="dropdown">
                             <b><a><i class="bi bi-people-fill"></i> Operadores</a></b>
                             <ul>
