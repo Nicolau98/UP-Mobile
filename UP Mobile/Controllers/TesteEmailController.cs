@@ -37,6 +37,23 @@ namespace AspCore_Email.Controllers
             }
             return View(email);
         }
+
+        public IActionResult EnviarFaturas(EmailModel email)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    TesteEnvioEmail(email.Destino, email.Assunto, email.Mensagem).GetAwaiter();
+                    return RedirectToAction("EmailEnviado");
+                }
+                catch (Exception)
+                {
+                    return RedirectToAction("EmailFalhou");
+                }
+            }
+            return View(email);
+        }
         public async Task TesteEnvioEmail(string email, string assunto, string mensagem)
         {
             try

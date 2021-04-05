@@ -13,9 +13,9 @@
 
             @if (User.IsInRole("Administrador"))
             {
-                <p>
+                @*<p>
                     <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Novo Pacote Comercial</a>
-                </p>
+                </p>*@
             }
 
             @*COMEÇA AQUI*@
@@ -31,26 +31,26 @@
                                 <div class="box">
 
                                     <h2>@Html.DisplayFor(modelItem => item.Nome)</h2>
-                                    <h4><sup>€</sup>@Html.DisplayFor(modelItem => item.PrecoBase)<span> / mês</span></h4><hr />
+                                    <h4><sup>€</sup>@Html.DisplayFor(modelItem => item.PrecoBase)<span> / mês</span></h4>
                                     <ul>
                                         @if (item.Internet != null)
                                         {
-                                            <li><h5>@Html.DisplayNameFor(model => item.Internet)</h5></li>
+                                            <li><h5><i class="bx bx-wifi"></i>@Html.DisplayNameFor(model => item.Internet)</h5></li>
                                             <li>@Html.DisplayFor(modelItem => item.Internet)</li>
                                         }
                                         @if (item.Tv != null)
                                         {
-                                            <li><h5>@Html.DisplayNameFor(model => item.Tv)</h5></li>
+                                            <li><h5><i class="bx bx-tv"></i>@Html.DisplayNameFor(model => item.Tv)</h5></li>
                                             <li>@Html.DisplayFor(modelItem => item.Tv)</li>
                                         }
                                         @if (item.Voz != null)
                                         {
-                                            <li><h5>@Html.DisplayNameFor(model => item.Voz)</h5></li>
+                                            <li><h5><i class="bx bx-phone"></i>@Html.DisplayNameFor(model => item.Voz)</h5></li>
                                             <li>@Html.DisplayFor(modelItem => item.Voz)</li>
                                         }
                                         @if (item.Movel != null)
                                         {
-                                            <li><h5>@Html.DisplayNameFor(model => item.Movel)</h5></li>
+                                            <li><h5><i class="bx bx-mobile-alt"></i>@Html.DisplayNameFor(model => item.Movel)</h5></li>
                                             <li>@Html.DisplayFor(modelItem => item.Movel)</li>
                                         }
                                     </ul>
@@ -69,15 +69,15 @@
 
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                        <a asp-action="Edit" asp-route-id="@item.IdPacote" type="button" class="btn btninfo3">Editar</a>
                                     }
                                     @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
                                     {
-                                        <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                        <a asp-action="Details" asp-route-id="@item.IdPacote" type="button" class="btn btninfo3">Detalhes</a>
                                     }
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn btn-danger">Apagar</a>
+                                        <a asp-action="Delete" asp-route-id="@item.IdPacote" type="button" class="btn btndanger">Apagar</a>
                                     }
 
                                 </div>

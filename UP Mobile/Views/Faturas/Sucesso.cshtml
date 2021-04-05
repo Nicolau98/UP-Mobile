@@ -1,0 +1,23 @@
+﻿@model Fatura
+
+@{
+    ViewData["Title"] = "Sucesso";
+}
+
+<main id="main">
+    <section>
+        <div class="container">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.Title</h5>
+                    <p class="card-text">@ViewBag.Mensagem</p>
+                </div>
+            </div>
+            <div>
+                <a class="btn btn-primary" asp-controller="Home" asp-action="Index">
+                    OK
+                </a>
+            </div>
+        </div>
+    </section>
+</main>

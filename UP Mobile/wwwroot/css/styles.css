@@ -88,9 +88,9 @@
     }
 
         .navba a i {
-            font-size: 12px;
+            font-size: 14px;
             line-height: 0;
-            margin-left: 5px;
+            margin-right: 5px;
         }
 
         .navba a:hover, .navba .active, .navba li:hover > a {
@@ -433,6 +433,7 @@ table.table-hover tbody tr td:hover {
         transition: 0.5s;
         margin-top: 10px;
         border: 2px solid #fff;
+        border-radius:20px;
         color: #fff;
     }
 
@@ -599,7 +600,7 @@ fieldset:disabled a.btnaccount {
         transition: 0.5s;
         margin-top: 10px;
         border: 2px solid #52ffdf;
-        border-radius: 10px;
+        border-radius: 20px;
         color: #fff;
     }
 
@@ -616,8 +617,9 @@ table1 {
     table-layout: fixed;
     background: #f9f9f9;
     margin-top: 50px;
-    padding-top:30px;
-
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .tbl-header {

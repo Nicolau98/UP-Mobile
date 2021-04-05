@@ -18,25 +18,26 @@
                         <a asp-action="Create" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Conteudo Extra</a>
                     </p>
                 }
-                <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                    <div class="card-body">
-                        <h5 class="card-title">Pesquisa</h5>
-                        <form asp-action="Index" method="get">
-                            <div class="form-group">
-                                <label for="nomePesquisar" class="control-label">Nome do Conteudo Extra</label>
-                                <input name="nomePesquisar" class="form-control mb-3" type="search" value="@Model.NomePesquisar" />
-                            </div>
+        <div class="card2 mb-4">
+            <div class="card2-body">
+                <h5 class="card2-title"><i class="bx bx-search-alt"></i>Pesquisa</h5>
+                <form asp-action="Index" method="get">
+                    <div class="form-group justify-content-between">
+                        <label for="nomePesquisar" class="control-label offset-3">Nome do Conteudo Extra</label>
+                        <input name="nomePesquisar" class="form-control mb-3 formcontrolc2 col-md-4" type="search" value="@Model.NomePesquisar" />
 
-                            <div class="form-group">
-                                <input type="submit" value="Pesquisar" class="btn border" style="background-color: #55ecc3;" /> |
-                                <a asp-action="Index" class="btn border" style="background-color: #55ecc3;">Limpar</a>
-                            </div>
-                        </form>
+
+                        @*<div class="form-group">*@
+                        <input type="submit" value="Pesquisar" class="btn btnsearch ml-5"  /> 
+                        <a asp-action="Index" class="btn btnsearch" >Limpar</a>
+                        @*</div>*@
                     </div>
-                </div>
+                </form>
+            </div>
+        </div>
 
-                <table class="table table-bordered">
-                    <thead style="background-color: #e3f2fd;">
+                <table class="table table1">
+                    <thead class="tbl-header">
                         <tr>
                             <th>
                                 @Html.DisplayNameFor(model => model.ConteudoExtra[0].IdConteudo)
@@ -57,7 +58,7 @@
                                 @Html.DisplayNameFor(model => model.ConteudoExtra[0].Ativo)
                             </th>
                             <th>
-                                Ações Disponíveis
+              
                             </th>
                         </tr>
                     </thead>
@@ -86,13 +87,13 @@
                                 <td>
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                        <a asp-action="Edit" asp-route-id="@item.IdConteudo" type="button" class="btn btninfo3" >Editar</a>
                                         <h1></h1>}
-                                    <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    <a asp-action="Details" asp-route-id="@item.IdConteudo" type="button" class="btn btninfo3" >Detalhes</a>
                                     <h1></h1>
                                     @if (User.IsInRole("Administrador"))
                                     {
-                                        <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn btn-danger">Apagar</a>
+                                        <a asp-action="Delete" asp-route-id="@item.IdConteudo" type="button" class="btn btndanger">Apagar</a>
                                     }
                                 </td>
 

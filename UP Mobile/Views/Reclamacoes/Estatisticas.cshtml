@@ -1,0 +1,56 @@
+﻿@model IEnumerable<UP_Mobile.Models.Contrato>
+
+@{
+    ViewData["Title"] = "Estatísticas";
+}
+
+
+<main id="main">
+    <section>
+
+        <div class="container">
+
+            <h1>Estatísticas</h1>
+
+            <div class="row mb-2" >
+                <div class="col-lg-4">
+                    <div class="card1">
+                        <h3 class="card-header text-center">Reclamações em Aberto</h3>
+                        <div class="card-body">
+                            <h2 class="card-text text-center">@ViewBag.Aberto</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card1">
+                        <h3 class="card-header text-center">Reclamações em Tratamento</h3>
+                        <div class="card-body">
+                            <h2 class="card-text text-center">@ViewBag.Tratamento</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card1">
+                        <h3 class="card-header text-center">Reclamações Concluídas</h3>
+                        <div class="card-body">
+                            <h2 class="card-text text-center">@ViewBag.Concluido</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card1">
+                        <h3 class="card-header text-center">Média de Resolução</h3>
+                        <div class="card-body">
+                            <h2 class="card-text text-center">@ViewBag.Media dias</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>

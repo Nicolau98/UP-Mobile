@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspCore_Email.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,12 @@ namespace UP_Mobile.Controllers
     public class FaturasController : Controller
     {
         private readonly UPMobileContext _context;
+        private readonly IEmailSender _emailSender;
 
-        public FaturasController(UPMobileContext context)
+        public FaturasController(UPMobileContext context, IEmailSender emailSender)
         {
             _context = context;
+            _emailSender = emailSender;
         }
 
         // GET: Faturas
@@ -91,21 +94,31 @@ namespace UP_Mobile.Controllers
                 {
 
                     foreach (var contrato in _context.Contrato.ToList())
-                {
-                    Fatura fatura = new Fatura
                     {
-                        IdContrato = contrato.IdContrato,
-                        Data = faturacao.Data,
-                        DataLimitePagamento = faturacao.Data.AddDays(15),
-                        Descricao = "Fatura referente ao Contrato nº " + contrato.IdContrato,
-                        PrecoTotal = contrato.PrecoTotal
-                     
-                    };
-                    _context.Add(fatura);
-                    await _context.SaveChangesAsync();
+
+                        Fatura fatura = new Fatura
+                        {
+                            IdContrato = contrato.IdContrato,
+                            Data = faturacao.Data,
+                            DataLimitePagamento = faturacao.Data.AddDays(15),
+                            Descricao = "Fatura referente ao Contrato nº " + contrato.IdContrato,
+                            PrecoTotal = contrato.PrecoTotal
+
+                        };
+                        _context.Add(fatura);
+                        await _context.SaveChangesAsync();
+                        var cliente = _context.Utilizador.SingleOrDefault(c => c.IdUtilizador == contrato.IdCliente);
+                        var emailcliente = cliente.Email;
+                        var assunto = ": "+fatura.Descricao;
+                        var mensagem = "O valor da sua fatura de " + fatura.Data + " é de " + fatura.PrecoTotal + " Euros. " +
+                            "O seu pagamento deve ser realizado até " + fatura.DataLimitePagamento;
+                        await _emailSender.SendEmailAsync(emailcliente, assunto, mensagem);
+                    }
+                    ViewBag.Mensagem = "Faturas geradas e anviado email para o Cliente com sucesso.";
+                    return View("Sucesso");
                 }
                 return RedirectToAction(nameof(Index));
-                }
+                //}
 
 
                 ModelState.AddModelError("Data", "Já existe faturação para esse mês");

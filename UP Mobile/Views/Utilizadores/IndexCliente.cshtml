@@ -13,9 +13,7 @@
 
             <h1>Lista de Clientes</h1>
 
-            <p>
-                <a asp-action="CreateCliente" type="button" class="btn border-info" style="background-color: #e3f2fd;">Criar Cliente</a>
-            </p>
+    
 
             <div class="card2 mb-4">
                 <div class="card2-body">
@@ -27,8 +25,8 @@
 
 
                             @*<div class="form-group">*@
-                            <input type="submit" value="Pesquisar" class="btn border ml-5" style="background-color: #55ecc3;" /> |
-                            <a asp-action="IndexCliente" class="btn border" style="background-color: #55ecc3;">Limpar</a>
+                            <input type="submit" value="Pesquisar" class="btn btnsearch ml-5"  /> 
+                            <a asp-action="IndexCliente" class="btn btnsearch" >Limpar</a>
                             @*</div>*@
                         </div>
                     </form>
@@ -116,16 +114,16 @@
 
                                 @if (User.IsInRole("Administrador"))
                                 {
-                                    <a asp-action="Edit" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Editar</a>
+                                    <a asp-action="Edit" asp-route-id="@item.IdUtilizador" type="button" class="btn btninfo3" >Editar</a>
                                     <h1></h1>
-                                    <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn btninfo3" >Detalhes</a>
                                     <h1></h1>
-                                    <a asp-action="Delete" asp-route-id="@item.IdUtilizador" type="button" class="btn btn-danger">Apagar</a>
+                                    <a asp-action="Delete" asp-route-id="@item.IdUtilizador" type="button" class="btn btndanger">Apagar</a>
 
                                 }
                                 else
                                 {
-                                    <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn border" style="background-color: #55ecc3;">Detalhes</a>
+                                    <a asp-action="Details" asp-route-id="@item.IdUtilizador" type="button" class="btn btninfo4" >Detalhes</a>
                                 }
                             </td>
                         </tr>
