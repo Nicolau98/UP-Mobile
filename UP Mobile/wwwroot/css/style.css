@@ -410,7 +410,7 @@ section {
 
     .why-us .box {
         padding: 50px 30px;
-        box-shadow: 0px 2px 15px rgb(143 245 175);
+        box-shadow: 0px 2px 15px rgb(170 255 228);
         transition: all ease-in-out 0.3s;
     }
 
@@ -439,19 +439,21 @@ section {
 
         .why-us .box:hover {
             background: #4a9a9c;
-            box-shadow: 10px 15px 30px rgb(122 254 215);
+            box-shadow: 10px 15px 30px rgb(159 255 225);
             background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(209,251,245,0.938) 36%, rgba(162,255,221,0.80) 100%);
- 
         }
 
-.why-us .box:hover span, .why-us .box:hover h4, .why-us .box:hover p {
-  color: #00afb1;
-}
+            .why-us .box:hover span, .why-us .box:hover h4{
+                color: #00b5a5;
+            }
 
-/*--------------------------------------------------------------
+            .why-us .box:hover p {
+                color: #000;
+            }
+    /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
-.clients {
+    .clients {
     background: #55ECC3;
     padding: 25px 0;
     text-align: center;
