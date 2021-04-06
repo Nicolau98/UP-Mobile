@@ -51,8 +51,9 @@
 
                                 <p class="p1a">
                                     <strong>
-                                        Quem é UPmobile não precisa de mais nada
-                                    </strong>
+
+                                        Quem é UPmobile não precisa de mais nada!
+             </strong>
                                 </p>
 
                                 <a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" class="btninfo2">
@@ -396,51 +397,16 @@
 
 @if (User.IsInRole("Operador"))
 {
-<main id="main">
 
+    <main id="main">
+        <section>
+            <div class="container">
+                <section id="why-us" class="why-us">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card">
 
-    <!--<section id="why-us" class="why-us">
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-lg-4" data-aos="fade-up">
-                    <div class="box">
-                        <span><i class="bi bi-award-fill"></i></span>
-                        <h4>Ser UPmobile</h4>
-                        <p>A UPmobile valoriza o mérito e o empenho dos seus colaboradores. 365 dias a reconhecer o teu valor.  </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
-                    <div class="box">
-                        <span><i class="fas fa-broadcast-tower fa-2x"></i></span>
-                        <h4>Muita Rede</h4>
-                        <p>A qualidade das redes 4G e 5G e Fibra da UP garantem uma fidelidade e estabilidade superior</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-                    <div class="box">
-                        <span><i class="fas fa-gift fa-2x"></i></span>
-                        <h4> Promoções</h4>
-                        <p>Parece que na UP estamos sempre em época de saldos...Ou pelo menos em alguma black friday constante</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>--><!-- End Why Us Section -->
-
-
-    <section>
-        <div class="container offset-3">
-            <section id="why-us" class="why-us">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                        <div class="card">
                                     <h3 class="card-header" style="background-color:#55ECC3">Pacotes Comerciais</h3>
                                     <div class="card-body">
                                         <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
@@ -537,7 +503,7 @@
 {
     <main id="main">
         <section>
-            <div class="container offset-3">
+            <div class="container">
                 <section id="why-us" class="why-us">
                     <div class="container">
                         <div class="row">
@@ -585,6 +551,7 @@
                                     <h3 class="card-header">Clientes</h3>
                                     <div class="card-body">
                                         <p class="card-text">Aceder aos clientes</p>
+                                        <a asp-area="" asp-controller="Utilizadores" asp-action="CreateCliente" class="btninfo1">Criar Novo</a>
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente" class="btninfo1">Ver Todos</a>
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito" class="btninfo1">Ver por Distrito</a>
                                         <a asp-area="" asp-controller="Utilizadores" asp-action="ClienteDistritoMaisAntigo" class="btninfo1">Mais Antigos por Distrito</a>

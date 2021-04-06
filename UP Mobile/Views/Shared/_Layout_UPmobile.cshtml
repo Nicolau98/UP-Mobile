@@ -175,15 +175,27 @@
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index">Extras</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Home" asp-action="Main">5G</a></li>
-                        <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="DetailsPessoaisCliente">My UPmobile&nbsp;&nbsp;</a></b></li>
+
+
+                        <li class="dropdown"><a class="nav-link scrollto">My UPMobile</a>
+
+                            <ul>
+                                <li><b><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="DetailsPessoaisCliente">My UPmobile&nbsp;&nbsp;</a></b></li>
+                                <li class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Manage/ChangePassword" ><a>Acesso UPmobile</a></li>
+
+                            </ul>
+
+                        </li>
+
+
                         <partial name="_LoginPartial" />
                         @*<li class="dropdown">
-                                <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Cliente&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
-                                <ul>
-                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
-                                    <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
-                                </ul>
-                            </li>*@
+            <a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login"><b><span>Área Cliente&nbsp;&nbsp;</span><i class="far fa-user"></i></b></a>
+            <ul>
+                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                <li><a class="nav-link scrollto" asp-area="Identity" asp-page="/Account/Register">Registo</a></li>
+            </ul>
+        </li>*@
 
                     </ul>
 
@@ -257,6 +269,7 @@
                         <li class="dropdown">
                             <b><a class="nav-link scrollto" ><i class="bi bi-person-fill"></i>  Clientes</a></b>
                             <ul>
+                                <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="CreateCliente">Novo Cliente</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Pesquisar por Cliente</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="PesquisaClienteDistrito">Pesquisar por Distrito</a></li>
                                 <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="ClienteMaisAntigo">Mais Antigos</a></li>
@@ -330,22 +343,7 @@
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index"><i class="bi bi-bag-fill"></i>Pacotes</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index"><i class="bi bi-gift-fill"></i> Promoções</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index"><i class="bi bi-star-fill"></i>Extras</a></li>
-
-                        <li class="dropdown">
-                            <b><a><i class="bi bi-person-fill"></i>Clientes</a></b>
-                            <ul>
-                                <li>
-                                    <a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="CreateCliente">Novo Cliente</a>
-
-                                </li>
-                                <li>
-                                    <a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente">Clientes</a>
-                                </li>
-
-
-                            </ul>
-                        </li>
-
+                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente"><i class="bi bi-person-fill"></i>Clientes</a></li>
                         <li class="dropdown">
                             <b><a><i class="bi bi-people-fill"></i> Operadores</a></b>
                             <ul>

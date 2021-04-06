@@ -682,7 +682,7 @@ section {
         border-radius: 20px;
         display: inline-block;
         padding: 10px 40px;
-        color: #fff;
+        color: #1e2c35;
         transition: none;
         font-size: 14px;
         font-weight: 400;
@@ -1596,23 +1596,24 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
     }
 
 
-.modal {
-    
-}
-.modal-header {
-    background: rgba(148,250,235,0.61);
-   border-radius: 50px 50px 0px 0px;
-}
-
 .modal-content {
     border:1px solid #fff;
     border-radius:50px;
 
 }
+.modal-header {
+    background: rgb(25, 255, 170,  38%);
+    border-radius: 50px 50px 0px 0px;
+}
 
+
+.modaL-body {
+    padding: 25px;
+    font-size: 20px;
+}
 .modal-footer {
-    background: aquamarine;
-    border-radius:  0px 0px 50px 50px;
+    background: rgb(25, 255, 170, 38%);
+    border-radius: 0px 0px 50px 50px;
 }
 
 .modalbtn{
