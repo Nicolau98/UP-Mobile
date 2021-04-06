@@ -51,8 +51,9 @@
 
                                 <p class="p1a">
                                     <strong>
+
                                         Quem é UPmobile não precisa de mais nada!
-                                    </strong>
+             </strong>
                                 </p>
 
                                 <a target="_blank" href="https://mdbootstrap.com/bootstrap-tutorial/" class="btninfo2">
@@ -396,6 +397,7 @@
 
 @if (User.IsInRole("Operador"))
 {
+
     <main id="main">
         <section>
             <div class="container">
@@ -404,6 +406,7 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="card">
+
                                     <h3 class="card-header" style="background-color:#55ECC3">Pacotes Comerciais</h3>
                                     <div class="card-body">
                                         <p class="card-text">Ver lista dos pacotes comerciais disponíveis</p>
@@ -412,7 +415,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="col-lg-4 mt-4 mt-lg-0">
                                 <div class="card">
                                     <h3 class="card-header">Promoções</h3>
                                     <div class="card-body">
@@ -422,17 +425,17 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                                <div class="card">
-                                    <h3 class="card-header">Pacote Comercial / Promoção</h3>
-                                    <div class="card-body">
-                                        <p class="card-text">Adicionar Promoção a Pacote Comercial</p>
-                                        <a asp-area="" asp-controller="PacotesComerciaisPromocao" asp-action="Index" class="btninfo1">Consultar</a>
-                                    </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                            <div class="card">
+                                <h3 class="card-header">Pacote Comercial / Promoção</h3>
+                                <div class="card-body">
+                                    <p class="card-text">Adicionar Promoção a Pacote Comercial</p>
+                                    <a asp-area="" asp-controller="PacotesComerciaisPromocao" asp-action="Index" class="btninfo1">Consultar</a>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
+                        <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
                                 <div class="card">
                                     <h3 class="card-header">Conteúdos Extra</h3>
                                     <div class="card-body">
@@ -459,38 +462,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 mt-4 mt-lg-0">
-                                <div class="card">
-                                    <h3 class="card-header">Reclamações</h3>
-                                    <div class="card-body">
-                                        <p class="card-text">Informações sobre as Reclamações</p>
-                                        <a asp-controller="Reclamacoes" asp-action="EmAberto" class="btninfo1"> Reclamações em aberto</a>
-                                        <a asp-controller="Reclamacoes" asp-action="EmTratamento" class="btninfo1"> Reclamações em tratamento</a>
-                                    </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="card">
+                                <h3 class="card-header">Reclamações</h3>
+                                <div class="card-body">
+                                    <p class="card-text">Informações sobre as Reclamações</p>
+                                    <a asp-controller="Reclamacoes" asp-action="EmAberto" class="btninfo1"> Reclamações em aberto</a>
+                                    <a asp-controller="Reclamacoes" asp-action="EmTratamento" class="btninfo1"> Reclamações em tratamento</a>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
 
-                </section>
 
-                <div class="row">
-                    <div class="col-lg-12 mt-4 mt-lg-0">
-                        <div class="card">
-                            <h3 class="card-header">Os seus Números</h3>
-                            <div class="card-body">
-                                <p class="card-text">Número de contratos efectuados: @ViewBag.contacontratos</p>
-                                <p class="card-text">Total Faturado: @ViewBag.totalfaturacao €</p>
-                            </div>
+                </div>
+
+            </section>
+
+            <div class="row">
+                <div class="col-lg-12 mt-4 mt-lg-0">
+                    <div class="card">
+                        <h3 class="card-header">Os seus Números</h3>
+                        <div class="card-body">
+                            <p class="card-text">Número de contratos efectuados: @ViewBag.contacontratos</p>
+                            <p class="card-text">Total Faturado: @ViewBag.totalfaturacao €</p>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </section>
-    </main>
+
+        </div>
+    </section>
+
+
+</main>
 
 }
 
