@@ -453,14 +453,17 @@ section {
     /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
-    .clients {
-    background: #55ECC3;
+.clients {
+    background: linear-gradient(0deg, rgba(238,241,241,1) 0%, rgba(255,255,255,0.8575630935968137) 10%, rgba(255,255,255,0.8659664549413515) 65%, rgba(232,247,240,0.5382353625043768) 90%, rgba(214,233,225,0.6922969871542367) 100%);
     padding: 25px 0;
     text-align: center;
     color: white;
 }
 
-
+    .clients h3 {
+        color: #000;
+        font-weight:600;
+    }
 .clients img {
   width: 68%;
 /*  filter: grayscale(10);*/
@@ -1511,14 +1514,14 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
     border-radius: 0px 0px 15% 15%;
 }
 
-    .h1a {
-    color:blue;
+.h1a {
+    color: #7df9ed;
     margin-top: 290px;
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom:15px;
-
-    }
+    font-size: 32px;
+    font-weight: 800;
+    padding-top: 20px;
+    margin-left: -200px;
+}
 
     .p1a {
         color: white;
@@ -1529,22 +1532,21 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
     }
 
 .view1 {
-    background-image: url('../Content/assets/img/hero-bg.png');
+    background-image: linear-gradient(rgb(34, 34, 34, 0.1), rgba(2, 2, 2, 0.1)),url('../Content/assets/img/hero-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
 }
 
 .view2 {
-    background-image: url("../Content/assets/img/seriesfinal.jpg");
+    background-image: linear-gradient(rgb(34, 34, 34, 0.6), rgba(2, 2, 2, 0.5)), url("../Content/assets/img/promo.jpg");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     height: 100%;
 }
 
 .view3 {
-   
-    background-image: url("../Content/assets/img/technology.jpg");
+    background-image: linear-gradient(rgb(34, 34, 34, 0.6), rgba(2, 2, 2, 0.5)), url("../Content/assets/img/technology.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;

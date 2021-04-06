@@ -94,7 +94,8 @@
         }
 
         .navba a:hover, .navba .active, .navba li:hover > a {
-            background: #4fd6d9;
+            background: linear-gradient(0deg, rgb(156 255 255) 0%, rgb(204 255 241) 10%, rgb(246 255 251 / 60%) 65%, rgb(212 255 236) 90%, rgb(158 249 211) 100%);
+            color: #191919;
         }
 
     .navba .dropdown ul {
@@ -433,7 +434,7 @@
 --------------------------------------------------------------*/
 
 #header {
-    background: #ffffff;
+    background: linear-gradient(0deg, rgb(134 255 255) 0%, rgb(236 255 250) 10%, rgb(246 255 251) 65%, rgb(215 255 238) 90%, rgb(197 255 231) 100%);
     transition: all 0.5s;
     z-index: 997;
     height: 70px;
@@ -847,7 +848,7 @@ fieldset:disabled a.btnaccount {
 # Cth
 --------------------------------------------------------------*/
 .cth {
-    background: linear-gradient(rgb(34, 34, 34, 0.87), rgba(2, 2, 2, 0.6)), url("../Content/assets/img/promo.jpg") fixed center center;
+    background: linear-gradient(rgb(34, 34, 34, 0.6), rgba(2, 2, 2, 0.5)), url("../Content/assets/img/seriesfinal.jpg") fixed center center;
     background-size: cover;
     padding: 120px 0;
 }
