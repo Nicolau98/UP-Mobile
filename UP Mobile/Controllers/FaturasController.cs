@@ -114,19 +114,13 @@ namespace UP_Mobile.Controllers
                             "O seu pagamento deve ser realizado até " + fatura.DataLimitePagamento;
                         await _emailSender.SendEmailAsync(emailcliente, assunto, mensagem);
                     }
-                    ViewBag.Mensagem = "Faturas geradas e anviado email para o Cliente com sucesso.";
+                    ViewBag.Mensagem = "Faturas geradas e enviado email para o Cliente com sucesso.";
                     return View("Sucesso");
                 }
-                return RedirectToAction(nameof(Index));
-                //}
-
 
                 ModelState.AddModelError("Data", "Já existe faturação para esse mês");
 
             }
-
-
-
 
             return View(faturacao);
         }
