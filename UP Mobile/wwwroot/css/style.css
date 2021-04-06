@@ -673,10 +673,10 @@ section {
   text-decoration: line-through;
 }
 
-.pricing .box .btn-wrap {
-  padding: 15px;
-  text-align: center;
-}
+    .pricing .box .btn-wrap {
+        padding: 15px;
+        text-align: center;
+    }
 
     .pricing .box .btn-buy {
         border-radius: 20px;
