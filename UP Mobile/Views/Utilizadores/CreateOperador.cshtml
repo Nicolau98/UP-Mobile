@@ -11,8 +11,8 @@
 
             <h1>Criar um Utilizador</h1>
 
-            <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                <div class="card-body">
+            <div class="card2 mb-4">
+                <div class="card2-body">
                     <div class="col-md">
                         <form asp-action="CreateOperador">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -20,12 +20,12 @@
                                 <div class="row">
                                     <div class="col">
                                         <label asp-for="Nome" class="control-label"></label>
-                                        <input asp-for="Nome" class="form-control" />
+                                        <input asp-for="Nome" class="form-control formcontrolc3" />
                                         <span asp-validation-for="Nome" class="text-danger"></span>
                                     </div>
                                     <div class="col">
                                         <label asp-for="DataNascimento" class="control-label"></label>
-                                        <input asp-for="DataNascimento" class="form-control" />
+                                        <input asp-for="DataNascimento" class="form-control formcontrolc3" />
                                         <span asp-validation-for="DataNascimento" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -33,36 +33,36 @@
                             <div class="row">
                                  <div class="col">
                                     <label asp-for="Morada" class="control-label"></label>
-                                    <input asp-for="Morada" class="form-control" />
+                                    <input asp-for="Morada" class="form-control formcontrolc3" />
                                     <span asp-validation-for="Morada" class="text-danger"></span>
                                 </div>
                                 <div class="col">
                                     <label asp-for="IdDistrito" class="control-label"></label>
-                                    <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                                    <select asp-for="IdDistrito" class="form-control formcontrolc3" asp-items="ViewBag.IdDistrito"></select>
                                     <span asp-validation-for="IdDistrito" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label asp-for="Contacto" class="control-label"></label>
-                                    <input asp-for="Contacto" class="form-control" />
+                                    <input asp-for="Contacto" class="form-control formcontrolc3" />
                                     <span asp-validation-for="Contacto" class="text-danger"></span>
                                 </div>
                                 <div class="col">
                                     <label asp-for="Email" class="control-label"></label>
-                                    <input asp-for="Email" class="form-control" />
+                                    <input asp-for="Email" class="form-control formcontrolc3" />
                                     <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label asp-for="NContribuinte" class="control-label"></label>
-                                    <input asp-for="NContribuinte" class="form-control" />
+                                    <input asp-for="NContribuinte" class="form-control formcontrolc3" />
                                     <span asp-validation-for="NContribuinte" class="text-danger"></span>
                                 </div>
                                 <div class="col">
                                     <label asp-for="NIdentificacao" class="control-label"></label>
-                                    <input asp-for="NIdentificacao" class="form-control" />
+                                    <input asp-for="NIdentificacao" class="form-control formcontrolc3" />
                                     <span asp-validation-for="NIdentificacao" class="text-danger"></span>
                                 </div>
                             </div>
