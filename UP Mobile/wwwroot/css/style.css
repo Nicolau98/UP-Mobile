@@ -497,13 +497,14 @@ section {
         margin: 0 auto;
         width: 64px;
         height: 64px;
-        background:#70dccd;
+        background: #47e4b9e8;
         transition: all .3s ease-out 0s;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: 20px;
         transform-style: preserve-3d;
+        border: 1PX SOLID #19ffdf;
     }
 
 .services .icon-box .icon i {
@@ -518,7 +519,7 @@ section {
             top: -8px;
             height: 100%;
             width: 100%;
-            background: #affff8;
+            background: #81fddb;
             transition: all .3s ease-out 0s;
             transform: translateZ(-1px);
         }
@@ -540,13 +541,14 @@ section {
 }
 
     .services .icon-box:hover {
-        background: #4FD6D9; /*QUADRADO GRANDE*/
+        background: linear-gradient( 176deg, rgb(214 255 233) 0%, rgb(254 255 255 / 80%) 100%);
         border-color: #4FD6D9;
         padding: 70px 20px 90px 20px;
     }
 
         .services .icon-box:hover .icon {
-            background: #86F1C5; /*QUADRADINHOS PEQUENOS*/
+            background: #0b9fa757;
+            BORDER: 1PX SOLID #00ffc5;
         }
 
 .services .icon-box:hover .icon i {
@@ -554,11 +556,11 @@ section {
 }
 
             .services .icon-box:hover .icon::before {
-                background: #fff; /*TRAS DOS QUADRADINHOS PEQUENOS*/
+                background: #8bf9cb; /*TRAS DOS QUADRADINHOS PEQUENOS*/
             }
 
         .services .icon-box:hover h4 a, .services .icon-box:hover p {
-            color: #FFF;
+            color: #000;
         }
 
 .fa-futbol, .fa-pepper-hot, .fa-tachometer-alt, .fa-globe, .fa-play-circle, .fa-landmark {
@@ -615,7 +617,7 @@ section {
 .pricing .box {
     padding: 20px;
     padding-top: 5px;
-    background: linear-gradient( 176deg, rgb(224 241 232) 0%, rgb(254 255 255 / 80%) 100%);
+    background: linear-gradient( 176deg, rgb(221 255 237) 0%, rgb(254 255 255 / 80%) 100%);
     text-align: center;
     border-radius: 40px;
     position: relative;
@@ -634,7 +636,7 @@ section {
 
     .pricing .box h4 {
         font-size: 42px;
-        color: #08dcd2;
+        color: #03a29bb8;
         font-weight: 600;
         font-family: "Open Sans", sans-serif;
         margin-bottom: 20px;
@@ -668,7 +670,7 @@ section {
 }
 
         .pricing .box ul i {
-            color: #00f5c8;
+            color: #0097af85;
             font-size: 18px;
             padding-right: 4px;
         }
@@ -730,7 +732,7 @@ section {
 
 .pricing1 .box {
     padding: 20px;
-    background: linear-gradient(336deg, rgba(225,255,249,1) 42%, rgba(138,255,234,1) 71%, rgba(110,251,203,1) 100%);
+    background: linear-gradient(336deg, rgba(225,255,249,1) 42%, rgb(152 255 236) 71%, rgb(144 255 217) 100%);
     text-align: center;
     border-radius: 40px;
     position: relative;
@@ -748,9 +750,10 @@ section {
 
     .pricing1 .box h4 {
         font-size: 42px;
-        font-weight: 500;
+        font-weight: 600;
         font-family: "Open Sans", sans-serif;
         margin-bottom: 20px;
+        color: #004dad9e;
     }
 
         .pricing1 .box h4 sup {
@@ -1126,7 +1129,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    background: #55ecc3;
+    background: linear-gradient(0deg, rgb(131 255 255) 0%, rgb(168 255 227 / 68%) 10%, rgb(255 255 255) 65%, rgb(193 255 249) 90%, rgb(152 255 255) 100%);
     padding: 0 0 30px 0;
     color: #fff;
     font-size: 14px;
@@ -1221,7 +1224,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #fff;
+  color: #000;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -1606,7 +1609,7 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 
 }
 .modal-header {
-    background: rgb(25, 255, 170,  38%);
+    background: linear-gradient(135deg, rgba(66,255,202,0.664285782672444) 0%, rgba(113,255,239,0.7119048302914917) 50%, rgba(232,255,255,1) 100%);
     border-radius: 50px 50px 0px 0px;
 }
 
@@ -1616,7 +1619,7 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
     font-size: 20px;
 }
 .modal-footer {
-    background: rgb(25, 255, 170, 38%);
+    background: linear-gradient(325deg, rgba(66,255,202,0.664285782672444) 0%, rgba(113,255,239,0.7119048302914917) 50%, rgba(232,255,255,1) 100%);
     border-radius: 0px 0px 50px 50px;
 }
 

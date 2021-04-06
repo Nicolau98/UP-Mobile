@@ -95,8 +95,10 @@
 
         .navba a:hover, .navba .active, .navba li:hover > a {
             background: linear-gradient(0deg, rgb(156 255 255) 0%, rgb(204 255 241) 10%, rgb(246 255 251 / 60%) 65%, rgb(212 255 236) 90%, rgb(158 249 211) 100%);
-            color: #191919;
+            color: #0097a7;
         }
+
+
 
     .navba .dropdown ul {
         display: block;
@@ -126,9 +128,9 @@
                 font-size: 12px;
             }
 
-            .navb1 .dropdown ul a:hover, .navba .dropdown ul .active:hover, .navba .dropdown ul li:hover > a {
-                color: #fff;
-            }
+        .navb1 .dropdown ul a:hover, .navba .dropdown ul .active:hover, .navba .dropdown ul li:hover > a {
+            color: #0097a7;
+        }
 
     .navba .dropdown:hover > ul {
         opacity: 1;
@@ -434,7 +436,7 @@
 --------------------------------------------------------------*/
 
 #header {
-    background: linear-gradient(0deg, rgb(134 255 255) 0%, rgb(236 255 250) 10%, rgb(246 255 251) 65%, rgb(215 255 238) 90%, rgb(197 255 231) 100%);
+    background: linear-gradient(0deg, rgb(177 255 241) 0%, rgb(236 255 250) 10%, rgb(246 255 251) 65%, rgb(215 255 238) 90%, rgb(197 255 231) 100%);
     transition: all 0.5s;
     z-index: 997;
     height: 70px;
