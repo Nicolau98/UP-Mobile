@@ -11,61 +11,62 @@
             {
                 <h1>Editar dados</h1>
 
-                <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                    <div class="card-body">
+                <div class="card2 mb-4" >
+                    <div class="card2-body">
                         <div class="col-md">
                             <form asp-action="Edit">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <input type="hidden" asp-for="IdUtilizador" />
-                                <div class="form-group">
+                                <div class="form-group justify-content-between">
                                     <label asp-for="Nome" class="control-label"></label>
-                                    <input asp-for="Nome" class="form-control" />
+                                    <input asp-for="Nome" class="form-control formcontrolc3" />
                                     <span asp-validation-for="Nome" class="text-danger"></span>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <label asp-for="DataNascimento" class="control-label"></label>
-                                        <input asp-for="DataNascimento" class="form-control" />
+                                        <input asp-for="DataNascimento" class="form-control formcontrolc3" />
                                         <span asp-validation-for="DataNascimento" class="text-danger"></span>
                                     </div>
-                                    <div class="col">
-                                        <input type="hidden" asp-for="DataCriacao" class="form-control" />
+                                    </div>
+                                    @*<div class="col">
+                                        <input type="hidden" asp-for="DataCriacao" class="form-control formcontrolc3" />
                                         <span asp-validation-for="DataCriacao" class="text-danger"></span>
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="row">
                                     <div class="col">
                                         <label asp-for="Morada" class="control-label"></label>
-                                        <input asp-for="Morada" class="form-control" />
+                                        <input asp-for="Morada" class="form-control formcontrolc3" />
                                         <span asp-validation-for="Morada" class="text-danger"></span>
                                     </div>
                                     <div class="col">
                                         <label asp-for="IdDistrito" class="control-label"></label>
-                                        <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                                        <select asp-for="IdDistrito" class="form-control formcontrolc3" asp-items="ViewBag.IdDistrito"></select>
                                         <span asp-validation-for="IdDistrito" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <label asp-for="Contacto" class="control-label"></label>
-                                        <input asp-for="Contacto" class="form-control" />
+                                        <input asp-for="Contacto" class="form-control formcontrolc3" />
                                         <span asp-validation-for="Contacto" class="text-danger"></span>
                                     </div>
                                     <div class="col">
                                         <label asp-for="Email" class="control-label"></label>
-                                        <input asp-for="Email" class="form-control" />
+                                        <input asp-for="Email" class="form-control formcontrolc3" />
                                         <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <label asp-for="NContribuinte" class="control-label"></label>
-                                        <input asp-for="NContribuinte" readonly class="form-control" />
+                                        <input asp-for="NContribuinte" readonly class="form-control formcontrolc3" />
                                         <span asp-validation-for="NContribuinte" class="text-danger"></span>
                                     </div>
                                     <div class="col">
                                         <label asp-for="NIdentificacao" class="control-label"></label>
-                                        <input asp-for="NIdentificacao" readonly class="form-control" />
+                                        <input asp-for="NIdentificacao" readonly class="form-control formcontrolc3" />
                                         <span asp-validation-for="NIdentificacao" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -90,8 +91,8 @@
 
                                 <h1></h1>
                                 <div class="form-group">
-                                    <input type="submit" value="Guardar" class="btn border" style="background-color: #55ecc3;" /> |
-                                    <a onclick="history.go(-1)" class="btn border" style="background-color: #80f2f3">Cancelar e Voltar</a>
+                                    <input type="submit" value="Guardar" class="btn btnsearch" /> 
+                                    <a onclick="history.go(-1)" class="btn btnsearch" >Cancelar e Voltar</a>
                                 </div>
                             </form>
                         </div>
@@ -102,66 +103,66 @@
             {
                 <h1>Editar Dados Pessoais</h1>
 
-                <div class="card border border-info mb-4" style="background-color: #e3f2fd;">
-                    <div class="card-body">
+                <div class="card2 mb-4">
+                    <div class="card2-body">
                         <div class="col-md">
                             <form asp-action="Edit">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <input type="hidden" asp-for="IdUtilizador" />
-                                <div class="form-group">
+                                <div class="form-group justify-content-between">
                                     <label asp-for="Nome" class="control-label"></label>
-                                    <input asp-for="Nome" class="form-control" />
+                                    <input asp-for="Nome" class="form-control formcontrolc3" />
                                     <span asp-validation-for="Nome" class="text-danger"></span>
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-between">
+                                    <div class="col">
+                                        <label asp-for="Morada" class="control-label"></label>
+                                        <input asp-for="Morada" class="form-control formcontrolc3" />
+                                        <span asp-validation-for="Morada" class="text-danger"></span>
+                                    </div>
+                                    @*<div class="col">
+                                        <input type="hidden" asp-for="DataCriacao" class="form-control formcontrolc3" />
+                                        <span asp-validation-for="DataCriacao" class="text-danger"></span>
+                                    </div>
+                                </div>*@
+                                <div class="row justify-content-between">
                                     <div class="col">
                                         <label asp-for="DataNascimento" class="control-label"></label>
-                                        <input asp-for="DataNascimento" class="form-control" />
+                                        <input asp-for="DataNascimento" class="form-control formcontrolc3" />
                                         <span asp-validation-for="DataNascimento" class="text-danger"></span>
                                     </div>
                                     <div class="col">
-                                        <input type="hidden" asp-for="DataCriacao" class="form-control" />
-                                        <span asp-validation-for="DataCriacao" class="text-danger"></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <label asp-for="Morada" class="control-label"></label>
-                                        <input asp-for="Morada" class="form-control" />
-                                        <span asp-validation-for="Morada" class="text-danger"></span>
-                                    </div>
-                                    <div class="col">
                                         <label asp-for="IdDistrito" class="control-label"></label>
-                                        <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                                        <select asp-for="IdDistrito" class="form-control formcontrolc3" asp-items="ViewBag.IdDistrito"></select>
                                         <span asp-validation-for="IdDistrito" class="text-danger"></span>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-between">
                                     <div class="col">
                                         <label asp-for="Contacto" class="control-label"></label>
-                                        <input asp-for="Contacto" class="form-control" />
+                                        <input asp-for="Contacto" class="form-control formcontrolc3" />
                                         <span asp-validation-for="Contacto" class="text-danger"></span>
                                     </div>
-                                    <div class="col">
+                                    @*<div class="col">
 
-                                        <input type="hidden" asp-for="Contacto" class="form-control" />
+                                        <input type="hidden" asp-for="Contacto" class="form-control formcontrolc3" />
                                         <span asp-validation-for="Contacto" class="text-danger"></span>
-                                    </div>
+                                    </div>*@
                                     <div class="col">
                                         <label asp-for="Email" class="control-label"></label>
-                                        <input asp-for="Email" class="form-control" />
+                                        <input asp-for="Email" class="form-control formcontrolc3" />
                                         <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-between">
                                     <div class="col">
                                         <label asp-for="NContribuinte" class="control-label"></label>
-                                        <input asp-for="NContribuinte" readonly class="form-control" />
+                                        <input asp-for="NContribuinte" readonly class="form-control formcontrolc3" />
                                         <span asp-validation-for="NContribuinte" class="text-danger"></span>
                                     </div>
                                     <div class="col">
                                         <label asp-for="NIdentificacao" class="control-label"></label>
-                                        <input asp-for="NIdentificacao" readonly class="form-control" />
+                                        <input asp-for="NIdentificacao" readonly class="form-control formcontrolc3" />
                                         <span asp-validation-for="NIdentificacao" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -175,8 +176,8 @@
 
                                 <h1></h1>
                                 <div class="form-group">
-                                    <input type="submit" value="Guardar" class="btn border" style="background-color: #55ecc3;" /> |
-                                    <a asp-action="DetailsPessoaisCliente" type="button" class="btn border" style="background-color: #55ecc3;">Cancelar e Voltar</a>
+                                    <input type="submit" value="Guardar" class="btn btnsearch" /> 
+                                    <a asp-action="DetailsPessoaisCliente" type="button" class="btn btnsearch" >Cancelar e Voltar</a>
                                 </div>
                             </form>
                         </div>

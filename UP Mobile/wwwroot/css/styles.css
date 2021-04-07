@@ -925,7 +925,7 @@ th{
 
 }
 
-td {
+.table1 td {
 
 padding:15px;
 text-align:left;
@@ -938,7 +938,22 @@ border-bottom: solid 1px #52ffdf;
 
 }
 
-
+td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 16px;
+    color: #000000;
+    border-bottom: solid 1px #dee2e6;
+    font-size: 18px;
+}
+.table {
+   font-size:18px;
+}
+.table tr:hover {
+    background: linear-gradient(10deg, rgb(153 255 226) 0%, rgb(198 255 249) 48%, rgb(255 255 255 / 78%) 100%);
+}
 /*sidebar*/
 
 #sidebar {
