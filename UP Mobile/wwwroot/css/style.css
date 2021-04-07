@@ -260,20 +260,24 @@ h1, h2, h3, h4, h5, h6 {
         right: 0;
     }
 
-#hero h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  text-transform: uppercase;
-  color: #fff;
-}
+    #hero h1 {
+        padding-left: 800px;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 56px;
+        text-transform: uppercase;
+        color: #fff;
+    }
 
-#hero h2 {
-  color: #eee;
-  margin-bottom: 30px;
-  font-size: 32px;
-}
+    #hero h2 {
+        color: #eee;
+        margin-top: 300px;
+        margin-left: 400px;
+        font-size: 32px;
+        border: 1px solid #00889630;
+        border-radius: 5px;
+        background: linear-gradient( 325deg, rgb(0 108 119 / 42%) 0%, rgb(0 165 146 / 54%) 71%, rgb(0 108 119 / 91%) 100%);
+    }
 
 #hero .btn-get-started {
   font-family: "Raleway", sans-serif;
