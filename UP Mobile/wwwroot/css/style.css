@@ -243,20 +243,22 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
     width: 100%;
     height: calc(80vh - 100px);
-    background: url("../img/wallpaper.png") top center;
+    background: url("../Content/assets/img/wall1.jpeg") top center;
     background-size: cover;
     position: relative;
+    border: 1px solid #fff;
+    border-radius: 0px 0px 15% 15%;
 }
 
-#hero:before {
-  content: "";
-  /*background: rgba(0, 0, 0, 0.5);*/
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
+    #hero:before {
+        content: "";
+        background: #00584833;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 
 #hero h1 {
   margin: 0 0 10px 0;
