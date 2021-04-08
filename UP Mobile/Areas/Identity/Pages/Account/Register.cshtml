@@ -10,12 +10,11 @@
     <section>
         <div class="container">
             <h1 class="text-center" style="color:#4fd6d9">@ViewData["Title"]</h1>
-            <h4 class="mt-5">Se já és cliente <b>UPmobile</b>, regista-te para teres acesso a toda a informação sobre o teu serviço e aos teus dados.</h4>
+            <h4>Se já és cliente <b>UPmobile</b>, regista-te para teres acesso a toda a informação sobre o teu serviço.</h4>
             <div class="row">
-                <div class="col-md-4">
+                <div class="login col-md-4 offset-4">
                     <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-
-                        <hr />
+             
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group text-center">
                             <label asp-for="Input.Email">E-mail</label>

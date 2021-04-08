@@ -948,14 +948,22 @@ td {
     border-bottom: solid 1px #dee2e6;
     font-size: 18px;
 }
-.table {
+.tablep {
    font-size:18px;
 }
-.table tr:hover {
+
+
+.tablep tbody tr:hover {
     background: linear-gradient(10deg, rgb(153 255 226) 0%, rgb(198 255 249) 48%, rgb(255 255 255 / 78%) 100%);
 }
-/*sidebar*/
 
+.table tbody tr:hover {
+background:#fff;
+
+}
+
+
+/*sidebar*/
 #sidebar {
     height: auto;
     overflow: hidden;

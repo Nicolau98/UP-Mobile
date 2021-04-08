@@ -1927,3 +1927,17 @@ opacity:0;
         border: 1px solid #95f1eb;
         background: linear-gradient( 180deg, rgb(227 236 233) 0%, rgb(196 255 239) 39%, rgb(176 255 251) 72%);
     }
+
+
+.login {
+ /*       background: linear-gradient( 0deg, rgb(211 228 227 / 42%) 0%, rgb(245 253 253) 14%, rgb(249 249 249) 100%);
+    border: 2px solid #e7fefff0;
+    border-radius: 40px;*/
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+    .login h4 {
+    
+    padding-top:10px;
+    }
