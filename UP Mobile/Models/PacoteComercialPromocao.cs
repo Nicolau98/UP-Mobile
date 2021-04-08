@@ -19,15 +19,23 @@ namespace UP_Mobile.Models
         [Key]
         [Column("Id_Pacote_Comercial_Promocao")]
         public int IdPacoteComercialPromocao { get; set; }
+
+        [Display(Name = "Promoção")]
         [Column("Id_Promocao")]
         public int IdPromocao { get; set; }
+
+        [Display(Name = "Pacote")]
         [Column("Id_Pacote")]
         public int IdPacote { get; set; }
-        
+
         [StringLength(50)]
         public string Nome { get; set; }
+
+        [Display(Name = "Preço Total")]
         [Column("Preco_total_pacote", TypeName = "decimal(5, 2)")]
         public decimal PrecoTotalPacote { get; set; }
+
+        [Display(Name = "Distrito")]
         [Column("Id_Distrito")]
         public int IdDistrito { get; set; }
 
