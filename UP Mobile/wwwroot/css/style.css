@@ -1941,3 +1941,126 @@ opacity:0;
     
     padding-top:10px;
     }
+
+
+#empresa {
+    width: 100%;
+    height: 60vh;
+    background: url("../Content/assets/img/empresa.jpg") center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 50px;
+    padding: 0;
+}
+
+    #empresa:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #empresa .container {
+        z-index: 2;
+    }
+
+    #empresa h1 {
+       /* margin: 0 0 10px 0;*/
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 56px;
+        color: #00fccd;
+    }
+
+    #empresa h2 {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    #empresa .btn-get-started {
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 8px 28px;
+        border-radius: 4px;
+        transition: 0.5s;
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+        #empresa .btn-get-started:hover {
+            border-color: #1bac91;
+            background: #02e6bc;
+        }
+
+@media (min-width: 1024px) {
+    #empresa {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 992px) {
+    #empresa {
+        margin-top: 60px;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media (max-width: 768px) {
+    #empresa h1 {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    #empresa h2 {
+        font-size: 16px;
+        line-height: 24px;
+       /* margin-bottom: 30px;*/
+    }
+}
+
+.ctemp {
+    background: linear-gradient(rgba(2, 2, 2, 0.6), rgba(0, 0, 0, 0.7)), url("../Content/assets/img/team1.jpg") fixed center center;
+    background-size: cover;
+    padding: 120px 0;
+    margin-bottom: 30px;
+}
+
+    .ctemp h3 {
+        color: #fff;
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+#ctemp h2 {
+    color: #4FD6D9;
+    font-size: 20px;
+}
+
+.ctemp .ctemp-btn {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 28px;
+    transition: 0.5s;
+    margin-top: 10px;
+    border: 2px solid #4fd6d9c2;
+    color: #fff;
+    border-radius: 20px;
+}
+
+    .ctemp .ctemp-btn:hover {
+        background: #5cface96;
+        border: 2px solid #4fd6d9c2;
+        border-radius: 20px;
+    }
