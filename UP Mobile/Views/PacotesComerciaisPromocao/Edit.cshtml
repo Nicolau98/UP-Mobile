@@ -8,10 +8,8 @@
     <section>
         <div class="container">
 
-            <h1>Editar</h1>
+            <h1>Editar promoção por distrito</h1>
 
-            <h4>Pacote Comercial Promoção</h4>
-            <hr />
             <div class="row">
                 <div class="col-md-4">
                     <form asp-action="Edit">
@@ -19,17 +17,17 @@
                         <input type="hidden" asp-for="IdPacoteComercialPromocao" />
                         <div class="form-group">
                             <label asp-for="IdPromocao" class="control-label"></label>
-                            <select asp-for="IdPromocao" class="form-control" asp-items="ViewBag.IdPromocao"></select>
+                            <select asp-for="IdPromocao" class="form-control formcontrolc3" asp-items="ViewBag.IdPromocao"></select>
                             <span asp-validation-for="IdPromocao" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="IdPacote" class="control-label"></label>
-                            <select asp-for="IdPacote" class="form-control" asp-items="ViewBag.IdPacote"></select>
+                            <select asp-for="IdPacote" class="form-control formcontrolc3" asp-items="ViewBag.IdPacote"></select>
                             <span asp-validation-for="IdPacote" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             @*<label asp-for="IdDistrito" class="control-label"></label>*@
-                            <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito" style="visibility:hidden;"></select>
+                            <select asp-for="IdDistrito" class="form-control formcontrolc3" asp-items="ViewBag.IdDistrito" style="visibility:hidden;"></select>
                             <span asp-validation-for="IdDistrito" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -40,7 +38,7 @@
             </div>
 
             <div>
-                <a asp-action="Index">Voltar</a>
+                <a asp-action="Index" class="btn btnsearch" >Voltar</a>
             </div>
 
             @section Scripts {
