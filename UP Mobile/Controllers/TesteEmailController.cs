@@ -58,7 +58,7 @@ namespace AspCore_Email.Controllers
         {
             try
             {
-                //email destino, assunto do email, mensagem a enviar
+                //email destino, assunto do email, mensagem a enviar;
                 await _emailSender.SendEmailAsync(email, assunto, mensagem);
             }
             catch (Exception)
