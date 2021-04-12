@@ -1135,9 +1135,9 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-    background: linear-gradient(0deg, rgb(131 255 255) 0%, rgb(168 255 227 / 68%) 10%, rgb(255 255 255) 65%, rgb(193 255 249) 90%, rgb(152 255 255) 100%);
+    background: linear-gradient( 0deg, rgb(131 255 255 / 65%) 0%, rgb(142 249 214 / 88%) 10%, rgb(255 255 255) 65%, rgb(193 255 249) 90%, rgb(152 255 255 / 42%) 100%);
     padding: 0 0 30px 0;
-    color: #fff;
+    color: #191919;
     font-size: 14px;
     min-height: 440px;
     left: 0;
@@ -1525,7 +1525,7 @@ background: linear-gradient(180deg, rgba(0,255,182,0.4878151944371498) 0%, rgba(
 
 .h1a {
     color: #7df9ed;
-    margin-top: 290px;
+    margin-top: 90px;
     font-size: 32px;
     font-weight: 800;
     padding-top: 20px;
@@ -1766,7 +1766,7 @@ opacity:0;
     font-size: 16px;
     font-weight: 500;
     color: #191919;
-    line-height: 1.2;
+    line-height: 1.4;
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -1809,7 +1809,7 @@ opacity:0;
     font-size: 16px;
     font-weight: 500;
     color: #191919;
-    line-height: 1.2;
+    line-height: 1.4;
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -1851,7 +1851,7 @@ opacity:0;
     font-size: 16px;
     font-weight: 500;
     color: #000000;
-    line-height: 1.2;
+    line-height: 1.4;
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -1891,7 +1891,7 @@ opacity:0;
     font-size: 16px;
     font-weight: 500;
     color: #191919;
-    line-height: 1.2;
+    line-height: 1.4;
     display: inline-block;
     justify-content: center;
     align-items: center;

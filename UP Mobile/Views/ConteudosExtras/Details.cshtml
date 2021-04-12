@@ -49,13 +49,14 @@
             <div>
                 @if ((User.IsInRole("Administrador")) || (User.IsInRole("Operador")))
                 {
-                    <a asp-action="Edit" class="btn border" style="background-color: #55ecc3" asp-route-id="@Model.IdConteudo">Editar </a>
+                    <a asp-action="Edit" class="btn btninfo3" asp-route-id="@Model.IdConteudo">Editar </a>
                 }
-                <a asp-action="Index" class="btn border" style="background-color: #80f2f3">Voltar</a>
+                <a asp-action="Index" class="btn btninfo3" >Voltar</a>
 
 
             </div>
 
         </div>
     </section>
+
 </main>
