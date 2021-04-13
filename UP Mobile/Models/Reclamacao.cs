@@ -25,6 +25,7 @@ namespace UP_Mobile.Models
 
         [Display(Name = "Data de Abertura")]
         [Column("Data_Abertura", TypeName = "datetime")]
+        [DataType(DataType.Date)]
         public DateTime DataAbertura { get; set; }
 
 
