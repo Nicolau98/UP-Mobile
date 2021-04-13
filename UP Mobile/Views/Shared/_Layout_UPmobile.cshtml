@@ -336,7 +336,14 @@
 
                     <ul>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="PacotesComerciais" asp-action="Index"><i class="bi bi-bag-fill"></i>Pacotes</a></li>
-                        <li><a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index"><i class="bi bi-gift-fill"></i> Promoções</a></li>
+                        <li class="dropdown">
+                            <a><i class="bi bi-gift-fill"></i>  Promoções</a>
+                            <ul>
+                                <li>   <a class="nav-link scrollto" asp-area="" asp-controller="Promocoes" asp-action="Index">Promoções</a></li>
+                                <li>  <a class="nav-link scrollto" asp-action="Create" asp-controller="PacotesComerciaisPromocao">Nova Promoção por distrito</a></li>
+                                <li><a class="nav-link scrollto" asp-action="Index" asp-controller="PacotesComerciaisPromocao">Lista Promoções por distrito</a></li>
+                            </ul>
+                        </li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="ConteudosExtras" asp-action="Index"><i class="bi bi-star-fill"></i>Extras</a></li>
                         <li><a class="nav-link scrollto" asp-area="" asp-controller="Utilizadores" asp-action="IndexCliente"><i class="bi bi-person-fill"></i>Clientes</a></li>
                         <li class="dropdown">
